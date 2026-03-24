@@ -1,0 +1,23 @@
+\chapter{Validation} \label{chap: Validation}
+
+\section{Smooth wall pipe}\label{sec: Smooth wall pipe}
+
+
+\section{Sinusoidal wall pipe}\label{sec: Sinusoidal wall pipe}
+
+\subsection{Postprocessing rough Simulations}\label{subsec: postprocess rough Simulations}
+
+In order to obtain correct data from the rough simulations, the friction calculation in the postprocessing must be expanded.
+The friction calculation is changed, such it is able to account for the rough surface.\\
+DESCRIBE NEW POSTPROCESSING 
+\\
+To be able to validate the friction results of the \Name{Python}-postprocessing script, $\tau_w$ is computed by using the force scaling algorithm of \Name{Neko}.
+The force scaling factor $alpha$, that is used in \Name{Neko} to ensure a constant mass flux, can also be used to compute $Re_\tau$ with
+\begin{equation}
+    Re_\tau = \sqrt{\alpha*0.5}*Re_b
+\end{equation}
+while $\alpha$ is computed using
+\begin{equation}
+    \alpha = \frac{C_{\text{target}} - C_{\text{current}}}{C_{\text{base}}}
+\end{equation}
+with $C_{\text{target}}$ denoting the desired mass flux, $C_{\text{current}}$ denoting the mass flux at the current time step and $C_{\text{base}}$ denoting the base mass flux, at the start of the simulation CHECKEN OB DAS mit C base STIMMT!!!.

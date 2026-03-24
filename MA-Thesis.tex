@@ -208,6 +208,9 @@
 	}
 	\hspace*{-\leftmargin}\vspace{0.25cm} 
 }
+
+
+
 \fi
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -258,6 +261,36 @@ pdfauthor = {Vorname Nachname}}
 \setlength{\parindent}{0mm}	   		% keine Einrückung bei neuem Absatz
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% New Commands
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Pfeil in Zeichnungen
+\newcommand{\pfeil} {Latex[scale width =0.8, scale length=1.2,bend]}
+
+%Überschriften
+\setcounter{secnumdepth}{2} % Zahlen nur bis section
+\setcounter{tocdepth}{1}	% nur bis section in ToC
+\renewcommand{\autodot}{}% Remove all end-of-counter dots
+\renewcommand{\chapterautorefname}{Chapter}
+\renewcommand{\sectionautorefname}{Section}
+\renewcommand{\subsectionautorefname}{Subsection}
+
+%Neue Textarten
+
+\newcommand{\Name}[1]{\textsc{#1}}
+\newcommand{\eigenname}[1]{"#1"}
+\newcommand{\benennung}[1]{\textit{#1}}
+\newcommand{\code}[1]{\texttt{#1}}
+\newcommand{\zeichen}[1]{\(#1\)}
+
+%linebreak nach \paragraph{}
+
+\newcommand{\myparagraph}[1]{\paragraph{#1}\mbox{}\\}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
 %\bibliographystyle{alphadin}
@@ -284,9 +317,9 @@ pdfauthor = {Vorname Nachname}}
 		\vspace{25mm}
 		 		
 		\LARGE {\textbf{Title \\ of your \\ thesis}}\\ [25mm]
-		\huge {\textbf{Master's Thesis, Bachelor's Thesis, Project Thesis}} \\ [14mm]
+		\huge {\textbf{Master's Thesis}} \\ [14mm]
 		 by \\ [2mm]
-		\LARGE \textbf{NAME}\\[5mm]
+		\LARGE \textbf{Jonas Tiefenthäler}\\[5mm]
 		\LARGE Stud.reg.no. XXXXXXXX\\[5mm]
 		\LARGE Erlangen, xx.xx.xxxx\\
 		\vfill
@@ -428,20 +461,22 @@ Erlangen, den DATUM \hspace{4cm} \rule{5cm}{0.02mm}
 %\pagestyle{headings}
 %\cleardoublepage
 \pagenumbering{arabic}
-%
-%\cleardoublepage
-%
-%\include{kapitel/auslegung}
-%\include{kapitel/konstruktion}
-%\include{kapitel/inbetriebnahme}
-%
-%\include{kapitel/abstract}
+
 \include{kapitel/einleitung}
-% \include{kapitel/theoretische_grundlagen}
-% \include{kapitel/stroemungsmechanische_grundlagen}
-%\include{kapitel/stroemungsmechanische_grundlagen_kopie}
-%\include{Kapitel3}
-%\include{Kapitel4}
+
+\include{kapitel/Introduction}
+
+\include{kapitel/Theory}
+
+\include{kapitel/Validation}
+
+
+\include{kapitel/Methods}
+
+\include{kapitel/Results}
+
+\include{kapitel/Conclusion}
+
 \include{kapitel/literaturverzeichnis}
 %%
 
@@ -451,7 +486,7 @@ Erlangen, den DATUM \hspace{4cm} \rule{5cm}{0.02mm}
 
 \begin{appendix}                    % Anhang einfügen
 %
-\include{kapitel/anhang1}
+%\include{kapitel/anhang1}
 %\include{kapitel/anhang2}
 
 \end{appendix}
