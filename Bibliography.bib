@@ -13,9 +13,15 @@
 	month = mar,
 	year = {2019},
 	pages = {591--604},
+	annote = {“As a starting point, two surfaces, Zh 0 and Zs 0, are generated. The first one has the desired HPD (although not necessarily with the desired power spectrum) and the other has the desired power spectrum (although not necessarily with the desired height distribution).” (Pérez-Ràfols and Almqvist, 2019, p. 592)
+},
+	annote = {“By iterating the two previous steps, both Zhi and Zsi will converge towards a stationary point. It is worth noticing, however, that one should expect Zh not to be exactly equal to Zs , due to the finite size of the surface. Therefore, one must choose between generating a (numerically) exact height distribution or a (numerically) exact power spectrum, and accept an error in the other one. We shall see in the following section, however, that this unavoidable error is sufficiently small for most practical purposes.” (Pérez-Ràfols and Almqvist, 2019, p. 592)
+},
 	annote = {“filtering technique, in which it is straight forward to specify the power spectrum” (Pérez-Ràfols and Almqvist, 2019, p. 591)
 },
 	annote = {“filtering technique, in which it is straight forward to specify the power spectrum” (Pérez-Ràfols and Almqvist, 2019, p. 591)
+},
+	annote = {“In all three cases, the power spectrum, J J (q , q ) xy = , describing an isotropic self-affine fractal is used,” (Pérez-Ràfols and Almqvist, 2019, p. 592)
 },
 	annote = {“In order to generate realistic surface topographies, it is commonly agreed that both height and spatial distribution must be specified” (Pérez-Ràfols and Almqvist, 2019, p. 591)
 },
@@ -240,6 +246,8 @@ Quantifies the separation of lenght scales
 	annote = {“staggered arrangement of the flow variables” (De Maio et al., 2023, p. 4)
 },
 	annote = {“The behaviour of rough walls is primarily controlled by the parameter ks+ = ks/δv (where δv = ν/uτ , and uτ = (τw/ρ)1/2 are the viscous length scale and the friction velocity), namely the ratio of the equivalent sand-grain roughness height to the viscous length scale.” (De Maio et al., 2023, p. 3)
+},
+	annote = {“The behaviour of rough walls is primarily controlled by the parameter ks+ = ks/δv (where δv = ν/uτ , and uτ = (τw/ρ)1/2 are the viscous length scale and the friction velocity),” (De Maio et al., 2023, p. 3)
 },
 	annote = {“The figure shows that increase of k+ yields a downward shift of the velocity profiles with respect to the case of a smooth pipe, thus yielding a larger roughness function. Near the wall, the behaviour is the opposite, as DNS at higher k+ have higher mean velocity, since the flow is capable of penetrating deeper into the roughness canopy (Busse et al. 2017; Thakkar et al. 2018).” (De Maio et al., 2023, p. 10)
 },
@@ -618,4 +626,113 @@ Quantifies the separation of lenght scales
 	language = {en},
 	author = {Schlatter, Philipp},
 	file = {PDF:/home/jonas/Zotero/storage/7ULZ2VWH/Schlatter - Lecture 2 Transition and Turbulence.pdf:application/pdf},
+}
+
+@article{schlatter_fixed_nodate,
+	title = {Fixed mass ﬂux in {Nek5000}},
+	language = {en},
+	author = {Schlatter, Philipp},
+	file = {PDF:/home/jonas/Zotero/storage/S3V8PZ3E/Schlatter - Fixed mass ﬂux in Nek5000.pdf:application/pdf},
+}
+
+@article{de_maio_direct_2023-1,
+	title = {Direct numerical simulation of turbulent flow in pipes with realistic large roughness at the wall},
+	volume = {974},
+	issn = {0022-1120, 1469-7645},
+	url = {https://www.cambridge.org/core/product/identifier/S0022112023007280/type/journal_article},
+	doi = {10.1017/jfm.2023.728},
+	abstract = {We carry out direct numerical simulation (DNS) of turbulent flow in rough pipes. Two types of irregular roughness are investigated, namely a grit-blasted and a graphite surface. A wide range of Reynolds numbers is tested, from the laminar up to the fully rough regime, attempting to replicate Nikuradse's pioneering study. Despite the large relative roughness, outer-layer similarity is achieved at high Reynolds number as hypothesised by Townsend, with deviations from the smooth wall case of 4 \% for the grit-blasted surface and 13 \% for the graphite surface. This makes it possible to define a roughness function and the equivalent sand-grain roughness. The results are compared with those obtained in plane channels, with small differences pointing to the residual influence of the duct cross-sectional shape in the presence of relatively large roughness. The computed friction factors behave similar to those Nikuradse's chart, with differences in terms of the friction factor in the laminar region and of the critical Reynolds number, which are partly absorbed by using the hydraulic radius as reference length scale. The distributions of the velocity fluctuations intensities point to a isotropisation of turbulence in the near-wall region resulting from the roughness, with influence of the roughness geometry. Comparison of the computed equivalent sand-grain roughness height suggest that existing correlations suffer from poor predictive power, at least for surfaces with large relative roughness.},
+	language = {en},
+	urldate = {2026-04-28},
+	journal = {Journal of Fluid Mechanics},
+	author = {De Maio, Mariangela and Latini, Beatrice and Nasuti, Francesco and Pirozzoli, Sergio},
+	month = nov,
+	year = {2023},
+	pages = {A40},
+	annote = {“Busse, Lützner \& Sandham (2015). In particular, those authors noticed that at least 12 grid points per roughness featur” (De Maio et al., 2023, p. 8)
+},
+	annote = {“Most studies published to date aim at evaluating an equivalent sand-grain roughness height (ks), for rough surfaces with different geometries.” (De Maio et al., 2023, p. 3)
+},
+	annote = {“the friction velocity is evaluated based on the measured pressure gradient, τw = R/2〈Π 〉” (De Maio et al., 2023, p. 5)
+},
+	file = {PDF:/home/jonas/Zotero/storage/SPC39EBY/De Maio et al. - 2023 - Direct numerical simulation of turbulent flow in pipes with realistic large roughness at the wall.pdf:application/pdf},
+}
+
+@article{busse_direct_2015,
+	title = {Direct numerical simulation of turbulent flow over a rough surface based on a surface scan},
+	volume = {116},
+	issn = {00457930},
+	url = {https://linkinghub.elsevier.com/retrieve/pii/S0045793015001176},
+	doi = {10.1016/j.compfluid.2015.04.008},
+	abstract = {Typical engineering rough surfaces show only limited resemblance to the artiﬁcially constructed rough surfaces that have been the basis of most previous fundamental research on turbulent ﬂow over rough walls. In this article ﬂow past an irregular rough surface is investigated, based on a scan of a rough graphite surface that serves as a typical example for an irregular rough surface found in engineering applications. The scanned map of surface height versus lateral coordinates is ﬁltered in Fourier space to remove features on very small scales and to create a smoothly varying periodic representation of the surface. The surface is used as a no-slip boundary in direct numerical simulations of turbulent channel ﬂow. For the resolution of the irregular boundary an iterative embedded boundary method is employed. The effects of the surface ﬁltering on the turbulent ﬂow are investigated by studying a series of surfaces with decreasing level of ﬁltering. Mean ﬂow, Reynolds stress and dispersive stress proﬁles show good agreement once a sufﬁciently large number of Fourier modes are retained. However, signiﬁcant differences are observed if only the largest surface features are resolved. Strongly ﬁltered surfaces give rise to a higher mean-ﬂow velocity and to a higher variation of the streamwise velocity in the roughness layer compared with weakly ﬁltered surfaces. In contrast, for the weakly ﬁltered surfaces the mean ﬂow is reversed over most of the lower part of the roughness sublayer and higher levels of dispersive shear stress are found. Ó 2015 The Authors. Published by Elsevier Ltd. This is an open access article under the CC BY license (http:// creativecommons.org/licenses/by/4.0/).},
+	language = {en},
+	urldate = {2026-04-28},
+	journal = {Computers \& Fluids},
+	author = {Busse, Angela and Lützner, Mark and Sandham, Neil D.},
+	month = aug,
+	year = {2015},
+	pages = {129--147},
+	file = {PDF:/home/jonas/Zotero/storage/ZKEDSXVT/Busse et al. - 2015 - Direct numerical simulation of turbulent flow over a rough surface based on a surface scan.pdf:application/pdf},
+}
+
+@misc{fischer_nek500_nodate,
+	title = {Nek500 web page},
+	url = {https://nek5000.mcs.anl.gov/},
+	author = {Fischer, Paul and Kerkemeier, Stefan and Lottes, James},
+}
+
+@article{jansson_neko_2024,
+	title = {Neko: {A} modern, portable, and scalable framework for high-fidelity computational fluid dynamics},
+	volume = {275},
+	issn = {00457930},
+	shorttitle = {Neko},
+	url = {https://linkinghub.elsevier.com/retrieve/pii/S0045793024000756},
+	doi = {10.1016/j.compfluid.2024.106243},
+	abstract = {Computational fluid dynamics (CFD), in particular applied to turbulent flows, is a research area with great engineering and fundamental physical interest. However, already at moderately high Reynolds numbers the computational cost becomes prohibitive as the range of active spatial and temporal scales is quickly widening. Specifically scale-resolving simulations, including large-eddy simulation (LES) and direct numerical simulations (DNS), thus need to rely on modern efficient numerical methods and corresponding software implementations. Recent trends and advancements, including more diverse and heterogeneous hardware in High-Performance Computing (HPC), are challenging software developers in their pursuit for good performance and numerical stability. The well-known maxim ‘‘software outlives hardware’’ may no longer necessarily hold true, and developers are today forced to re-factor their codebases to leverage these powerful new systems. In this paper, we present Neko, a new portable framework for high-order spectral element discretization, targeting turbulent flows in moderately complex geometries. Neko is fully available as open software. Unlike prior works, Neko adopts a modern object-oriented approach in Fortran 2008, allowing multi-tier abstractions of the solver stack and facilitating hardware backends ranging from general-purpose processors (CPUs) down to exotic vector processors and FPGAs. We show that Neko’s performance and accuracy are comparable to NekRS, and thus on-par with Nek5000’s successor on modern CPU machines. Furthermore, we develop a performance model, which we use to discuss challenges and opportunities for high-order solvers on emerging hardware.},
+	language = {en},
+	urldate = {2026-04-30},
+	journal = {Computers \& Fluids},
+	author = {Jansson, Niclas and Karp, Martin and Podobas, Artur and Markidis, Stefano and Schlatter, Philipp},
+	month = may,
+	year = {2024},
+	pages = {106243},
+	file = {PDF:/home/jonas/Zotero/storage/D38F8CEV/Jansson et al. - 2024 - Neko A modern, portable, and scalable framework for high-fidelity computational fluid dynamics.pdf:application/pdf},
+}
+
+@article{schlatter_assessment_2010,
+	title = {Assessment of direct numerical simulation data of turbulent boundary layers},
+	volume = {659},
+	copyright = {https://www.cambridge.org/core/terms},
+	issn = {0022-1120, 1469-7645},
+	url = {https://www.cambridge.org/core/product/identifier/S0022112010003113/type/journal_article},
+	doi = {10.1017/S0022112010003113},
+	abstract = {Statistics obtained from seven diﬀerent direct numerical simulations (DNSs) pertaining to a canonical turbulent boundary layer (TBL) under zero pressure gradient are compiled and compared. The considered data sets include a recent DNS of a TBL with the extended range of Reynolds numbers Reθ = 500–4300. Although all the simulations relate to the same physical ﬂow case, the approaches diﬀer in the applied numerical method, grid resolution and distribution, inﬂow generation method, boundary conditions and box dimensions. The resulting comparison shows surprisingly large diﬀerences not only in both basic integral quantities such as the friction coeﬃcient cf or the shape factor H12, but also in their predictions of mean and ﬂuctuation proﬁles far into the sublayer. It is thus shown that the numerical simulation of TBLs is, mainly due to the spatial development of the ﬂow, very sensitive to, e.g. proper inﬂow condition, suﬃcient settling length and appropriate box dimensions. Thus, a DNS has to be considered as a numerical experiment and should be the subject of the same scrutiny as experimental data. However, if a DNS is set up with the necessary care, it can provide a faithful tool to predict even such notoriously diﬃcult ﬂow cases with great accuracy.},
+	language = {en},
+	urldate = {2026-04-30},
+	journal = {Journal of Fluid Mechanics},
+	author = {Schlatter, Philipp and Örlü, Ramis},
+	month = sep,
+	year = {2010},
+	pages = {116--126},
+	file = {PDF:/home/jonas/Zotero/storage/FD47YFHJ/Schlatter and Örlü - 2010 - Assessment of direct numerical simulation data of turbulent boundary layers.pdf:application/pdf},
+}
+
+@article{perez_pysemtools_2026,
+	title = {{PySEMTools}: {A} library for post-processing hexahedral spectral element data.},
+	volume = {11},
+	copyright = {http://creativecommons.org/licenses/by/4.0/},
+	issn = {2475-9066},
+	shorttitle = {{PySEMTools}},
+	url = {https://joss.theoj.org/papers/10.21105/joss.08767},
+	doi = {10.21105/joss.08767},
+	abstract = {PySEMTools is a Python-based library for post-processing simulation data produced with highorder hexahedral elements in the context of the spectral element method in computational fluid dynamics. It aims to minimize intermediate steps typically needed when analyzing large files. Specifically, the need to use separate codebases (like the solvers themselves) at post-processing. For this effect, we leverage the use of message passing interface (MPI) for distributed computing to perform typical data processing tasks such as spectrally accurate differentiation, integration, interpolation, and reduced order modeling, among others, on a spectral element mesh. All the functionalities are provided in self-contained Python code and do not depend on the use of a particular solver. We believe that PySEMTools provides tools to researchers to accelerate scientific discovery and reduce the entry requirements for the use of advanced methods in computational fluid dynamics.},
+	language = {en},
+	number = {120},
+	urldate = {2026-04-30},
+	journal = {Journal of Open Source Software},
+	author = {Perez, Adalberto and Toosi, Siavash and Olsen, Tim Felle and Markidis, Stefano and Schlatter, Philipp},
+	month = apr,
+	year = {2026},
+	pages = {8767},
+	file = {PDF:/home/jonas/Zotero/storage/7PB32NK6/Perez et al. - 2026 - PySEMTools A library for post-processing hexahedral spectral element data..pdf:application/pdf},
 }

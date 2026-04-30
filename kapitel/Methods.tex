@@ -1,1 +1,23 @@
 \chapter{Methods}\label{chap: Methods}
+
+For this Thesis the high-order \acrfull{sem} code NEKO is used.
+Neko is an open-source \acrfull{cfd} solver, that is based on the older Nek5000 \acrshort{cfd} solver done by \cite{fischer_nek500_nodate} in the nineties.
+The portable framework Neko is written in modern Fortran in an object-oriented manner and is mainly focused on incompresible flow simulations \cite{jansson_neko_2024}.
+Only \acrfull{dns} will be performed in this work, however \acrfull{les} models are also implemented in NEKO.\\
+
+\section{Simulation setup}\label{sec: Simulation setup}
+
+\section{Generating rough surfaces}\label{sec:generating rough surfaces}
+
+\section{Postprocessing}\label{sec: Postprocessing}
+
+In order to be able to work with the obtained data by the \acrshort{dns}, the data has to be postprocessed.
+In this work, this is mainly done by using PySEMTools, which is a open source Python package, to postprocess \acrshort{sem} data on hexahedra high-order elements \cite{perez_pysemtools_2026}.\\
+The typical workflow is as follows:
+\begin{itemize}
+    \item In case multiple files exist, that contain statistics data, average them to obtain a single averaged field
+    \item Interpolate the averaged data from the \acrshort{sem} mesh to user defined interpolation points
+    \item Calculate the desired values based on the interpolated data
+    \item Further average the data, such that 2D or 1D plots can be generated
+\end{itemize}
+To be able to process data of rough cases properly, various changes had to be done compared to a standard smooth case.

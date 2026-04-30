@@ -8,6 +8,7 @@
 % UTF-8
 
 
+
 \newif\ifenglish
 \englishtrue % \englishfalse or englishtrue
 \newif\ifnomenklatur
@@ -32,66 +33,8 @@
   numbers=noenddot,
 ]{scrreprt}
 
-\setkomafont{sectioning}{\rmfamily\bfseries} % Überschriften mit Serifen
+\input{./kapitel/preamble.tex}
 
-
-%\usepackage[english]{babel}
-
-\ifenglish
-\usepackage[ngerman,english]{babel}	    		% Überschriften werden von LaTeX in der korrekten Sprache erzeugt
-\else
-\usepackage[ngerman]{babel}	    		% Überschriften werden von LaTeX in der korrekten Sprache erzeugt
-\fi
-
-%\usepackage[ansinew]{inputenc}			% Umlaute
-%\usepackage[utf8]{inputenc}
-\usepackage[small,bf]{caption}
-\usepackage{subfig}
-%\usepackage{subcaption}
-\usepackage{placeins}
-\usepackage{preview}
-\newcommand{\kreis}[1]{\unitlength1ex\begin{picture}(2.5,2.5)\put(0.75,0.75){\circle{2.5}}\put(0.75,0.75){\makebox(0,0){#1}}\end{picture}}
-\usepackage{diagbox}
-\usepackage{colortbl}
-\usepackage[T1]{fontenc}		        % Schriftart
-\usepackage[utf8]{inputenc}	  		% Direkte Eingabe der Sonderzeichen über die Tastatur 
-%\usepackage{lmodern}					% schönere Schrift
-%\usepackage{ae}							% schöne Schrift
-%\usepackage[final]{microtype}			% mikrotypografische Schriftanpassung
-\usepackage{lipsum}
-%\DisableLigatures{}
-
-\usepackage{fixltx2e}
-\usepackage{graphicx}	
-\usepackage{epstopdf}		       		% Ermöglicht die Einbindung von Bildern
-\usepackage{makeidx}		          	% Erzeugt Verzeichnisse
-\usepackage{array}
-\usepackage{float}		             	% Erzwingt Positionierung von Floatobjekten mit "`H"'
-\usepackage{tabularx}		          	% Tabellen mit Spalten gleicher Breite
-%\usepackage{tabu}						% sehr flexible Tabellen mit mehr Möglichkeiten
-%\usepackage{dcolumn}		          	% Tabellen mit ausgerichteten Einträgen
-\usepackage{amssymb,amsmath}	    	% Um Texte in mathematischen Gleichungen zu schreiben mit dem Befehl \text{}
-%\usepackage[figuresright]{rotating}	% Damit können Bilder, Tabellen, usw. in landscape Format angezeigt werden
-\usepackage{bibgerm}		           	% Ermöglicht das Einbinden deutschsprachiger Literaturverzeichnisse
-%\usepackage{subfig}		            % Mehrere Bilder nebeneinander, unter gleicher Bildunterschrift und -nummer
-\usepackage{booktabs}		          	% Hochwertige Tabellen
-\usepackage{longtable}	        		% Tabellen über mehrere Seiten
-\usepackage{url}			            % Weblinks
-\usepackage{pdfpages}					% PDF einbinden
-%\usepackage{eurosans}
-\usepackage[bookmarks,pagebackref=false,pdftex,bookmarksopen=true,bookmarksnumbered]{hyperref}	% PDF-Bookmarks, Angabe im Literaturverzeichnis auf welcher Seite Einordnungsformel steht momentan auf false gesetzt
-\usepackage{multirow}
-%\usepackage[square]{natbib}         	% nützliches Paket, falls man die Gestaltung des Literaturverzeichnisse und der Referenzen selbst übernehmen möchte
-\usepackage{wrapfig}
-\usepackage{tocvsec2}
-\usepackage{ifthen}
-\usepackage{xspace}						%Leerzeichen nach Anführungszeichen
-%\usepackage[decimalsymbol=comma, expproduct=cdot]{siunitx}				%Einheiten im Mathemodus
-%\usepackage{microtype,textcomp}			% bei siunitx
-\usepackage{bm}
-\usepackage{pgfplots}					%Matlab Diagramme in Latex
-\def\rb#1{\rotatebox{90}{$\xleftarrow{#1}$}}
-\newcommand{\tikzmark}[1]{\tikz[overlay, remember picture] \coordinate (#1);}
 
 %\usepackage{subfigure} 
 %\usepgfplotslibrary{external}
@@ -468,10 +411,10 @@ Erlangen, den DATUM \hspace{4cm} \rule{5cm}{0.02mm}
 
 \include{kapitel/Theory}
 
+\include{kapitel/Methods}
+
 \include{kapitel/Validation}
 
-
-\include{kapitel/Methods}
 
 \include{kapitel/Results}
 
