@@ -31,3 +31,62 @@ The friction velocity $u_\tau$ is a one of the viscous scales, which are used to
 %\section{Numerics}\label{sec: Numerics}
 
 \section{Roughness}\label{sec: Roughness}
+
+\subsection{Roughness parameters}\label{subsec: Roughness parameters}
+
+To be able to describe rough surfaces, a multitude of roughness parameters exist, as described by \cite{chung_predicting_2021}.
+The considered roughness parameters in this study are:
+
+\paragraph{Average roughness height}
+
+The average roughness height is the mean deviation  of the surface from the virtual origin $y=0$
+\begin{equation}\label{eq: avg roughness height}
+    S_a = \sum_{i,j}^{M,N} |h_{i,j}| / (MN)
+\end{equation}
+
+\paragraph{Root-mean-squeare roughness height}
+
+\begin{equation}
+    S_q = \sqrt{\sum_{i,j}^{M,N} h_{i,j}^{2}} / (MN)
+\end{equation}
+
+\paragraph{Skewness}
+
+\begin{equation}
+    Sk = \sum_{i,j}^{M,N} h^{3}_{i,j} /(MNS_{q}^{3})
+\end{equation}
+
+\paragraph{Maximum peak-to-valley height}
+The maximum peak-to-valley height is the difference between the highest and lowest point of the rough surface
+\begin{equation}
+    S_{Z_{max}} = max(h_{i,j}) - min(h_{i,j})
+\end{equation}
+
+\paragraph{Effective slope}
+The effective slope is the absolute gradient of the rough surface as described by \cite{napoli_effect_2008}.
+\begin{equation}
+    ES = \frac{1}{L_x L_y} \int_0^{L_x} \int_0^{L_y} \left| \frac{\mathrm{d}h}{\mathrm{d}x} \right|_{i,j} \mathrm{d}x \, \mathrm{d}y
+\end{equation}
+\paragraph{Mean peak-to-valley height}
+The calculation of the mean peak to valley height is done according to \cite{thakkar_investigation_2017}.
+The method is dividing the surface into tiles and calculating the difference between the highest and lowest point for each tile.
+The mean of the differences results in  the mean peak-to-valley height $k$, which is also used as the measurement for roughness height in this thesis, according to \cite{de_maio_direct_2023}.
+For this study the rough surface is divided into 25 rectangular tiles of equal size.
+Equal size means in this context, that the same number of grid points are used for the length and width of the tiles.
+
+
+\subsection{Virtual origin}\label{subsec: Virtual origin}
+
+The virtual origin is a reference plane, which is taken as the basis for measuring the wall distance $y$ (\cite{chung_predicting_2021}).
+In a smooth wall case, there is no virtual origin, since all data can be calculated from the wall itself, hence the point where the no-slip condition is active (\cite{chan_systematic_2015}), which leads to consistent wall distances for every point in the field.\\
+Yet, in a rough wall case, this is not as straightforward.
+Due to wall roughness, the distance from e.g. the pipe center to the wall varies continuously over the whole flow field.
+To be able to compute consistent data, a virtual origin has to be defined. 
+There are many different approaches to defining the virtual origin.
+Notable methods are the usage of the mean momentum absorption plane by \cite{thom_momentum_1971} or the determination of the position of the mean streamwise velocity being zero, since it is assumed, that this is the equivalent position of the no slip condition in a smooth wall case.
+A third approach is to take the mean radius of the rough surface for the virtual origin.\\
+In the investigation by \cite{chan_systematic_2015}, all three of the approaches are compared. 
+The approach of using the mean radius for the virtual origin seems to offer the best correlation between the considered smooth and rough cases in this study.
+For that reason, this is the used method in this study.
+
+
