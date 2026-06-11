@@ -3,7 +3,7 @@
 For this Thesis the high-order \acrfull{sem} code NEKO is used.
 Neko is an open-source \acrfull{cfd} solver, that is based on the older Nek5000 \acrshort{cfd} solver done by \cite{fischer_nek500_nodate} in the nineties.
 The portable framework Neko is written in modern Fortran in an object-oriented manner and is mainly focused on incompresible flow simulations \cite{jansson_neko_2024}.
-Only \acrfull{dns} will be performed in this work, however \acrfull{les} models are also implemented in NEKO.\\
+Only \acrfull{dns} will be performed in this work, however \acrfull{les} models are also implemented in NEKO.
 
 \section{Simulation setup}\label{sec: Simulation setup}
 
@@ -15,9 +15,33 @@ In order to be able to work with the obtained data by the \acrshort{dns}, the da
 In this work, this is mainly done by using PySEMTools, which is a open source Python package, to postprocess \acrshort{sem} data on hexahedra high-order elements \cite{perez_pysemtools_2026}.\\
 The typical workflow is as follows:
 \begin{itemize}
-    \item In case multiple files exist, that contain statistics data, average them to obtain a single averaged field
+    \item In case multiple files exist that contain statistics data, average them to obtain a single averaged field
     \item Interpolate the averaged data from the \acrshort{sem} mesh to user defined interpolation points
     \item Calculate the desired values based on the interpolated data
     \item Further average the data, such that 2D or 1D plots can be generated
 \end{itemize}
-To be able to process data of rough cases properly, various changes had to be done compared to a standard smooth case.
+To be able to process data of rough cases properly, various changes had to be done compared to a smooth case.
+
+\subsection{Postprocessing rough cases}\label{subsec: Postprocessing rough cases}
+
+The Postprocessing of rough \acrshort{dns} data is not as straightforward as for smooth cases.
+Two of the several conceivable workflows will be described in this section.
+
+\subsubsection{Mapping Interpolation points to match the rough surface}\label{subsubsec: Mapping interpolation points}
+In this approach, the interpolation points are mapped to match the rough surface of the \acrshort{dns}.
+Due to the matching field, the interpolation points can be interpolated onto the \acrshort{dns} field with all points being found by the interpolator.
+The main issue with this approach is the fact, that the interpolation points, which contain the data that is used in the further process, are not uniformly distributed in the radial direction.
+This will lead to the situation, that data points that are interpolated at different radii will be treated as if they were at a comparable position.
+
+\subsubsection{Inverse mapping \acrshort{dns} data and interpolation points}
+
+The second approach is to introduce a computational domain for the data interpolation.
+To map the \acrshort{dns} data into the computational domain it is mapped to a smooth pipe.
+This is achieved by applying the inverse of the surface function to the rough surface.
+The inverse of the rough surface function can be expressed as
+\begin{equation}
+     surf_{inverse} = \frac{1.0}{(1.0 + \frac{surf_{change}}{pipe_R - r_{crit}})} * (mesh_{change} + \frac{r_{crit}}{pipe_R - r_{crit}} * surf_{change})
+\end{equation}
+One must account for the fact, that for performing correct computations for first- and second-order statistics, data at points with a uniform distance from the pipe center are necessary.
+
+
