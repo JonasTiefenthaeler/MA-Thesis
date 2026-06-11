@@ -5,27 +5,63 @@
 
 In turbulent flows, structures in a multitude of scales emerge.
 The minimum scale of the elements is limited by the viscosity of the fluid, since the smallest scales are dissipated by viscosity and disappear.
-Thus, the viscous units, or plus units are introduced. 
 
-\subsection{Wall shear stress}\label{subsec: wall shear stress}
 
-The wall shear stress, which is responsible for the drag, is defined as 
+\paragraph{Wall shear stress}\label{par: wall shear stress}
+
+The wall shear stress, which is responsible for the drag in smooth cases, is defined as 
 \begin{equation}
     \tau_w = \mu\frac{dU}{dy}
 \end{equation}
 and is solely based on viscosity (\cite{pope_turbulent_2015}).
 The viscosity is dominant at the wall, hence the wall shear stress is the only stress active at the wall and it keeps being dominant in the near wall region.
-With a growing distance to the wall the influence of viscosity decreases, while the importance of the Reynolds stresses, described in section \ref{subsec: Reynolds stress} increases.
+With a growing distance to the wall the influence of viscosity decreases, while the importance of the Reynolds stresses, described in later in this section, increases.
 
 
-\subsection{Friction velocity}\label{subsec: Friction velocity}
+\paragraph{Friction velocity}\label{par: Friction velocity}
 
 Using the wall shear stress and the density $\rho$ the friction velocity is defined as
 \begin{equation}
     u_\tau = \sqrt{\frac{\tau_w}{\rho}}
 \end{equation}
-The friction velocity $u_\tau$ is a one of the viscous scales, which are used to a
-\subsection{Reynolds stresses}\label{subsec: Reynolds stress}
+The friction velocity $u_\tau$ is a viscous scale and is used to propery scale velocity values in the near-wall region.
+
+\paragraph{Viscous length scale}\label{par: viscous length scale}
+The viscous length scale
+\begin{equation}\label{eq: delta nu}
+    \delta_{\nu} = \frac{\nu}{u_{\tau}}
+\end{equation}
+is similar to the friction velocity $u_\tau$ a viscous scale and is used to scale the length scale in the near-wall region.
+\paragraph{Friction reynolds number}
+The friction Reynolds number is defined as
+\begin{equation} \label{eq: ReTau}
+    Re_{\tau} = \frac{u_{\tau} \cdot \delta}{\nu} = \frac{\delta}{\delta_{\nu}}
+\end{equation}
+which states directly, that $Re_{\tau}$ describes the ratio between the largest and smallest turbulent scales.
+\paragraph{Stress tensor}\label{par: RStress tensor}
+The stress tensor of a turbulent flow is a second order symmetric tensor and its components are the Reynolds stresses, which leads to 
+\begin{equation} \label{eq: Reynolds stresses}
+    R_{ij} = \langle u'_i u'_j \rangle
+\end{equation}
+The diagonal components $\langle u'_iu'_i\rangle$ are the normal stresses and the off diagonal components $\langle u'_1 u'_2 \rangle$ and $\langle u'_2u'_1 \rangle$ denote the shear stresses.
+It is important to note that $\langle u'_3 \rangle = 0$, as described in \cite{pope_turbulent_2015}.
+
+\subsection{Plus units}\label{subsec: plus units}
+Using the viscous scale $\delta_{\nu}$ and $u_{\tau}$ the viscous units or wall units $U^+$ and $y^+$ can be derived using the equations
+\begin{equation}\label{eq: U plus}
+    U^+ = \frac{U}{u_{\tau}}
+\end{equation}
+and 
+\begin{equation}\label{eq: y plus}
+    y^+ = \frac{y}{\delta_{\nu}}
+\end{equation}
+with the superscription of + indicating the scaling in wall units.
+Using the scaling of the wall units, velocity profiles of turbulent wall bounded flows collapse onto another, independent of the Reynolds number.
+Also, the velocity profiles can be divided into three main regions.
+The viscous sublayer where $y^+ < 5$, the logarithmic region where $y^+ > 30$ and the buffer region in between.
+Within the viscous sublayer, the law of the wall $U^+ = y^+$ holds. 
+Within the logarithmic region, the log law $U^+ = \frac{1}{\kappa}\ln{y^+} + B$, with $\kappa$ and $B$ can be chosen according to the individual case. 
+In this thesis $\kappa = 0.41$ and $B = 5.2$ are used, according to \cite{pope_turbulent_2015}.
 
 
 %\section{Numerics}\label{sec: Numerics}
@@ -88,5 +124,8 @@ A third approach is to take the mean radius of the rough surface for the virtual
 In the investigation by \cite{chan_systematic_2015}, all three of the approaches are compared. 
 The approach of using the mean radius for the virtual origin seems to offer the best correlation between the considered smooth and rough cases in this study.
 For that reason, this is the used method in this study.
+
+
+\section{Generating rough surfaces}\label{sec: Generating rough surfaces}
 
 
