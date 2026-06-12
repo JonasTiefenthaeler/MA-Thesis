@@ -60,8 +60,8 @@ Using the scaling of the wall units, velocity profiles of turbulent wall bounded
 Also, the velocity profiles can be divided into three main regions.
 The viscous sublayer where $y^+ < 5$, the logarithmic region where $y^+ > 30$ and the buffer region in between.
 Within the viscous sublayer, the law of the wall $U^+ = y^+$ holds. 
-Within the logarithmic region, the log law $U^+ = \frac{1}{\kappa}\ln{y^+} + B$, with $\kappa$ and $B$ can be chosen according to the individual case. 
-In this thesis $\kappa = 0.41$ and $B = 5.2$ are used, according to \cite{pope_turbulent_2015}.
+Within the logarithmic region, the log law $U^+ = \frac{1}{\kappa}\ln{y^+} + A$, with $\kappa$ and $A$ can be chosen according to the individual case. 
+In this thesis $\kappa = 0.41$ and $A = 5.2$ are used, according to \cite{pope_turbulent_2015}.
 
 
 %\section{Numerics}\label{sec: Numerics}
@@ -87,7 +87,8 @@ The average roughness height is the mean deviation  of the surface from the virt
 \end{equation}
 
 \paragraph{Skewness}
-
+The skewness is a measure of asymmetry of a rough surface \cite{chung_predicting_2021}.
+Surface elevations lead to a positive skewness, while surface retractions result in a negatively skewed surface.
 \begin{equation}
     Sk = \sum_{i,j}^{M,N} h^{3}_{i,j} /(MNS_{q}^{3})
 \end{equation}
@@ -104,7 +105,7 @@ The effective slope is the absolute gradient of the rough surface as described b
     ES = \frac{1}{L_x L_y} \int_0^{L_x} \int_0^{L_y} \left| \frac{\mathrm{d}h}{\mathrm{d}x} \right|_{i,j} \mathrm{d}x \, \mathrm{d}y
 \end{equation}
 \paragraph{Mean peak-to-valley height}
-The calculation of the mean peak to valley height is done according to \cite{thakkar_investigation_2017}.
+The calculation of the mean peak to valley height $S_m$ is done according to \cite{thakkar_investigation_2017}.
 The method is dividing the surface into tiles and calculating the difference between the highest and lowest point for each tile.
 The mean of the differences results in  the mean peak-to-valley height $k$, which is also used as the measurement for roughness height in this thesis, according to \cite{de_maio_direct_2023}.
 For this study the rough surface is divided into 25 rectangular tiles of equal size.
@@ -123,9 +124,22 @@ Notable methods are the usage of the mean momentum absorption plane by \cite{tho
 A third approach is to take the mean radius of the rough surface for the virtual origin.\\
 In the investigation by \cite{chan_systematic_2015}, all three of the approaches are compared. 
 The approach of using the mean radius for the virtual origin seems to offer the best correlation between the considered smooth and rough cases in this study.
-For that reason, this is the used method in this study.
+
+\subsection{Influence of surface roughness on drag}\label{subsec: Roughness influence on drag}
+
+In turbulen flows over rough surfaces, the log law for the velocity profile described in \ref{subsec: plus units}, experiences a downshift AUF PLOT VERWEISEN.
+This downshift is the difference between the velocity profiles of turbulent flows with a smooth and a rough wall, at the same friction reynolds number $Re_{\tau}$ and can be expressed as
+\begin{equation}
+    \Delta U^+(k_s^+) = \frac{1}{\kappa}\ln{k_s^+} + A - B_s(k_s^+) 
+\end{equation}
+with $k_s^+$ representing the equivalent sand-grain roughness.
+It is the roughness height $k_s$ scaled in wall units bs $k_s^+ = \frac{k_s}{\delta_{\nu}}$.
+The definition of $k_s$ does not follow a universal law and its choice varies for different surfaces, but there are studies, that try to link certain surface topographies to $k_s$, like \cite{flack_review_2010}.
+Additionally, the research of \cite{flack_skin_2020} indicates, that a measure of height of the roughness elements ($S_q$ or $S_m$), the Skewness $Sq$ and the effective slope $ES$ are the most influential parameters to $k_s$.
 
 
 \section{Generating rough surfaces}\label{sec: Generating rough surfaces}
+
+Surface roughness in real-world engineering applications shows a irregular random height distribution.
 
 
