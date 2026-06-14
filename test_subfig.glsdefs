@@ -1,0 +1,112 @@
+\glsdefs@newdocentry{sem}%
+{%
+name={\acronymfont {\glsentryshort {sem}}},%
+sort={SEM},%
+type={acronym},%
+first={SEM},%
+firstplural={SEMs},%
+text={SEM},%
+plural={SEMs},%
+description={Spectral Element},%
+descriptionplural={Spectral Element},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Spectral Element},%
+longplural={Spectral Elements},%
+short={SEM},%
+shortplural={SEMs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{cfd}%
+{%
+name={\acronymfont {\glsentryshort {cfd}}},%
+sort={CFD},%
+type={acronym},%
+first={CFD},%
+firstplural={CFDs},%
+text={CFD},%
+plural={CFDs},%
+description={computational fluid dynamics},%
+descriptionplural={computational fluid dynamics},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={computational fluid dynamics},%
+longplural={computational fluid dynamicss},%
+short={CFD},%
+shortplural={CFDs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{dns}%
+{%
+name={\acronymfont {\glsentryshort {dns}}},%
+sort={DNS},%
+type={acronym},%
+first={DNS},%
+firstplural={DNSs},%
+text={DNS},%
+plural={DNSs},%
+description={Direct Numerical Simulation},%
+descriptionplural={Direct Numerical Simulation},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Direct Numerical Simulation},%
+longplural={Direct Numerical Simulations},%
+short={DNS},%
+shortplural={DNSs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{les}%
+{%
+name={\acronymfont {\glsentryshort {les}}},%
+sort={LES},%
+type={acronym},%
+first={LES},%
+firstplural={LESs},%
+text={LES},%
+plural={LESs},%
+description={Large Eddy Simulation},%
+descriptionplural={Large Eddy Simulation},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Large Eddy Simulation},%
+longplural={Large Eddy Simulations},%
+short={LES},%
+shortplural={LESs},%
+counter={page},%
+parent={},%
+%
+}%
+
