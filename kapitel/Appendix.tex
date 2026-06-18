@@ -1,0 +1,62 @@
+\chapter{Appendix}\label{chap: Appendix}
+
+\section{Derivation of Dispersive stress}\label{sec: derivation of dispersive stress}
+
+The Reynolds stresses are defined as:
+\begin{equation}\label{eq: reynolds stresses}
+    R_{ij} = \overline{(u_i - \overline{u_i})(u_j - \overline{u_j})}
+    = \overline{u_i' u_j'}
+\end{equation}
+
+DErivation of Dispersive stresses.
+The * superscripts denoting spatial fluctiuations.
+\begin{equation}\label{eq: dispersive stress}
+    \begin{aligned}
+        D_{ij}  &= \langle (\overline{u_i} - \langle \overline{u_i}\rangle)(\overline{u_j} - \langle \overline{u_j}\rangle) \rangle\\
+                &= \langle \overline{u_i}\,\overline{u_j} - \overline{u_i}\langle\overline{u_j}\rangle - \langle \overline{u_i}\rangle\overline{u_j} + \langle\overline{u_i}\rangle\langle\overline{u_j}\rangle \rangle\\
+                &= \langle \overline{u_i}\,\overline{u_j} \rangle - \langle \overline{u_i}\langle\overline{u_j}\rangle \rangle - \langle \langle \overline{u_i}\rangle\overline{u_j} \rangle + \langle \langle\overline{u_i}\rangle\langle\overline{u_j}\rangle\rangle \\
+                &= \langle \overline{u_i}\rangle \langle \overline{u_j}\rangle + \langle \overline{u_i}^* \, \overline{u_j}^*\rangle - \langle\overline{u_i}\rangle\langle\overline{u_j}\rangle - \langle\overline{u_i}\rangle\langle\overline{u_j}\rangle + \langle\overline{u_i}\rangle\langle\overline{u_j}\rangle \\
+                &= \langle \overline{u_i}^* \, \overline{u_j}^*\rangle
+    \end{aligned}
+\end{equation}
+
+Derivation of the calculations of Reynolds and dispersive stresses, as done in the postprocessing script.
+\begin{equation}\label{eq: reynolds stress in PP}
+    \begin{aligned}
+        \langle R_{ij}\rangle   &= \langle R_{ij} + \overline{u_i}\,\overline{u_j} \rangle - \langle \overline{u_i} \rangle \langle\overline{u_j}\rangle  \\
+                                &= \langle \overline{u_i' u_j'} + \overline{u_i}\,\overline{u_j} \rangle - \langle \overline{u_i} \rangle \langle\overline{u_j}\rangle \\
+                                &= \langle \overline{u_i' u_j'} \rangle + \langle \overline{u_i}\,\overline{u_j} \rangle - \langle \overline{u_i} \rangle \langle\overline{u_j}\rangle \\
+                                &= \langle \overline{u_i' u_j'} \rangle  + \langle \overline{u_i}\rangle \langle\overline{u_j}\rangle + \langle \overline{u_i}^* \,\overline{u_j}^*\rangle - \langle \overline{u_i} \rangle \langle\overline{u_j}\rangle \\
+                                &= \langle \overline{u_i' u_j'} \rangle + \langle \overline{u_i}^* \,\overline{u_j}^*\rangle 
+    \end{aligned}
+\end{equation}
+
+\begin{equation} \label{eq: dispersive stress in PP}
+    \begin{aligned}
+        D_{ij}  &= \langle\overline{u_i}\,\overline{u_j}\rangle - \langle\overline{u_i}\rangle\langle\overline{u_j}\rangle\\
+                &= \langle \overline{u_i}\rangle \langle \overline{u_j}\rangle + \langle \overline{u_i}^* \, \overline{u_j}^*\rangle - \langle\overline{u_i}\rangle\langle\overline{u_j}\rangle\\
+                &= \langle \overline{u_i}^* \, \overline{u_j}^*\rangle
+    \end{aligned}
+\end{equation}
+
+\section{Äquivalent sin surface metrics}
+
+\begin{table}
+    \centering
+    \begin{tabular}{c | c c c |c c c | c c c}
+
+                        &   \multicolumn{3}{c|}{$Re_{\tau} =180$} & \multicolumn{3}{c|}{$Re_{\tau} =360$} & \multicolumn{3}{c}{$Re_{\tau} =550$}\\
+        $h^+$           &   7.5     & 20    &  50   & 7.5     & 20    &  50   & 7.5     & 20    &  50   \\  
+        $\lambda^+$     &   53.2    & 141.8 & 354.6 & 53.2    & 141.8 & 354.6 & 53.2    & 141.8 & 354.6 \\
+        n mod th        &   21      & 8     & 3     & 43      & 16    & 6     & 65      &24     & 10    \\
+        \hline
+                $\frac{h^+}{\lambda^+}$ & \multicolumn{9}{|c|}{0.141}\\
+
+        % $Re_{\tau}$     &   $\frac{h^+}{\lambda^+}$     & $h^+$ &   $\lambda^+$     & n mod th \\
+        % \hline  
+        %        &   0.141                       & 7.5   &  53.2             & 21     
+ 
+   
+    \end{tabular}
+\end{table}
+

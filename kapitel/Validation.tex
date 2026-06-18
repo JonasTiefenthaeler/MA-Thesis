@@ -21,3 +21,22 @@ while $\alpha$ is computed using
     \alpha = \frac{C_{\text{target}} - C_{\text{current}}}{C_{\text{base}}}
 \end{equation}
 with $C_{\text{target}}$ denoting the desired mass flux, $C_{\text{current}}$ denoting the mass flux at the current time step and $C_{\text{base}}$ denoting the base mass flux, at the start of the simulation CHECKEN OB DAS mit C base STIMMT!!!.
+
+
+\section{Convergence studies} \label{sec: convergence studies}
+
+\begin{table}
+    \centering
+    \caption{caption}
+    \label{tab: convergence study}
+    \begin{tabular}{l | r r r r}
+                                & very coarse   & coarse        & normal        & fine\\
+        \hline
+        n elem                  & 24480         & 38416         & 56320         & 80856\\
+        n GLL                   & 12.533.760    & 19.668.992    & 28.835.840    & 41.398.272\\
+        avg time per step       & 0.081s        & 0.1366s       & 0.2071s       & 0.1085s\\
+        time for run            & 0.16354$e^5$s & 0.33847$e^5$s & 0.59612$e^5$s & 0.3557682$e^5$s\\
+        number of Fritz nodes   & 5             & 5             & 5             & 15\\
+        
+    \end{tabular}
+\end{table}
