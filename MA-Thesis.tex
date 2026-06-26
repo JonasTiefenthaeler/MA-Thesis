@@ -118,9 +118,10 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  % Nomenklatur erstellen
-\usepackage[german,norefeq]{nomencl}
+\usepackage[norefeq]{nomencl}
 \setlength{\nomitemsep}{-0.5\parsep}
 \makenomenclature
+\usepackage{etoolbox}
 \makeindex
 %% define nomenclature groups
 \ifenglish

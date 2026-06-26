@@ -1,19 +1,53 @@
 \chapter{Theory}\label{chap: Theory}
 
+Motions of viscous fluids are described by a set of equations, called the \acrfull{nse} ZITAT.
+To simulate the behaviour of fluid motion theses partial differential equations have to be integrated by the simulation code.
+They consist of the mass conservation equation, also called the continuity equation
+\begin{equation}\label{eq: conservation equation}
+    \frac{\partial u_i}{\partial x_i} = 0
+\end{equation}
+and the momentum equation
+\begin{equation}\label{eq: momentum equation}
+    \rho \left(\frac{\partial u_i}{\partial t} + u_j \frac{\partial u_i}{\partial x_j}\right) = -\frac{\partial p}{\partial x_i} + \mu\frac{\partial^2 u_i}{\partial x_j \partial x_j} + \rho g_i
+\end{equation}
+both shown for the incompressible regime, which is considered throughout this work (\cite{NekoGoverningEquations}).
+Additionally, the Einstein summation convention is used in this notation and due to the incompressible regime, $\rho$ and $\mu$ are constants.\\
+The flow behaviour of viscous fluids can be separated into two regimes.
+Laminar flow, turbulent flow and the transition between them.
+In laminar flow, the fluid particles move in parallel paths and are constant in time. 
+In turbulent flow, the instantaneous movement of the fluid is stochastic, while the mean flow is dependent by the flow condition and the shape of the flow domain.
+Only fully turbulent flows are considered in this work.\\
+In the following chapter, first, the basics of wall bounded turbulence behaviour is explained, followed by an explanation of the surface roughness.
 
-\section{Description of turbulent flows}\label{sec: Description of turbulent flows}
 
-In turbulent flows, structures in a multitude of scales emerge.
-The minimum scale of the elements is limited by the viscosity of the fluid, since the smallest scales are dissipated by viscosity and disappear.
+\section{Description of turbulent wall bounded flows}\label{sec: Description of turbulent flows}
+
+To be able to understand turbulent behaviour in a rough regime, it is first important, to give an overview of turbulent wall bounded flows in general, since it gives the bases for the interpretations later in this thesis VERWEIS AUF KAPITEL.
+In the general descriptions of turbulent flow, like for example \cite{popeTurbulentFlows2015}, a smooth wall is assumed.\\
+%In turbulent flows, structures in a multitude of scales emerge.
+%The minimum scale of the elements is limited by the viscosity of the fluid, since the smallest scales are dissipated by viscosity and disappear.
+Two of the canonical configurations to study turbulent wall bounded flows are the channel and pipe, both of which have been throughly studied.
+The channel among many others by \cite{kimTurbulenceStatisticsFully1987} and \cite{leeDirectNumericalSimulation2015}, and the pipe by \cite{jimenezCascadesWallBoundedTurbulence2012} and \cite{yaoDirectNumericalSimulations2023}.
+It has shown, that wall bounded turbulence behaves very similarly in both configurations (\cite{khouryTurbulentPipeFlow2014}, \cite{kimProgressPipeChannel2012}).\\
+
+ÜBERLEITUNG
+
+\begin{itemize}
+    \item Iwas zu Navier Stokes / governing equations
+    \item Turbulent nondimensionalization
+    \item Stresses (und budgets einführen)
+    \item Velocity profiles usw
+\end{itemize}
+
 
 
 \paragraph{Wall shear stress}\label{par: wall shear stress}
 
-The wall shear stress, which is responsible for the drag in smooth cases, is defined as 
+
 \begin{equation}
     \tau_w = \mu\frac{dU}{dy}
 \end{equation}
-and is solely based on viscosity (\cite{pope_turbulent_2015}).
+and is solely based on viscosity (\cite{popeTurbulentFlows2015}).
 The viscosity is dominant at the wall, hence the wall shear stress is the only stress active at the wall and it keeps being dominant in the near wall region.
 With a growing distance to the wall the influence of viscosity decreases, while the importance of the Reynolds stresses, described in later in this section, increases.
 
@@ -44,7 +78,7 @@ The stress tensor of a turbulent flow is a second order symmetric tensor and its
     R_{ij} = \langle u'_i u'_j \rangle
 \end{equation}
 The diagonal components $\langle u'_iu'_i\rangle$ are the normal stresses and the off diagonal components $\langle u'_1 u'_2 \rangle$ and $\langle u'_2u'_1 \rangle$ denote the shear stresses.
-It is important to note that $\langle u'_3 \rangle = 0$, as described in \cite{pope_turbulent_2015}.
+It is important to note that $\langle u'_3 \rangle = 0$, as described in \cite{popeTurbulentFlows2015}.
 
 \subsection{Plus units}\label{subsec: plus units}
 Using the viscous scale $\delta_{\nu}$ and $u_{\tau}$ the viscous units or wall units $U^+$ and $y^+$ can be derived using the equations
@@ -61,7 +95,7 @@ Also, the velocity profiles can be divided into three main regions.
 The viscous sublayer where $y^+ < 5$, the logarithmic region where $y^+ > 30$ and the buffer region in between.
 Within the viscous sublayer, the law of the wall $U^+ = y^+$ holds. 
 Within the logarithmic region, the log law $U^+ = \frac{1}{\kappa}\ln{y^+} + A$, with $\kappa$ and $A$ can be chosen according to the individual case. 
-In this thesis $\kappa = 0.41$ and $A = 5.2$ are used, according to \cite{pope_turbulent_2015}.
+In this thesis $\kappa = 0.41$ and $A = 5.2$ are used, according to \cite{popeTurbulentFlows2015}.
 
 
 %\section{Numerics}\label{sec: Numerics}

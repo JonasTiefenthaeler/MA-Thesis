@@ -2,7 +2,11 @@
 %\thispagestyle{empty}
 
 %\printnomenclature
-
+\renewcommand\nomgroup[1]{%
+  \item[\bfseries
+  \ifstrequal{#1}{F}{Fluid properties}{%
+  \ifstrequal{#1}{O}{Other symbols}{}}%
+]}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Wenn Symbolverzeichnis automatisch erzeugt werdenn soll
 
@@ -32,43 +36,54 @@
 %\section*{Abkürzungen}
 %\fi
 %
-\begin{longtable}[t]{p{0.1\textwidth}p{0.1\textwidth}p{0.8\textwidth}}
-	\textbf{Variable}  & \textbf{Einheit} & \textbf{Beschreibung}\\
-	\midrule
-	$c_0$ & $m/s$ & Schallgeschwindigkeit in Luft \\
-	$\nabla$ & $1/m$ & Nabla-Operator \\
-	$\mu$ & & Dynamic viscosity of the fluid\\
-	$\rho$ & & Density of the fluid\\
-	$\alpha$ & & Scaling factor to ensure constant mass flux\\
-	$Re_\tau$ & & Friction Reynolds number\\
-	$Re_b$ & & Bulk Reynolds number\\
-	$C$ & & Mass flux\\
+\nomenclature[F]{$\mu$}{Dynamic viscosity of the fluid}
+\nomenclature[F]{$\rho$}{Density of the fluid}
+\nomenclature[O]{$Re_b$}{Bulk Reynolds Number}
+\nomenclature[O]{$Re_\tau$}{Friction Reynolds number}
+\nomenclature[O]{C}{Mass flux}
+\nomenclature[O]{$\alpha$}{Scaling factor to ensure constant mass flux}
+
+
+\printnomenclature
+
+% \begin{longtable}[t]{p{0.1\textwidth}p{0.1\textwidth}p{0.8\textwidth}}
+% 	\textbf{Variable}  & \textbf{Einheit} & \textbf{Beschreibung}\\
+% 	\midrule
+% 	$c_0$ & $m/s$ & Schallgeschwindigkeit in Luft \\
+% 	$\nabla$ & $1/m$ & Nabla-Operator \\
+% 	$\mu$ & & Dynamic viscosity of the fluid\\
+% 	$\rho$ & & Density of the fluid\\
+% 	$\alpha$ & & Scaling factor to ensure constant mass flux\\
+% 	$Re_\tau$ & & Friction Reynolds number\\
+% 	$Re_b$ & & Bulk Reynolds number\\
+% 	$C$ & & Mass flux\\
 
 	
-	%
-\end{longtable}
+% 	%
+% \end{longtable}
 
 
 %\chapter*{Abkürzungsverzeichnis}\addcontentsline{toc}{chapter}{Abkürzungsverzeichnis}
-{\let\clearpage\relax \chapter*{List of Abbreviations}}\addcontentsline{toc}{chapter}{List of Abbreviations}
+%{\let\clearpage\relax \chapter*{List of Abbreviations}}\addcontentsline{toc}{chapter}{List of Abbreviations}
 
 \newacronym{sem}{SEM}{Spectral Element}
 \newacronym{cfd}{CFD}{computational fluid dynamics}
 \newacronym{dns}{DNS}{Direct Numerical Simulation}
 \newacronym{les}{LES}{Large Eddy Simulation}
-\printglossary
+\newacronym{nse}{NSE}{Navier-Stokes-Equations}
+\printglossary[type=\acronymtype]
 
 
-\begin{longtable}[t]{p{0.25\textwidth}p{0.8\textwidth}}
-	\textbf{Abkürzung}  & \textbf{Bedeutung}\\
-	\midrule
-	NSE & Navier-Stokes Equations \\
+% \begin{longtable}[t]{p{0.25\textwidth}p{0.8\textwidth}}
+% 	\textbf{Abkürzung}  & \textbf{Bedeutung}\\
+% 	\midrule
+% 	NSE & Navier-Stokes Equations \\
 	
 
 	
 	
-	%
-\end{longtable}
+% 	%
+% \end{longtable}
 
 
 
