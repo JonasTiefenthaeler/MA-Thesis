@@ -26,7 +26,7 @@ To be able to understand turbulent behaviour in a rough regime, it is first impo
 In the general descriptions of turbulent flow, like for example \cite{popeTurbulentFlows2015}, a smooth wall is assumed.\\
 %In turbulent flows, structures in a multitude of scales emerge.
 %The minimum scale of the elements is limited by the viscosity of the fluid, since the smallest scales are dissipated by viscosity and disappear.
-Two of the canonical configurations to study turbulent wall bounded flows are the channel and pipe, both of which have been throughly studied.
+Two of the canonical configurations to study turbulent wall bounded turbulent flows are the channel and pipe, both of which have been throughly studied.
 The channel among many others by \cite{kimTurbulenceStatisticsFully1987} and \cite{leeDirectNumericalSimulation2015}, and the pipe by \cite{jimenezCascadesWallBoundedTurbulence2012} and \cite{yaoDirectNumericalSimulations2023}.
 It has shown, that wall bounded turbulence behaves very similarly in both configurations (\cite{khouryTurbulentPipeFlow2014}, \cite{kimProgressPipeChannel2012}).\\
 
@@ -39,39 +39,42 @@ It has shown, that wall bounded turbulence behaves very similarly in both config
     \item Velocity profiles usw
 \end{itemize}
 
-
-
-\paragraph{Wall shear stress}\label{par: wall shear stress}
-
-
-\begin{equation}
-    \tau_w = \mu\frac{dU}{dy}
+bEGRÜNDUNG SCHREIBEN WARUM WIR NONDIMENSIONALISIEREN
+The viscous units are introduced, which are used to nondimensionalize the emerging quantities in turbulent flows.
+The two scaling quantities are
+\begin{equation}\label{eq: viscous scaling units}
+    \text{Friction velocity: }\quad u_\tau = \frac{\tau_w}{\rho} \qquad \text{Viscous length scale:}\quad \delta_\nu = \frac{\nu}{u_\tau}
 \end{equation}
-and is solely based on viscosity (\cite{popeTurbulentFlows2015}).
+while $u_\tau$ is used to scale velocity scales and $\delta_\nu$ scales length scales.
+They are both dependent on the fluid properties $\rho$ and $\nu$, as well as the wall shear stress $\tau_w$ which is defined as
+\begin{equation}\label{eq: wall shear stress}
+    \tau_w = \mu \frac{d U}{dy}
+\end{equation}
+and quantifies the friction of the flow due to the viscosity of the fluid.
 The viscosity is dominant at the wall, hence the wall shear stress is the only stress active at the wall and it keeps being dominant in the near wall region.
-With a growing distance to the wall the influence of viscosity decreases, while the importance of the Reynolds stresses, described in later in this section, increases.
-
-
-\paragraph{Friction velocity}\label{par: Friction velocity}
-
-Using the wall shear stress and the density $\rho$ the friction velocity is defined as
+With a growing distance to the wall the influence of viscosity decreases, while the importance of the Reynolds stresses, described in later in this section, increases (\cite{popeTurbulentFlows2015}).\\
+Using the viscous scales $\delta_\nu$ and $u_\tau$, the non dimensionalized plus units $U^+$ and $y^+$ can be computed.
+They are denoted by the $+$ superscript and are also called 'viscous units' or 'inner units' depending on the literature.
 \begin{equation}
-    u_\tau = \sqrt{\frac{\tau_w}{\rho}}
+    U^+ = \frac{U}{u_\tau} \qquad \text{and} \qquad y^+ = \frac{y}{\delta_\nu}
 \end{equation}
-The friction velocity $u_\tau$ is a viscous scale and is used to propery scale velocity values in the near-wall region.
+If the data is scaled using the viscous scales, the velocity profiles collapse onto another, independent of the Reynolds number, as shown in figure
 
-\paragraph{Viscous length scale}\label{par: viscous length scale}
-The viscous length scale
-\begin{equation}\label{eq: delta nu}
-    \delta_{\nu} = \frac{\nu}{u_{\tau}}
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{velocity_comparison_smooth_pipe}
+    \caption{Comparison of the velocity profiles $U^+$ over $y^+$ in smooth pipes.}
+    \label{fig: smooth U^+ over y^+}
+\end{figure}
+
+Using the friction velocity $u_\tau$, the viscosity $\nu$ and the characteristic length $\delta$, which is typically the radius R in a pipe, the friction Reynolds number $Re_\tau$ is defined as
+\begin{equation}\label{eq: friction reynolds number}
+    Re_\tau = \frac{u_\tau \delta}{\nu} = \frac{\delta}{\delta_\nu}
 \end{equation}
-is similar to the friction velocity $u_\tau$ a viscous scale and is used to scale the length scale in the near-wall region.
-\paragraph{Friction reynolds number}
-The friction Reynolds number is defined as
-\begin{equation} \label{eq: ReTau}
-    Re_{\tau} = \frac{u_{\tau} \cdot \delta}{\nu} = \frac{\delta}{\delta_{\nu}}
-\end{equation}
-which states directly, that $Re_{\tau}$ describes the ratio between the largest and smallest turbulent scales.
+which is the non-dimensionalized Reynolds number in viscous scales.
+NOCH BISSCHEN ERKLÄREN WAS RETAU IST , describes ration between small and large scales usw\\
+
+
 \paragraph{Stress tensor}\label{par: RStress tensor}
 The stress tensor of a turbulent flow is a second order symmetric tensor and its components are the Reynolds stresses, which leads to 
 \begin{equation} \label{eq: Reynolds stresses}
