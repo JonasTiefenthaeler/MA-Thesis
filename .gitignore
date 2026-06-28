@@ -27,3 +27,12 @@ kapitel/nomenklatur.aux
 kapitel/Results.aux
 kapitel/Theory.aux
 kapitel/Validation.aux
+*.aux
+*.idx
+*.lof
+*.lot
+*.nlo
+*.out
+*.gz
+*.toc
+*.ist

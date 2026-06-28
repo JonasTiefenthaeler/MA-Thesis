@@ -2,12 +2,10 @@
 \setkomafont{sectioning}{\rmfamily\bfseries} % Überschriften mit Serifen
 
 
-%\usepackage[english]{babel}
-
 % \ifenglish
-% \usepackage[ngerman,english]{babel}	    		% Überschriften werden von LaTeX in der korrekten Sprache erzeugt
+\usepackage[ngerman,english]{babel}	    		% Überschriften werden von LaTeX in der korrekten Sprache erzeugt (english = Hauptsprache)
 % \else
-% \usepackage[ngerman]{babel}	    		% Überschriften werden von LaTeX in der korrekten Sprache erzeugt
+% \usepackage[english,ngerman]{babel}	    		% Überschriften werden von LaTeX in der korrekten Sprache erzeugt (ngerman = Hauptsprache)
 % \fi
 
 %\usepackage[ansinew]{inputenc}			% Umlaute
@@ -29,7 +27,9 @@
 
 %\usepackage{fixltx2e}
 \usepackage{graphicx}	
-\usepackage{epstopdf}		       		% Ermöglicht die Einbindung von Bildern
+\usepackage{epstopdf}	
+\usepackage{pgf}	       		% Ermöglicht die Einbindung von Bildern
+\providecommand{\mathdefault}[1]{#1}	% benötigt für matplotlib pgf-Export
 \usepackage{makeidx}		          	% Erzeugt Verzeichnisse
 \usepackage{array}
 \usepackage{float}		             	% Erzwingt Positionierung von Floatobjekten mit "`H"'
@@ -65,3 +65,5 @@
 %---------------------------------------
 \usepackage[acronym, toc, nonumberlist]{glossaries}
 \makeglossaries
+
+
