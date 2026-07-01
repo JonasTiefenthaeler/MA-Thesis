@@ -36,3 +36,8 @@ kapitel/Validation.aux
 *.gz
 *.toc
 *.ist
+*.acn
+*.acr
+*.ist
+*.aux
+

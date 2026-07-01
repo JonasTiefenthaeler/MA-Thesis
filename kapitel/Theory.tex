@@ -43,14 +43,14 @@ bEGRÜNDUNG SCHREIBEN WARUM WIR NONDIMENSIONALISIEREN
 The viscous units are introduced, which are used to nondimensionalize the emerging quantities in turbulent flows.
 The two scaling quantities are
 \begin{equation}\label{eq: viscous scaling units}
-    \text{Friction velocity: }\quad u_\tau = \frac{\tau_w}{\rho} \qquad \text{Viscous length scale:}\quad \delta_\nu = \frac{\nu}{u_\tau}
+    \text{Friction velocity: }\quad u_\tau = \sqrt{\frac{\tau_w}{\rho}} \qquad \text{Viscous length scale:}\quad \delta_\nu = \frac{\nu}{u_\tau}
 \end{equation}
 while $u_\tau$ is used to scale velocity scales and $\delta_\nu$ scales length scales.
 They are both dependent on the fluid properties $\rho$ and $\nu$, as well as the wall shear stress $\tau_w$ which is defined as
 \begin{equation}\label{eq: wall shear stress}
     \tau_w = \mu \frac{d U}{dy}
 \end{equation}
-and quantifies the friction of the flow due to the viscosity of the fluid.
+and quantifies the friction of the flow at the wall due to the viscosity of the fluid.
 The viscosity is dominant at the wall, hence the wall shear stress is the only stress active at the wall and it keeps being dominant in the near wall region.
 With a growing distance to the wall the influence of viscosity decreases, while the importance of the Reynolds stresses, described in later in this section, increases (\cite{popeTurbulentFlows2015}).\\
 Using the friction velocity $u_\tau$, the viscosity $\nu$ and the characteristic length $\delta$, which is typically the radius R in a pipe, the friction Reynolds number $Re_\tau$ is defined as
@@ -58,25 +58,25 @@ Using the friction velocity $u_\tau$, the viscosity $\nu$ and the characteristic
     Re_\tau = \frac{u_\tau \delta}{\nu} = \frac{\delta}{\delta_\nu}
 \end{equation}
 which is the non-dimensionalized Reynolds number in viscous scales.
-NOCH BISSCHEN ERKLÄREN WAS RETAU IST , describes ration between small and large scales usw\\
+NOCH BISSCHEN ERKLÄREN WAS RETAU IST, describes ration between small and large scales usw\\
 
 
 Using the viscous scales $\delta_\nu$ and $u_\tau$, the non dimensionalized plus units $U^+$ and $y^+$ can be computed.
-They are denoted by the $+$ superscript and are also called 'viscous units' or 'inner units' depending on the literature.
+They are denoted by the $+$ superscript and are also called `viscous units' or `inner units' depending on the literature.
 \begin{equation}
     U^+ = \frac{U}{u_\tau} \qquad \text{and} \qquad y^+ = \frac{y}{\delta_\nu}
 \end{equation}
-If the data is scaled using the viscous scales, the velocity profiles collapse onto another, independent of the Reynolds number, as shown in \autoref{fig: smooth U^+ over y^+}, which depicts reference data for smooth pipes of various friction Reynolds numbers.
+If the data is scaled using the viscous scales, the velocity profiles of similar wall bounded turbulence flows collapse onto another, independent of the Reynolds number, as shown in \autoref{fig: smooth U^+ over y^+}, which depicts reference data for smooth pipes of various friction Reynolds numbers.
 The respective lift above the log law line is expected for pipes, and reduces for channel flows (\cite{khouryTurbulentPipeFlow2014}).
 Also, it can be seen, that the velocity profiles can be divided into three main regions.
 The viscous sublayer where $y^+ < 5$, the logarithmic region where $y^+ > 30$ and the buffer region in between.
 Within the viscous sublayer, the law of the wall $U^+ = y^+$ holds. 
-Within the logarithmic region, the log law $U^+ = \frac{1}{\kappa}\ln{y^+} + A$, with $\kappa$ and $A$ can be chosen according to the individual case. ZITAT
-In this thesis $\kappa = 0.41$ and $A = 5.2$ are used, according to the values in \cite{popeTurbulentFlows2015}.
+Within the logarithmic region, the log law $U^+ = \frac{1}{\kappa}\ln{y^+} + A$, with $\kappa$ and $A$ can be chosen according to the individual case, since the values differ slightly for different friction Reynolds numbers. ZITAT
+In this thesis $\kappa = 0.41$ and $A = 5.2$ are used, according to the values in~\cite{popeTurbulentFlows2015}.
 \begin{figure}
     \centering
     \input{plots/Uplus_yplus_reference.pgf}
-    \caption{Comparison of the streamwise velocity profiles over the wall distance nondimensionalized in viscous units $U^+$ and $y^+$. Data for cases $Re_\tau 180, 550$ and $1000$ taken from \cite{yaoDirectNumericalSimulations2023} and $Re_\tau = 360$ from \cite{elkhouryDirectNumericalSimulation2013}}
+    \caption{Comparison of the streamwise velocity profiles over the wall distance nondimensionalized in viscous units $U^+$ and $y^+$. Data for cases $Re_\tau 180, 550$ and $1000$ taken from~\cite{yaoDirectNumericalSimulations2023} and $Re_\tau = 360$ from~\cite{elkhouryDirectNumericalSimulation2013}}
     \label{fig: smooth U^+ over y^+}
 \end{figure}
 
@@ -100,7 +100,9 @@ Symbols with $\langle \rangle$ are averaged quantities.
 \subsection{Roughness parameters}\label{subsec: Roughness parameters}
 
 To be able to describe rough surfaces, a multitude of roughness parameters exist, as described by~\cite{chungPredictingDragRough2021}.
-The influence of each parameter remains an open research question, which is focused on by many researches (\cite{flackReviewHydraulicRoughness2010},~\cite{jellyReynoldsDispersiveShear2018}).\\
+The influence of each parameter remains an open research question, which is focused on by many researches (\cite{flackReviewHydraulicRoughness2010},~\cite{jellyReynoldsDispersiveShear2018}).
+However, it remains unclear, whether it is possible to associate individual surface parameters to specific flow characteristics, or if there is always a more general influence of the surface on the turbulent flow (\cite{chungPredictingDragRough2021}).\\
+In order to be able to address this question and to keep the provided data comparable with current literature, it is important to consider a wide range of surface parameters. 
 The considered roughness parameters in this work are:
 
 \paragraph{Average roughness height}
@@ -135,12 +137,16 @@ The effective slope is the absolute gradient of the rough surface as described b
     ES = \frac{1}{L_x L_y} \int_0^{L_x} \int_0^{L_y} \left| \frac{\mathrm{d}h}{\mathrm{d}x} \right|_{i,j} \mathrm{d}x \, \mathrm{d}y
 \end{equation}
 \paragraph{Mean peak-to-valley height}
-The calculation of the mean peak to valley height $S_m$ is done according to~\cite{thakkarInvestigationTurbulentFlow2017}.
+FORMEL
+The calculation of the mean peak to valley height $S_{z.5x5}$ is done according to~\cite{thakkarInvestigationTurbulentFlow2017}.
 The method is dividing the surface into tiles and calculating the difference between the highest and lowest point for each tile.
 The mean of the differences results in  the mean peak-to-valley height $k$, which is also used as the measurement for roughness height in this thesis, according to~\cite{demaioDirectNumericalSimulation2023}.
 For this study the rough surface is divided into 25 rectangular tiles of equal size.
-Equal size means in this context, that the same number of grid points are used for the length and width of the tiles.
+Equal size means in this context, that the same number of grid points are used for the length and width of the tiles.\\
 
+It is important to note, that not all surface parameters are fully independent of each other.
+Especially the height parameters, $S_a, S_q$ and $S_{z,5x5}$ have a dependence on each other, and cannot be chosen arbirarily for nonperiodic inhomogeneous roughness ZITAT.
+The skewness and effective slope however can be controlled independently by the algorithm presented in \autoref{subsec: Surface generation algorithm}.
 
 \subsection{Virtual origin}\label{subsec: Virtual origin}
 
@@ -148,29 +154,32 @@ The virtual origin is a reference plane, which is taken as the basis for measuri
 In a smooth wall case, there is no virtual origin, since all data can be calculated from the wall itself, hence the point where the no-slip condition is active~(\cite{chanSystematicInvestigationRoughness2015}), which leads to consistent wall distances for every point in the field.\\
 Yet, in a rough wall case, this is not as straightforward.
 Due to wall roughness, the distance from e.g. the pipe center to the wall varies continuously over the whole flow field.
-To be able to compute consistent data, a virtual origin has to be defined. 
+To be able to compute consistent data, a virtual origin, hence the position at which $y^+ = 0$ applies, has to be defined. 
 There are many different approaches to defining the virtual origin.
 Notable methods are the usage of the mean momentum absorption plane by~\cite{thomMomentumAbsorptionVegetation1971} or the determination of the position of the mean streamwise velocity being zero, since it is assumed, that this is the equivalent position of the no slip condition in a smooth wall case.
 A third approach is to take the mean radius of the rough surface for the virtual origin.\\
 In the investigation by~\cite{chanSystematicInvestigationRoughness2015}, all three of the approaches are compared. 
-The approach of using the mean radius for the virtual origin seems to offer the best correlation between the considered smooth and rough cases in this study.
+The approach of using the mean radius for the virtual origin seems to offer the best correlation between the considered smooth and rough cases in that particular study.
+All data presented in this work define $y^+ = 0$ to be at the mean radius of the pipe.
 
 \subsection{Influence of surface roughness on drag}\label{subsec: Roughness influence on drag}
-
-In turbulent flows over rough surfaces, the log law for the velocity profile experiences a downshift, as depicted in \autoref{fig: U+ over y+ smooth vs rough}.
-\begin{figure}\label{fig: U+ over y+ smooth vs rough}
+Turbulent flows over rough surfaces expereice a increased drag ZITAT.
+This is due to ... NOCH WAS DAZU SCHREIBEN.
+The increased drag manifests itself in a downshift of the log-law of the velocity profile,  as depicted in \autoref{fig: U+ over y+ smooth vs rough}.
+\begin{figure}
     \centering
     \input{plots/Uplus_yplus_rough_vs_smooth.pgf}
     \caption{$U^+$ over $y^+$ for a smooth walled and rough walled pipe with similar friction Reynolds numbers. Data for smooth pipe is taken from \cite{yaoDirectNumericalSimulations2023}, data for rough walled pipe taken from \cite{demaioDirectNumericalSimulation2023}}
+    \label{fig: U+ over y+ smooth vs rough}
 \end{figure}
 This downshift is the difference between the velocity profiles of turbulent flows with a smooth and a rough wall, at the same friction reynolds number $Re_{\tau}$ and can be expressed as
 \begin{equation}
-    \Delta U^+(k_s^+) = \frac{1}{\kappa}\ln{k_s^+} + A - B_s(k_s^+) 
+    \Delta U^+(k_s^+) = U_s^+ - U_R^+ \frac{1}{\kappa}\ln{k_s^+} + A - B_s(k_s^+) 
 \end{equation}
-with $k_s^+$ representing the equivalent sand-grain roughness.
+with $k_s^+$ representing the equivalent sand-grain roughness and $B_s(k_s^+)$ the B BESHCREIBEN.
 It is the roughness height $k_s$ scaled in wall units bs $k_s^+ = \frac{k_s}{\delta_{\nu}}$.
-The definition of $k_s$ does not follow a universal law and its choice varies for different surfaces, but there are studies, that try to link certain surface topographies to $k_s$, like \cite{flack_review_2010}.
-Additionally, the research of \cite{flack_skin_2020} indicates, that a measure of height of the roughness elements ($S_q$ or $S_m$), the Skewness $Sq$ and the effective slope $ES$ are the most influential parameters to $k_s$.
+The definition of $k_s$ does not follow a universal law and its choice varies for different surfaces, but there are studies, that try to link certain surface topographies to $k_s$, like \cite{flackReviewHydraulicRoughness2010}.
+Additionally, the research of \cite{flackSkinFrictionMeasurements2020} indicates, that a measure of height of the roughness elements ($S_q$ or $S_m$), the Skewness $Sq$ and the effective slope $ES$ are the most influential parameters to $k_s$.
 
 
 \section{Generating rough surfaces}\label{sec: Generating rough surfaces}
