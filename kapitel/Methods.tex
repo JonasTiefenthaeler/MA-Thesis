@@ -1,5 +1,12 @@
 \chapter{Methods}\label{chap: Methods}
 
+TODO:
+\begin{itemize}
+    \item Write what surface parameters where used
+    \item Write simuation setup
+    \item retau werte und delta spacing in tabelle für convergence study anpassen
+\end{itemize}
+
 For this Thesis the high-order \acrfull{sem} code NEKO is used.
 Neko is an open-source \acrfull{cfd} solver, that is based on the older Nek5000 \acrshort{cfd} solver done by \cite{fischerNek500WebPage} in the nineties.
 The portable framework Neko is written in modern Fortran in an object-oriented manner and is mainly focused on incompresible flow simulations \cite{janssonNekoModernPortable2024}.
@@ -98,6 +105,8 @@ AUF BODY FITTED VS. IBM EINGEHEN
 
 \subsection{Finding good input parameters}\label{subsec: Finding input parameters}
 
+
+
 \section{Postprocessing}\label{sec: Postprocessing}
 
 In order to be able to work with the obtained data by the \acrshort{dns}, the data has to be postprocessed.
@@ -161,6 +170,62 @@ To acheive data extraction in a concentric way, the interpolation points have to
 By applying the same formulation onto the interpolation points, as done for the rough pipe, the interpolation points are defored in such a way, that they lie in the computational domain in the same positions, as they would be in the physical domain for a concentric data extraction.
 
 NOCH BILD MACHEN UM DAS ZU VERDEUTLICHEN
+
+
+\section{Convergence study}
+
+A grid resolution as well as time convergence was conducted, to find reasonable parameters for both, that yield sufficient results while keeping the necessary computational resources manageable.
+The study was conducted using $Re_b = 5700$ in order to have faster computational times.
+
+\subsection{Grid refinement study}\label{subsec: grid refinement study}
+
+For the grid refinement study, three meshes of varying resolutions are used.
+The resolution are altered in streamwise and azimuthal direction, while keeping the wall-normal resolution fixed.
+Also, the polynomial order is kept constant at $p = 7$ ZITAT.
+
+\begin{table}[!ht]
+\centering
+\caption{Simulation parameters for grid convergence study}
+\begin{tabular}{ c c c  } 
+ \hline
+  $Re_b$    & $Re_\tau$     & $N_z$     & $N_{\theta}$  & $\Delta_z$    & $\Delta_\theta$   & Mesh elements & $Tu_\tau / R$ & transient time units\\
+ \hline
+ $5700$     & $244$         & $448$     & $224$         & $13.69$       & $6.84$            & 26752 &\\ 
+ $5700$     & $244$         & $560$     & $290$         & $10.95$       & $5.29$            & 44000 &\\ 
+ $5700$     & $244$         & $672$     & $336$         & $9.13$        & $4.56$            & 67392 & \\ 
+ \hline
+\end{tabular}
+\end{table}
+
+The results of the grid refinement study is shown in \autoref{fig: Mesh convergence study}.
+In \autoref{subfig: grid convergence uplus} the mean streamwise velocitiy profiles are compared.
+\autoref{subfig: grid convergence RS} shows the Reynolds stresses, while \autoref{subfig: grid convergence total stress} compares the total stresses, including their individual components viscous stress, Reynolds stress and dispersive stress.
+\begin{figure}
+    \centering
+    \begin{subfigure}[t]{0.495\textwidth}
+        \centering
+        \subcaption{}
+        \input{plots/grid_convergence_uplus.pgf}
+        \label{subfig: grid convergence uplus}
+        
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[t]{0.495\textwidth}
+        \centering
+        \subcaption{}
+        \input{plots/grid_convergence_RS.pgf}
+        \label{subfig: grid convergence RS}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[t]{0.495\textwidth}
+        \centering
+        \subcaption{}
+        \input{plots/grid_convergence_totStress.pgf}
+        \label{subfig: grid convergence total stress}
+    \end{subfigure}
+    \label{fig: Mesh convergence study}
+    \caption{First and second order statistics for mesh convergence study. (a) Mean streamwise velocity profiles $U+$ over wall normal $y+$. (b) Reynolds stresses $R_{ij}^+$ over wall normal distance $y^+$. Solid line representing $R_{uu}^+$, dashed line $R_{vv}^+$, dotted line $R_{ww}^+$ and dot-dashed line $R_{uv}^+$. (c) Stresses over wall normal distance r/R. Solid line representing the total stress $\tau_{tot}$, the dashed line the Reynolds stress $\tau_{uv}$, dotted line the viscous stress $\tau_{vis}$ and the dot-dashed line the dispersive stress $\tau_{disp}$}
+\end{figure}
 
 
 

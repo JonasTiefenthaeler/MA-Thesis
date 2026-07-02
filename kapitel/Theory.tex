@@ -1,5 +1,8 @@
 \chapter{Theory}\label{chap: Theory}
-
+TODOS:
+\begin{itemize}
+    \item Reynoldsnumber erklären, auch auf bulk reynolds numbers eingehen
+\end{itemize}
 Motions of viscous fluids are described by a set of equations, called the \acrfull{nse} ZITAT.
 To simulate the behaviour of fluid motion theses partial differential equations have to be integrated by the simulation code.
 They consist of the mass conservation equation, also called the continuity equation
@@ -48,14 +51,14 @@ The two scaling quantities are
 while $u_\tau$ is used to scale velocity scales and $\delta_\nu$ scales length scales.
 They are both dependent on the fluid properties $\rho$ and $\nu$, as well as the wall shear stress $\tau_w$ which is defined as
 \begin{equation}\label{eq: wall shear stress}
-    \tau_w = \mu \frac{d U}{dy}
+   \text{Wall shear stress: } \quad \tau_w = \mu \frac{d U}{dy}
 \end{equation}
 and quantifies the friction of the flow at the wall due to the viscosity of the fluid.
 The viscosity is dominant at the wall, hence the wall shear stress is the only stress active at the wall and it keeps being dominant in the near wall region.
 With a growing distance to the wall the influence of viscosity decreases, while the importance of the Reynolds stresses, described in later in this section, increases (\cite{popeTurbulentFlows2015}).\\
 Using the friction velocity $u_\tau$, the viscosity $\nu$ and the characteristic length $\delta$, which is typically the radius R in a pipe, the friction Reynolds number $Re_\tau$ is defined as
 \begin{equation}\label{eq: friction reynolds number}
-    Re_\tau = \frac{u_\tau \delta}{\nu} = \frac{\delta}{\delta_\nu}
+   \text{Friction Reynolds number: }\quad Re_\tau = \frac{u_\tau \delta}{\nu} = \frac{\delta}{\delta_\nu}
 \end{equation}
 which is the non-dimensionalized Reynolds number in viscous scales.
 NOCH BISSCHEN ERKLÄREN WAS RETAU IST, describes ration between small and large scales usw\\
@@ -81,7 +84,7 @@ In this thesis $\kappa = 0.41$ and $A = 5.2$ are used, according to the values i
 \end{figure}
 
 
-\paragraph{Stress tensor}\label{par: RStress tensor}
+\paragraph{Stresses in turbulent flows}\label{par: stresses}
 The stress tensor of a turbulent flow is a second order symmetric tensor and its components are the Reynolds stresses.
 The stress tensor is denoted as 
 \begin{equation} \label{eq: Reynolds stresses}
@@ -174,15 +177,13 @@ The increased drag manifests itself in a downshift of the log-law of the velocit
 \end{figure}
 This downshift is the difference between the velocity profiles of turbulent flows with a smooth and a rough wall, at the same friction reynolds number $Re_{\tau}$ and can be expressed as
 \begin{equation}
-    \Delta U^+(k_s^+) = U_s^+ - U_R^+ \frac{1}{\kappa}\ln{k_s^+} + A - B_s(k_s^+) 
+    \Delta U^+(k_s^+) = U_s^+ - U_R^+ = \frac{1}{\kappa}\ln{k_s^+} + A - B_s(k_s^+) 
 \end{equation}
 with $k_s^+$ representing the equivalent sand-grain roughness and $B_s(k_s^+)$ the B BESHCREIBEN.
-It is the roughness height $k_s$ scaled in wall units bs $k_s^+ = \frac{k_s}{\delta_{\nu}}$.
+$k_s^+$ is the roughness height $k_s$ scaled in wall units $\displaystyle k_s^+ = \frac{k_s}{\delta_{\nu}}$.
 The definition of $k_s$ does not follow a universal law and its choice varies for different surfaces, but there are studies, that try to link certain surface topographies to $k_s$, like \cite{flackReviewHydraulicRoughness2010}.
 Additionally, the research of \cite{flackSkinFrictionMeasurements2020} indicates, that a measure of height of the roughness elements ($S_q$ or $S_m$), the Skewness $Sq$ and the effective slope $ES$ are the most influential parameters to $k_s$.
 
-
-\section{Generating rough surfaces}\label{sec: Generating rough surfaces}
 
 
 
