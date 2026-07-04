@@ -12,6 +12,7 @@
 %\usepackage[utf8]{inputenc}
 %\usepackage{subfig}
 \usepackage[font=small,labelfont=bf]{subcaption}
+\captionsetup{font=small, format=plain, labelsep=period}   % Text bricht unter "Table X"/"Figure X" um
 \captionsetup[subfigure]{font={bf,small}, skip=0pt, margin=0.0cm, singlelinecheck=false}
 %\setlength{\belowcaptionskip}{10pt}   % Abstand zwischen Subcaption (oben) und Subfigure
 \usepackage{placeins}
@@ -69,3 +70,11 @@
 \makeglossaries
 
 
+%---------------------------------------
+% random stuff
+%---------------------------------------
+\usepackage{adjustbox} %scales tables such they fit on page
+\renewcommand{\textfraction}{0.0} %sets how much text is the 
+\renewcommand{\floatpagefraction}{0.85}
+\renewcommand{\topfraction}{0.9}
+\renewcommand{\bottomfraction}{0.1}

@@ -1,10 +1,7 @@
 \chapter{Theory}\label{chap: Theory}
-TODOS:
-\begin{itemize}
-    \item Reynoldsnumber erklären, auch auf bulk reynolds numbers eingehen
-\end{itemize}
+
 Motions of viscous fluids are described by a set of equations, called the \acrfull{nse} ZITAT.
-To simulate the behaviour of fluid motion theses partial differential equations have to be integrated by the simulation code.
+To simulate the behaviour of fluid motion these partial differential equations have to be integrated by the simulation code.
 They consist of the mass conservation equation, also called the continuity equation
 \begin{equation}\label{eq: conservation equation}
     \frac{\partial u_i}{\partial x_i} = 0
@@ -15,35 +12,27 @@ and the momentum equation
 \end{equation}
 both shown for the incompressible regime, which is considered throughout this work (\cite{NekoGoverningEquations}).
 Additionally, the Einstein summation convention is used in this notation and due to the incompressible regime, $\rho$ and $\mu$ are constants.\\
-The flow behaviour of viscous fluids can be separated into two regimes.
+The flow behavior of viscous fluids can be separated into two regimes.
 Laminar flow, turbulent flow and the transition between them.
 In laminar flow, the fluid particles move in parallel paths and are constant in time. 
 In turbulent flow, the instantaneous movement of the fluid is stochastic, while the mean flow is dependent by the flow condition and the shape of the flow domain.
 Only fully turbulent flows are considered in this work.\\
+Due to the stochastic behavior of turbulent flows, in most cases averaged values are considered.
+Averaging in this sense means, that a time average, as well as spacial averaging is performed, to obtain mean values.\\
 In the following chapter, first, the basics of wall bounded turbulence behaviour is explained, followed by an explanation of the surface roughness.
 
-
-\section{Description of turbulent wall bounded flows}\label{sec: Description of turbulent flows}
-
-To be able to understand turbulent behaviour in a rough regime, it is first important, to give an overview of turbulent wall bounded flows in general, since it gives the bases for the interpretations later in this thesis VERWEIS AUF KAPITEL.
-In the general descriptions of turbulent flow, like for example~\cite{popeTurbulentFlows2015}, a smooth wall is assumed.\\
+\section{Description of turbulent flows} \label{sec: Description of turbulent flows}
+To be able to understand turbulent behavior in a rough regime, it is first important to give an overview of turbulent wall bounded flows in general, since it gives the bases for the interpretations in \autoref{chap: Results}.
+In the general descriptions of turbulent flow, like for example by~\cite{popeTurbulentFlows2015}, a smooth wall is assumed.
+This is also the case in this chapter, if not stated otherwise.
+\subsection{Nondimensionalization in turbulent flows}\label{subsec: Nondimensionalization of turbulent flows}
 %In turbulent flows, structures in a multitude of scales emerge.
 %The minimum scale of the elements is limited by the viscosity of the fluid, since the smallest scales are dissipated by viscosity and disappear.
 Two of the canonical configurations to study turbulent wall bounded turbulent flows are the channel and pipe, both of which have been throughly studied.
 The channel among many others by~\cite{kimTurbulenceStatisticsFully1987} and~\cite{leeDirectNumericalSimulation2015}, and the pipe by~\cite{jimenezCascadesWallBoundedTurbulence2012} and~\cite{yaoDirectNumericalSimulations2023}.
 It has shown, that wall bounded turbulence behaves very similarly in both configurations (\cite{khouryTurbulentPipeFlow2014},~\cite{kimProgressPipeChannel2012}).\\
-
-ÜBERLEITUNG
-
-\begin{itemize}
-    \item Iwas zu Navier Stokes / governing equations
-    \item Turbulent nondimensionalization
-    \item Stresses (und budgets einführen)
-    \item Velocity profiles usw
-\end{itemize}
-
-bEGRÜNDUNG SCHREIBEN WARUM WIR NONDIMENSIONALISIEREN
-The viscous units are introduced, which are used to nondimensionalize the emerging quantities in turbulent flows.
+After performing a nondimensionalization, viscous units are obtained.
+They are used to nondimensionalize the emerging quantities in turbulent flows.
 The two scaling quantities are
 \begin{equation}\label{eq: viscous scaling units}
     \text{Friction velocity: }\quad u_\tau = \sqrt{\frac{\tau_w}{\rho}} \qquad \text{Viscous length scale:}\quad \delta_\nu = \frac{\nu}{u_\tau}
@@ -53,50 +42,71 @@ They are both dependent on the fluid properties $\rho$ and $\nu$, as well as the
 \begin{equation}\label{eq: wall shear stress}
    \text{Wall shear stress: } \quad \tau_w = \mu \frac{d U}{dy}
 \end{equation}
-and quantifies the friction of the flow at the wall due to the viscosity of the fluid.
-The viscosity is dominant at the wall, hence the wall shear stress is the only stress active at the wall and it keeps being dominant in the near wall region.
-With a growing distance to the wall the influence of viscosity decreases, while the importance of the Reynolds stresses, described in later in this section, increases (\cite{popeTurbulentFlows2015}).\\
+and quantifies the friction of the flow at the wall due to the viscosity of the fluid.\\
 Using the friction velocity $u_\tau$, the viscosity $\nu$ and the characteristic length $\delta$, which is typically the radius R in a pipe, the friction Reynolds number $Re_\tau$ is defined as
 \begin{equation}\label{eq: friction reynolds number}
    \text{Friction Reynolds number: }\quad Re_\tau = \frac{u_\tau \delta}{\nu} = \frac{\delta}{\delta_\nu}
 \end{equation}
-which is the non-dimensionalized Reynolds number in viscous scales.
+which is the nondimensionalized Reynolds number in viscous scales.
 NOCH BISSCHEN ERKLÄREN WAS RETAU IST, describes ration between small and large scales usw\\
 
 
-Using the viscous scales $\delta_\nu$ and $u_\tau$, the non dimensionalized plus units $U^+$ and $y^+$ can be computed.
+Using the viscous scales $\delta_\nu$ and $u_\tau$, the nondimensionalized plus units $U^+$ and $y^+$ can be computed.
 They are denoted by the $+$ superscript and are also called `viscous units' or `inner units' depending on the literature.
 \begin{equation}
     U^+ = \frac{U}{u_\tau} \qquad \text{and} \qquad y^+ = \frac{y}{\delta_\nu}
 \end{equation}
 If the data is scaled using the viscous scales, the velocity profiles of similar wall bounded turbulence flows collapse onto another, independent of the Reynolds number, as shown in \autoref{fig: smooth U^+ over y^+}, which depicts reference data for smooth pipes of various friction Reynolds numbers.
-The respective lift above the log law line is expected for pipes, and reduces for channel flows (\cite{khouryTurbulentPipeFlow2014}).
-Also, it can be seen, that the velocity profiles can be divided into three main regions.
-The viscous sublayer where $y^+ < 5$, the logarithmic region where $y^+ > 30$ and the buffer region in between.
-Within the viscous sublayer, the law of the wall $U^+ = y^+$ holds. 
-Within the logarithmic region, the log law $U^+ = \frac{1}{\kappa}\ln{y^+} + A$, with $\kappa$ and $A$ can be chosen according to the individual case, since the values differ slightly for different friction Reynolds numbers. ZITAT
-In this thesis $\kappa = 0.41$ and $A = 5.2$ are used, according to the values in~\cite{popeTurbulentFlows2015}.
 \begin{figure}
     \centering
     \input{plots/Uplus_yplus_reference.pgf}
     \caption{Comparison of the streamwise velocity profiles over the wall distance nondimensionalized in viscous units $U^+$ and $y^+$. Data for cases $Re_\tau 180, 550$ and $1000$ taken from~\cite{yaoDirectNumericalSimulations2023} and $Re_\tau = 360$ from~\cite{elkhouryDirectNumericalSimulation2013}}
     \label{fig: smooth U^+ over y^+}
 \end{figure}
+The respective lift above the log law line is expected for pipes, and reduces for channel flows (\cite{khouryTurbulentPipeFlow2014}).
+Also, it can be seen, that the velocity profiles can be divided into three main regions.
+The viscous sublayer where $y^+ < 5$, the logarithmic region where $y^+ > 30$ and the buffer region in between.
+Within the viscous sublayer, the law of the wall $U^+ = y^+$ holds. 
+Within the logarithmic region, the log law $U^+ = \frac{1}{\kappa}\ln{y^+} + A$, with $\kappa$ and $A$ can be chosen according to the individual case, since the values differ slightly for different friction Reynolds numbers. ZITAT
+In this thesis $\kappa = 0.41$ and $A = 5.2$ are used, according to the values in~\cite{popeTurbulentFlows2015}.
 
 
-\paragraph{Stresses in turbulent flows}\label{par: stresses}
+\subsection{Stresses in turbulent flows}\label{subsec: stresses in turbulence}
 The stress tensor of a turbulent flow is a second order symmetric tensor and its components are the Reynolds stresses.
 The stress tensor is denoted as 
 \begin{equation} \label{eq: Reynolds stresses}
     R_{ij} = \langle u'_i u'_j \rangle
 \end{equation}
-The diagonal components $\langle u'_iu'_i\rangle$ are the normal stresses and the off diagonal components $\langle u'_1 u'_2 \rangle$ and $\langle u'_2u'_1 \rangle$ denote the shear stresses (\cite{popeTurbulentFlows2015}).
+The diagonal components $\langle u'_iu'_i\rangle$ are the normal stresses and the off diagonal components $\langle u'_1 u'_2 \rangle$ and $\langle u'_2u'_1 \rangle$ denote the Reynolds shear stresses (\cite{popeTurbulentFlows2015}).
+However, due to the symmetric nature of $R_{ij}$, $u'_1u'_2$ and $u'_2u'_1$ are equivalent, and only $u'_1u'_2$ is considered. 
 The prime supersrcipt ' denotes the instantaneous fluctuations, which are the instantaneous values subatracted from their respective mean.
 Symbols with $\langle \rangle$ are averaged quantities.
-%It is important to note that $\langle u'_3 \rangle = 0$, as described in \cite{popeTurbulentFlows2015}.
+The stresses emerging in turbulent wall bounded flows are
+\begin{equation}
+    \text{viscous stress: } \rho \nu \frac{dU}{dr} \quad \text{Reynolds stress:} -\rho \langle uv \rangle
+\end{equation}
+The viscosity is dominant at the wall, hence the wall shear stress is the only stress active at the wall and it keeps being dominant in the near wall region.
+With a growing distance to the wall the influence of viscosity decreases, while the importance of the Reynolds stresses, increases until it is the only active stress (\cite{popeTurbulentFlows2015}).
 
-
-%\section{Numerics}\label{sec: Numerics}
+\paragraph{Dispersive stresses} \label{par: dispersive stresses}
+%For wall bounded turbulent flows over rough surfaces, additionally to viscous shear stresses and turbulent shear stresses dispersive stresses arise.
+In turbulent flows, the spacially and temproally varying quantities can be decomposed into a time averaged component and fluctuating component as
+\begin{equation}\label{eq: reynolds decomposition}
+    u_i = \overline{u_i} + u'_i
+\end{equation}
+with the overline $\overline{u_i}$ denotes the time averaged component and the prime superscript $'$ denotes the instantaneous fluctuation~(\cite{chanSecondaryMotionTurbulent2018}) ANDERES ZITAT FINDEN.
+The fluctuating component can be further decompositioned into a spacially varying fluctuation $\tilde{u_i}$ and the fluctuation about the time averaged mean $u''_i$ UMFORMULIEREN.
+The spacial fluctuations $\overline{u_i}$ appear due to the surface roughness and vary in space.
+For a smooth wall case the fluctuations are constant in space, such that $\tilde{u_i} = 0$ and thus $u'_i = u''_i$, which means that spacial fluctuations are not existent in smooth cases (\cite{chanSecondaryMotionTurbulent2018}).\\
+The dispersive stresses, also called form-induced stresses, arise from the double averaging operation (\cite{busseReynoldsnumberDependenceNearwall2017}).
+Double averaging is a two stage averaging operation, in which the first average is performed in time, also called Reynolds averaging~(\cite{raupachAveragingProceduresFlow1982}).
+The second step performs a spacial average on the \acrshort{rans} equations which yields the \acrfull{da} \acrlong{nse}~\cite{busseReynoldsnumberDependenceNearwall2017} ANDERES ZITAT FINDEN.
+The dispersive stresses quantifiy the momentum transport in the time averaged flow over surface roughness, as described by \cite{manesSignificanceForminducedStress2008}.
+After performing the double averaging operation, the dispersive stress tensor can be defined by~\cite{busseReynoldsnumberDependenceNearwall2017} as
+\begin{equation}\label{eq: dispersive stress tensor}
+    D_{ij} = \langle \tilde{u_i} \tilde{u_j} \rangle
+\end{equation}
+The application of the double averaging procedure, thus the derivation of the dispersive stress tensor is shown in~\autoref{apx: derivation of dispersive stress}.
 
 \section{Roughness}\label{sec: Roughness}
 
@@ -146,7 +156,6 @@ The method is dividing the surface into tiles and calculating the difference bet
 The mean of the differences results in  the mean peak-to-valley height $k$, which is also used as the measurement for roughness height in this thesis, according to~\cite{demaioDirectNumericalSimulation2023}.
 For this study the rough surface is divided into 25 rectangular tiles of equal size.
 Equal size means in this context, that the same number of grid points are used for the length and width of the tiles.\\
-
 It is important to note, that not all surface parameters are fully independent of each other.
 Especially the height parameters, $S_a, S_q$ and $S_{z,5x5}$ have a dependence on each other, and cannot be chosen arbirarily for nonperiodic inhomogeneous roughness ZITAT.
 The skewness and effective slope however can be controlled independently by the algorithm presented in \autoref{subsec: Surface generation algorithm}.
