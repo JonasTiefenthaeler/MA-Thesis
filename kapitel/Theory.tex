@@ -1,7 +1,6 @@
 \chapter{Theory}\label{chap: Theory}
-
 Motions of viscous fluids are described by a set of equations, called the \acrfull{nse} ZITAT.
-To simulate the behaviour of fluid motion these partial differential equations have to be integrated by the simulation code.
+To simulate the behaviour of fluid motion these partial differential equations have to be numerically integrated by the simulation code.
 They consist of the mass conservation equation, also called the continuity equation
 \begin{equation}\label{eq: conservation equation}
     \frac{\partial u_i}{\partial x_i} = 0
@@ -10,27 +9,28 @@ and the momentum equation
 \begin{equation}\label{eq: momentum equation}
     \rho \left(\frac{\partial u_i}{\partial t} + u_j \frac{\partial u_i}{\partial x_j}\right) = -\frac{\partial p}{\partial x_i} + \mu\frac{\partial^2 u_i}{\partial x_j \partial x_j} + \rho g_i
 \end{equation}
-both shown for the incompressible regime, which is considered throughout this work (\cite{NekoGoverningEquations}).
-Additionally, the Einstein summation convention is used in this notation and due to the incompressible regime, $\rho$ and $\mu$ are constants.\\
-The flow behavior of viscous fluids can be separated into two regimes.
-Laminar flow, turbulent flow and the transition between them.
+both shown for the incompressible regime, which is considered throughout this work \citep{schlichtingBoundaryLayerTheory2017}.
+Additionally, the Einstein summation convention is used in this notation and due to the incompressible regime $\rho$ and $\mu$ are constants.\\
+The flow behavior of viscous fluids can be separated into two main regimes.
+Laminar flow, turbulent flow and additionally the transition between them.
 In laminar flow, the fluid particles move in parallel paths and are constant in time. 
 In turbulent flow, the instantaneous movement of the fluid is stochastic, while the mean flow is dependent by the flow condition and the shape of the flow domain.
 Only fully turbulent flows are considered in this work.\\
 Due to the stochastic behavior of turbulent flows, in most cases averaged values are considered.
-Averaging in this sense means, that a time average, as well as spacial averaging is performed, to obtain mean values.\\
+However, also instantaneous velocity fields can yield additional information, e.g.\ the analysis of the instantaneous streaks \citep{yaoDirectNumericalSimulations2023}.
+Averaging in this sense means, that a time average, as well as spacial averaging is performed, hence a \acrfull{da} operation \citep{raupachAveragingProceduresFlow1982}, to obtain mean values.\\
 In the following chapter, first, the basics of wall bounded turbulence behaviour is explained, followed by an explanation of the surface roughness.
 
 \section{Description of turbulent flows} \label{sec: Description of turbulent flows}
-To be able to understand turbulent behavior in a rough regime, it is first important to give an overview of turbulent wall bounded flows in general, since it gives the bases for the interpretations in \autoref{chap: Results}.
-In the general descriptions of turbulent flow, like for example by~\cite{popeTurbulentFlows2015}, a smooth wall is assumed.
-This is also the case in this chapter, if not stated otherwise.
+To be able to understand turbulent behavior in a rough regime, it is first important to give an overview of turbulent wall bounded flows in general, since it gives the bases for the interpretations throughout this work.
+In the general descriptions of turbulent flow, e.g.\ by~\cite{popeTurbulentFlows2015}, a smooth wall is assumed.
+This is also the case in this chapter, if not stated otherwise.\\
+Two of the canonical configurations to study turbulent wall bounded turbulent flows are the channel and pipe, both of which have been throughly studied.
+The channel among many others by~\cite{kimTurbulenceStatisticsFully1987} and~\cite{leeDirectNumericalSimulation2015}, and the pipe by~\cite{jimenezCascadesWallBoundedTurbulence2012} and~\cite{yaoDirectNumericalSimulations2023}.
+It has shown, that wall bounded turbulence behaves very similarly in both configurations (\cite{khouryTurbulentPipeFlow2014},~\cite{kimProgressPipeChannel2012}).
 \subsection{Nondimensionalization in turbulent flows}\label{subsec: Nondimensionalization of turbulent flows}
 %In turbulent flows, structures in a multitude of scales emerge.
 %The minimum scale of the elements is limited by the viscosity of the fluid, since the smallest scales are dissipated by viscosity and disappear.
-Two of the canonical configurations to study turbulent wall bounded turbulent flows are the channel and pipe, both of which have been throughly studied.
-The channel among many others by~\cite{kimTurbulenceStatisticsFully1987} and~\cite{leeDirectNumericalSimulation2015}, and the pipe by~\cite{jimenezCascadesWallBoundedTurbulence2012} and~\cite{yaoDirectNumericalSimulations2023}.
-It has shown, that wall bounded turbulence behaves very similarly in both configurations (\cite{khouryTurbulentPipeFlow2014},~\cite{kimProgressPipeChannel2012}).\\
 After performing a nondimensionalization, viscous units are obtained.
 They are used to nondimensionalize the emerging quantities in turbulent flows.
 The two scaling quantities are
@@ -42,15 +42,12 @@ They are both dependent on the fluid properties $\rho$ and $\nu$, as well as the
 \begin{equation}\label{eq: wall shear stress}
    \text{Wall shear stress: } \quad \tau_w = \mu \frac{d U}{dy}
 \end{equation}
-and quantifies the friction of the flow at the wall due to the viscosity of the fluid.\\
+and quantifies the friction of the flow to the viscosity of the fluid.\\
 Using the friction velocity $u_\tau$, the viscosity $\nu$ and the characteristic length $\delta$, which is typically the radius R in a pipe, the friction Reynolds number $Re_\tau$ is defined as
 \begin{equation}\label{eq: friction reynolds number}
    \text{Friction Reynolds number: }\quad Re_\tau = \frac{u_\tau \delta}{\nu} = \frac{\delta}{\delta_\nu}
 \end{equation}
-which is the nondimensionalized Reynolds number in viscous scales.
-NOCH BISSCHEN ERKLÄREN WAS RETAU IST, describes ration between small and large scales usw\\
-
-
+The similarity between $Re_\tau$ and the Reynoldsnumber $Re = \frac{u \delta}{\nu}$ is obvious, which makes it more intuitive, that $Re_\tau$ is the nondimensionalized Reynolds number in viscous scales \citep{popeTurbulentFlows2015}. $Re_\tau$ describes the ration between the largest scales, typically with the size $~\delta$ and the smallest scales in the turbulent flow \citep{marusicWallboundedTurbulentFlows2010}. PRÜFEN\\
 Using the viscous scales $\delta_\nu$ and $u_\tau$, the nondimensionalized plus units $U^+$ and $y^+$ can be computed.
 They are denoted by the $+$ superscript and are also called `viscous units' or `inner units' depending on the literature.
 \begin{equation}
@@ -59,7 +56,7 @@ They are denoted by the $+$ superscript and are also called `viscous units' or `
 If the data is scaled using the viscous scales, the velocity profiles of similar wall bounded turbulence flows collapse onto another, independent of the Reynolds number, as shown in \autoref{fig: smooth U^+ over y^+}, which depicts reference data for smooth pipes of various friction Reynolds numbers.
 \begin{figure}
     \centering
-    \input{plots/Uplus_yplus_reference.pgf}
+    \input{plots/Theory/Uplus_yplus_reference.pgf}
     \caption{Comparison of the streamwise velocity profiles over the wall distance nondimensionalized in viscous units $U^+$ and $y^+$. Data for cases $Re_\tau 180, 550$ and $1000$ taken from~\cite{yaoDirectNumericalSimulations2023} and $Re_\tau = 360$ from~\cite{elkhouryDirectNumericalSimulation2013}}
     \label{fig: smooth U^+ over y^+}
 \end{figure}
@@ -109,24 +106,24 @@ After performing the double averaging operation, the dispersive stress tensor ca
 The application of the double averaging procedure, thus the derivation of the dispersive stress tensor is shown in~\autoref{apx: derivation of dispersive stress}.
 
 \section{Roughness}\label{sec: Roughness}
+Turbulent flows show a different behavior if they are exposed to rough surfaces.
+Turbulent flows over rough surfaces are mostly studied in the canonical channel case, e.g.\ by \citep{thakkarInvestigationTurbulentFlow2017,flackSkinFrictionMeasurements2020,kimTurbulenceStatisticsFully1987,jellyReynoldsDispersiveShear2018}.
+While the turbulent rough pipe has received less attention \citep{chanSystematicInvestigationRoughness2015,demaioDirectNumericalSimulation2023}.
+Some studies used isolated roughness elements to find the impact of individual roughness features \citeauthor{chatzikyriakouDNSTurbulentFlow2015}, while others tried to investigate the real world turbulence behavior by using scanned surfaces of real objects \citep{thakkarSurfaceCorrelationsHydrodynamic2017,flackSkinFrictionMeasurements2020,frohnapfelFlowResistanceHeterogeneous2024}.
 
-\subsection{Roughness parameters}\label{subsec: Roughness parameters}
-
+\subsection{Defining rough surfaces}\label{subsec: defining rough surfaces}
 To be able to describe rough surfaces, a multitude of roughness parameters exist, as described by~\cite{chungPredictingDragRough2021}.
 The influence of each parameter remains an open research question, which is focused on by many researches (\cite{flackReviewHydraulicRoughness2010},~\cite{jellyReynoldsDispersiveShear2018}).
-However, it remains unclear, whether it is possible to associate individual surface parameters to specific flow characteristics, or if there is always a more general influence of the surface on the turbulent flow (\cite{chungPredictingDragRough2021}).\\
-In order to be able to address this question and to keep the provided data comparable with current literature, it is important to consider a wide range of surface parameters. 
+However, it remains unclear, whether it is possible to associate individual surface parameters to specific flow characteristics, or if there is always a more general influence of the surface on the turbulent flow \citep{chungPredictingDragRough2021}.\\
+In order to be able to address this question, it is important to consider a wide range of surface parameters. 
 The considered roughness parameters in this work are:
-
 \paragraph{Average roughness height}
-
 The average roughness height is the mean deviation  of the surface from the virtual origin $y=0$
 \begin{equation}\label{eq: avg roughness height}
     S_a = \sum_{i,j}^{M,N} |h_{i,j}| / (MN)
 \end{equation}
 
 \paragraph{Root-mean-squeare roughness height}
-
 \begin{equation}
     S_q = \sqrt{\sum_{i,j}^{M,N} h_{i,j}^{2}} / (MN)
 \end{equation}
@@ -146,6 +143,8 @@ The maximum peak-to-valley height is the difference between the highest and lowe
 
 \paragraph{Effective slope}
 The effective slope is the absolute gradient of the rough surface as described by~\cite{napoliEffectSlopeIrregularly2008}.
+In this work, the full effective slope is used, which means the slope in streamwise, as well as azimuthal direction is considered.
+Other literature like \citep{jellyReynoldsDispersiveShear2018,maDirectNumericalSimulation2021} use the streamwise and azimuthal effective slope individually.
 \begin{equation}
     ES = \frac{1}{L_x L_y} \int_0^{L_x} \int_0^{L_y} \left| \frac{\mathrm{d}h}{\mathrm{d}x} \right|_{i,j} \mathrm{d}x \, \mathrm{d}y
 \end{equation}
@@ -156,14 +155,17 @@ The method is dividing the surface into tiles and calculating the difference bet
 The mean of the differences results in  the mean peak-to-valley height $k$, which is also used as the measurement for roughness height in this thesis, according to~\cite{demaioDirectNumericalSimulation2023}.
 For this study the rough surface is divided into 25 rectangular tiles of equal size.
 Equal size means in this context, that the same number of grid points are used for the length and width of the tiles.\\
+\\
 It is important to note, that not all surface parameters are fully independent of each other.
-Especially the height parameters, $S_a, S_q$ and $S_{z,5x5}$ have a dependence on each other, and cannot be chosen arbirarily for nonperiodic inhomogeneous roughness ZITAT.
+Especially the height parameters, $S_a, S_q$ and $S_{z,5x5}$ have a dependence on each other, and cannot be chosen arbirarily for nonperiodic inhomogeneous roughness \citep{perez-rafolsGeneratingRandomlyRough2019}.
 The skewness and effective slope however can be controlled independently by the algorithm presented in \autoref{subsec: Surface generation algorithm}.
+Also, the choice of the considered parameters is not universal and changes by the choice of the individual researcher \citep{busseReynoldsnumberDependenceNearwall2017,demaioDirectNumericalSimulation2023,thakkarInvestigationTurbulentFlow2017}.
+
 
 \subsection{Virtual origin}\label{subsec: Virtual origin}
 
-The virtual origin is a reference plane, which is taken as the basis for measuring the wall distance $y$~(\cite{chungPredictingDragRough2021}).
-In a smooth wall case, there is no virtual origin, since all data can be calculated from the wall itself, hence the point where the no-slip condition is active~(\cite{chanSystematicInvestigationRoughness2015}), which leads to consistent wall distances for every point in the field.\\
+The virtual origin is a reference plane, which is taken as the basis for measuring the wall distance $y$~\citep{chungPredictingDragRough2021}.
+In a smooth wall case, there is no virtual origin, since all data can be calculated from the wall itself, hence the point where the no-slip condition is active~\citep{chanSystematicInvestigationRoughness2015}, which leads to consistent wall distances for every point in the field.\\
 Yet, in a rough wall case, this is not as straightforward.
 Due to wall roughness, the distance from e.g. the pipe center to the wall varies continuously over the whole flow field.
 To be able to compute consistent data, a virtual origin, hence the position at which $y^+ = 0$ applies, has to be defined. 
@@ -172,15 +174,16 @@ Notable methods are the usage of the mean momentum absorption plane by~\cite{tho
 A third approach is to take the mean radius of the rough surface for the virtual origin.\\
 In the investigation by~\cite{chanSystematicInvestigationRoughness2015}, all three of the approaches are compared. 
 The approach of using the mean radius for the virtual origin seems to offer the best correlation between the considered smooth and rough cases in that particular study.
-All data presented in this work define $y^+ = 0$ to be at the mean radius of the pipe.
+All data presented in this work defines $y^+ = 0$ to be at the mean radius of the pipe.
 
-\subsection{Influence of surface roughness on drag}\label{subsec: Roughness influence on drag}
-Turbulent flows over rough surfaces expereice a increased drag ZITAT.
-This is due to ... NOCH WAS DAZU SCHREIBEN.
+\subsection{Influence of surface roughness on turbulent flow}\label{subsec: Roughness influence on turbulent flow}
+Turbulent flows over rough surfaces experience an increased drag \citet{chungPredictingDragRough2021}.
+The main reason is the addition of pressure drag compared to smooth wall cases.
+The investigations by~\cite{macdonaldTurbulentFlowTransitionally2016} indicate a significant influence of the pressure drag.
 The increased drag manifests itself in a downshift of the log-law of the velocity profile,  as depicted in \autoref{fig: U+ over y+ smooth vs rough}.
 \begin{figure}
     \centering
-    \input{plots/Uplus_yplus_rough_vs_smooth.pgf}
+    \input{plots/Theory/Uplus_yplus_rough_vs_smooth.pgf}
     \caption{$U^+$ over $y^+$ for a smooth walled and rough walled pipe with similar friction Reynolds numbers. Data for smooth pipe is taken from \cite{yaoDirectNumericalSimulations2023}, data for rough walled pipe taken from \cite{demaioDirectNumericalSimulation2023}}
     \label{fig: U+ over y+ smooth vs rough}
 \end{figure}
@@ -188,10 +191,11 @@ This downshift is the difference between the velocity profiles of turbulent flow
 \begin{equation}
     \Delta U^+(k_s^+) = U_s^+ - U_R^+ = \frac{1}{\kappa}\ln{k_s^+} + A - B_s(k_s^+) 
 \end{equation}
-with $k_s^+$ representing the equivalent sand-grain roughness and $B_s(k_s^+)$ the B BESHCREIBEN.
+with $k_s^+$ representing the equivalent sand-grain roughness and $B_s(k_s^+)$ the downward shift of the wall intercept, which is dependent on the wall roughness.\\
 $k_s^+$ is the roughness height $k_s$ scaled in wall units $\displaystyle k_s^+ = \frac{k_s}{\delta_{\nu}}$.
 The definition of $k_s$ does not follow a universal law and its choice varies for different surfaces, but there are studies, that try to link certain surface topographies to $k_s$, like \cite{flackReviewHydraulicRoughness2010}.
-Additionally, the research of \cite{flackSkinFrictionMeasurements2020} indicates, that a measure of height of the roughness elements ($S_q$ or $S_m$), the Skewness $Sq$ and the effective slope $ES$ are the most influential parameters to $k_s$.
+Additionally, the research of \cite{flackSkinFrictionMeasurements2020} indicates, that a measure of height of the roughness elements ($S_q$ or $S_m$), the Skewness $Sq$ and the effective slope $ES$ are the most influential parameters to $k_s$.\\
+
 
 
 
