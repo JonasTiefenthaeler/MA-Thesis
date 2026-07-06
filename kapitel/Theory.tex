@@ -48,7 +48,7 @@ Using the friction velocity $u_\tau$, the viscosity $\nu$ and the characteristic
    \text{Friction Reynolds number: }\quad Re_\tau = \frac{u_\tau \delta}{\nu} = \frac{\delta}{\delta_\nu}
 \end{equation}
 The similarity between $Re_\tau$ and the Reynoldsnumber $Re = \frac{u \delta}{\nu}$ is obvious, which makes it more intuitive, that $Re_\tau$ is the nondimensionalized Reynolds number in viscous scales \citep{popeTurbulentFlows2015}. 
-$Re_\tau$ describes the ration between the largest scales, typically with the size $~\delta$ and the smallest scales in the turbulent flow \citep{marusicWallboundedTurbulentFlows2010}. PRÜFEN\\
+$Re_\tau$ describes the ration between the larges scales, typically with the size $~\delta$ and the visous length scale, which is roughly the same size as the smallest eddies, since it is of the same order as the Kolmogorov length $\eta$~\citep{marusicWallboundedTurbulentFlows2010, jimenezNearwallTurbulence2013}.\\
 Using the viscous scales $\delta_\nu$ and $u_\tau$, the nondimensionalized plus units $U^+$ and $y^+$ can be computed.
 They are denoted by the $+$ superscript and are also called `viscous units' or `inner units' depending on the literature.
 \begin{equation}
@@ -108,15 +108,16 @@ The application of the double averaging procedure, thus the derivation of the di
 
 \section{Roughness}\label{sec: Roughness}
 Turbulent flows show a different behavior if they are exposed to rough surfaces.
-Turbulent flows over rough surfaces are mostly studied in the canonical channel case, e.g.\ by \citep{thakkarInvestigationTurbulentFlow2017,flackSkinFrictionMeasurements2020,kimTurbulenceStatisticsFully1987,jellyReynoldsDispersiveShear2018}.
-While the turbulent rough pipe has received less attention \citep{chanSystematicInvestigationRoughness2015,demaioDirectNumericalSimulation2023}.
-Some studies used isolated roughness elements to find the impact of individual roughness features \citeauthor{chatzikyriakouDNSTurbulentFlow2015}, while others tried to investigate the real world turbulence behavior by using scanned surfaces of real objects \citep{thakkarSurfaceCorrelationsHydrodynamic2017,flackSkinFrictionMeasurements2020,frohnapfelFlowResistanceHeterogeneous2024}.
+Turbulent flows over rough surfaces are mostly studied in the canonical channel case, e.g.\ by \citep{thakkarInvestigationTurbulentFlow2017,flackSkinFrictionMeasurements2020,kimTurbulenceStatisticsFully1987,jellyReynoldsDispersiveShear2018}, while the turbulent rough pipe has received less attention \citep{chanSystematicInvestigationRoughness2015,demaioDirectNumericalSimulation2023}.
+Some studies used isolated roughness elements to find the impact of individual roughness features \citep{chatzikyriakouDNSTurbulentFlow2015}, while others tried to investigate the real world turbulence behavior by using scanned surfaces of real objects \citep{thakkarSurfaceCorrelationsHydrodynamic2017,flackSkinFrictionMeasurements2020,frohnapfelFlowResistanceHeterogeneous2024}.
 
 \subsection{Defining rough surfaces}\label{subsec: defining rough surfaces}
 To be able to describe rough surfaces, a multitude of roughness parameters exist, as described by~\cite{chungPredictingDragRough2021}.
-The influence of each parameter remains an open research question, which is focused on by many researches (\cite{flackReviewHydraulicRoughness2010},~\cite{jellyReynoldsDispersiveShear2018}).
+The influence of each parameter remains an open research question, which is focused on by many researches \citep{flackReviewHydraulicRoughness2010,jellyReynoldsDispersiveShear2018}.
 However, it remains unclear, whether it is possible to associate individual surface parameters to specific flow characteristics, or if there is always a more general influence of the surface on the turbulent flow \citep{chungPredictingDragRough2021}.\\
-In order to be able to address this question, it is important to consider a wide range of surface parameters. 
+%In order quantify the roughness appropriately a wide range of surface parameters have to be considered.
+Since it is often impossible to recreate rough surfaces in past studies \citep{chungPredictingDragRough2021}, it is important to provide a wide range of surface parameters, to be able to quantify the surface roughness appropriately.
+This enables further studies to validate the data of the present study, as well as their data.
 The considered roughness parameters in this work are:
 \paragraph{Average roughness height}
 The average roughness height is the mean deviation  of the surface from the virtual origin $y=0$
