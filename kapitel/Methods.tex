@@ -14,6 +14,16 @@ Only \acrfull{dns} will be performed in this work, however \acrfull{les} models 
 
 
 \section{Simulation setup}\label{sec: Simulation setup}
+For this study, the canonical setup of the pipe is used.
+In the pipe azimuthal periodicity is given by default \citep{yaoDirectNumericalSimulations2023}.\\
+To obtain a usable simulation setup, one or multiple \acrfull{bcs} and a \acrfull{ic} has to be defined.
+The \acrshort{bc} defines parameters, that are set throughout the duration of the simulation.
+The \acrshort{ic} sets specific parameters at the initial state of the simulation, which deviate from the initial state over the course of the simulation.
+For the \acrfull{bcs}, the Dirichlet \acrshort{bc} at the pipe wall is used, which states that the fluid at the wall  moves with the same velocity as the wall itself, in this setup all velocities are set to zero at the wall: $u_i = 0 \ \text{for}\ y = 0$.
+Furthermore, a periodic boundary condition for the inflow and outflow of the pipe is used, which means that fluid that leaves the pipe domain at the outflow, reenters the pipe at the inflow: $u_{i_{l = 0}} = u_{i_{l=L}}$.\\
+The initial condition is important to support a fast transition to turbulence.
+A fast transition to turbulence is favorable, since it saves computational resources.
+This is achieved by having a basis of a laminar velocity profile, which is overlaid by large- and small scale disturbances, which are intended to disrupt the laminar flowfield and this support transition to turbulence.  
 
 \section{Generating rough surfaces}\label{sec:generating rough surfaces}
 

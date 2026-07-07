@@ -40,4 +40,9 @@ kapitel/Validation.aux
 *.acr
 *.ist
 *.aux
-
+*.acr
+*.alg
+*.ist
+MA-Thesis.acr
+MA-Thesis.alg
+MA-Thesis.ist
