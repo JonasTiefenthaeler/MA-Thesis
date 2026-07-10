@@ -34,7 +34,8 @@ Since the turbulent scales are decreasing near the wall and the viscous sublayer
 Vice versa, the mesh can be coarsened towards the pipe center, without sacrificing correct results.
 \begin{figure}
     \centering
-    \input{plots/mesh_19000Reb_crossSection.pgf}
+    \includegraphics[width = 0.5\textwidth]{mesh_19000Reb_crossSection.pdf}
+    %\input{plots/mesh_19000Reb_crossSection.pgf}
     \caption{Exemplary image of simulation mesh}
     \label{fig: simulation mesh}
 \end{figure}
@@ -49,6 +50,32 @@ Since it is necessary to resolve the near-wall region well, a geometric progress
 The number of elements in azimuthal direction $N_\theta$ is also user defined.
 $N_\theta$ also implicitly defines the number of elements in the unstructured part, since a mesh  size or number of elements cannot be explicitly defined.
 All simulation meshes consists purely of quad elements, since NEKO can only handle quad elements.
+\section{Performed simulations}\label{sec: performed simulations}
+To improve the understanding of the behavior of turbulence over rough surfaces, a multitude of simulations are performed in this work.
+The rough surfaces as well as the Reynolds numbers are altered, to gain a comprehensive insight into the roughness effects in turbulent flows.
+A total number of nine simulations are performed.
+Three different surfaces are considered, and all three surfaces are studied using three different Reynolds numbers.
+The chosen bulk Reynolds numbers are $5700,\ 11700$ and $19000$.
+Those were chosen, since they are the Reynolds numbers for the typical friction Reynolds numbers $Re_\tau = 180,\ 360$ and $550$ in smooth pipes \citep{yaoDirectNumericalSimulations2023,elkhouryDirectNumericalSimulation2013,kimProgressPipeChannel2012}. 
+The considered surfaces are all based on the study by~\cite{demaioDirectNumericalSimulation2023}.
+\begin{table}
+    \centering
+    \begin{tabular}{c c c c c c c}
+        \hline
+        & $S_a$ & $S_q$ & $Sk$  & $S_{z_{max}}$ & $ES$  & $S_{z_{5 \times 5}}$\\
+        \hline
+
+    \end{tabular}
+    \caption{Surface parameters of surfaces}
+    \label{tab: surface parameters of production runs}
+\end{table}
+In \autoref{tab: surface parameters of production runs} all considered surface parameters for all three surfaces are listed.
+One that resembles the grit-blasted surface of~\cite{demaioDirectNumericalSimulation2023} as a basis, and two with decreased roughness $k$.
+The basis surface is not exactly the same, but an approximation.
+The approximation is done, by creating a surface, that shows the same surface parameters, as the surface studies by~\cite{demaioDirectNumericalSimulation2023}.
+It is created using the algorithm described in \autoref{subsec: Surface generation algorithm}
+
+
 \section{Generating rough surfaces}\label{sec:generating rough surfaces}
 Surfaces in real-world engineering applications often exhibit irregular roughness.
 In previous studies often scans of real-world surfaces are used, to perform the simulations, e.g. by \cite{thakkarInvestigationTurbulentFlow2017}, \cite{demaioDirectNumericalSimulation2023} and \cite{busseReynoldsnumberDependenceNearwall2017}.
@@ -217,121 +244,3 @@ By applying the same formulation of \autoref{eq: inverse height function} onto t
 
 NOCH BILD MACHEN UM DAS ZU VERDEUTLICHEN
 
-%\section{Simulation Mesh}
-
-\section{Convergence study}
-A grid resolution as well as time convergence study is conducted to find reasonable parameters for both.
-They sould yield sufficient results while keeping the necessary computational resources manageable.
-The study was conducted using $Re_b = 5700$ in order to have faster computational times.
-For all three cases the length of the pipe is set at $L_z = 8\pi R$, while the radius is unity $R = 1$. 
-
-\subsection{Grid refinement study}\label{subsec: grid refinement study}
-For the grid refinement study, three meshes of varying resolutions are used.
-The resolution are altered in streamwise and azimuthal direction, while keeping the wall-normal resolution fixed.
-Also, the polynomial order is kept constant at $p = 7$ ZITAT.
-The used parameters are listed in \autoref{tab: parameters grid refinement study}.
-\begin{table}
-\centering
-\caption{Simulation parameters for the grid convergence study. $N_z, N_\theta, \Delta_z$ and $\Delta_\theta$ denoting the streamwise and azimuthal number of gridpoints and the resulting gridpoints spacings. The wall normal resolution is kept constant for all cases}
-\begin{tabular}{ c c c c c c c c } 
- \hline
-  $Re_b$    & $Re_\tau$     & $N_z$     & $N_{\theta}$  & $\Delta_z$    & $\Delta_\theta$   & N elements & $Tu_\tau / R$\\
- \hline
- $5700$     & $246.07$      & $448$     & $224$         & $13.80$       & $6.90$            & $26752$    & $21.5$\\ 
- $5700$     & $246.00$      & $560$     & $290$         & $11.04$       & $5.33$            & $44000$    & $21.6$\\ 
- $5700$     & $246.21$      & $672$     & $336$         & $9.21$        & $4.60$            & $67392$    & $21.6$\\ 
- \hline
-\end{tabular}
-\label{tab: parameters grid refinement study}
-\end{table}
-To obtain statistics, the initial transient period is set to be $T = 500$ time units.
-It is chosen to be quite generous, to midigate influences from transition to turbulence.
-The initial transient phase is tested in the time convergence study in \autoref{subsec: Time convergence study}.
-The statistics were taken for $250$ time units, hence between $500 - 750$ time units.
-The results of the grid refinement study is shown in \autoref{fig: Mesh refinement study}.
-In \autoref{subfig: grid convergence uplus} the mean streamwise velocitiy profiles are compared.
-\autoref{subfig: grid convergence RS} shows the Reynolds stresses, while \autoref{subfig: grid convergence total stress} compares the total stresses, including their individual components viscous stress, Reynolds stress and dispersive stress.
-\begin{figure}
-    \centering
-    \begin{subfigure}[t]{0.495\textwidth}
-        \centering
-        \subcaption{}
-        \input{plots/grid_convergence_uplus.pgf}
-        \label{subfig: grid convergence uplus}
-        
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[t]{0.495\textwidth}
-        \centering
-        \subcaption{}
-        \input{plots/grid_convergence_RS.pgf}
-        \label{subfig: grid convergence RS}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[t]{0.495\textwidth}
-        \centering
-        \subcaption{}
-        \input{plots/grid_convergence_totStress.pgf}
-        \label{subfig: grid convergence total stress}
-    \end{subfigure}
-    \caption{First and second order statistics for mesh convergence study.~(a) Mean streamwise velocity profiles $U+$ over wall normal $y+$.~(b) Reynolds stresses $R_{ij}^+$ over wall normal distance $y^+$. Solid line representing $R_{uu}^+$, dashed line $R_{vv}^+$, dotted line $R_{ww}^+$ and dot-dashed line $R_{uv}^+$.~(c) Stresses over wall normal distance r/R. Solid line representing the total stress $\tau_{tot}$, the dashed line the Reynolds stress $\tau_{uv}$, dotted line the viscous stress $\tau_{vis}$ and the dot-dashed line the dispersive stress $\tau_{disp}$. Red line chosen for further study.}
-    \label{fig: Mesh refinement study}
-\end{figure}
-The mean streamwise velocity profiles in \autoref{subfig: grid convergence uplus} show nearly no influence of the grid resolution, which indicates little affect of grid resolution on first order statistics, within reasonable bounds ZITAT.
-The Reynolds stresses in \autoref{subfig: grid convergence RS} show partially a small dependence on grid resolution.
-The values for $R_{vv}, R_{ww}$ and $R_{uv}$ are almost unaffected.
-However, $R_{uu}$ shows a steady increase in its maximum value between $4.06$ and $4.17$ for increasing finer meshes.
-This results in a difference of $~ 2.6\%$ between the highest and lowest value.
-The total stress in \autoref{subfig: grid convergence total stress} seems to be nearly unaffected by the grid resolution. 
-All meshes, including the coarsest mesh shows the expected slope of $1$ in the center region of the pipe ZITAT.
-Additionally, the trends for the viscous stress are identical.
-However, there are slightly different trends for the Reynolds stress and the dispersive stress, as already described above.
-The dispersive stress decreases with increasing mesh resolution.
-The finest mesh shows the lowest dispersive stress, especially in the transition and log-law region. 
-The curves collapse onto another again near the center, when trending towards zero.
-Also in the near-wall region, they behave very similar.\\
-From the grid convergence study can be concluded, that the influence on the shown statistics is small for the used meshes.
-However, it is expected, that the differences will grow with higher Reynolds numbers ZITAT.
-For that reason, the coarsest mesh is not chosen for the study. 
-The number of elements between the finest mesh, and the intermediate mesh is $~64\%$ higher and thus a substantial increase in computational time is expected.
-Since the goal of this study is to compare the results among each other, and not necessarily compare to reference data, and a sufficient convergence is shown, the chosen mesh is the one depicted in red in \autoref{fig: Mesh refinement study}.
-\subsection{Time convergence study}\label{subsec: Time convergence study}
-Using the chosen mesh from \autoref{subsec: grid refinement study}, the time convergence is tested.
-The is done, to find the necessary initial transition time to turbulence, at which the computation of averaged values can start and the necessary averaging time.
-The time interval at which statistics are computed is from $300-750$ time units.
-Every $100$ time units, averaged files were written, such that the flow behavior can be studied in time intervals of $100$ time units.
-The studied averaging times are $500-750, 300-750, 300-600$ and $300-500$.
-The results of the time convergence study are shown in \autoref{fig: Time convergence study}.
-\begin{figure}
-    \centering
-    \begin{subfigure}[t]{0.495\textwidth}
-        \centering
-        \subcaption{}
-        \input{plots/time_convergence_uplus.pgf}
-        \label{subfig: time convergence uplus}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[t]{0.495\textwidth}
-        \centering
-        \subcaption{}
-        \input{plots/time_convergence_RS.pgf}
-        \label{subfig: time convergence RS}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[t]{0.495\textwidth}
-        \centering
-        \subcaption{}
-        \input{plots/time_convergence_totStress.pgf}
-        \label{subfig: time convergence total stress}
-    \end{subfigure}
-    \caption{First and second order statistics for time convergence study.~(a) Mean streamwise velocity profiles $U+$ over wall normal $y+$.~(b) Reynolds stresses $R_{ij}^+$ over wall normal distance $y^+$. Solid line representing $R_{uu}^+$, dashed line $R_{vv}^+$, dotted line $R_{ww}^+$ and dot-dashed line $R_{uv}^+$.~(c) Stresses over wall normal distance r/R. Solid line representing the total stress $\tau_{tot}$, the dashed line the Reynolds stress $\tau_{uv}$, dotted line the viscous stress $\tau_{vis}$ and the dot-dashed line the dispersive stress $\tau_{disp}$. Black line chosen for further study.}
-    \label{fig: Time convergence study}
-\end{figure}
-\autoref{subfig: time convergence uplus} shows the average streamwise velocity profiles, \autoref{subfig: time convergence RS} shows the four Reynolds stresses and \autoref{subfig: time convergence total stress} the total stress, as well as its individual components, as done in \autoref{subsec: grid refinement study}.
-It becomes clear, that the influence of the averaging times on the statistics is very little.
-Only minor differences are existent and if they are, they are minor.
-This indicates validity of the chosen averaging time in \autoref{subsec: grid refinement study}.
-Furthermore, it can be seen, that averaging until $750$ time units is not necessary to obtain valid statistics.
-Eventhough the results shown here support the assumption, that an averaging time from $300-500$ time units is sufficient, it is not chosen for the further study.
-The following study is conducted using averaging between $300-600$ time units, since the time convergence study is performed using $Re_b = 5700$ and higher bulk Reynolds number will be used in the future.
-To that extent to decrease the uncertainty a longer averaging time is chosen.
