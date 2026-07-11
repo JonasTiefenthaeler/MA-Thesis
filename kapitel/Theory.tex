@@ -15,7 +15,7 @@ Additionally, the Einstein summation convention is used in this notation.
 The density $\rho$ and dynamic viscosity $\mu$ are constants, since an incompressible regime is used and the fluid is considered Newtonian.\\
 The flow behavior of viscous fluids can be separated into two main regimes.
 Laminar flow, turbulent flow and additionally the transition between them.
-In laminar flow, the fluid particles move in parallel paths and are constant in time. 
+In laminar flow, the fluid particles move in parallel paths and the paths are constant in time. 
 In turbulent flow, the instantaneous movement of the fluid is stochastic, while the mean flow is dependent by the flow conditions and the shape of the flow domain.
 Only fully turbulent flows are considered in this work.\\
 Due to the stochastic behavior of turbulent flows, in most cases averaged values are considered.
@@ -36,7 +36,7 @@ It has shown, that wall bounded turbulence behaves very similarly in both config
 Dimensional analysis is a powerful tool in turbulence research, since often it is possible to relate dependent and independent quantities with a numerical coefficient \citep{tennekesFirstCourseTurbulence1972}, i.e.\ the scaling units.
 Nondimensionalization in turbulent flows is performed using the viscous scaling units, which are
 \begin{equation}\label{eq: viscous scaling units}
-    \text{Friction velocity: }\ u_\tau = \sqrt{\frac{\tau_w}{\rho}} \qquad \text{Viscous length scale:}\ \delta_\nu = \frac{\nu}{u_\tau}
+    \text{Friction velocity: }\ u_\tau = \sqrt{\frac{\tau_w}{\rho}} \qquad \text{and} \qquad \text{Viscous length scale:}\ \delta_\nu = \frac{\nu}{u_\tau}
 \end{equation}
 while $u_\tau$ is used to scale velocity scales and $\delta_\nu$ scales length scales.
 They are dependent on the fluid density $\rho$ and the kinematic viscosity $\nu = \frac{1}{Re}$, as well as the wall shear stress $\tau_w$, which is defined as
@@ -46,11 +46,11 @@ They are dependent on the fluid density $\rho$ and the kinematic viscosity $\nu 
 and quantifies the friction of the flow due to the viscosity of the fluid.\\
 Using the friction velocity $u_\tau$, the viscosity $\nu$ and the characteristic length $\delta$, which is typically the radius R in a pipe, the friction Reynolds number $Re_\tau$ is defined as
 \begin{equation}\label{eq: friction reynolds number}
-   \text{Friction Reynolds number: }\ Re_\tau = \frac{u_\tau \delta}{\nu} = \frac{\delta}{\delta_\nu}
+   Re_\tau = \frac{u_\tau \delta}{\nu} = \frac{\delta}{\delta_\nu}
 \end{equation}
 The similarity between $Re_\tau$ and the Reynoldsnumber $Re = \frac{u \delta}{\nu}$ is obvious, which makes it more intuitive, that $Re_\tau$ is the nondimensionalized Reynolds number in viscous scales \citep{popeTurbulentFlows2015}. 
-$Re_\tau$ describes the ration between the larges scales, typically with the size $~\delta$ and the visous length scale, which is roughly the same size as the smallest eddies, since it is of the same order as the Kolmogorov length $\eta$~\citep{marusicWallboundedTurbulentFlows2010, jimenezNearwallTurbulence2013}.\\
-Using the viscous scales $\delta_\nu$ and $u_\tau$, the nondimensionalized plus units $U^+$ and $y^+$ can be computed.
+$Re_\tau$ describes the ratio between the larges scales, typically with the size $~\delta$ and the visous length scale, which is roughly the same size as the smallest eddies, since it is of the same order as the Kolmogorov length $\eta$~\citep{marusicWallboundedTurbulentFlows2010, jimenezNearwallTurbulence2013}.\\
+Using the viscous scales $\delta_\nu$ and $u_\tau$, the nondimensionalized plus units for velocity and length $U^+$ and $y^+$ can be computed.
 They are denoted by the $+$ superscript and are also called `viscous units' or `inner units' depending on the literature.
 \begin{figure}
     \centering
@@ -59,15 +59,15 @@ They are denoted by the $+$ superscript and are also called `viscous units' or `
     \label{fig: smooth U^+ over y^+}
 \end{figure}
 \begin{equation}
-    U^+ = \frac{U}{u_\tau} \qquad \qquad \qquad y^+ = \frac{y}{\delta_\nu}
+    \text{Nondimensional velocity:}\ U^+ = \frac{U}{u_\tau} \qquad \text{Nondimensional length:}\ y^+ = \frac{y}{\delta_\nu}
 \end{equation}
 $U$ is denoting the mean velocity, while $y$ represents the wall-normal distance.
-If the data is scaled using the viscous scales, the velocity profiles of similar wall bounded turbulent flows collapse onto another, independent of the Reynoldsnumber, as shown in \autoref{fig: smooth U^+ over y^+}, which depicts reference data for smooth pipes of various friction Reynolds numbers.
+If the data is scaled using the viscous scales, the mean velocity profiles of similar wall bounded turbulent flows collapse onto another, independent of the Reynoldsnumber, as shown in \autoref{fig: smooth U^+ over y^+}, which depicts reference data for smooth pipes of various friction Reynolds numbers.
 %The respective lift above the log law line is expected for pipes, and reduces for channel flows \citep{khouryTurbulentPipeFlow2014}.\\
 Furthermore, it can be seen that the velocity profiles can be divided into three main regions.
 The viscous sublayer where $y^+ < 5$, the logarithmic region where $y^+ > 30$ and the buffer region in between.
 Within the viscous sublayer, the law of the wall $U^+ = y^+$ holds. 
-Within the logarithmic region, the log law $U^+ = \frac{1}{\kappa}\ln{y^+} + A$ hold.
+Within the logarithmic region, the log law $U^+ = \frac{1}{\kappa}\ln{y^+} + A$ holds.
 $\kappa$ and $A$ can be chosen according to the individual case, since the values differ slightly for different friction Reynolds numbers and cases \citep{popeTurbulentFlows2015}.
 In this thesis $\kappa = 0.41$ and $A = 5.2$ are used, according to the values used in~\cite{popeTurbulentFlows2015}.
 
@@ -76,7 +76,7 @@ In this thesis $\kappa = 0.41$ and $A = 5.2$ are used, according to the values u
 Turbulent behavior is stochastic when viewed at a sinlge point in time and space ZITAT.
 The instantaneous fluid behavior $u_i$ in turbulent flow over smooth surfaces can be separated into a mean component $U_i$ and instantaneous fluctuations in time $u_i'$, such that
 \begin{equation}
-    u_{i} = U_i + u_i' 
+     u_{i} = U_i + u_i' 
 \end{equation}
 $U_i$ is the double averaged velocity field $U_i = \langle \overline{u}_i \rangle$ with the $\overline{\phantom{u}}$ operator denoting a time average and the $\langle \ \rangle$ operators denoting an averaging in space.
 In pipe flow the spatial averaging is performed in streamwise $z$ and azimuthal $\theta$ directions.
@@ -86,9 +86,9 @@ It is also called Reynolds stress tensor.
 The Reynolds stress tensor of a turbulent flow is a second order symmetric tensor and its components are the Reynolds stresses.
 The stress tensor is denoted as 
 \begin{equation} \label{eq: Reynolds stresses}
-    R_{ij} = \langle u'_i u'_j \rangle
+     R_{ij} = \langle u'_i u'_j \rangle
 \end{equation}
-and the entries represent products of instantaneous fluctuations of the velocities.
+and the entries represent products of instantaneous fluctuations of the velocities in the spacial directions.
 The diagonal components $\langle u'_iu'_i\rangle$ are the normal stresses and the off diagonal components $\langle u'_1 u'_2 \rangle$ and $\langle u'_2u'_1 \rangle$ denote the Reynolds shear stresses \citep{popeTurbulentFlows2015}.
 However, due to the symmetric nature of $R_{ij}$, $u'_1u'_2$ and $u'_2u'_1$ are equivalent, and only $u'_1u'_2$ is considered. 
 % The prime supersrcipt ' denotes the instantaneous fluctuations, which are the instantaneous values subatracted from their respective mean.
@@ -97,11 +97,12 @@ Additionally to the Reynolds shear stresses $-\rho \langle u' v' \rangle$, the v
 \begin{equation}\label{eq: viscous stress}
     \text{viscous stress:}\ \rho \nu \frac{dU}{dr}
 \end{equation}
+The viscous shear stress emerges due to the viscosity of the fluid.
 The viscosity is dominant at the wall, hence the wall shear stress is the only stress active at the wall and it keeps being dominant in the near wall region.
 With a growing distance to the wall the influence of viscosity decreases, while the importance of the Reynolds stresses, increases until it is the only active stress \citep{popeTurbulentFlows2015}.\\
 Using the normal stresses $\langle u'_i u'_i\rangle$ the turbulent kinetic energy (TKE) can be computed as
 \begin{equation}\label{eq: TKE}
-    \text{TKE} =  \frac{1}{2} \langle u'_i u'_i\rangle
+    \frac{1}{2} \langle u'_i u'_i\rangle
 \end{equation}
 With the Einstein summation convention, this equates to half of the sum of the three normal stresses. 
 \section{Roughness}\label{sec: Roughness}
@@ -180,7 +181,7 @@ All data presented in this work defines $y^+ = 0$ to be at the mean radius of th
 Turbulent flows over rough surfaces experience an increased drag \citep{chungPredictingDragRough2021}.
 The main reason is the additional appearance of pressure drag compared to smooth wall cases.
 The investigations by~\cite{macdonaldTurbulentFlowTransitionally2016} indicate a significant influence of the pressure drag compared to drag by wall friction.
-The increased drag manifests itself in a downshift of the log-law of the velocity profile compared to a smooth pipe, as depicted in \autoref{fig: U+ over y+ smooth vs rough}.
+The increased drag manifests itself in a downshift of the log-law of the velocity profile compared to a smooth pipe but with a very similar slope, as depicted in \autoref{fig: U+ over y+ smooth vs rough}.
 \begin{figure}
     \centering
     \input{plots/Theory/Uplus_yplus_rough_vs_smooth.pgf}

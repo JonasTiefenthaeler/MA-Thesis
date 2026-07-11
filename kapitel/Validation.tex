@@ -28,36 +28,36 @@ All simulations were performed in polynomial order $7$.\\
 All data of the smooth validation is compared to reference data by~\cite{yaoDirectNumericalSimulations2023} and~\cite{elkhouryDirectNumericalSimulation2013}.
 To compare the data, the mean velocity profiles, the Reynolds stresses including the turbulent kinetic energy, the total stresses, as well as the energy budgets in streamwise direction are shown.
 
-\paragraph{5700 $Re_b$ smooth wall}
+\paragraph{$5700\ Re_b$ smooth wall}
 \begin{figure}
     \centering
     \begin{subfigure}{0.495\textwidth}
         \subcaption{}
-        %\input{}
+        \input{plots/Validation/5300_validation_Uplus.pgf}
         \label{subfig: 5700 validation velocity profile}
     \end{subfigure}
     \hfill
         \begin{subfigure}{0.495\textwidth}
         \subcaption{}
-        %\input{}
+        \input{plots/Validation/5300_validation_Reynolds.pgf}
         \label{subfig: 5700 validation Reynolds stress}
     \end{subfigure}
     \hfill
         \begin{subfigure}{0.495\textwidth}
         \subcaption{}
-        %\input{}
+        \input{plots/Validation/5300_validation_totStress.pgf}
         \label{subfig: 5700 validation total stress}
     \end{subfigure}
     \hfill
         \begin{subfigure}{0.495\textwidth}
         \subcaption{}
-        %\input{}
+        \input{plots/Validation/5300_validation_budgets.pgf}
         \label{subfig: 5700 validation budgets}
     \end{subfigure}
     \caption{Results of the smooth wall validation at $5700 Re_b$.~(a) Mean velocity profile $U^+$ over $y^+$.~(b) Reynolds stresses and TKE over $y^+$.~(c) Total stress, Reynolds stress and viscous stress over $y/R$.~(d) Streamwise $uu$ energy budgets over $y^+$}
     \label{fig: results smooth 5700Reb}
 \end{figure}
-The results of the convergence study cam be seen in \autoref{fig: results smooth 5700Reb}.
+The results of the validation case can be seen in \autoref{fig: results smooth 5700Reb}.
 All data is compared to the equivalent case of~\cite{yaoDirectNumericalSimulations2023}.
 The mesh refinement is chosen to be quite coarse, since it is the same mesh used for the NEKO turbulent pipe example.
 A low computational effort was very important for the example case, hence the coarse grid spacings.
@@ -71,36 +71,36 @@ The streamwise $uu$ energy budgets in \autoref{subfig: 5700 validation budgets} 
 Only the dissipation term and viscous diffusion terms are underestimated slightly in the near wall region.
 However, the energy residual shows the correct behavior of being zero at any wall normal position.
 
-\paragraph{11700 $Re_b$ smooth wall}
+\paragraph{$11700\ Re_b$ smooth wall}
 \begin{figure}
     \centering
     \begin{subfigure}{0.495\textwidth}
         \subcaption{}
-        %\input{}
+        \input{plots/Validation/11700_validation_Uplus.pgf}
         \label{subfig: 11700 validation velocity profile}
     \end{subfigure}
     \hfill
         \begin{subfigure}{0.495\textwidth}
         \subcaption{}
-        %\input{}
+        \input{plots/Validation/11700_validation_Reynolds.pgf}
         \label{subfig: 11700 validation Reynolds stress}
     \end{subfigure}
     \hfill
         \begin{subfigure}{0.495\textwidth}
         \subcaption{}
-        %\input{}
+        \input{plots/Validation/11700_validation_totStress.pgf}
         \label{subfig: 11700 validation total stress}
     \end{subfigure}
     \hfill
         \begin{subfigure}{0.495\textwidth}
         \subcaption{}
-        %\input{}
+        \input{plots/Validation/11700_validation_budgets.pgf}
         \label{subfig: 11700 validation budgets}
     \end{subfigure}
         \caption{Results of the smooth wall validation at $11700 Re_b$.~(a) Mean velocity profile $U^+$ over $y^+$.~(b) Reynolds stresses and TKE over $y^+$.~(c) Total stress, Reynolds stress and viscous stress over $y/R$.~(d) Streamwise $uu$ energy budgets over $y^+$}
         \label{fig: 11700 smooth validtaion}
 \end{figure}
-The results of the $Re_b$ are shown in \autoref{fig: 11700 smooth validtaion}.
+The results for $11700 \ Re_b$ are shown in \autoref{fig: 11700 smooth validtaion}.
 The present data is compared to~\cite{elkhouryDirectNumericalSimulation2013}.
 The mean velocity profile in \autoref{subfig: 11700 validation velocity profile} shows excellent agreement with no visible deviations.
 The same holds for the Reynolds stresses in \autoref{subfig: 19000 validation Reynolds stress}, in which almost no deviation is existent.
@@ -108,35 +108,43 @@ Also, the viscous stress and total stresses in \autoref{subfig: 11700 validation
 For the streamwise $uu$ energy budgets, only the turbulent diffusion and dissipation term are marginally underestimated in the near wall region $y^+ < 3$. 
 This would probably be solved by refining the wall normal grid resolution slightly.
 The other energy terms collapse onto the reference data completely.
-\paragraph{1900 $Re_b$ smooth wall validation}
+\paragraph{$1900\ Re_b$ smooth wall validation}
 \begin{figure}
     \centering
     \begin{subfigure}{0.495\textwidth}
         \subcaption{}
-        %\input{}
+        \input{plots/Validation/19000_validation_Uplus.pgf}
         \label{subfig: 19000 validation velocity profile}
     \end{subfigure}
     \hfill
         \begin{subfigure}{0.495\textwidth}
         \subcaption{}
-        %\input{}
+        \input{plots/Validation/19000_validation_Reynolds.pgf}
         \label{subfig: 19000 validation Reynolds stress}
     \end{subfigure}
     \hfill
         \begin{subfigure}{0.495\textwidth}
         \subcaption{}
-        %\input{}
+        \input{plots/Validation/19000_validation_totStress.pgf}
         \label{subfig: 19000 validation total stress}
     \end{subfigure}
     \hfill
         \begin{subfigure}{0.495\textwidth}
         \subcaption{}
-        %\input{}
+        \input{plots/Validation/19000_validation_budgets.pgf}
         \label{subfig: 19000 validation budgets}
     \end{subfigure}
         \caption{Results of the smooth wall validation at $11700 Re_b$.~(a) Mean velocity profile $U^+$ over $y^+$.~(b) Reynolds stresses and TKE over $y^+$.~(c) Total stress, Reynolds stress and viscous stress over $y/R$.~(d) Streamwise $uu$ energy budgets over $y^+$}
         \label{fig: 19000 smooth validation}
 \end{figure}
+The results for the $19000 \ Reb$ are shown in \autoref{fig: 19000 smooth validation}.
+The reference data from~\cite{yaoDirectNumericalSimulations2023} is matched quite well. 
+The mean velocity profiles are nearly the same.
+The obtained data shows some minor fluctuations of the mean velocity in the outer region. 
+This indicates, that the interpolation points are too far apart, since the overall trend of the mean velocity is identical to the reference data.
+Similarly to the $Reb \ 5300$ case, the streamwise Reynolds stress is slightly underpredicted, which indicates a slightly too coarse mesh in azimuthal direction ZITAT.
+However, the plot of the total stress and its componens shows a perfect match to the expected slope.
+The streamwise energy budgets also collapse almost perfectly onto the reference data.
 \section{Convergence studies} \label{sec: convergence studies}
 A grid resolution as well as time convergence study is conducted to find reasonable parameters for both.
 They sould yield sufficient results while keeping the necessary computational resources manageable.
@@ -174,7 +182,7 @@ In \autoref{subfig: grid convergence uplus} the mean streamwise velocitiy profil
     \begin{subfigure}[t]{0.495\textwidth}
         \centering
         \subcaption{}
-        \input{plots/grid_convergence_uplus.pgf}
+        \input{plots/Validation/grid_convergence_uplus.pgf}
         \label{subfig: grid convergence uplus}
         
     \end{subfigure}
@@ -182,14 +190,14 @@ In \autoref{subfig: grid convergence uplus} the mean streamwise velocitiy profil
     \begin{subfigure}[t]{0.495\textwidth}
         \centering
         \subcaption{}
-        \input{plots/grid_convergence_RS.pgf}
+        \input{plots/Validation/grid_convergence_RS.pgf}
         \label{subfig: grid convergence RS}
     \end{subfigure}
     \hfill
     \begin{subfigure}[t]{0.495\textwidth}
         \centering
         \subcaption{}
-        \input{plots/grid_convergence_totStress.pgf}
+        \input{plots/Validation/grid_convergence_totStress.pgf}
         \label{subfig: grid convergence total stress}
     \end{subfigure}
     \caption{First and second order statistics for mesh convergence study.~(a) Mean streamwise velocity profiles $U+$ over wall normal $y+$.~(b) Reynolds stresses $R_{ij}^+$ over wall normal distance $y^+$. Solid line representing $R_{uu}^+$, dashed line $R_{vv}^+$, dotted line $R_{ww}^+$ and dot-dashed line $R_{uv}^+$.~(c) Stresses over wall normal distance r/R. Solid line representing the total stress $\tau_{tot}$, the dashed line the Reynolds stress $\tau_{uv}$, dotted line the viscous stress $\tau_{vis}$ and the dot-dashed line the dispersive stress $\tau_{disp}$. Red line chosen for further study.}
@@ -225,21 +233,21 @@ The results of the time convergence study are shown in \autoref{fig: Time conver
     \begin{subfigure}[t]{0.495\textwidth}
         \centering
         \subcaption{}
-        \input{plots/time_convergence_uplus.pgf}
+        \input{plots/Validation/time_convergence_uplus.pgf}
         \label{subfig: time convergence uplus}
     \end{subfigure}
     \hfill
     \begin{subfigure}[t]{0.495\textwidth}
         \centering
         \subcaption{}
-        \input{plots/time_convergence_RS.pgf}
+        \input{plots/Validation/time_convergence_RS.pgf}
         \label{subfig: time convergence RS}
     \end{subfigure}
     \hfill
     \begin{subfigure}[t]{0.495\textwidth}
         \centering
         \subcaption{}
-        \input{plots/time_convergence_totStress.pgf}
+        \input{plots/Validation/time_convergence_totStress.pgf}
         \label{subfig: time convergence total stress}
     \end{subfigure}
     \caption{First and second order statistics for time convergence study.~(a) Mean streamwise velocity profiles $U+$ over wall normal $y+$.~(b) Reynolds stresses $R_{ij}^+$ over wall normal distance $y^+$. Solid line representing $R_{uu}^+$, dashed line $R_{vv}^+$, dotted line $R_{ww}^+$ and dot-dashed line $R_{uv}^+$.~(c) Stresses over wall normal distance r/R. Solid line representing the total stress $\tau_{tot}$, the dashed line the Reynolds stress $\tau_{uv}$, dotted line the viscous stress $\tau_{vis}$ and the dot-dashed line the dispersive stress $\tau_{disp}$. Black line chosen for further study.}

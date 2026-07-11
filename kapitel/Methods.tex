@@ -5,6 +5,12 @@ Neko is an open-source \acrfull{cfd} solver, that is based on the older Nek5000 
 The portable framework Neko is written in modern Fortran in an object-oriented manner and is mainly focused on incompresible flow simulations \citep{janssonNekoModernPortable2024}.
 Only \acrfull{dns} will be performed in this work, however \acrfull{les} models are also implemented in NEKO.
 
+\section{Direct Numerical Simulation (DNS)}
+In \acrshort{dns}, the \acrlong{nse} are solved without using any turbulence model.
+This means, that all scales of motion are resolved.
+Since all scales of turbulent motion are resolved, a very fine mesh resolution is required to perform a \acrshort{dns}, such that the mesh can resolve also the smallest eddies.
+This leads to very high computational cost and even with the ever-increasing computational resources of high performance computing, restricts the \acrshort{dns} method to relatively small domain sizes, as well as only low to medium Reynolds numbers.
+Nevertheless, \acrshort{dns} is performed by a wide range of researches, since the accuracy of its results is unmatched by other \acrshort{cfd} simulation methods.ZITAT\\
 
 \section{Simulation setup}\label{sec: Simulation setup}
 For this study, the canonical setup of the pipe is used.
@@ -34,7 +40,7 @@ Since the turbulent scales are decreasing near the wall and the viscous sublayer
 Vice versa, the mesh can be coarsened towards the pipe center, without sacrificing correct results.
 \begin{figure}
     \centering
-    \includegraphics[width = 0.5\textwidth]{mesh_19000Reb_crossSection.pdf}
+    \includegraphics[width = 0.5\textwidth]{Methods/mesh_19000Reb_crossSection.pdf}
     %\input{plots/mesh_19000Reb_crossSection.pgf}
     \caption{Exemplary image of simulation mesh}
     \label{fig: simulation mesh}
@@ -223,13 +229,13 @@ The inverse of \autoref{eq: roughness scaling function} is
     \centering
     \begin{subfigure}{0.45\textwidth}
         \subcaption{}
-        \includegraphics[width = \textwidth]{averaged_field.png}
+        \includegraphics[width = \textwidth]{Methods/averaged_field.png}
         \label{subfig: averaged field}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.45\textwidth}
         \subcaption{}
-        \includegraphics[width = \textwidth]{smooth_Averaged_field.png}
+        \includegraphics[width = \textwidth]{Methods/smooth_Averaged_field.png}
         \label{subfig: smooth averaged field}
     \end{subfigure}
     \caption{Visualization of the result of the smoothing algorithm.~(a) Time averaged velocity magnitude in rough pipe domain, (b) Time averaged velocity magnitude of the smoothed domain}
