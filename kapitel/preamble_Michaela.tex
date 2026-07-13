@@ -21,8 +21,7 @@
 \usepackage{diagbox}
 \usepackage{colortbl}
 \usepackage[T1]{fontenc}		        % Schriftart
-\usepackage[utf8]{inputenc}	  		% Direkte Eingabe der Sonderzeichen über die Tastatur
-\usepackage[pdftex,dvipsnames]{xcolor}	% muss vor pgf/pgfplots geladen werden, sonst "Option clash for package xcolor"
+\usepackage[utf8]{inputenc}	  		% Direkte Eingabe der Sonderzeichen über die Tastatur 
 %\usepackage{lmodern}					% schönere Schrift
 %\usepackage{ae}							% schöne Schrift
 %\usepackage[final]{microtype}			% mikrotypografische Schriftanpassung
@@ -33,7 +32,6 @@
 \usepackage{graphicx}	
 \usepackage{epstopdf}	
 \usepackage{pgf}	       		% Ermöglicht die Einbindung von Bildern
-\usepackage{import}	       	% Ermöglicht \subimport für pgf-Plots mit lokal referenzierten PNGs
 \providecommand{\mathdefault}[1]{#1}	% benötigt für matplotlib pgf-Export
 \usepackage{makeidx}		          	% Erzeugt Verzeichnisse
 \usepackage{array}
@@ -85,9 +83,9 @@
 % folgende Pakete für Kommentare direkt in der Tex-Source
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\usepackage{xargs}
-\usepackage[colorinlistoftodos,prependcaption,textsize=tiny,obeyDraft]{todonotes}
-\presetkeys{todonotes}{inline}{}
+\usepackage{xargs}       
+\usepackage[pdftex,dvipsnames]{xcolor} 
+\usepackage[colorinlistoftodos,prependcaption,textsize=tiny,textwidth=20mm,obeyDraft]{todonotes}
 \newcommandx{\fxunsure}[2][1=]{\todo[linecolor=red,backgroundcolor=yellow!25,bordercolor=red,#1]{#2}}
 \newcommandx{\fxchange}[2][1=]{\todo[linecolor=blue,backgroundcolor=blue!25,bordercolor=blue,#1]{#2}}
 \newcommandx{\fxinfo}[2][1=]{\todo[linecolor=OliveGreen,backgroundcolor=OliveGreen!25,bordercolor=OliveGreen,#1]{#2}}

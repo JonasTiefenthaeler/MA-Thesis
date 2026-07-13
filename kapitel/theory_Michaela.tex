@@ -9,31 +9,41 @@ They consist of the mass conservation equation, also called the continuity equat
 and the momentum equation
 \begin{equation}\label{eq: momentum equation}
     \rho \left(\frac{\partial u_i}{\partial t} + u_j \frac{\partial u_i}{\partial x_j}\right) = -\frac{\partial p}{\partial x_i} + \mu\frac{\partial^2 u_i}{\partial x_j \partial x_j} + \rho g_i
-\end{equation}
+\end{equation} 
 both shown for the incompressible regime \citep{schlichtingBoundaryLayerTheory2017}. This regime is regarded as the fundamental paradigm throughout the present study.
 
-In this context, the symbol  $u_i$ denotes the velocities in the three spatial directions $x_i$, $p$  is used to represent the pressure and $g_i$ denotes
-the gravitaional acelleration.
+In this context, the symbol  $u_i$ denotes the velocities in the three spatial directions $x_i$, $p$  is used to represent the pressure and $g_i$ denotes 
+the gravitaional acelleration.\fxinfo{das ist sehr minimalistisch, aber eine Lösung, die Marlene auch helfen könnte: Vllt noch ergänzen: 
+	for further details on notation the reader is referred to  ZITAT}
 Furthermore,  the Einstein summation convention is employed in this notation.
-The density $\rho$ and dynamic viscosity $\mu$ are constants, since an incompressible regime is used and the fluid is considered Newtonian.\\
-The flow behavior of viscous fluids can be separated into two main regimes.
-Laminar flow, turbulent flow and additionally the transition between them.
-In laminar flow, the fluid particles move in parallel paths and these paths remain constant in time. 
+
+Due to the assumption of an incompressible regime and the fluid being considered Newtonian,
+the density, denoted by the symbol $R$ and the dynamic viscosity, denoted by the symbol $M$, are constants. 
+The flow behaviour of viscous fluids can be separated into two main regimes:
+The \emph{laminar} flow, the \emph{turbulent} flow, and the transition between the two.
+In  laminar flow, the fluid particles move in parallel paths and these paths remain constant over time. 
 In turbulent flow, the instantaneous movement of the fluid is stochastic, while the mean flow is dependent on the flow conditions and the shape of the flow domain.
-Only fully turbulent flows are considered in this work.\\
-Due to the stochastic nature of turbulent flows, in most cases averaged values are considered.
-Averaging in this sense means, that a time average, as well as spatial averaging is performed, hence a \acrfull{da} operation \citep{raupachAveragingProceduresFlow1982}, to obtain mean values.
-However, also instantaneous velocity fields can yield additional information, for example the analysis of the instantaneous streaks \citep{yaoDirectNumericalSimulations2023}.\\
-In the following chapter, first, in \autoref{sec: Description of turbulent flows}, the basics of wall bounded turbulence behavior are explained, followed by \autoref{sec: Roughness} with an explanation of the surface roughness and its influence on turbulent flows.
+In this study exclusively  fully turbulent flows are considered.
+
+Due to the stochastic nature of turbulent flows, mainly averaged values are considered in the literature.
+The term 'averaging' is employed in this context to denote the process of calculating a mean value through the implementation of both temporal and spatial averaging, i.e.
+ a \acrfull{da} operation \citep{raupachAveragingProceduresFlow1982}.
+However, also instantaneous velocity fields may yield additional information, for example the analysis of the instantaneous streaks \citep{yaoDirectNumericalSimulations2023}.\\
+In the following chapter, firstly, in \autoref{sec: Description of turbulent flows} the basics of wall bounded turbulence behaviour are explained,
+ followed by \autoref{sec: Roughness} that  will provide a comprehensive overview of the surface roughness and its impact on turbulent flows.
 
 \section{Description of turbulent flows}~\label{sec: Description of turbulent flows}
-To be able to understand turbulent behavior in a rough regime, it is first necessary to provide an overview of turbulent wall-bounded flows in general.
-This overview gives the foundation for the interpretations throughout this work.
-In the general descriptions of turbulent flow, e.g.\ by~\cite{popeTurbulentFlows2015}, a smooth wall is assumed.
-This also applies in this section, if not stated otherwise.\\
-Two of the canonical configurations to study wall bounded turbulent flows are the channel and pipe, both of which have been thoroughly studied.
-The channel among many others by~\cite{kimTurbulenceStatisticsFully1987} and~\cite{leeDirectNumericalSimulation2015}, and the pipe by~\cite{jimenezCascadesWallBoundedTurbulence2012} and~\cite{yaoDirectNumericalSimulations2023}.
-It has shown, that wall bounded turbulence behaves very similarly in both configurations~\citep{khouryTurbulentPipeFlow2014, kimProgressPipeChannel2012}.
+
+In order to comprehend the turbulent behaviour exhibited in a rough regime, it is first necessary to provide an overview of turbulent wall-bounded flows in general. 
+This overview serves as the foundation for the interpretations presented in this work.
+In the general descriptions of turbulent flow, e.g.\ by~\cite{popeTurbulentFlows2015}, it is assumed that the wall is smooth. This principle also applies in this section,
+ unless stated otherwise.
+
+Two of the well-established  configurations  that have been studied in wall bounded turbulent flows research  are the channel and pipe:
+Among many others by~\cite{kimTurbulenceStatisticsFully1987} and~\cite{leeDirectNumericalSimulation2015} considered the channel, and the pipe was studied by~\cite{jimenezCascadesWallBoundedTurbulence2012} and~\cite{yaoDirectNumericalSimulations2023}.
+It has been established  that wall bounded turbulence behaves very similarly in both configurations~\citep{khouryTurbulentPipeFlow2014, kimProgressPipeChannel2012}.
+
+\fxbmark{bis hierher}
 \subsection{Nondimensionalization in turbulent flows}\label{subsec: Nondimensionalization of turbulent flows}
 %In turbulent flows, structures in a multitude of scales emerge.
 %The minimum scale of the elements is limited by the viscosity of the fluid, since the smallest scales are dissipated by viscosity and disappear.
