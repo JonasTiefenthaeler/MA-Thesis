@@ -164,7 +164,7 @@ The used parameters are listed in \autoref{tab: parameters grid refinement study
   $Re_b$    & $Re_\tau$     & $N_z$     & $N_{\theta}$  & $\Delta_z$    & $\Delta_\theta$   & N elements & $Tu_\tau / R$\\
  \hline
  $5700$     & $246.07$      & $448$     & $224$         & $13.80$       & $6.90$            & $26752$    & $21.5$\\ 
- $5700$     & $246.00$      & $560$     & $290$         & $11.04$       & $5.33$            & $44000$    & $21.6$\\ 
+ $5700$     & $246.00$      & $560$     & $280$         & $11.04$       & $5.33$            & $44000$    & $21.6$\\ 
  $5700$     & $246.21$      & $672$     & $336$         & $9.21$        & $4.60$            & $67392$    & $21.6$\\ 
  \hline
 \end{tabular}
@@ -221,6 +221,20 @@ However, it is expected, that the differences will grow with higher Reynolds num
 For that reason, the coarsest mesh is not chosen for the study. 
 The number of elements between the finest mesh, and the intermediate mesh is $~64\%$ higher and thus a substantial increase in computational time is expected.
 Since the goal of this study is to compare the results among each other, and not necessarily compare to reference data, and a sufficient convergence is shown, the chosen mesh is the one depicted in red in \autoref{fig: Mesh refinement study}.
+\begin{table}
+    \centering
+    \begin{tabular}{ c c c c c c c c } 
+        \hline
+        $Re_b$  & $N_z$     & $N_{\theta}$  & $\Delta_z$    & $\Delta_\theta$   & $\Delta^+_{r_1}$  & $\Delta^+_{r_{10}}$   & N elements \\
+        \hline
+        $5700$  & $560$     & $280$         & $8.07$        & $4.04$            & $0.115$           & $2.73$                & 44000\\ 
+        $11700$ & $1120$    & $560$         & $8.07$        & $4.04$            & $0.257$           & $5.82$                & 283200\\     
+        $19000$ & $1722$    & $861$         & $8.03$        & $4.01$            & $0.159$           & $3.65$                & 759648\\ 
+        \hline
+    \end{tabular}
+    \caption{Parameters for meshes}
+    \label{tab: parameters chosen meshes}
+\end{table}
 \subsection{Time convergence study}\label{subsec: Time convergence study}
 Using the chosen mesh from \autoref{subsec: grid refinement study}, the time convergence is tested.
 The is done, to find the necessary initial transition time to turbulence, at which the computation of averaged values can start and the necessary averaging time.
