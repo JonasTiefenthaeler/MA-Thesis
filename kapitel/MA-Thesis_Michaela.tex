@@ -31,7 +31,7 @@
   	%pointlessnumbers     				% Die Abschnittsnummerierungen werden immer ohne den letzten Punkt dargestellt, also "1.2.3" statt "1.2.3."
   cleardoublepage=empty,				% leere Füllseiten sind leer
   numbers=noenddot,
-  draft
+  draft,
 ]{scrreprt}
 
 \input{./kapitel/preamble.tex}
@@ -251,119 +251,119 @@ pdfauthor = {Vorname Nachname}}
 \pagestyle{empty}
 
 
-\includepdf[pages=-]{digitale_Vorlage_Abschlussarbeit_TechFak_ENG.pdf}
+%\includepdf[pages=-]{digitale_Vorlage_Abschlussarbeit_TechFak_ENG.pdf}
 
 
 
-\begin{titlepage}
-	\begin{center}
+% \begin{titlepage}
+% 	\begin{center}
 
 
-\begin{figure}[htbp]
-	\centering
-		\includegraphics[width=75mm]{bilder/LSTM_Logo.pdf} 		
-\end{figure}
-		% \ifenglish
-		\vspace{25mm}
+% \begin{figure}[htbp]
+% 	\centering
+% 		\includegraphics[width=75mm]{bilder/LSTM_Logo.pdf} 		
+% \end{figure}
+% 		% \ifenglish
+% 		\vspace{25mm}
 		 		
-		\LARGE {\textbf{Title \\ of your \\ thesis}}\\ [25mm]
-		\huge {\textbf{Master's Thesis}} \\ [14mm]
-		 by \\ [2mm]
-		\LARGE \textbf{Jonas Tiefenthäler}\\[5mm]
-		\LARGE Stud.reg.no. XXXXXXXX\\[5mm]
-		\LARGE Erlangen, xx.xx.xxxx\\
-		\vfill
-		\rule{15cm}{0.02mm}\\
-		\Large Institute of Fluid Mechanics\\
-		Faculty of Engineering\\
-		Friedrich--Alexander--University Erlangen--N\"urnberg\\
-		Prof.\ Dr.\ Philipp Schlatter\\
-		% \else
+% 		\LARGE {\textbf{Title \\ of your \\ thesis}}\\ [25mm]
+% 		\huge {\textbf{Master's Thesis}} \\ [14mm]
+% 		 by \\ [2mm]
+% 		\LARGE \textbf{Jonas Tiefenthäler}\\[5mm]
+% 		\LARGE Stud.reg.no. XXXXXXXX\\[5mm]
+% 		\LARGE Erlangen, xx.xx.xxxx\\
+% 		\vfill
+% 		\rule{15cm}{0.02mm}\\
+% 		\Large Institute of Fluid Mechanics\\
+% 		Faculty of Engineering\\
+% 		Friedrich--Alexander--University Erlangen--N\"urnberg\\
+% 		Prof.\ Dr.\ Philipp Schlatter\\
+% 		% \else
 		
-		% \vspace{25mm}
+% 		% \vspace{25mm}
 		
-		% \LARGE {\textbf{Titel \\ der \\ Arbeit}} \\ [25mm]
-		% \huge {\textbf{Masterthesis, Bachelorthesis, Projektarbeit}} \\ [14mm]
-		% von \\ [2mm]
-		% \LARGE \textbf{Vorname Nachname}\\[5mm]
-		% \LARGE Matr.-Nr. 12345678\\[5mm]
-		% \LARGE Erlangen, xx.xx.xxxx\\
-		% \vfill
-		% \rule{15cm}{0.02mm}\\
-		% \Large Lehrstuhl für Strömungsmechanik\\
-		% Technische Fakultät\\
-		% Friedrich--Alexander-Universität Erlangen-Nürnberg\\
-		% Prof.\ Dr.\ Philipp Schlatter\\
-		% \fi
-  		\end{center}
-\end{titlepage}
+% 		% \LARGE {\textbf{Titel \\ der \\ Arbeit}} \\ [25mm]
+% 		% \huge {\textbf{Masterthesis, Bachelorthesis, Projektarbeit}} \\ [14mm]
+% 		% von \\ [2mm]
+% 		% \LARGE \textbf{Vorname Nachname}\\[5mm]
+% 		% \LARGE Matr.-Nr. 12345678\\[5mm]
+% 		% \LARGE Erlangen, xx.xx.xxxx\\
+% 		% \vfill
+% 		% \rule{15cm}{0.02mm}\\
+% 		% \Large Lehrstuhl für Strömungsmechanik\\
+% 		% Technische Fakultät\\
+% 		% Friedrich--Alexander-Universität Erlangen-Nürnberg\\
+% 		% Prof.\ Dr.\ Philipp Schlatter\\
+% 		% \fi
+%   		\end{center}
+% \end{titlepage}
 
 
-  	\thispagestyle{empty}	
-	\cleardoublepage
+%   	\thispagestyle{empty}	
+% 	\cleardoublepage
 	
-	% \ifenglish
+% 	% \ifenglish
 	
-	\begin{tabular}[H]{ll}
-	  Author:& NAME \\
-	  Student Registration Number: & XXXXXXXXX \\
-	  Institute: & Institute of Fluid Mechanics\\
-	  Head of Institute: & Prof.\ Dr.\ Techn. Philipp Schlatter\\ 
-	  Group and Supervisor:& Prof.\ Dr.-Ing.\ habil.\ Stefan Becker \\
-	  & Felix Czwielong \\		
-	  Assigned: & dd.mm.yyyy \\
-	  Submitted: & dd.mm.yyyy \\
-	  \\
-	  LSTM Technical Report: & 01/2025
-	\end{tabular}	
+% 	\begin{tabular}[H]{ll}
+% 	  Author:& NAME \\
+% 	  Student Registration Number: & XXXXXXXXX \\
+% 	  Institute: & Institute of Fluid Mechanics\\
+% 	  Head of Institute: & Prof.\ Dr.\ Techn. Philipp Schlatter\\ 
+% 	  Group and Supervisor:& Prof.\ Dr.-Ing.\ habil.\ Stefan Becker \\
+% 	  & Felix Czwielong \\		
+% 	  Assigned: & dd.mm.yyyy \\
+% 	  Submitted: & dd.mm.yyyy \\
+% 	  \\
+% 	  LSTM Technical Report: & 01/2025
+% 	\end{tabular}	
 
-	% \else
+% 	% \else
 
-	% \begin{tabular}[H]{ll}
-	% Bearbeiter:& Vorname Nachname \\
-	% Matrikelnummer: & XXXXXXXXX \\
-	% Lehrstuhl: & Lehrstuhl für Strömungsmechanik (LSTM) \\
-	% Lehrstuhlinhaber: & Prof.\ Dr.\ Philipp Schlatter\\ 
-	% Arbeitsgruppe und Betreuer:& Prof.\ Dr.-Ing.\ habil.\ Stefan Becker \\
-	% & Felix Czwielong\\		
-	% Ausgegeben: & dd.mm.yyyy \\
-	% Abgegeben: & dd.mm.yyyy \\
-	% \\
-	% LSTM Technical Report: & 01/2025
-	% \end{tabular}
+% 	% \begin{tabular}[H]{ll}
+% 	% Bearbeiter:& Vorname Nachname \\
+% 	% Matrikelnummer: & XXXXXXXXX \\
+% 	% Lehrstuhl: & Lehrstuhl für Strömungsmechanik (LSTM) \\
+% 	% Lehrstuhlinhaber: & Prof.\ Dr.\ Philipp Schlatter\\ 
+% 	% Arbeitsgruppe und Betreuer:& Prof.\ Dr.-Ing.\ habil.\ Stefan Becker \\
+% 	% & Felix Czwielong\\		
+% 	% Ausgegeben: & dd.mm.yyyy \\
+% 	% Abgegeben: & dd.mm.yyyy \\
+% 	% \\
+% 	% LSTM Technical Report: & 01/2025
+% 	% \end{tabular}
 	
-	% \fi	
+% 	% \fi	
 
-\thispagestyle{empty}
-\cleardoublepage
+% \thispagestyle{empty}
+% \cleardoublepage
 
-% \ifenglish
-\chapter*{Declaration}
+% % \ifenglish
+% \chapter*{Declaration}
 
-I hereby declare formally that I have developed and written the enclosed thesis entirely by myself and without help of third parties and have not used sources or means without declaration in the text. Any thoughts or quotations, inferred (literally or analogously) from the sources, are marked as such. This thesis was not submitted in the same or substantially similar version to any other authority to achieve an academic grade.
+% I hereby declare formally that I have developed and written the enclosed thesis entirely by myself and without help of third parties and have not used sources or means without declaration in the text. Any thoughts or quotations, inferred (literally or analogously) from the sources, are marked as such. This thesis was not submitted in the same or substantially similar version to any other authority to achieve an academic grade.
 
-The Friedrich--Alexander--Universität (FAU), represented by the Institute of Fluid Mechanics (LSTM), is granted a simple, free of charge, temporally and geographically unrestricted right to use the results of the work, including any protective rights and rights of use, for the purposes of research and teaching.
-\\ [35mm]
-Erlangen, the DATE \hspace{4cm} \rule{5cm}{0.02mm}
-% \else
-% \chapter*{Erklärung}
-
-% Hiermit versichere ich eidesstattlich, dass die vorliegende Arbeit von mir selbstständig, ohne Hilfe Dritter und ausschließlich unter Verwendung der angegebenen Quellen angefertigt wurde. Alle Stellen, die wörtlich oder sinngemäß aus den Quellen entnommen sind, habe ich als solche kenntlich gemacht. Die Arbeit wurde bisher in gleicher oder ähnlicher Form keiner anderen Prüfungsbehörde vorgelegt.
-
-% Der Friedrich--Alexander--Universität (FAU), vertreten durch den Lehrstuhl für Strömungsmechanik (LSTM), wird für Zwecke der Forschung und Lehre ein einfaches, kostenloses, zeitlich und örtlich unbeschränktes Nutzungsrecht an den Arbeitsergebnissen der Arbeit einschließlich etwaiger Schutz- und Nutzungsrechte eingeräumt.
+% The Friedrich--Alexander--Universität (FAU), represented by the Institute of Fluid Mechanics (LSTM), is granted a simple, free of charge, temporally and geographically unrestricted right to use the results of the work, including any protective rights and rights of use, for the purposes of research and teaching.
 % \\ [35mm]
-% Erlangen, den DATUM \hspace{4cm} \rule{5cm}{0.02mm}
-% \fi	
+% Erlangen, the DATE \hspace{4cm} \rule{5cm}{0.02mm}
+% % \else
+% % \chapter*{Erklärung}
 
-%=============================================================================%
+% % Hiermit versichere ich eidesstattlich, dass die vorliegende Arbeit von mir selbstständig, ohne Hilfe Dritter und ausschließlich unter Verwendung der angegebenen Quellen angefertigt wurde. Alle Stellen, die wörtlich oder sinngemäß aus den Quellen entnommen sind, habe ich als solche kenntlich gemacht. Die Arbeit wurde bisher in gleicher oder ähnlicher Form keiner anderen Prüfungsbehörde vorgelegt.
 
-\thispagestyle{empty}
-%\cleardoublepage
+% % Der Friedrich--Alexander--Universität (FAU), vertreten durch den Lehrstuhl für Strömungsmechanik (LSTM), wird für Zwecke der Forschung und Lehre ein einfaches, kostenloses, zeitlich und örtlich unbeschränktes Nutzungsrecht an den Arbeitsergebnissen der Arbeit einschließlich etwaiger Schutz- und Nutzungsrechte eingeräumt.
+% % \\ [35mm]
+% % Erlangen, den DATUM \hspace{4cm} \rule{5cm}{0.02mm}
+% % \fi	
 
-%\chapter*{Danksagung}
+% %=============================================================================%
+
+% \thispagestyle{empty}
+% %\cleardoublepage
+
+% %\chapter*{Danksagung}
    
-%\include{kapitel/kurzfassung}
-%\cleardoublepage
+% %\include{kapitel/kurzfassung}
+% %\cleardoublepage
 
 
 
@@ -412,42 +412,28 @@ Erlangen, the DATE \hspace{4cm} \rule{5cm}{0.02mm}
 %\cleardoublepage
 \pagenumbering{arabic}
 
-\include{kapitel/einleitung}
 
-\include{kapitel/Introduction}
-
-%\include{kapitel/theory_Michaela}
 
 \include{kapitel/Theory}
-\include{kapitel/Methods_korrektur}
-%\include{kapitel/Methods}
-
-\include{kapitel/Validation}
 
 
-\include{kapitel/Results}
-
-\include{kapitel/Conclusion}
-
-
-\include{kapitel/literaturverzeichnis}
 %%
 
 %
 \newpage
 %
 
-\begin{appendix}                    % Anhang einfügen
-%
-%\include{kapitel/anhang1}
-%\include{kapitel/anhang2}
+% \begin{appendix}                    % Anhang einfügen
+% %
+% %\include{kapitel/anhang1}
+% %\include{kapitel/anhang2}
 
-\include{kapitel/Appendix}
-\end{appendix}
+% \include{kapitel/Appendix}
+% \end{appendix}
 %
 
-% \bibliographystyle{alphadin}
-% \bibliography{Bibliography}
+\bibliographystyle{alphadin}
+\bibliography{Bibliography}
 
 \end{document}
 

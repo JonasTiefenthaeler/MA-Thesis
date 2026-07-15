@@ -83,14 +83,10 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \usepackage{xargs}
-\usepackage[colorinlistoftodos,prependcaption,textsize=tiny,obeyDraft]{todonotes}
-\presetkeys{todonotes}{inline}{}
+\usepackage[pdftex,dvipsnames]{xcolor} 
+\usepackage[colorinlistoftodos,prependcaption,textsize=tiny,textwidth=20mm,obeyDraft]{todonotes}
 \newcommandx{\fxunsure}[2][1=]{\todo[linecolor=red,backgroundcolor=yellow!25,bordercolor=red,#1]{#2}}
 \newcommandx{\fxchange}[2][1=]{\todo[linecolor=blue,backgroundcolor=blue!25,bordercolor=blue,#1]{#2}}
 \newcommandx{\fxinfo}[2][1=]{\todo[linecolor=OliveGreen,backgroundcolor=OliveGreen!25,bordercolor=OliveGreen,#1]{#2}}
 \newcommandx{\fximprove}[2][1=]{\todo[linecolor=Plum,backgroundcolor=Plum!25,bordercolor=Plum,#1]{#2}}
-\newcommandx{\fxbmark}[2][1=]{\todo[linecolor=red,backgroundcolor=red!50,bordercolor=red,size=small, #1]{#2}}
-\makeatletter% 
-\@mparswitchfalse%
-\makeatother%
-\normalmarginpar
+\newcommandx{\fxbmark}[2][1=]{\todo[inline,linecolor=red,backgroundcolor=red!50,bordercolor=red,size=small, #1]{#2}}
