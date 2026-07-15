@@ -14,7 +14,7 @@
 		\setentrycounter[]{page}\glsnumberformat{8}}}%
 \glossentry{dns}{\glossaryentrynumbers{\relax 
 		\setentrycounter[]{page}\glsnumberformat{9}\delimN 
-		\setentrycounter[]{page}\glsnumberformat{13\delimR 15}\delimN 
+		\setentrycounter[]{page}\glsnumberformat{14\delimN 15}\delimN 
 		\setentrycounter[]{page}\glsnumberformat{II}}}\glsgroupskip
 \glsgroupheading{L}\relax \glsresetentrylist %
 \glossentry{les}{\glossaryentrynumbers{\relax 
@@ -29,5 +29,5 @@
 \glsgroupheading{S}\relax \glsresetentrylist %
 \glossentry{sem}{\glossaryentrynumbers{\relax 
 		\setentrycounter[]{page}\glsnumberformat{9}\delimN 
-		\setentrycounter[]{page}\glsnumberformat{13\delimN 14}}}%
+		\setentrycounter[]{page}\glsnumberformat{14}}}%
 \end{theglossary}\glossarypostamble
