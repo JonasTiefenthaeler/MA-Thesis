@@ -1,7 +1,7 @@
 \chapter{Methods}\label{chap: Methods}
 
 To simulate the behaviour of fluid motion, it is necessary to integrate the partial differential equations, namely the \acrlong{nse}, numerically with an simulation code.
-For this Thesis, the high-order \acrfull{sem} code Neko is used.
+In this thesis, the high-order \acrfull{sem} code Neko is used.
 Neko is an open-source \acrfull{cfd} solver, that is based on the older Nek5000 \acrshort{cfd} solver originally implemented by~\cite{fischerNek500WebPage}.
 The portable framework Neko is written in modern Fortran in an object-oriented manner and is mainly focused on incompressible flow simulations \citep{janssonNekoModernPortable2024}.
 Only \acrfull{dns} will be performed in this work, however \acrfull{les} models are also implemented in Neko.
@@ -16,117 +16,135 @@ Nevertheless, \acrshort{dns} is performed by a wide range of researches, since t
 
 \section{Simulation setup}\label{sec: Simulation setup}
 For this study, the canonical setup of the pipe is used.
-In the pipe, azimuthal periodicity is given by default, which means that a smooth pipe setup is fully defined using the pipe length and Reynolds-number \citep{yaoDirectNumericalSimulations2023}.
+In the pipe, azimuthal periodicity is given by default meaning that a smooth pipe setup is fully defined using the pipe length and the Reynolds-number \citep{yaoDirectNumericalSimulations2023}.
 Additionally, a cylindrical coordinate system is employed, with the three spacial directions $r, \theta$ and $z$.
 The terminology wall-normal is used for the $r$-coordinate, azimuthal is the $\theta$ direction and $z$ is the streamwise direction.
 
-The dimensions of the rough domain are $L_r \times L_\theta \times L_z = R \times 2\pi R \times 8\pi R$, with the radius $R$ is set to $1 \hat{=}$ unity, while the smooth validation domains are shortened to $L_z = 4\pi R$ to save on computational time.
-$R$ denotes the mean radius of the pipe in rough setups, hence the distance from the virtual origin to the pipe center.
+The dimensions of the rough domain are $L_r \times L_\theta \times L_z = R \times 2\pi R \times 8\pi R$, with the radius $R$ is set to $1 \hat{=}$ unity. 
+The smooth validation domains are shortened to $L_z = 4\pi R$ to save computation time.
+$R$ denotes the mean radius of the pipe in rough setups, and is therefore the distance from the virtual origin to the pipe center.
 
 For the \acrfull{bcs}, the Dirichlet no-slip \acrshort{bc} at the pipe wall is used.
-This states that the fluid at the wall  moves with the same velocity as the wall itself, which sets all velocities to zero at the wall in this setup: $u_i = 0 \ \text{for}\ y = 0$.
-This also implies, that the wall is impermeable, since the wall normal velocity $v$ is zero.
-Since the streamwise direction is statistically homogeneous in fully developed turbulent pipe flow \citep{moinDIRECTNUMERICALSIMULATION1998}, a periodic boundary condition for the inflow and outflow of the pipe is used.
-This means, that the velocities of the outflow are set equal to the velocities at the inflow: $u_{i_{l = 0}} = u_{i_{l=L_z}}$, which implies that fluid that leaves the domain at the outflow reenters the domain at the inflow.
+This states that the fluid at the wall  moves with the same velocity as the wall itself.
+In the current setup all velocities are set to zero at the wall: $u_i = 0 \ \text{for}\ y = 0$.
+This also implies that the wall is impermeable, since the wall normal velocity $v$ is zero.
+Since the streamwise direction is statistically homogeneous in fully developed turbulent pipe flow \citep{moinDIRECTNUMERICALSIMULATION1998}, a periodic boundary condition is used for the inflow and outflow of the pipe.
+This means that the outflow velocities are set equal to the inflow velocities: $u_{i_{l = 0}} = u_{i_{l=L_z}}$.
+This implies that fluid leaving the domain at the outflow reenters the domain at the inflow.
 
-The initial condition is important to support a fast transition to turbulence.
-A fast transition to turbulence is favourable, since it saves computational resources.
-This is achieved by having a basis of a laminar velocity profile, which is overlaid by large- and small scale disturbances.
+It is important to use appropriate \acrfull{ics} to support a fast transition to turbulence.
+This is favourable since it saves computational resources.
+This is achieved by using a laminar velocity profile as a basis, which is overlaid by large- and small-scale disturbances.
 The laminar velocity profile is defined as
 \begin{equation}\label{eq: laminar velocity profile}
     u_r = 0 \quad u_\theta = 0 \quad u_z = 2(1-r^2)
 \end{equation}
 which represents the bulk velocity $U_b = 1$.
 The perturbations are defined as a combination of multiple $\sin$ and $\cos$ waves of various magnitudes.
-Large- and small scale disturbances are intended to disrupt the laminar profile, to support a fast transition to turbulence.
-The initial velocity field is taken from the Neko example of the turbulent channel and ported to polar coordinates and altered, such that the divergence-free criterion $\nabla u_i = 0$ is met, which is necessary to fulfil the conservation of mass \citep{popeTurbulentFlows2015}.
+Large- and small-scale disturbances are intended to disrupt the laminar profile and support a fast transition to turbulence.
+The initial velocity field is taken from the Neko example of the turbulent channel and converted to polar coordinates, and altered, such that the divergence-free criterion $\nabla u_i = 0$ is met, which is necessary for the conservation of mass \citep{popeTurbulentFlows2015}.
 
-The bulk flow rate $U_b$ is defined in streamwise $z$ direction to be unity $=1$ and is kept constant over the simulation time.
+
+The bulk flow rate $U_b$ is defined in the streamwise $z$ direction as unity ($U_b=1$) and is kept constant throughout the simulation.
 To achieve the desired bulk velocity, the flow is driven by a pressure gradient $\Pi$.
-To maintain a constant flow rate the pressure gradient $\Pi$ is varying in time to adjust for changing flow conditions, e.g.\ when turbulence develops.
-Using \autoref{eq: viscous scaling units} it is also possible to compute $Re_\tau$ from $\Pi$  as described by~\cite{demaioDirectNumericalSimulation2023}
+To maintain a constant flow rate, the pressure gradient $\Pi$ is varying over time to adjust for changes in the flow conditions, e.g., when turbulence develops.
+Using \autoref{eq: viscous scaling units} it is also possible to compute $Re_\tau$ from the pressure gradient $\Pi$  as described by~\cite{demaioDirectNumericalSimulation2023}
 \begin{equation} \label{eq: REtau from forcing}
     Re_\tau = \sqrt{\frac{\Pi}{2}}Re_b \quad \text{since} \quad \tau_w = \frac{R}{2}\Pi 
 \end{equation}
 
-The simulation mesh must have enough grid points to be able to correctly resolve the physics of turbulence.
-Since the turbulent scales are decreasing near the wall and the viscous sublayer needs to be resolved, it is necessary to refine the grid resolution near the wall.
-Vice versa, the mesh can be coarsened towards the pipe center, without sacrificing correct results.
+The simulation mesh must contain enough grid points to be able to correctly resolve the physics of turbulence.
+Since the turbulent scales decrease near the wall and the viscous sublayer must to be resolved, it is necessary to refine the grid resolution near the wall.
+Vice versa, the mesh can be coarsened towards the pipe center, without compromising the accuracy of the results.
 \begin{figure}
     \centering
     \includegraphics[width = 0.5\textwidth]{Methods/mesh_19000Reb_crossSection.pdf}
-    %\input{plots/mesh_19000Reb_crossSection.pgf}
     \caption{Exemplary image of simulation mesh}
     \label{fig: simulation mesh}
 \end{figure}
 The simulation mesh is generated using Gmsh \citep{Gmsh}.
-In \autoref{fig: simulation mesh} the frontal view on one plane of an exemplary simulation mesh is shown.
-All other meshes used in this work show a very similar topography.
-It can be seen, that the mesh consists of two sections.
-The outer part is generated using a structured mesh topology, while the inner part is an unstructured mesh.
-This is done to avoid heavily distorted elements and the singularity at the mesh center.
-The size of the structured region is defined by an inner radius, which sets the boundary between the structured and unstructured part.
-The increased resolution in the near-wall section is achieved by a geometric progression of the element size in the structured region of the mesh.
-The number of elements in the azimuthal direction $N_\theta$ also implicitly defines the number of elements in the unstructured part, since a mesh  size or number of elements cannot be explicitly defined in the unstructured mesh topography.
-All simulation meshes consists purely of quad elements.
-To find reasonable mesh resolutions, a mesh convergence study is performed in \autoref{subsec: grid refinement study}.
+\autoref{fig: simulation mesh} shows the frontal view on one plane of an exemplary simulation mesh.
+All the other meshes used in this work have a very similar topography.
+It can be seen that the mesh consists of two sections.
+The outer part is generated using a structured mesh topology, while the inner part uses an unstructured mesh.
+This is done to avoid heavily distorted elements and singularity at the mesh center.
+The size of the structured region is defined by an inner radius, which establishes the boundary between the structured and unstructured sections.
+Increased resolution in the near-wall section is achieved through a geometric progression of the element size in the structured region of the mesh.
+The number of elements in the azimuthal direction, $N_\theta$, also implicitly defines the number of elements in the unstructured part, since the size or number of mesh elements cannot be explicitly defined in the unstructured mesh topography.
+All simulation meshes consist purely of quad elements.
+To determine reasonable mesh resolutions, a mesh convergence study is performed in \autoref{subsec: grid refinement study}.
 The resulting mesh parameters from this study are listed in \autoref{tab: parameters chosen meshes}.
 
 \section{Generating rough surfaces}\label{sec:generating rough surfaces}
-Surfaces in real-world engineering applications regularly exhibit irregular roughness.
-In previous studies often scans of real-world surfaces are used, to perform the simulations, e.g.\ by~\cite{thakkarInvestigationTurbulentFlow2017},~\cite{demaioDirectNumericalSimulation2023} and~\cite{busseReynoldsnumberDependenceNearwall2017}.
-This yields the advantage, that inherently the real world influence of surface roughness is investigated.
-This method is however restricted by the available surface.
-Also, the investigated surface parameters can not be directly controlled, but are a direct result of the chosen surface to be scanned.
-In the present work, the surface roughness will be generated by an algorithm introduced by~\cite{perez-rafolsGeneratingRandomlyRough2019}.
-In the following section a brief description of the algorithm is given, followed by an explanation how the generated surface is implemented in the simulation.
+In real-world engineering applications, surfaces often exhibit irregular roughness.
+Previous studies have often used scans of real-world surfaces, to perform simulations, e.g.\ by~\cite{thakkarInvestigationTurbulentFlow2017, demaioDirectNumericalSimulation2023} and~\cite{busseReynoldsnumberDependenceNearwall2017}.
+This has the advantage that inherently the real world characteristics of surface roughness is investigated.
+This method is, however, restricted by the available surfaces.
+Also, the investigated surface parameters cannot be directly controlled; but they are a direct result of the chosen for scanning.
+In the present work, the surface roughness will be generated using an algorithm introduced by~\cite{perez-rafolsGeneratingRandomlyRough2019}.
+The following section provides a brief description of the algorithm, followed by an explanation of how the generated surface is implemented in the simulation.
 
 \subsection{Surface generation algorithm}\label{subsec: Surface generation algorithm}
 
-The idea behind the algorithm by~\cite{perez-rafolsGeneratingRandomlyRough2019} is, that a realistic surface topography needs a height distribution, as well as a spatial distribution.
+The idea behind the algorithm in~\cite{perez-rafolsGeneratingRandomlyRough2019} is that a realistic surface topography requires btoh a height distribution and a spatial distribution.
 To that extend, two main input parameters need to be specified.
-To define the height distribution, a height probability distribution is chosen.
-To define the spacial distribution, a power spectrum is used.
-Using the probability distribution and the power spectrum, two initial surfaces $Z_h$ and $Z_S$ are generated. 
-The first surface $Z_h$ shows the desired probability distribution, but not necessarily the power spectrum.
-The second surface $Z_s$ exhibits the power spectrum but not the probability distribution.
-The algorithm iteratively corrects $Z_s$ and $Z_h$ to match each other, until a specified convergence is reached.
+The height distribution of the surface is defined using a height probability distribution.
+To define the spatial distribution, a power spectrum is used.
+The probability distribution and the power spectrum are then used to generate two initial surfaces, $Z_h$ and $Z_S$.
+The first surface, $Z_h$, exhibits the desired probability distribution, but not necessarily the power spectrum.
+The second surface, $Z_s$, exhibits the power spectrum, but not the probability distribution.
+The algorithm then iteratively corrects $Z_h$ and $Z_s$ to match each other, until a specified level of convergence is reached.
 The iteration consists of two steps:
 \begin{enumerate}
     \item Adjust the $Z_s$ using the formula $\hat{Z}_s^{i+1} = \hat{Z}_h^i \frac{|\hat{Z}_s^i|}{|\hat{Z}_h^i|}$, with the values denoted by $\hat{Z}$ representing their respective Fourier transforms.
     The inverse transform of $\hat{Z}_s^{i+1}$, $Z_s^{i+1}$, shows the specified power spectrum but a changed height probability distribution.
     \item Obtain a $Z_h^{i+1}$ by adjusting the height probability distribution of $Z_s^{i+1}$.
-    This is achieved by rank ordering
+    This is achieved by rank ordering.
 \end{enumerate}
-In this work, as the random distribution the Weibull distribution is used, with the probability density function
+In the present work, the Weibull distribution is used as the probability distribution, with the probability density function
 \begin{equation}\label{eq: Weibull distribution}
     f(z) = \frac{k}{\lambda} \left(\frac{z}{\lambda}\right)^{k-1} e^{-(z/k)^{k}}
 \end{equation}
 with $k$ being the shape factor and $\lambda$ representing the scale factor.
-The used power spectrum is defined by
+The power spectrum used here is defined by
 \begin{equation}\label{eq: Power spectrum}
     C(q) = \frac{S_q^2 \beta}{2\pi\left(\beta^2 + q_x^2+q_y^2\right)^{\frac{3}{2}}}
 \end{equation}
 with $S_q$ being the rms height and $\frac{1}{\beta}$ is the autocorrelation length, as described by~\cite{perez-rafolsGeneratingRandomlyRough2019}.
-The specific random distribution and power spectrum are chosen, since they are thoroughly tested by~\cite{perez-rafolsGeneratingRandomlyRough2019}.
-It shows, that reasonably fast convergence, as well as low absolute errors can be achieved.
-It is important to note, that the two surfaces $Z_h$ and $Z_s$ are not exactly the same, but similar within the bounds of a defined tolerance.
-$Z_h$ will have the desired height probability distribution, but the power spectrum will deviate slightly within the capability of the algorithm and the defined tolerances.
-Vice versa for $Z_s$.
-It is chosen to use the surface $Z_h$ in this work.
+The specific probability distribution and power spectrum are chosen, since they have been thoroughly tested by~\cite{perez-rafolsGeneratingRandomlyRough2019}.
+This shows reasonably fast convergence and low absolute errors can be achieved.
+It is important to note that the two surfaces $Z_h$ and $Z_s$ are not exactly the same, but similar within the bounds of a defined tolerance.
+$Z_h$ will have the desired height probability distribution, but the power spectrum will deviate slightly within the capabilities of the algorithm and the defined tolerances.
+Vice versa this holds for $Z_s$.
+The surface $Z_h$ is chosen for use in the present work.
 
-To obtain a surface, which has the desired surface parameters, the correct input values for $k, \lambda, \beta$ and $S_q$ have to be found.
-This is done using a quasi-Newton optimization algorithm implemented in the scipy.optimize python library.
-The optimization algorithm changes the parameters within the parameter space systematically, such that the target function is minimized.
-The target function is defined to be the sum of the squared deviations of the considered surface parameters to their respective targets.
-To dispose the random noise of the random number generator of the random distribution, the random seed is fixed throughout this process.
-
-The described algorithm produces a rough plane.
-BILD ALS VERGLEICH ZWISCHEN ROUGH PLANE UND ROUGH PIPE.
-The generated rough plane will be mapped onto a pipe, which is inherently periodic in azimuthal direction.
-Also, periodic boundary conditions for the inflow and outflow are applied, as described in \autoref{sec: Simulation setup}.
-To be able to fulfil these conditions, a surface must be generated, which is periodic in length and width direction.
-NOCH SCHREIBEN DASS ES AUTOMATISCH PERIODISCHE SURFACES GENERIERT
+In order to obtain a surface with the desired surface parameters, the correct input values for $k, \lambda, \beta$ and $S_q$ have to be found.
+This is acheived by using a quasi-Newton optimisation algorithm implemented in the scipy.optimize python library.
+The optimisation algorithm systematically alters the parameters within the parameter space to minimise the target function.
+The target function is defined to be the sum of the squared deviations of the considered surface parameters from their respective targets.
+To eliminate the random noise from the random number generator of the random distribution, the random seed is fixed throughout this process.
+\begin{figure}
+    \centering
+    \begin{subfigure}{0.49\textwidth}
+        \subcaption{}
+        \includegraphics[width=\linewidth]{Methods/rough_surface_flat.pdf}
+        \label{subfig: rough surface flat}
+    \end{subfigure}
+    \hfil
+    \begin{subfigure}{0.49\textwidth}
+        \subcaption{}
+        \includegraphics[width=\linewidth]{Methods/rough_pipe.pdf}
+        \label{subfig: rough pipe}
+    \end{subfigure}
+    \caption{Comparison between generated rough surface and rough surface applied onto pipe. (a) Plane rough surface. (b) Rough surface mapped onto the pipe geometry}
+    \label{fig: comparison between flat and pipe}
+\end{figure}
+The described algorithm produces a rough plane which needs to be mapped onto the pipe geometry.
+\autoref{fig: comparison between flat and pipe} shows both the plane rough surface and the corresponding rough pipe.
+The pipe geometry is inherently periodic in the azimuthal direction.
+Also, periodic boundary conditions are applied for the inflow and outflow, as described in \autoref{sec: Simulation setup}.
+In order to fulfil these conditions, a periodic surface must be generated in length and width direction.
+The periodicity in both streamwise and azimuthal direction is given for the surface, since it is a product of Fourier and inverse Fourier transforms, which makes it inherently periodic.
 
 \subsection{Applying rough surfaces onto the mesh}\label{subsec: Generating rough mesh}
 
@@ -170,6 +188,12 @@ This function scales the magnitude of shift applied to each grid point linearly 
 This method results in a body fitted mesh, where the boundaries of the mesh represent the roughness features.
 Furthermore, the near wall mesh refinement is kept.
 
+\begin{figure}
+    \centering
+    \includegraphics[width = 0.5\textwidth]{Methods/deformed_Mesh.pdf}
+    \caption{Mesh deformed to roughness}
+    \label{fig: deformed mesh}
+\end{figure}
 The points are only shifted in radial direction.
 Since the GLL points are distributed onto the mesh before the roughness is applied, the GLL distribution is not exact after the rough deformation.
 Since the shift is of small magnitude, the effect is assumed to be small.
@@ -251,7 +275,7 @@ To obtain correct statistics, the data should be interpolated on concentric circ
         \input{plots/Methods/interpolation_point_placement_3.pgf}
         \label{subfig: PP points after inverse maping}
     \end{subfigure}
-    \caption{Visualization of points mapping in post-processing. Dots represent \acrshort{dns} data points, circles interpolation points, the black line the pipe wall and the grey area the simulation domiain (a) Default point placement. (b) DNS domain mapped into the smooth computational domain, as depicted in \autoref{subfig: smooth averaged field}, (c) Interpolation points mapped by the inverse of the rough surface, such that they lie on the same respective concentric positions in the computational domain}
+    \caption{Visualization of points mapping in post-processing. Dots \dnsdot~\ represent \acrshort{dns} data points, circles  \interpcircle~\ interpolation points, the  black line \wallline~\ the pipe wall and the grey area \domainsquare~\ the simulation domiain (a) Default point placement. (b) DNS domain mapped into the smooth computational domain, as depicted in \autoref{subfig: smooth averaged field}, (c) Interpolation points mapped by the inverse of the rough surface, such that they lie on the same respective concentric positions in the computational domain}
     \label{fig: Visualization of the PP points}
 \end{figure} 
 If the smooth averaged field would be interpolated onto the concentric interpolation points, the generated data would be in a body fitted manner.
