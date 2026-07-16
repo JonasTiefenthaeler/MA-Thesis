@@ -10,8 +10,14 @@ Only \acrfull{dns} will be performed in this work, however \acrfull{les} models 
 In \acrshort{dns}, the \acrlong{nse} are solved without using any turbulence model.
 This means, that all scales of motion are resolved.
 Since all scales of turbulent motion are resolved, a very fine mesh resolution is required to perform a \acrshort{dns}, such that the mesh can resolve also the smallest eddies.
-This leads to very high computational cost and even with the ever-increasing computational resources of high performance computing, restricts the \acrshort{dns} method to relatively small domain sizes, as well as only low to medium Reynolds numbers.
-Nevertheless, \acrshort{dns} is performed by a wide range of researches, since the accuracy of its results is unmatched by other \acrshort{cfd} simulation methods.ZITAT
+This leads to increasing resolution requirements in space and time with an increasing Reynolds number.
+The requirement for computation time can be estimated as  $\approx Re^3$ for isotropic turbulence and $\approx Re^\frac{37}{14}$ for wall-bounded flows \citep{choiGridpointRequirementsLarge2012}.
+The exponential increase in required computation effort makes it obvious that \acrshort{dns} is only viably for low to medium Reynolds numbers and domain sizes.
+%This leads to very high computational cost and even with the ever-increasing computational resources of high performance computing, restricts the \acrshort{dns} method to relatively small domain sizes, as well as only low to medium Reynolds numbers.
+Nevertheless, \acrshort{dns} is performed regularly in a scientific context, since the accuracy of its results is unmatched by other \acrshort{cfd} simulation methods ZITAT.
+In comparison with experimental investigations of turbulent flow, \acrshort{dns} provides significantly more information in the near wall region, since experimental methods often are restricted in the vicinity of the wall.
+Especially in rough wall conditions, it can be very challenging or impossible to obtain data about the flow behaviour in the vicinity of roughness features ZITAT.
+
 
 
 \section{Simulation setup}\label{sec: Simulation setup}
@@ -39,10 +45,12 @@ The laminar velocity profile is defined as
 \begin{equation}\label{eq: laminar velocity profile}
     u_r = 0 \quad u_\theta = 0 \quad u_z = 2(1-r^2)
 \end{equation}
-which represents the bulk velocity $U_b = 1$.
+with $r$ denoting the radius ranging from $0$ to $1$.
+The used profile represents the bulk velocity $U_b = 1$.
 The perturbations are defined as a combination of multiple $\sin$ and $\cos$ waves of various magnitudes.
 Large- and small-scale disturbances are intended to disrupt the laminar profile and support a fast transition to turbulence.
 The initial velocity field is taken from the Neko example of the turbulent channel and converted to polar coordinates, and altered, such that the divergence-free criterion $\nabla u_i = 0$ is met, which is necessary for the conservation of mass \citep{popeTurbulentFlows2015}.
+BILD VON DER INITIAL CONDITION EINBAUEN
 
 
 The bulk flow rate $U_b$ is defined in the streamwise $z$ direction as unity ($U_b=1$) and is kept constant throughout the simulation.
