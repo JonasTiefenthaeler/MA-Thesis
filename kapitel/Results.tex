@@ -33,14 +33,17 @@
     \centering
     \begin{subfigure}{0.49\textwidth}
         \subcaption{piro}
-        \includegraphics[width = \textwidth]{plots/Results/5300/EnergySpectra_piro.png}
+        \subimport{plots/Results/5300/}{3DSpectra_piro.pgf}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.49\textwidth}
         \subcaption{k down, fixed Es}
-        \includegraphics[width = \textwidth]{plots/Results/5300/EnergySpectra_kDown.png}
+        \subimport{plots/Results/5300/}{3DSpectra_scaled.pgf}
     \end{subfigure}
-
+    \centering
+    \begin{subfigure}[c]{\textwidth}
+        \subimport{plots/Results/5300/}{3DSpectra_colorbar.pgf}
+    \end{subfigure}
 \end{figure}
 
 \begin{figure}

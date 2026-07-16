@@ -1,6 +1,5 @@
 \chapter{Theory}\label{chap: Theory}
-The motion of viscous fluids is described by a set of  equations, termed the \acrfull{nse} ZITAT.
-To simulate the behaviour of fluid motion, it is necessary to integrate these partial differential equations  numerically using a simulation code.
+The motion of viscous fluids is described by a set of  equations, termed the \acrfull{nse} \citep{schlichtingBoundaryLayerTheory2017}.
 They consist of the mass conservation equation, also called the continuity equation
 \begin{equation}\label{eq: conservation equation}
     \frac{\partial u_i}{\partial x_i} = 0
@@ -58,7 +57,7 @@ They are denoted by the $+$ superscript and are also called `viscous units' or `
 \begin{figure}
     \centering
     \input{plots/Theory/Uplus_yplus_reference.pgf}
-    \caption{Comparison of the streamwise velocity profiles over the wall distance nondimensionalised in viscous units $U^+$ and $y^+$. Data for cases $Re_\tau \ 180,\ 550$ and $1000$ taken from~\cite{yaoDirectNumericalSimulations2023} and $Re_\tau = 360$ from~\cite{elkhouryDirectNumericalSimulation2013}}
+    \caption{Comparison of the streamwise velocity profiles over the wall distance nondimensionalised in viscous units $U^+$ and $y^+$. Data for cases $Re_\tau \ 180,\ 550$ and $1000$ taken from~\cite{yaoDirectNumericalSimulations2023} and $Re_\tau = 360$ from~\cite{elkhouryDirectNumericalSimulation2013}. The black solid lines represent the viscous sublayer and log-law}
     \label{fig: smooth U^+ over y^+}
 \end{figure}
 \begin{equation}
@@ -69,7 +68,7 @@ If the data are scaled using the viscous scales, the mean velocity profiles of s
 This is demonstrated in \autoref{fig: smooth U^+ over y^+}, which depicts reference data for smooth pipes of various friction Reynolds numbers.
 %The respective lift above the log law line is expected for pipes, and reduces for channel flows \citep{khouryTurbulentPipeFlow2014}.\\
 Furthermore, an analysis of the velocity profiles shows, that they can be divided into three primary regions.
-The viscous sublayer holds until the upper limit $y^+ < 5$, the logarithmic region where $y^+ > 30$ and the buffer region is located inbetween.
+The viscous sublayer holds until $\approx y^+ = 5$, the logarithmic region where $y^+ > 30$ and the buffer region is located inbetween.
 Within the viscous sublayer, the law of the wall $U^+ = y^+$ holds. 
 Within the logarithmic region, the log law $U^+ = \frac{1}{\kappa}\ln{y^+} + A$ holds.
 $\kappa$ and $A$ may be selected according to the specific case, since the values differ slightly for different friction Reynolds numbers and cases \citep{popeTurbulentFlows2015}.
@@ -77,7 +76,7 @@ In this thesis, $\kappa = 0.41$ and $A = 5.2$ are used, according to the values 
 
 
 \subsection{Decomposition of turbulent quantities in mean and fluctuations}\label{subsec: decomposition of turbulent quantities}
-Turbulent behaviour is stochastic when viewed at a single point in time and space ZITAT.
+Turbulent behaviour is stochastic when viewed at a single point in time and space \citep{tennekesFirstCourseTurbulence1972, popeTurbulentFlows2015}.
 The instantaneous fluid behaviour, denoted by $u_i$, in turbulent flow over smooth surfaces can be separated into a mean component $U_i$ and instantaneous fluctuations in time $u_i'$.
 This can be expressed as:
 \begin{equation}
@@ -121,7 +120,7 @@ This states that the behaviour of turbulence over smooth and rough walls is the 
 To be able to describe rough surfaces, a multitude of roughness parameters have been developed, as described by~\cite{chungPredictingDragRough2021}.
 The influence of each parameter remains an open research question which has yet to be fully explored, i.e.\ by \citep{flackReviewHydraulicRoughness2010,jellyReynoldsDispersiveShear2018}.
 However, it remains unclear whether it is possible to associate individual surface parameters to specific flow characteristics.
-Alternatively, it is possible that there is always a more general influence of the surface on the turbulent flow \citep{chungPredictingDragRough2021}.\\
+Alternatively, it is possible that there is always a more general influence of the surface on the turbulent flow \citep{chungPredictingDragRough2021}.
 
 Since it is often impossible to reproduce rough surfaces of preceding studies \citep{chungPredictingDragRough2021}, it is important to provide a wide range of surface parameters to be able to  quantify the surface roughness appropriately.
 This enables further studies that can validate the data and select comparable simulation setups.
@@ -160,9 +159,9 @@ Other literature, like \citep{jellyReynoldsDispersiveShear2018,maDirectNumerical
 \paragraph{Mean peak-to-valley height}
 The calculation of the mean peak to valley height, denoted here as $S_{z_{5\times 5}}$ is performed according to the methodology by~\cite{thakkarInvestigationTurbulentFlow2017} in the present work.
 The methodology is dividing the surface into tiles and calculating the difference between the highest and lowest point for each tile.
-The mean of the differences results in  the mean peak-to-valley height, denoted by $S_{z_{5\times 5}}$, which we used as the measurement for roughness height $k$ in the present thesis, as done by~\cite{demaioDirectNumericalSimulation2023}.
-For this study the rough surface is segmented into 25 rectangular tiles of equal size.
-'Equal size' means in this context that the same number of grid points are used for the length and width of the tiles.\\
+The mean of the differences results in  the mean peak-to-valley height, which we use as the measurement for roughness height $k$ in the present thesis, as done by~\cite{demaioDirectNumericalSimulation2023}.
+For the present work, the rough surface is segmented into 25 rectangular tiles of equal size.
+'Equal size' means in this context that the same number of grid points are used for the length and width of the tiles.
 \\
 It is important to note that not all surface parameters are fully independent.
 Especially the height parameters, $S_a, S_q$ and $S_{z_{5\times 5}}$ are interdependent, and cannot be selected arbitrarily for nonperiodic inhomogeneous roughness \citep{perez-rafolsGeneratingRandomlyRough2019}.
@@ -193,7 +192,7 @@ The increased drag manifests itself in the downshift of the log-law of the veloc
 \begin{figure}
     \centering
     \input{plots/Theory/Uplus_yplus_rough_vs_smooth.pgf}
-    \caption{$U^+$ over $y^+$ for a smooth walled and rough walled pipe with similar friction Reynolds numbers. Data for smooth pipe is taken from \cite{yaoDirectNumericalSimulations2023}, data for rough walled pipe taken from \cite{demaioDirectNumericalSimulation2023}}
+    \caption{$U^+$ over $y^+$ for a smooth wall and rough wall pipe with similar friction Reynolds numbers. Data for smooth pipe is taken from \cite{yaoDirectNumericalSimulations2023}, data for rough walled pipe taken from \cite{demaioDirectNumericalSimulation2023}}
     \label{fig: U+ over y+ smooth vs rough}
 \end{figure}
 This downshift is the difference between the velocity profiles of turbulent flows with a smooth and a rough wall, at the same friction Reynolds number $Re_{\tau}$ and can be expressed as
