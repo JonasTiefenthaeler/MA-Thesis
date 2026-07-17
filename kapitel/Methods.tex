@@ -18,12 +18,32 @@ Nevertheless, \acrshort{dns} is performed regularly in a scientific context, sin
 In comparison with experimental investigations of turbulent flow, \acrshort{dns} provides significantly more information in the near wall region, since experimental methods often are restricted in the vicinity of the wall.
 Especially in rough wall conditions, it can be very challenging or impossible to obtain data about the flow behaviour in the vicinity of roughness features ZITAT.
 
+The employed \acrshort{sem} method is originally proposed by~\cite{pateraSpectralElementMethod1984} and can be seen as a combination of the \acrfull{fem} and spectral methods to acheive a significantly higher accuracy and faster convergence. 
+This high-order approach acheives the flexibility in spatial discretisation of the \acrshort{fem} and combining it with the high accuracy of spectral methods.
+The high accuracy of spectral methods is due to the fast spectral convergence.
+This is acheived, since the  value of a derivative of a gridpoint is not only dependent by neighbouring points, but on all points of the domain.
+This leads to spectral convergence, which means that the error decreases faster than exponentially with increasing number of points.
+\begin{figure}
+    \centering
+    \input{plots/Methods/spectral convergence.pgf}
+    \caption{Comparison between spectral convergence and algebraic convergence. Solid line representing spectral convergence, dotted line algebraic convergence}
+    \label{fig: spectral convergence}
+\end{figure}
+\autoref{fig: spectral convergence} compares spectral and algebraic convergence. 
+The axis scaling is set to log-lin, such that the exponential convergence of spectral methods is representend as a straight line.
+
+To combine the \acrshort{fem} and spectral methods, first a \acrshort{fem} mesh is constructed.
+The mesh is then subdivided into the gridpoints using the \acrfull{gll} distribution.
+This places the gridpoints denser at the element boundaries and further apart the element centre.
+Additionally, the \acrshort{gll} distribution places points at the element boundaries, which enables continuity across elements.
+For each element, the solution is represented by high-order Lagrange interpolating polynomials of degree $N$.
+
 
 
 \section{Simulation setup}\label{sec: Simulation setup}
 For this study, the canonical setup of the pipe is used.
 In the pipe, azimuthal periodicity is given by default meaning that a smooth pipe setup is fully defined using the pipe length and the Reynolds-number \citep{yaoDirectNumericalSimulations2023}.
-Additionally, a cylindrical coordinate system is employed, with the three spacial directions $r, \theta$ and $z$.
+Additionally, a cylindrical coordinate system is employed, with the three spatial directions $r, \theta$ and $z$.
 The terminology wall-normal is used for the $r$-coordinate, azimuthal is the $\theta$ direction and $z$ is the streamwise direction.
 
 The dimensions of the rough domain are $L_r \times L_\theta \times L_z = R \times 2\pi R \times 8\pi R$, with the radius $R$ is set to $1 \hat{=}$ unity. 
@@ -216,9 +236,9 @@ All data is presented in a wall normal direction and after post-processing, the 
 
 In this work, this is done using PySEMTools, which is an open source Python package, to post-process \acrshort{sem} data on hexahedral high-order elements \citep{perezPySEMToolsLibraryPostprocessing2026}.
 Using PySEMTools it is possible to obtain fluid statistics from multiple instantaneous fields, which will be done in \autoref{chap: Results} for the energy spectra.
-Additionally, Neko has the capability to produce statistics files, in which the data is averaged in time and, if chosen, in one or more spacial directions of choice during the runtime of the simulation.
+Additionally, Neko has the capability to produce statistics files, in which the data is averaged in time and, if chosen, in one or more spatial directions of choice during the runtime of the simulation.
 These statistics files are used to obtain the relevant data for the first- and second order statistics plots.
-In the present thesis, no spacial averaging is performed by Neko, so the statistics files contain 3D data that is only averaged in time.
+In the present thesis, no spatial averaging is performed by Neko, so the statistics files contain 3D data that is only averaged in time.
 
 The typical steps for post-processing are as follows:
 \begin{itemize}
