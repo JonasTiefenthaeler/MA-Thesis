@@ -1,12 +1,12 @@
 
 \begin{thenomenclature} 
 \nomgroup{F}
-  \item [{$\mu$}]\begingroup Dynamic viscosity of the fluid\nomeqref {0.0}\nompageref{V}
-  \item [{$\rho$}]\begingroup Density of the fluid\nomeqref {0.0}\nompageref{V}
+  \item [{$\mu$}]\begingroup Dynamic viscosity of the fluid\nomeqref {0.0}\nompageref{VI}
+  \item [{$\rho$}]\begingroup Density of the fluid\nomeqref {0.0}\nompageref{VI}
 \nomgroup{O}
-  \item [{$\alpha$}]\begingroup Scaling factor to ensure constant mass flux\nomeqref {0.0}\nompageref{V}
-  \item [{$Re_\tau$}]\begingroup Friction Reynolds number\nomeqref {0.0}\nompageref{V}
-  \item [{$Re_b$}]\begingroup Bulk Reynolds Number\nomeqref {0.0}\nompageref{V}
-  \item [{C}]\begingroup Mass flux\nomeqref {0.0}\nompageref{V}
+  \item [{$\alpha$}]\begingroup Scaling factor to ensure constant mass flux\nomeqref {0.0}\nompageref{VI}
+  \item [{$Re_\tau$}]\begingroup Friction Reynolds number\nomeqref {0.0}\nompageref{VI}
+  \item [{$Re_b$}]\begingroup Bulk Reynolds Number\nomeqref {0.0}\nompageref{VI}
+  \item [{C}]\begingroup Mass flux\nomeqref {0.0}\nompageref{VI}
 
 \end{thenomenclature}

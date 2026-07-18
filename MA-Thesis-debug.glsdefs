@@ -1,0 +1,364 @@
+\glsdefs@newdocentry{sem}%
+{%
+name={\acronymfont {\glsentryshort {sem}}},%
+sort={SEM},%
+type={acronym},%
+first={SEM},%
+firstplural={SEMs},%
+text={SEM},%
+plural={SEMs},%
+description={Spectral Element},%
+descriptionplural={Spectral Element},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Spectral Element},%
+longplural={Spectral Elements},%
+short={SEM},%
+shortplural={SEMs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{cfd}%
+{%
+name={\acronymfont {\glsentryshort {cfd}}},%
+sort={CFD},%
+type={acronym},%
+first={CFD},%
+firstplural={CFDs},%
+text={CFD},%
+plural={CFDs},%
+description={computational fluid dynamics},%
+descriptionplural={computational fluid dynamics},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={computational fluid dynamics},%
+longplural={computational fluid dynamicss},%
+short={CFD},%
+shortplural={CFDs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{dns}%
+{%
+name={\acronymfont {\glsentryshort {dns}}},%
+sort={DNS},%
+type={acronym},%
+first={DNS},%
+firstplural={DNSs},%
+text={DNS},%
+plural={DNSs},%
+description={Direct Numerical Simulation},%
+descriptionplural={Direct Numerical Simulation},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Direct Numerical Simulation},%
+longplural={Direct Numerical Simulations},%
+short={DNS},%
+shortplural={DNSs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{les}%
+{%
+name={\acronymfont {\glsentryshort {les}}},%
+sort={LES},%
+type={acronym},%
+first={LES},%
+firstplural={LESs},%
+text={LES},%
+plural={LESs},%
+description={Large Eddy Simulation},%
+descriptionplural={Large Eddy Simulation},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Large Eddy Simulation},%
+longplural={Large Eddy Simulations},%
+short={LES},%
+shortplural={LESs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{nse}%
+{%
+name={\acronymfont {\glsentryshort {nse}}},%
+sort={NSE},%
+type={acronym},%
+first={NSE},%
+firstplural={NSEs},%
+text={NSE},%
+plural={NSEs},%
+description={Navier-Stokes-Equations},%
+descriptionplural={Navier-Stokes-Equations},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Navier-Stokes-Equations},%
+longplural={Navier-Stokes-Equationss},%
+short={NSE},%
+shortplural={NSEs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{rans}%
+{%
+name={\acronymfont {\glsentryshort {rans}}},%
+sort={RANS},%
+type={acronym},%
+first={RANS},%
+firstplural={RANSs},%
+text={RANS},%
+plural={RANSs},%
+description={Reynolds-averaged Navier-Stokes},%
+descriptionplural={Reynolds-averaged Navier-Stokes},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Reynolds-averaged Navier-Stokes},%
+longplural={Reynolds-averaged Navier-Stokess},%
+short={RANS},%
+shortplural={RANSs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{da}%
+{%
+name={\acronymfont {\glsentryshort {da}}},%
+sort={DA},%
+type={acronym},%
+first={DA},%
+firstplural={DAs},%
+text={DA},%
+plural={DAs},%
+description={Double-Averaged},%
+descriptionplural={Double-Averaged},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Double-Averaged},%
+longplural={Double-Averageds},%
+short={DA},%
+shortplural={DAs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{bc}%
+{%
+name={\acronymfont {\glsentryshort {bc}}},%
+sort={B.C},%
+type={acronym},%
+first={B.C},%
+firstplural={B.Cs},%
+text={B.C},%
+plural={B.Cs},%
+description={Boundary Condition},%
+descriptionplural={Boundary Condition},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Boundary Condition},%
+longplural={Boundary Conditions},%
+short={B.C},%
+shortplural={B.Cs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{bcs}%
+{%
+name={\acronymfont {\glsentryshort {bcs}}},%
+sort={B.Cs},%
+type={acronym},%
+first={B.Cs},%
+firstplural={B.Css},%
+text={B.Cs},%
+plural={B.Css},%
+description={Boundary Conditions},%
+descriptionplural={Boundary Conditions},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Boundary Conditions},%
+longplural={Boundary Conditionss},%
+short={B.Cs},%
+shortplural={B.Css},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{ic}%
+{%
+name={\acronymfont {\glsentryshort {ic}}},%
+sort={I.C},%
+type={acronym},%
+first={I.C},%
+firstplural={I.Cs},%
+text={I.C},%
+plural={I.Cs},%
+description={Initial Condition},%
+descriptionplural={Initial Condition},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Initial Condition},%
+longplural={Initial Conditions},%
+short={I.C},%
+shortplural={I.Cs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{ics}%
+{%
+name={\acronymfont {\glsentryshort {ics}}},%
+sort={I.Cs},%
+type={acronym},%
+first={I.Cs},%
+firstplural={I.Css},%
+text={I.Cs},%
+plural={I.Css},%
+description={Initial Conditions},%
+descriptionplural={Initial Conditions},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Initial Conditions},%
+longplural={Initial Conditionss},%
+short={I.Cs},%
+shortplural={I.Css},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{gll}%
+{%
+name={\acronymfont {\glsentryshort {gll}}},%
+sort={GLL},%
+type={acronym},%
+first={GLL},%
+firstplural={GLLs},%
+text={GLL},%
+plural={GLLs},%
+description={Gauss-Lobatto-Legrende},%
+descriptionplural={Gauss-Lobatto-Legrende},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Gauss-Lobatto-Legrende},%
+longplural={Gauss-Lobatto-Legrendes},%
+short={GLL},%
+shortplural={GLLs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{fem}%
+{%
+name={\acronymfont {\glsentryshort {fem}}},%
+sort={FEM},%
+type={acronym},%
+first={FEM},%
+firstplural={FEMs},%
+text={FEM},%
+plural={FEMs},%
+description={Finite-Element-Method},%
+descriptionplural={Finite-Element-Method},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Finite-Element-Method},%
+longplural={Finite-Element-Methods},%
+short={FEM},%
+shortplural={FEMs},%
+counter={page},%
+parent={},%
+%
+}%
+

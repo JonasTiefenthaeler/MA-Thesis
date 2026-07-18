@@ -66,6 +66,9 @@
 \definecolor{ccircles}{HTML}{AF923C}
 \definecolor{cwallline}{HTML}{000000}
 \definecolor{csurface}{HTML}{7D7D7D}
+\definecolor{Sonecolor}{HTML}{ff7f00}
+\definecolor{Stwocolor}{HTML}{5c9f32}
+\definecolor{Sthreecolor}{HTML}{984ea3}
 
 % small filled dot, matching s_data=4 in the python script
 \DeclareRobustCommand{\dnsdot}{\tikz[baseline=-0.7ex]\fill[cpoints] (0,0) circle (1.5pt);}
@@ -78,6 +81,13 @@
 % domain patch, matching c_surface's ~52% opacity
 \DeclareRobustCommand{\domainsquare}{\tikz[baseline=-0.0ex]\fill[csurface, opacity=0.52] (0,0) rectangle (0.7em,0.7em);}
 
+\DeclareRobustCommand{\Sonesymbol}{\tikz[baseline=-0.7ex]\fill[Sonecolor] (0,0) circle (2.5pt);}
+\DeclareRobustCommand{\Stwosymbol}{\tikz[baseline=-0.7ex]\fill[Stwocolor] (0,0) circle (2.5pt);}
+\DeclareRobustCommand{\Sthreesymbol}{\tikz[baseline=-0.7ex]\fill[Sthreecolor] (0,0) circle (2.5pt);}
+
+\DeclareRobustCommand{\Soneline}{\tikz[baseline=-0.7ex]\draw[Sonecolor, line width=2.0pt, line cap=round, dash pattern=on 0pt off 4pt] (0,0) -- (0.5em,0);}
+\DeclareRobustCommand{\Stwoline}{\tikz[baseline=-0.7ex]\draw[Stwocolor, line width=2.0pt, line cap=round, dash pattern=on 0pt off 4pt] (0,0) -- (0.5em,0);}
+\DeclareRobustCommand{\Sthreeline}{\tikz[baseline=-0.7ex]\draw[Sthreecolor, line width=2.0pt, line cap=round, dash pattern=on 0pt off 4pt] (0,0) -- (0.5em,0);}
 %---------------------------------------
 % Glossary
 %---------------------------------------
