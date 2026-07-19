@@ -8,6 +8,25 @@ For the more demanding simulations with higher Reynolds numbers, the Helma clust
 It is a general-purpose GPU cluster equipped with 4x Nvidia H100 GPUs per compute node.
 Like on fritz, multiple nodes can be used for the same job, to imporve computation times and the available RAM.
 
+The representation of the data is consistent throughout this chapter.
+The three surfaces are differentiated by the line color.
+The Reynolds numbers are depicted using different line styles.
+
+\begin{table}
+    \centering
+    \begin{tabular}{c c c c}
+        \toprule
+        & S1 & S2 & S3 \\
+        \midrule
+        $Re_b = 5300$  & \Soneline     & \Stwoline     & \Sthreeline     \\
+        $Re_b = 11700$ & \SoneDashDot  & \StwoDashDot  & \SthreeDashDot  \\
+        $Re_b = 19000$ & \SoneDashed   & \StwoDashed   & \SthreeDashed   \\
+        \bottomrule
+    \end{tabular}
+    \caption{Line style and color convention used throughout this chapter. Line color denotes the surface, line style denotes the Reynolds number.}
+    \label{tab: line style convention}
+\end{table}
+
 
 \section{Simulations with 5300$Re_b$}
 \begin{figure}
@@ -36,40 +55,92 @@ Like on fritz, multiple nodes can be used for the same job, to imporve computati
         \subcaption{}
         \input{plots/Results/5300/5300Reb_velocityDefect.pgf}        
     \end{subfigure}
-    \caption{Comparison between the 3 tested surfaces. \Soneline \ denotes surface S1, \Stwoline \ surface S2 and \Sthreeline \ surface S3. (a) Mean velocity profiles. (b) Reynolds stresses. (c) Viscous stress, turbulent shear stress and dispersive stress. (d) Velocity defect of local velocity to centerline velocity}
+    \caption{Comparison between the 3 tested surfaces at $Re_b = 5300$. \Soneline \ denotes surface S1, \Stwoline \ surface S2 and \Sthreeline \ surface S3. (a) Mean velocity profiles. (b) Reynolds stresses. (c) Viscous stress, turbulent shear stress and dispersive stress. (d) Velocity defect of local velocity to centerline velocity}
+    \label{fig: comp Reb 5300}
 \end{figure}
 
 \begin{figure}
     \centering
-    \begin{subfigure}{0.49\textwidth}
-        \subcaption{piro}
-        \subimport{plots/Results/5300/}{3DSpectra_piro.pgf}
+    \begin{subfigure}{0.495\textwidth}
+        \subcaption{}
+        \subimport{plots/Results/5300/}{5300_spectra_piro.pgf}
     \end{subfigure}
     \hfill
-    \begin{subfigure}{0.49\textwidth}
-        \subcaption{k down, fixed Es}
-        \subimport{plots/Results/5300/}{3DSpectra_scaled.pgf}
+    \begin{subfigure}{0.495\textwidth}
+        \subcaption{}
+        \subimport{plots/Results/5300/}{5300_spectra_scaled.pgf}
     \end{subfigure}
     \centering
-    \begin{subfigure}[c]{\textwidth}
+    % \begin{subfigure}[c]{\textwidth}
+    %     \subimport{plots/Results/5300/}{3DSpectra_colorbar.pgf}
+    % \end{subfigure}
+    \begin{subfigure}{0.495\textwidth}
+        \subcaption{}
+        \subimport{plots/Results/5300/}{5300_spectra_kDown.pgf}
+    \end{subfigure}
+    \begin{subfigure}{\textwidth}
+        \centering
         \subimport{plots/Results/5300/}{3DSpectra_colorbar.pgf}
     \end{subfigure}
 \end{figure}
 
 \begin{figure}
     \centering
-    \begin{subfigure}[t]{0.95\textwidth}
+    \begin{subfigure}[t]{0.495\textwidth}
         \centering
         \subcaption{}
-        \subimport{plots/Results/5300/}{5300_piro_instantaneousField_y+20.pgf}
+        \subimport{plots/Results/5300/}{5300_piro_instantaneousField_y+15.pgf}
     \end{subfigure}
     \hfill
-    \begin{subfigure}[t]{0.95\textwidth}
+    \begin{subfigure}[t]{0.495\textwidth}
+        \centering
         \subcaption{}
-        \subimport{plots/Results/5300/}{5300_piro_instantaneousField_y+100.pgf}
+        \subimport{plots/Results/5300/}{5300_piro_instantaneousField_y+115.pgf}
     \end{subfigure}
+
+    \begin{subfigure}[t]{0.495\textwidth}
+        \centering
+        \subcaption{}
+        \subimport{plots/Results/5300/}{5300_kDown_instantaneousField_y+15.pgf}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[t]{0.495\textwidth}
+        \centering
+        \subcaption{}
+        \subimport{plots/Results/5300/}{5300_kDown_instantaneousField_y+108.pgf}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.495\textwidth}
+        \centering
+        \subcaption{}
+        \subimport{plots/Results/5300/}{5300_scaled_instantaneousField_y+15.pgf}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.495\textwidth}
+        \centering
+        \subcaption{}
+        \subimport{plots/Results/5300/}{5300_scaled_instantaneousField_y+104.pgf}
+    \end{subfigure}
+    \begin{subfigure}{0.495\textwidth}
+        \centering
+        \subimport{plots/Results/5300/}{5300Reb_instantaneousField_colorbar_nearwall.pgf}
+    \end{subfigure}
+    \begin{subfigure}{0.495\textwidth}
+        \centering
+        \subimport{plots/Results/5300/}{5300Reb_instantaneousField_colorbar_centre.pgf}
+    \end{subfigure}
+    \caption{Streamwise velocity fluctuations of instantaneous flow fields. (a) and (b) Surface 1. (c) and (d) Surface 2. (e) and (f) Surface 3. (a), (c) and (e) at $y+ = 15$. (b), (d) and (f) at $y/R = 0.5$}
 \end{figure}
 
+In Figure \autoref{fig: comp Reb 5300} the results of the three
+
+Max values of Energy spectra:
+\begin{itemize}
+    \item 5300
+    \begin{itemize}
+        \item piro: 4.42
+        \item scaled: 3.97
+        \item kDown: 2.95
+    \end{itemize}
+\end{itemize}
 \section{Simulations with 11700$Re_b$}
 
 \section{Simulations with 19000$Re_b$}

@@ -2,10 +2,10 @@
 
 To simulate the behaviour of fluid motion, it is necessary to integrate the partial differential equations, namely the \acrlong{nse}, numerically with an simulation code.
 In this thesis, the high-order \acrfull{sem} code Neko is used.
-Neko is an open-source \acrfull{cfd} software, that is based on the older Nek5000 \acrshort{cfd} solver originally implemented by~\cite{fischerNek500WebPage}.
+Neko is an open-source \acrshort{cfd} software, that is based on the older Nek5000 \acrshort{cfd} solver originally implemented by~\cite{fischerNek500WebPage}.
 The portable framework Neko is written in modern Fortran in an object-oriented manner and is mainly focused on incompressible flow simulations \citep{janssonNekoModernPortable2024}.
 It can be run on a \acrfull{cpu} as well as a \acrfull{gpu}.
-Only \acrfull{dns} will be performed in this work, however \acrfull{les} models are also implemented in Neko.
+Only \acrfull{dns} will be performed in this work, however \acrshort{les} models are also implemented in Neko.
 
 \section{Direct Numerical Simulation (DNS)}
 In \acrshort{dns}, the \acrlong{nse} are solved without using any turbulence model.
