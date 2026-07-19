@@ -218,9 +218,11 @@ pdfauthor = {Vorname Nachname}}
 \setcounter{secnumdepth}{2} % Zahlen nur bis section
 \setcounter{tocdepth}{2}	% nur bis section in ToC
 \renewcommand{\autodot}{}% Remove all end-of-counter dots
-\renewcommand{\chapterautorefname}{Chapter}
-\renewcommand{\sectionautorefname}{Section}
-\renewcommand{\subsectionautorefname}{Subsection}
+\AtBeginDocument{
+  \renewcommand{\chapterautorefname}{Chapter}
+  \renewcommand{\sectionautorefname}{Section}
+  \renewcommand{\subsectionautorefname}{Subsection}
+}
 
 %Neue Textarten
 

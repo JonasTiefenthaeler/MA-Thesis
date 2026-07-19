@@ -1,8 +1,8 @@
-\chapter{Application}\label{chap: application}
+\chapter{Implementation}\label{chap: application}
 
 The theoretical concepts and methods described in \autoref{chap: Theory} and \autoref{chap: Methods} must be incorporated into a \acrshort{dns} simulation setup. 
-Furthermore, the \acrshort{dns} data must be postprocessed, to obtain data, which can be used to create plots.
-In the following chapter, first, the simulation setup used in this theses is described in \autoref{sec: Simulation setup}, followed by a brief description of the postprocessing procedure in \autoref{sec: post-processing}.
+Furthermore, the \acrshort{dns} data must be postprocessed, to extract the relevant quantities presented in \autoref{chap: Results}.
+In the following, first, the simulation setup used in this theses is described in \autoref{sec: Simulation setup}, followed by a brief description of the postprocessing procedure in \autoref{sec: post-processing}.
 Finally, in \autoref{sec: performed simulations} the performed simulations and chosen parameters are described.
 
 \section{Simulation setup}\label{sec: Simulation setup}
@@ -10,7 +10,7 @@ For this study, the canonical setup of the pipe is used.
 In the pipe, azimuthal periodicity is given by default meaning that a smooth pipe setup is fully defined using the pipe length and the Reynolds-number \citep{yaoDirectNumericalSimulations2023}.
 Additionally, a cylindrical coordinate system is employed, with the three spatial directions $r, \theta$ and $z$.
 The terminology wall-normal is used for the $r$-coordinate, azimuthal is the $\theta$ direction and $z$ is the streamwise direction.
-The cartesian coordinates used by Neko can be transformed into the cylindrical coordinate system by the relation $r = \sqrt{x^2 + y^2}$ and $\theta = \arctan\!\left(\frac{y}{x}\right)$.
+The cartesian coordinates used by Neko can be transformed into the cylindrical coordinate system by the relations $r = \sqrt{x^2 + y^2}$ and $\theta = \arctan\!\left(\frac{y}{x}\right)$.
 
 The dimensions of the rough domain are $L_r \times L_\theta \times L_z = R \times 2\pi R \times 8\pi R$, with the radius $R$ is set to $1 \hat{=}$ unity. 
 The smooth validation domains are shortened to $L_z = 4\pi R$ to save computation time.
@@ -38,13 +38,13 @@ The laminar velocity profile is defined as
     \label{fig: initial condition}
 \end{figure}
 with $r$ denoting the radius ranging from $0$ to $1$.
-The used profile represents the bulk velocity $U_b = 1$.
+The used profile represents the bulk velocity $U_b = 1$ in streamwise direction.
 The perturbations are defined as a combination of multiple $\sin$ and $\cos$ waves of various magnitudes.
 Large- and small-scale disturbances are intended to disrupt the laminar profile and support a fast transition to turbulence.
 The initial velocity field is taken from the Neko example of the turbulent channel and converted to polar coordinates, and altered, such that the divergence-free criterion $\nabla u_i = 0$ is met, which is necessary for the conservation of mass \citep{popeTurbulentFlows2015}.
 A visualisation of the initial velocity magnitude is depicted in \autoref{fig: initial condition}.
-It would be prefered, if the initial velocity were physical.
-This is however not the case due to the singularity at the pipe centre, since it was preferred to have the conservation of mass fulfilled in cylindrical coordinates.
+It can be seen, that the \acrshort{ic} is not physical, due to a presence of singularity at the pipe centre.
+This is however unavoidable, since it was chosen to use the principle of sinusoidal disturbances in order to keep it in line with the \acrshort{ic} in the Neko channel example, but with a met divergence free criterion in polar coordinates.
 
 The bulk flow rate $U_b$ is defined in the streamwise $z$ direction as unity ($U_b=1$) and is kept constant throughout the simulation.
 To achieve the desired bulk velocity, the flow is driven by a pressure gradient $\Pi$.
@@ -87,7 +87,7 @@ This surface has to be mapped onto the pipe in such a way, that the same generat
 The used approach relies on the fact that every surface topography can be decomposed into a multitude of $\sin$ and $\cos$ waves using a Fourier transform \citep{perez-rafolsGeneratingRandomlyRough2019}.
 The decomposed values are the Fourier coefficients, which can be seen as a weight given for each mode.
 By recombining the extracted modes, the surface can be recreated independently of the simulation mesh.
-The Fourier coefficients are extracted by taking the real and imaginary part  of the Fourier transform of the generated rough surface, such that $A(m,n) = \operatorname{Re}\left(\hat{Z}_h\right)$ and $B(m,n) = \operatorname{Im}\left(\hat{Z}_h\right)$
+The Fourier coefficients are extracted by taking the real and imaginary part  of the Fourier transform of the generated rough surface, such that $A(m,n) = \operatorname{Re}\left(\hat{Z}_h\right)$ and $B(m,n) = \operatorname{Im}\left(\hat{Z}_h\right)$.
 
 This decomposition and recreation is only exact, if an infinite number of modes is used.
 %This is however only relevant for regular surfaces.
@@ -106,8 +106,8 @@ The Fourier transform is performed using the Numpy python library, the result is
 To get wave-numbers which are signed correctly, i.e.\ positive, $m$ and $n$ are adjusted accordingly, which gives the parameters $u$ and $v$.
 
 The total number of Fourier modes $M$ and $N$ changes the shape of the surface significantly.
-A higher number of Fourier modes also includes higher wave-number, which leads to surfaces with smaller roughness features. 
-This however, leads to a higher grid resolution requirement, since~\cite{chungPredictingDragRough2021} states, that at least $12$ grid points per roughness feature are necessary, to sufficiently resolve the shape of the roughness feature.
+A higher number of Fourier modes also includes higher wave-numbers, which leads to surfaces with smaller roughness features. 
+This however, resuts in a higher grid resolution requirement, since it shows that at least $12$ grid points per roughness feature are necessary, to sufficiently resolve the shape of the roughness feature \citep{busseDirectNumericalSimulation2015}.
 
 The height function in \autoref{eq: height function} yields the recreation of the rough surface, which is applied on grid points at the wall.
 However, a body fitted mesh is desired, which leads to the necessity, to create a scaling function for the grid points away from the wall.
@@ -128,9 +128,8 @@ Furthermore, the near wall mesh refinement is kept.
     \label{fig: deformed mesh}
 \end{figure}
 The points are only shifted in radial direction.
-Since the GLL points are distributed onto the mesh before the roughness is applied, the GLL distribution is not exact after the rough deformation.
-Since the shift is of small magnitude, the effect is assumed to be small.
-A test on the influence on the simulation results is beyond the scope of this work. 
+Since the GLL points are distributed over the mesh before the roughness is applied, the GLL distribution is not exact after the rough deformation.
+This effect is assumed to be negligable, since the shortening or stretching of the elements is of small magnitude.
 
 \section{Postprocessing}\label{sec: post-processing}
 \fxbmark{Diese section noch nicht}
@@ -181,7 +180,7 @@ The inverse of \autoref{eq: roughness scaling function} is
         \includegraphics[width = \textwidth]{Methods/smooth_Averaged_field.png}
         \label{subfig: smooth averaged field}
     \end{subfigure}
-    \caption{Visualization of the result of the smoothing algorithm.~(a) Time averaged velocity magnitude in rough pipe domain, (b) Time averaged velocity magnitude of the smoothed domain}
+    \caption{Visualization of the result of the smoothing algorithm. Color depicting the velocity magnitude of a time averaged field.~(a) Rough pipe domain, (b) Rough domain mapped to smooth pipe}
     \label{fig: comparison of smooth and normal averaged field}
 \end{figure}
 The results are shown from an exemplary case in \autoref{fig: comparison of smooth and normal averaged field}.
@@ -208,12 +207,12 @@ To obtain correct statistics, the data should be interpolated on concentric circ
         \input{plots/Methods/interpolation_point_placement_3.pgf}
         \label{subfig: PP points after inverse maping}
     \end{subfigure}
-    \caption{Visualization of points mapping in post-processing. Dots \dnsdot~\ represent \acrshort{dns} data points, circles  \interpcircle~\ interpolation points, the  black line \wallline~\ the pipe wall and the grey area \domainsquare~\ the simulation domiain (a) Default point placement. (b) DNS domain mapped into the smooth computational domain, as depicted in \autoref{subfig: smooth averaged field}, (c) Interpolation points mapped by the inverse of the rough surface, such that they lie on the same respective concentric positions in the computational domain}
+    \caption{Visualization of points mapping in post-processing. Dots \dnsdot~\ represent \acrshort{dns} data points, circles  \interpcircle~\ interpolation points, the  black line \wallline~\ the pipe wall and the grey area \domainsquare~\ the simulation domiain (a) Default point placement. (b) DNS domain mapped into the smooth computational domain, as depicted in \autoref{subfig: smooth averaged field}. (c) Interpolation points mapped by the inverse of the rough surface, such that they lie on the same respective concentric positions in the computational domain}
     \label{fig: Visualization of the PP points}
 \end{figure} 
-If the smooth averaged field would be interpolated onto the concentric interpolation points, the generated data would be in a body fitted manner.
+If the smooth averaged field would be interpolated onto concentric interpolation points, the generated data would be in a body fitted manner.
 To achieve data extraction in a concentric way, the interpolation points have to be deformed as well. 
-By applying the same formulation of \autoref{eq: inverse height function} onto the interpolation points as done for the rough pipe, the interpolation points are deformed in such a way, that they lie in the computational domain in the same positions, as they would be in the physical domain for a concentric data extraction. This principle is shown in \autoref{fig: Visualization of the PP points}.
+By applying \autoref{eq: inverse height function} onto the interpolation points as done for the rough pipe, the interpolation points are deformed in such a way, that they lie in the computational domain in the same positions, as they would be in the physical domain for a concentric data extraction. This principle is shown in \autoref{fig: Visualization of the PP points}.
 
 \section{Performed simulations}\label{sec: performed simulations}
 
