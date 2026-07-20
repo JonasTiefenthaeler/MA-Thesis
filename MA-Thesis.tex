@@ -4,13 +4,6 @@
 % Friedrich-Alexander-Universität (FAU) Erlangen-Nürnberg
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% Pakete laden
-% UTF-8
-
-
-
-% \newif\ifenglish
-% \englishtrue % \englishfalse or englishtrue
 \newif\ifnomenklatur
 \nomenklaturfalse
 % Layout des Dokuments
@@ -37,16 +30,6 @@
 \input{./kapitel/preamble.tex}
 \graphicspath{{./plots/}}
 
-%\usepackage{subfigure}
-%\usepgfplotslibrary{external}
-%\usetikzlibrary{external}              % external tikz library
-%\tikzsetexternalprefix{tikzext/}
-%\tikzexternalize
-%\tikzexternalize[prefix=tikzext/]		% folder for tikz
-%\tikzexternalize{main}
-%\tikzexternalize[up to date check=md5]
-%\tikzset{external/force remake}
-%\tikzsetnextfilename{\tikzexternalrealjob-mypic}
 
 \usetikzlibrary{plotmarks}
 \usepackage{cancel}				%Terme durchstreichen
@@ -60,27 +43,14 @@
 \usepackage{nicefrac} 										% erstellt schräggestelle Brüche
 \tikzset{every picture/.style={line width=1pt}}				% Linewidth global für Tikz
 \tikzset{every picture/.style={mark size=2}}				% Markersize global für Tikz
-%\usepgfplotslibrary{external} 
-%\tikzexternalize[prefix=TikzPictures/]
-%\usepackage{notoccite}										% Quellen in den Verzeichnissen werden nicht mitgezählt		
+	
 \usepackage{array}
-% \hyphenation{Turbulenz-intensität}                          % spezielle Silbentrennung, je nach Bedarf
-% \hyphenation{Pegel-anhebungen}
-% \hyphenation{Sensor-abstände}
-% \hyphenation{Signal-erzeugung}
-% \hyphenation{Kon-ti-nu-i-täts-}
+
 \hyphenation{non-di-men-sio-na-lize non-di-men-sio-na-li-za-tion}
-%[mark size = 2]
 
 
-%\usepackage[angle]{natbib}									% naturwissenschaftliche Zitate
-%\usepackage{natbib}	
-%\usepackage[numeric]{natbib}
+
 \usepackage[round]{natbib} 
-%\usepackage[style=authoryear,natbib=true,sorting=nyt,block=space]{biblatex}
-%\usepackage{cite}											% Zum Zitieren
-%\renewcommand{\citeleft}{(}								% runde Klammern bei Zitaten
-%\renewcommand{\citeright}{)}								% runde Klammern bei Zitaten
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % folgende Pakete für tikz-Bilder
@@ -94,7 +64,7 @@
 \usetikzlibrary{calc}
 \usetikzlibrary{patterns}
 % alle Pfeile global ändern
-%\tikzset{>=triangle 45}
+
 \tikzset{>=latex}
 % Strich-Punkt-Linie
 \tikzset{dashdot/.style={dash pattern=on .8pt off 3pt on 10pt off 3pt}}	
@@ -125,8 +95,7 @@
 \makenomenclature
 \usepackage{etoolbox}
 \makeindex
-%% define nomenclature groups
-% \ifenglish
+
 \renewcommand{\nomgroup}[1]{\vspace{0.5cm}
 	\ifthenelse{\equal{#1}{G}}{\item[\textbf{Greek letters}]}{%
 		\ifthenelse{\equal{#1}{L}}{\item[\textbf{Latin letters}]}{%
@@ -140,24 +109,7 @@
 	\hspace*{-\leftmargin}\vspace{0.25cm} 
 }
 
-% \else
 
-% \renewcommand{\nomgroup}[1]{\vspace{0.5cm}
-% 	\ifthenelse{\equal{#1}{G}}{\item[\textbf{Griechische Symbole}]}{%
-% 		\ifthenelse{\equal{#1}{L}}{\item[\textbf{Lateinische Symbole}]}{%
-% 			\ifthenelse{\equal{#1}{I}}{\item[\textbf{Indizes}]}{%
-% 				\ifthenelse{\equal{#1}{A}}{\item[\textbf{Abkürzungen}]}{%
-% 					\ifthenelse{\equal{#1}{O}}{\item[\textbf{Operatoren}]}{}
-% 				}
-% 			}
-% 		}
-% 	}
-% 	\hspace*{-\leftmargin}\vspace{0.25cm} 
-% }
-
-
-
-% \fi
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -245,11 +197,11 @@ pdfauthor = {Vorname Nachname}}
 
 
 \begin{document}
-%\bibliographystyle{alphadin}
+
 \typeout{>>> TEXTWIDTH = \the\textwidth}
 %=============================================================================%
 
-%\setcounter{page}{1}
+
 \pagestyle{empty}
 
 
@@ -265,7 +217,7 @@ pdfauthor = {Vorname Nachname}}
 	\centering
 		\includegraphics[width=75mm]{bilder/LSTM_Logo.pdf} 		
 \end{figure}
-		% \ifenglish
+		
 		\vspace{25mm}
 		 		
 		\LARGE {\textbf{Title \\ of your \\ thesis}}\\ [25mm]
@@ -280,31 +232,14 @@ pdfauthor = {Vorname Nachname}}
 		Faculty of Engineering\\
 		Friedrich--Alexander--University Erlangen--N\"urnberg\\
 		Prof.\ Dr.\ Philipp Schlatter\\
-		% \else
-		
-		% \vspace{25mm}
-		
-		% \LARGE {\textbf{Titel \\ der \\ Arbeit}} \\ [25mm]
-		% \huge {\textbf{Masterthesis, Bachelorthesis, Projektarbeit}} \\ [14mm]
-		% von \\ [2mm]
-		% \LARGE \textbf{Vorname Nachname}\\[5mm]
-		% \LARGE Matr.-Nr. 12345678\\[5mm]
-		% \LARGE Erlangen, xx.xx.xxxx\\
-		% \vfill
-		% \rule{15cm}{0.02mm}\\
-		% \Large Lehrstuhl für Strömungsmechanik\\
-		% Technische Fakultät\\
-		% Friedrich--Alexander-Universität Erlangen-Nürnberg\\
-		% Prof.\ Dr.\ Philipp Schlatter\\
-		% \fi
+
   		\end{center}
 \end{titlepage}
 
 
   	\thispagestyle{empty}	
 	\cleardoublepage
-	
-	% \ifenglish
+
 	
 	\begin{tabular}[H]{ll}
 	  Author:& NAME \\
@@ -319,27 +254,11 @@ pdfauthor = {Vorname Nachname}}
 	  LSTM Technical Report: & 01/2025
 	\end{tabular}	
 
-	% \else
 
-	% \begin{tabular}[H]{ll}
-	% Bearbeiter:& Vorname Nachname \\
-	% Matrikelnummer: & XXXXXXXXX \\
-	% Lehrstuhl: & Lehrstuhl für Strömungsmechanik (LSTM) \\
-	% Lehrstuhlinhaber: & Prof.\ Dr.\ Philipp Schlatter\\ 
-	% Arbeitsgruppe und Betreuer:& Prof.\ Dr.-Ing.\ habil.\ Stefan Becker \\
-	% & Felix Czwielong\\		
-	% Ausgegeben: & dd.mm.yyyy \\
-	% Abgegeben: & dd.mm.yyyy \\
-	% \\
-	% LSTM Technical Report: & 01/2025
-	% \end{tabular}
-	
-	% \fi	
 
 \thispagestyle{empty}
 \cleardoublepage
 
-% \ifenglish
 \chapter*{Declaration}
 
 I hereby declare formally that I have developed and written the enclosed thesis entirely by myself and without help of third parties and have not used sources or means without declaration in the text. Any thoughts or quotations, inferred (literally or analogously) from the sources, are marked as such. This thesis was not submitted in the same or substantially similar version to any other authority to achieve an academic grade.
@@ -347,25 +266,10 @@ I hereby declare formally that I have developed and written the enclosed thesis 
 The Friedrich--Alexander--Universität (FAU), represented by the Institute of Fluid Mechanics (LSTM), is granted a simple, free of charge, temporally and geographically unrestricted right to use the results of the work, including any protective rights and rights of use, for the purposes of research and teaching.
 \\ [35mm]
 Erlangen, the DATE \hspace{4cm} \rule{5cm}{0.02mm}
-% \else
-% \chapter*{Erklärung}
-
-% Hiermit versichere ich eidesstattlich, dass die vorliegende Arbeit von mir selbstständig, ohne Hilfe Dritter und ausschließlich unter Verwendung der angegebenen Quellen angefertigt wurde. Alle Stellen, die wörtlich oder sinngemäß aus den Quellen entnommen sind, habe ich als solche kenntlich gemacht. Die Arbeit wurde bisher in gleicher oder ähnlicher Form keiner anderen Prüfungsbehörde vorgelegt.
-
-% Der Friedrich--Alexander--Universität (FAU), vertreten durch den Lehrstuhl für Strömungsmechanik (LSTM), wird für Zwecke der Forschung und Lehre ein einfaches, kostenloses, zeitlich und örtlich unbeschränktes Nutzungsrecht an den Arbeitsergebnissen der Arbeit einschließlich etwaiger Schutz- und Nutzungsrechte eingeräumt.
-% \\ [35mm]
-% Erlangen, den DATUM \hspace{4cm} \rule{5cm}{0.02mm}
-% \fi	
 
 %=============================================================================%
 
 \thispagestyle{empty}
-%\cleardoublepage
-
-%\chapter*{Danksagung}
-   
-%\include{kapitel/kurzfassung}
-%\cleardoublepage
 
 
 
@@ -382,15 +286,12 @@ Erlangen, the DATE \hspace{4cm} \rule{5cm}{0.02mm}
 
 
 %=============================================================================%
-%\newpage
+
 \pagestyle{headings}
 
-% \ifenglish
+
 \addcontentsline{toc}{chapter}{Contents}
-% \else
-% \addcontentsline{toc}{chapter}{Inhaltsverzeichnis}
-% \fi
-%\pdfbookmark[1]{Inhaltsverzeichnis}{toc}
+
 
 \tableofcontents
 
@@ -400,18 +301,14 @@ Erlangen, the DATE \hspace{4cm} \rule{5cm}{0.02mm}
 
 %\printnomenclature
 %=============================================================================%
-%\addcontentsline{toc}{chapter}{Nomenklatur}
-%\newpage
-%
+\addcontentsline{toc}{chapter}{Nomenklatur}
+\newpage
+
 \include{kapitel/nomenklatur}
-%
-%\pagestyle{headings}
+
 
 %=============================================================================%
 
-%\thispagestyle{empty}
-%\pagestyle{headings}
-%\cleardoublepage
 \pagenumbering{arabic}
 
 \include{kapitel/einleitung}
@@ -436,23 +333,15 @@ Erlangen, the DATE \hspace{4cm} \rule{5cm}{0.02mm}
 
 
 \include{kapitel/literaturverzeichnis}
-%%
 
-%
 \newpage
-%
 
 \begin{appendix}                    % Anhang einfügen
-%
-%\include{kapitel/anhang1}
-%\include{kapitel/anhang2}
+
 
 \include{kapitel/Appendix}
 \end{appendix}
-%
 
-% \bibliographystyle{alphadin}
-% \bibliography{Bibliography}
 
 \end{document}
 

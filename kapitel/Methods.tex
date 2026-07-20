@@ -1,31 +1,31 @@
 \chapter{Methods}\label{chap: Methods}
 
-To simulate the behaviour of fluid motion, it is necessary to integrate the partial differential equations, namely the \acrlong{nse}, numerically with an simulation code.
+To simulate the behaviour of fluid motion, it is necessary to integrate the partial differential equations, namely the \acrlong{nse}, numerically with a simulation code.
 In this thesis, the high-order \acrfull{sem} code Neko is used.
-Neko is an open-source \acrshort{cfd} software, that is based on the older Nek5000 \acrshort{cfd} solver originally implemented by~\cite{fischerNek500WebPage}.
+Neko is an open-source \acrshort{cfd} software that is based on the older Nek5000 \acrshort{cfd} solver originally implemented by~\cite{fischerNek500WebPage}.
 The portable framework Neko is written in modern Fortran in an object-oriented manner and is mainly focused on incompressible flow simulations \citep{janssonNekoModernPortable2024}.
 It can be run on a \acrfull{cpu} as well as a \acrfull{gpu}.
 Only \acrfull{dns} will be performed in this work, however \acrshort{les} models are also implemented in Neko.
 
 \section{Direct Numerical Simulation (DNS)}
 In \acrshort{dns}, the \acrlong{nse} are solved without using any turbulence model.
-This means, that all scales of turbulent motion are resolved from the largest eddies, down to the viscous scale.
-This requires a very fine mesh resolution to perform a \acrshort{dns}, such that the mesh can resolve the smallest eddies.
-This leads to increasing resolution requirements in space and time with an increasing Reynolds number.
-The requirement for computation time can be estimated as  $\approx Re^3$ for isotropic turbulence and $\approx Re^\frac{37}{14}$ for wall-bounded flows \citep{choiGridpointRequirementsLarge2012}.
-The exponential increase in required computation effort makes it obvious that \acrshort{dns} is only viable for low to medium Reynolds numbers and domain sizes.
+This indicates that all scales of turbulent motion are resolved, from the largest eddies down to the viscous scale.
+This requires a very fine mesh resolution in order to perform a \acrshort{dns} such that the mesh can resolve the smallest eddies.
+This phenomenon gives rise to escalating resolution requirements in both space and time, with an increasing Reynolds number.
+The computation time can be estimated as  $\approx Re^3$ for isotropic turbulence and $\approx Re^\frac{37}{14}$ for wall-bounded flows \citep{choiGridpointRequirementsLarge2012}.
+The exponential increase in the required computation effort makes it obvious that \acrshort{dns} is only viable for low to medium Reynolds numbers and domain sizes.
 %This leads to very high computational cost and even with the ever-increasing computational resources of high performance computing, restricts the \acrshort{dns} method to relatively small domain sizes, as well as only low to medium Reynolds numbers.
-Nevertheless, \acrshort{dns} is performed regularly in a scientific context, since the accuracy of its results is unmatched by other \acrshort{cfd} simulation methods ZITAT.
-In comparison with experimental investigations of turbulent flow, \acrshort{dns} provides significantly more information in the near wall region, since experimental methods often are restricted in the vicinity of the wall.
-Especially in rough wall conditions, it can be very challenging or impossible to obtain data about the flow behaviour in the vicinity of roughness features ZITAT.
+Nevertheless, \acrshort{dns} is performed regularly in a scientific context since the accuracy of its results is unmatched by other \acrshort{cfd} simulation methods ZITAT.
+In comparison with experimental investigations of turbulent flow, \acrshort{dns} provides significantly more information in the near-wall region, since experimental methods are often restricted in the vicinity of the wall.
+This is especially the case for experiments under rough wall conditions \citep{chanSecondaryMotionTurbulent2018}.
 
 \subsection{Spectal element method}
-The employed \acrshort{sem} method was originally proposed by~\cite{pateraSpectralElementMethod1984} and can be seen as a combination of the \acrfull{fem} and spectral methods.
+The employed \acrshort{sem} method was originally proposed by~\cite{pateraSpectralElementMethod1984} and may be regarded as a combination of the \acrfull{fem} and spectral methods.
 It achieves significantly higher accuracy and faster convergence than a purely \acrshort{fem} based approach. 
-This high-order approach combines the flexibility in spatial discretisation of the \acrshort{fem} and combining it with the high accuracy of spectral methods.
+This high-order approach combines the flexibility in spatial discretisation of the \acrshort{fem} with the high accuracy of spectral methods.
 The high accuracy of spectral methods is due to the fast spectral convergence.
-This is achieved, since the  value of a derivative at a gridpoint is not only dependent by points in its vicinity, but on all points of the domain.
-This leads to spectral convergence, which means that the error decreases faster than exponentially with increasing number of points.
+This is achieved since the  value of a derivative at a grid point is not only dependent on points in its vicinity but also on all points of the domain.
+This leads to spectral convergence, which means that the error decreases faster than exponentially with an increasing number of points.
 \begin{figure}
     \centering
     \input{plots/Methods/spectral convergence.pgf}
@@ -34,7 +34,7 @@ This leads to spectral convergence, which means that the error decreases faster 
 \end{figure}
 \autoref{fig: spectral convergence} compares spectral and algebraic convergence. 
 Algebraic convergence is typical for other numerical methods, e.g.\ the finite difference method.
-The axis scaling is set to log-lin, such that the exponential convergence of spectral methods is representend as a straight line.
+The axis scaling is set to log-linear, thus the exponential convergence of spectral methods is represented as a straight line.
 
 To combine the \acrshort{fem} and spectral methods, first a \acrshort{fem} mesh is constructed.
 \begin{figure}
@@ -43,9 +43,9 @@ To combine the \acrshort{fem} and spectral methods, first a \acrshort{fem} mesh 
     \caption{Exemplary \acrshort{sem} element. Subdivided using polynomial order 6.}
     \label{fig: SEM element}
 \end{figure}
-The mesh is then subdivided into the gridpoints using the \acrfull{gll} distribution.
-This places the gridpoints denser at the element boundaries and further apart the element centre.
-Additionally, the \acrshort{gll} distribution places points at the element boundaries, which enables continuity across elements.
+The mesh is then subdivided into the grid points using the \acrfull{gll} distribution.
+This places the grid points denser at the element boundaries and more sparsely in the element centre.
+Furthermore, the \acrshort{gll} distribution places points at the element boundaries, thereby enabling continuity across elements.
 For each element, the solution is represented by high-order Lagrange interpolating polynomials of degree $N$.
 $N$ is denoting the polynomial order, which means the number of points placed inside each \acrshort{fem} element in each direction.
 
@@ -53,19 +53,18 @@ $N$ is denoting the polynomial order, which means the number of points placed in
 
 When integrating the \acrshort{nse} in time, a feasible time step size must be determined, such that the scheme is stable and produces correct results.
 By setting the \acrfull{cfl} number, the necessary time step can be determined.
-It's a dimensionless value which is defined with the equation
+The \acrshort{cfl} number is a dimensionless value, and defined by the following equation
 \begin{equation}\label{eq: cfl number}
     c = \frac{u\Delta t}{\Delta x}
 \end{equation}
 and is based on the work by~\cite{courantBerPartiellenDifferenzengleiehungen}.
 In this formulation $u$ denotes the velocity, $\Delta t$ the current time step and $\Delta x$ the spatial discretisation.
-Due to nonuniform meshes and a varying velocity field, the \acrshort{cfl} number is nonuniform over the simulation domain.
-If the maximum \acrshort{cfl} number in the domain is above or below the specified value, this formula is rearranged, such that a new time step can be computed.
+It is evident that, owing to the non-uniformity of the meshes and a varying velocity field, the \acrshort{cfl} number is non-uniform over the simulation domain.
+If the maximum \acrshort{cfl} number in the domain is found to be above or below the specified value, this formula is to be rearranged, so that a new time step can be computed.
 
-The time integration of the \acrshort{nse} is done in Neko by an implicit-explicit scheme \citep{janssonNekoModernPortable2024}.
+In Neko, the time integration of the \acrshort{nse} is accomplished through an implicit-explicit scheme \citep{janssonNekoModernPortable2024}.
 It is based on backward differentiation and extrapolation of the implicit-scheme coefficients.
-The viscous diffusion term and time derivative are solved implicitly, while the convective term and body force term are solved explicitly \citep{janssonNekoModernPortable2024}.
-
+The viscous diffusion term and the time derivative are resolved implicitly, whereas the convective term and the body force term are resolved explicitly \citep{janssonNekoModernPortable2024}.
 
 \section{Generating rough surfaces}\label{sec:generating rough surfaces}
 In real-world engineering applications, surfaces often exhibit irregular roughness.
@@ -78,13 +77,13 @@ In the present work, the surface roughness will be generated using an algorithm 
 
 \subsection{Surface generation algorithm}\label{subsec: Surface generation algorithm}
 
-The idea behind the algorithm by~\cite{perez-rafolsGeneratingRandomlyRough2019} is that a realistic surface topography requires both a height distribution and a spatial distribution.
-To that extend, two main input parameters need to be specified.
+The underlying idea of the algorithm by~\cite{perez-rafolsGeneratingRandomlyRough2019} is that a realistic surface topography requires both a height distribution and a spatial distribution.
+To that extend, two primary input parameters need to be specified.
 The height distribution of the surface is defined using a probability distribution.
 To define the spatial distribution, a power spectrum is used.
-The probability distribution and the power spectrum are then used to generate two initial surfaces, $Z_h$ and $Z_s$.
-The first surface, $Z_h$, exhibits the desired probability distribution, but not necessarily the power spectrum.
-The second surface, $Z_s$, exhibits the power spectrum, but not the probability distribution.
+The probability distribution and the power spectrum are then utilised to generate two initial surfaces, $Z_h$ and $Z_s$.
+The first surface, denoted by $Z_h$, exhibits the desired probability distribution, but not necessarily the power spectrum.
+The second surface, denoted by $Z_s$, exhibits the power spectrum, but not the probability distribution.
 The algorithm then iteratively corrects $Z_h$ and $Z_s$ to match each other, until a specified level of convergence is reached.
 The iteration consists of two steps:
 \begin{enumerate}

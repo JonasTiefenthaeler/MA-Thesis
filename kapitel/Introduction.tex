@@ -1,11 +1,35 @@
 \chapter{Introduction}\label{chap: Introduction}
 
-Turbulent flows are ubiquitous in life.
+Turbulent flows are present in almost all engineering applications.
 Especially turbulent flows over a wall, so called wall-bounded turbulent flows, are encountered frequently in all kinds of technical applications ZITAT.
-Around $50 \%$ of the energy usage in flows through pipes or the movement of cars or planes through air can be accounted to the energy dissipation of wall-bounded turbulent flow \citep{jimenezCascadesWallBoundedTurbulence2012}.
+Wall-bounded turbulence is of great interest in research and technology, since around $50 \%$ of the energy usage in flows through pipes or the movement of cars or planes through air can be accounted to the energy dissipation of wall-bounded turbulence \citep{jimenezCascadesWallBoundedTurbulence2012}.
+In order to reduce this number, a improved understanding of fluid dynamics in general and especially turbulence behaviour at the wall and in the near wall region is of exceptional importance.
+
 To increase the understanding of fluid dynamics, among others, the use of \acrfull{cfd} is a vital tool in fluid dynamics research.
-Especially \acrfull{dns} and \acrfull{les} is a common choice among researchers, since it gives important insight inro the behaviour of turbulent flow ZITAT.
+Especially \acrfull{dns} and \acrfull{les} are a common choice among researchers, since they can yield important insight into the behaviour of turbulent flow \citep{moinDIRECTNUMERICALSIMULATION1998}.
 However, also the simulation \acrfull{rans} is a common choice, if the application and optimization of engineering tasks is the goal.
 
+In many real-world applications, wall roughness has a major impact on the drag, e.g.\ in shipping and aviation.
+In shipping, the biofouling induced roughness can increase the overal drag by $\approx 10 \%$ \citep{flackReviewHydraulicRoughness2010} 
+In aviation, even the comparatively low roughness still accounts for $\approx 5.5 \%$ of drag \citep{chungPredictingDragRough2021}. 
+
+In order to improve the understanding of turbulence behaviour in rough walled conditions, many studies have been conducted.
+A notable early experimental study was carried out by~\citeauthor{StroemungsgesetzeNikuradse}, who investigated the behaviour of turbulent flows in rough pipes.
+The roughness was created by sand grains, that were attached to the pipe wall. 
+Using the data of~\citeauthor{StroemungsgesetzeNikuradse}, the concept of the equivalent sand grain roughness was developed by~\cite{schlichtingExperimentelleUntersuchungenRauhigkeitsproblem1936}.
+More recent experimental efforts were conducted by~\cite{schultzRoughwallTurbulentBoundary2007a} and~\cite{frohnapfelFlowResistanceHeterogeneous2024} who used sand paper as the roughness geometry.
+Also, more recently experimental studies for generated irregular rough surface were conducted, in which the surfaces were generated using an Algorithm and produced by a 3D-printer \citep{flackSkinFrictionMeasurements2020}.
+
+There were also substantial efforts to investigate the behviour of turbulence over rough surfaces using simulations.
+Since the behaviour of the turbulence is of interest, all studies are conducted using the \acrshort{dns} method.
 Turbulent flows over rough surfaces are mostly studied in the canonical channel case, e.g.\ by \citep{thakkarInvestigationTurbulentFlow2017,flackSkinFrictionMeasurements2020,kimTurbulenceStatisticsFully1987,jellyReynoldsDispersiveShear2018}, while the turbulent rough pipe has received less attention \citep{chanSystematicInvestigationRoughness2015,demaioDirectNumericalSimulation2023}.
-Some studies used isolated roughness elements to find the impact of individual roughness features \citep{chatzikyriakouDNSTurbulentFlow2015}, while others tried to investigate the real world turbulence behaviour by using scanned surfaces of real objects \citep{thakkarSurfaceCorrelationsHydrodynamic2017,flackSkinFrictionMeasurements2020,frohnapfelFlowResistanceHeterogeneous2024}.\\
+Some studies used isolated roughness elements to find the impact of individual roughness features \citep{chatzikyriakouDNSTurbulentFlow2015}, while others tried to investigate the real world turbulence behaviour by using scanned surfaces of real objects \citep{thakkarSurfaceCorrelationsHydrodynamic2017,flackSkinFrictionMeasurements2020,frohnapfelFlowResistanceHeterogeneous2024}.
+Furthermore, both regular and irregular roughness has been investigated.
+Regular roughness e.g.\ by~\cite{leonardiStructureTurbulentChannel2004} who placed square bars onto a flat surface, and~\citeauthor{chanSystematicInvestigationRoughness2015} who investigated turbulent pipe flow with a sinusoidal surface \citep{chanSystematicInvestigationRoughness2015,chanSecondaryMotionTurbulent2018}.
+Irregular roughness e.g.\ by~\cite{thakkarInvestigationTurbulentFlow2017,busseReynoldsnumberDependenceNearwall2017} and~\cite{demaioDirectNumericalSimulation2023}, who all used generated surfaces.
+However, no general law exists yet to predict flow characteristics, e.g.\ drag or roughness function, directly from the surface topography \citep{chungPredictingDragRough2021}.
+Furthermore, the past \acrshort{dns} studies mostly used the \acrfull{ibm} to achieve the rough surface in their simulation setups.
+In the \acrshort{ibm}, the mesh is not altered, 
+
+The goal of this thesis is to provide additional data to further deepen the knowledge of the behaviour of turbulent pipe flows over rough surfaces.
+Investigate the influence of changing Reynoldsnumbers and surface parameters and provide a framework to generate random surfaces and map them onto a pipe geometry.
