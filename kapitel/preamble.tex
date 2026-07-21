@@ -10,7 +10,7 @@
 %\usepackage{subfig}
 \usepackage[font=small,labelfont=bf]{subcaption}
 \captionsetup{font=small, format=plain, labelsep=period}   % Text bricht unter "Table X"/"Figure X" um
-\captionsetup[subfigure]{font={bf,small}, skip=0pt, margin=0.0cm, singlelinecheck=false}
+\captionsetup[subfigure]{font={bf,small}, position=top, skip=0pt, margin=0.0cm, singlelinecheck=false}
 %\setlength{\belowcaptionskip}{10pt}   % Abstand zwischen Subcaption (oben) und Subfigure
 \usepackage{placeins}
 \usepackage{preview}
@@ -126,3 +126,10 @@
 \newcommandx{\fximprove}[2][1=]{\todo[linecolor=Plum,backgroundcolor=Plum!25,bordercolor=Plum,#1]{#2}}
 \newcommandx{\fxbmark}[2][1=]{\todo[inline,linecolor=red,backgroundcolor=red!50,bordercolor=red,size=small, #1]{#2}}
 \newcommandx{\fxmarl}[2][1=]{\todo[linecolor=Purple,backgroundcolor=Purple!25,bordercolor=Purple,#1]{#2}}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% neue commands zum positionieren von plots
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\plotverticalspacing}{\\[-20pt]}

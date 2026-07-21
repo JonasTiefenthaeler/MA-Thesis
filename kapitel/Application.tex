@@ -54,6 +54,18 @@ Using \autoref{eq: viscous scaling units} it is also possible to compute $Re_\ta
     Re_\tau = \sqrt{\frac{\Pi}{2}}Re_b \quad \text{since} \quad \tau_w = \frac{R}{2}\Pi 
 \end{equation}
 
+As mentioned in \autoref{chap: Introduction}, past numerical studies of turbulent flows over rough surfaces frequently used the \acrshort{ibm} method \citep{demaioDirectNumericalSimulation2023,busseReynoldsnumberDependenceNearwall2017,thakkarSurfaceCorrelationsHydrodynamic2017,frohnapfelFlowResistanceHeterogeneous2024}.
+For the \acrshort{ibm}, a uniform mesh is constructed, which is slightly larger than the domain of interest.
+Within the uniform mesh, the nodes that lie on the boundary between the desired shape and the flow domain are identified.
+At each of the boundary nodes an additional forcing term is added, which enforces the \acrfull{bcs} \citep{verziccoImmersedBoundaryMethods2023}.
+When comparing \acrshort{ibm} with body-fitted mesh topologies, both advantages and disadvantages emerge.
+An advantage of the \acrshort{ibm} method is the significantly easier mesh topoglogy, which simplifies mesh generation.
+Furthermore, because of the orthogonal mesh alignment, the computation effort per node is significantly reduced for the \acrshort{ibm} compared to a body-fitted mesh.
+In contrast, the required number of grid points is higher for the \acrshort{ibm} method, with a difference with increasing Reynolds number.
+The ratio of necessary grid-points for the \acrshort{ibm} to a body-fitted mesh can be estimated as $N_{IBM}/N_{BF}\approx Re^{0.9}$ \citep{verziccoImmersedBoundaryMethods2023}.
+This results in a lower computation cost for the \acrshort{ibm} method for lower Reynolds numbers, due to the lower computation effort per node, but a higher computation cost for higher Reynolds numbers.
+In this thesis a body fitted-mesh is chosen in order to provide data for wall roughness resolved using body-fitted meshes.
+
 The simulation mesh must contain enough grid points to be able to correctly resolve the physics of turbulence.
 Since the turbulent scales decrease near the wall and the viscous sublayer must to be resolved, it is necessary to refine the grid resolution near the wall.
 Vice versa, the mesh can be coarsened towards the pipe center, without compromising the accuracy of the results.
