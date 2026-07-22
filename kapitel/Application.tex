@@ -275,3 +275,28 @@ It is chosen to be $\approx 75\%$ of the roughness height of the case by~\cite{d
 This choice is made, since it is the lowest surface height with matched $Es$, that can be generated using the same number of Fourier modes as used for the other surfaces.
 It can be seen, that all the surface parameters, that are comparable between the surfaces are within the margin of $0.05$, which is considered as sufficient.
 The only exception is skewness, for which it proved difficult to find a good fit with the used algorithm.
+
+\begin{figure}
+    \centering
+    \begin{subfigure}{0.8\textwidth}
+        \centering
+        \subcaption{}
+        \subimport{plots/Methods/}{surface_height_distribution_piro.pgf}
+    \end{subfigure}
+    \plotverticalspacing
+    \begin{subfigure}{0.8\textwidth}
+        \centering
+        \subcaption{}
+        \subimport{plots/Methods/}{surface_height_distribution_kDown.pgf}
+    \end{subfigure}
+    \plotverticalspacing
+    \begin{subfigure}{0.8\textwidth}
+        \centering
+        \subcaption{}
+        \subimport{plots/Methods/}{surface_height_distribution_scaled.pgf}
+    \end{subfigure}
+    \begin{subfigure}{0.8\textwidth}
+        \centering
+        \subimport{plots/Methods/}{heightmap_colorbar.pgf}
+    \end{subfigure}
+\end{figure}
