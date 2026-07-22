@@ -192,6 +192,7 @@ The inverse of \autoref{eq: roughness scaling function} is
         \includegraphics[width = \textwidth]{Methods/smooth_Averaged_field.png}
         \label{subfig: smooth averaged field}
     \end{subfigure}
+    \plotverticalspacing
     \caption{Visualization of the result of the smoothing algorithm. Color depicting the velocity magnitude of a time averaged field.~(a) Rough pipe domain, (b) Rough domain mapped to smooth pipe}
     \label{fig: comparison of smooth and normal averaged field}
 \end{figure}
@@ -219,6 +220,7 @@ To obtain correct statistics, the data should be interpolated on concentric circ
         \input{plots/Methods/interpolation_point_placement_3.pgf}
         \label{subfig: PP points after inverse maping}
     \end{subfigure}
+    \plotverticalspacing
     \caption{Visualization of points mapping in post-processing. Dots \dnsdot~\ represent \acrshort{dns} data points, circles  \interpcircle~\ interpolation points, the  black line \wallline~\ the pipe wall and the grey area \domainsquare~\ the simulation domiain (a) Default point placement. (b) DNS domain mapped into the smooth computational domain, as depicted in \autoref{subfig: smooth averaged field}. (c) Interpolation points mapped by the inverse of the rough surface, such that they lie on the same respective concentric positions in the computational domain}
     \label{fig: Visualization of the PP points}
 \end{figure} 
@@ -241,6 +243,7 @@ This makes it also dependent on the surface shape and not only on the separation
 
 \begin{table}
     \centering
+    \caption{Surface parameters of surfaces}
     \begin{tabular}{c c c c c c c c}
         \hline
                 & $S_a$     & $S_q$     & $Sk$      & $S_{z_{max}}$ & $ES$      & $S_{z_{5 \times 5}}$  & Color\\
@@ -250,7 +253,6 @@ This makes it also dependent on the surface shape and not only on the separation
         $S3$    & $0.024$   & $0.030$   & $-0.479$  & $0.229$       & $0.196$   & $0.171$               & \Sthreesymbol\\
         \hline
     \end{tabular}
-    \caption{Surface parameters of surfaces}
     \label{tab: surface parameters of production runs}
 \end{table}
 In \autoref{tab: surface parameters of production runs} the considered surface parameters for the three surfaces are listed.

@@ -1,23 +1,22 @@
 \chapter{Validation} \label{chap: Validation}
-A validation of the DNS simulation setups is performed.
-This is important, to test the accuracy simulation setup and the chosen parameters.
-Additionally, the obtained results are used to compare with the rough data, to discuss the influence of surface roughness.\\
-Furthermore, a convergence study is performed, to test the grid resolution, as well as the time convergence of the statistics.
+To test the simulation methods and chosen tools, validation simulations are performed.
+The obtained results are compared to data from common literature, to ensure validity.
+Furthermore, a convergence study is conducted, to test the grid resolution, as well as the time convergence of the statistics.
  
-\section{Smooth wall pipe}\label{sec: Smooth wall pipe}
+\section{Smooth wall pipe validation}\label{sec: Smooth wall pipe}
 To validate the simulation setup, simulations of smooth wall turbulent pipes are performed.
-The simulations in the smooth pipe are performed on the same Reynolds numbers as the rough walled simulations.
-The simulation domain for all three simulations the length $L_z$ is $4\pi R$ with $R$ being unity $1$.
-For all flows, a constant bulk flow rate of $1$ is forced by the forcing procedure described in \autoref{sec: Simulation setup}.
-\begin{table}
+The simulations in the smooth pipe are performed using the Reynolds-numbers $Reb \ 5300$ and $19000$.
+Both of the used Reynolds-numbers here are also employed in the rough-wall simulations.
+The simulation setup is described in \autoref{sec: Simulation setup}.
+\begin{table}[h]
     \centering
     \caption{Mesh parameters for the smooth wall validations}
     \begin{tabular}{c c c c c c c c}
         \hline
         $Re_b$  & $Re_\tau$ & $N_z$ & $N_\theta$ & $\Delta_z$    & $\Delta_\theta$  & N elements    & $Tu\tau / R$\\
         \hline
-        $5700$  & $180$     & $196$ & $196$     & $11.5$        & $5.8$             & $5292$        &\\
-        $11700$ & $360$     & $448$ & $448$     & $10.1$        & $5.0$             & $56448$       &\\
+        $5300$  & $180$     & $196$ & $196$     & $11.5$        & $5.8$             & $5292$        &\\
+       % $11700$ & $360$     & $448$ & $448$     & $10.1$        & $5.0$             & $56448$       &\\
         $19000$ & $550$     & $728$ & $728$     & $9.5$         & $7.5$             & $208832$      &\\
         \hline
     \end{tabular}
@@ -26,9 +25,9 @@ For all flows, a constant bulk flow rate of $1$ is forced by the forcing procedu
 The mesh data and a selection of additional simulation parameters are listed in \autoref{tab: parameters smooth validations}.
 All simulations were performed in polynomial order $7$.\\
 All data of the smooth validation is compared to reference data by~\cite{yaoDirectNumericalSimulations2023} and~\cite{elkhouryDirectNumericalSimulation2013}.
-To compare the data, the mean velocity profiles, the Reynolds stresses including the turbulent kinetic energy, the total stresses, as well as the energy budgets in streamwise direction are shown.
+To compare the data, the mean velocity profiles, the Reynolds stresses, the total stresses, as well as the energy budgets in streamwise direction are shown.
 
-\paragraph{$5700\ Re_b$ smooth wall}
+
 \begin{figure}
     \centering
     \begin{subfigure}{0.495\textwidth}
@@ -54,61 +53,62 @@ To compare the data, the mean velocity profiles, the Reynolds stresses including
         \input{plots/Validation/5300_validation_budgets.pgf}
         \label{subfig: 5700 validation budgets}
     \end{subfigure}
+    \plotverticalspacing
     \caption{Results of the smooth wall validation at $5700 Re_b$.~(a) Mean velocity profile $U^+$ over $y^+$.~(b) Reynolds stresses and TKE over $y^+$.~(c) Total stress, Reynolds stress and viscous stress over $y/R$.~(d) Streamwise $uu$ energy budgets over $y^+$}
     \label{fig: results smooth 5700Reb}
 \end{figure}
-The results of the validation case can be seen in \autoref{fig: results smooth 5700Reb}.
+The results of the validation case using a bulk Reynolds-number $Re_b = 5300$ can be seen in \autoref{fig: results smooth 5700Reb}.
 All data is compared to the equivalent case of~\cite{yaoDirectNumericalSimulations2023}.
 The mesh refinement is chosen to be quite coarse, since it is the same mesh used for the NEKO turbulent pipe example.
 A low computational effort was very important for the example case, hence the coarse grid spacings.
-Since the mesh is quite coars, small deviations between the present data and the reference data are expected.
+This is also the reason for the small deviations between the present data and the reference data.
 The velocity profiles in \autoref{subfig: 5700 validation velocity profile} show very similar behavior between the present data and the reference data.
 Also, the Reynolds stresses in \autoref{subfig: 5700 validation Reynolds stress} show similar trends, especially for the $v'v'$, $w'w'$ and $u'v'$ quantities.
-However, the $u'u'$ stresses deviate near the wall as well as at their peak at $\approx y^+ 15$.
+However, the $u'u'$ stresses are underpredicted at their peak at $\approx y^+ 15$.
 As mentioned before, this is expected due to the coarse mesh.
 The viscous stress in \autoref{subfig: 5700 validation total stress} shows very similar behavior, while the total stress is affected by the already described deviations of the Reynolds shear stresses.
 The streamwise $uu$ energy budgets in \autoref{subfig: 5700 validation budgets} show reasonably good agreement overall.
 Only the dissipation term and viscous diffusion terms are underestimated slightly in the near wall region.
 However, the energy residual shows the correct behavior of being zero at any wall normal position.
 
-\paragraph{$11700\ Re_b$ smooth wall}
-\begin{figure}
-    \centering
-    \begin{subfigure}{0.495\textwidth}
-        \subcaption{}
-        \input{plots/Validation/11700_validation_Uplus.pgf}
-        \label{subfig: 11700 validation velocity profile}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}{0.495\textwidth}
-        \subcaption{}
-        \input{plots/Validation/11700_validation_Reynolds.pgf}
-        \label{subfig: 11700 validation Reynolds stress}
-    \end{subfigure}
-    \plotverticalspacing
-    \begin{subfigure}{0.495\textwidth}
-        \subcaption{}
-        \input{plots/Validation/11700_validation_totStress.pgf}
-        \label{subfig: 11700 validation total stress}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}{0.495\textwidth}
-        \subcaption{}
-        \input{plots/Validation/11700_validation_budgets.pgf}
-        \label{subfig: 11700 validation budgets}
-    \end{subfigure}
-        \caption{Results of the smooth wall validation at $11700 Re_b$.~(a) Mean velocity profile $U^+$ over $y^+$.~(b) Reynolds stresses and TKE over $y^+$.~(c) Total stress, Reynolds stress and viscous stress over $y/R$.~(d) Streamwise $uu$ energy budgets over $y^+$}
-        \label{fig: 11700 smooth validtaion}
-\end{figure}
-The results for $11700 \ Re_b$ are shown in \autoref{fig: 11700 smooth validtaion}.
-The present data is compared to~\cite{elkhouryDirectNumericalSimulation2013}.
-The mean velocity profile in \autoref{subfig: 11700 validation velocity profile} shows excellent agreement with no visible deviations.
-The same holds for the Reynolds stresses in \autoref{subfig: 19000 validation Reynolds stress}, in which almost no deviation is existent.
-Also, the viscous stress and total stresses in \autoref{subfig: 11700 validation total stress} collapse onto the reference data.
-For the streamwise $uu$ energy budgets, only the turbulent diffusion and dissipation term are marginally underestimated in the near wall region $y^+ < 3$. 
-This would probably be solved by refining the wall normal grid resolution slightly.
-The other energy terms collapse onto the reference data completely.
-\paragraph{$1900\ Re_b$ smooth wall validation}
+% \paragraph{$11700\ Re_b$ smooth wall}
+% \begin{figure}
+%     \centering
+%     \begin{subfigure}{0.495\textwidth}
+%         \subcaption{}
+%         \input{plots/Validation/11700_validation_Uplus.pgf}
+%         \label{subfig: 11700 validation velocity profile}
+%     \end{subfigure}
+%     \hfill
+%     \begin{subfigure}{0.495\textwidth}
+%         \subcaption{}
+%         \input{plots/Validation/11700_validation_Reynolds.pgf}
+%         \label{subfig: 11700 validation Reynolds stress}
+%     \end{subfigure}
+%     \plotverticalspacing
+%     \begin{subfigure}{0.495\textwidth}
+%         \subcaption{}
+%         \input{plots/Validation/11700_validation_totStress.pgf}
+%         \label{subfig: 11700 validation total stress}
+%     \end{subfigure}
+%     \hfill
+%     \begin{subfigure}{0.495\textwidth}
+%         \subcaption{}
+%         \input{plots/Validation/11700_validation_budgets.pgf}
+%         \label{subfig: 11700 validation budgets}
+%     \end{subfigure}
+%         \caption{Results of the smooth wall validation at $11700 Re_b$.~(a) Mean velocity profile $U^+$ over $y^+$.~(b) Reynolds stresses and TKE over $y^+$.~(c) Total stress, Reynolds stress and viscous stress over $y/R$.~(d) Streamwise $uu$ energy budgets over $y^+$}
+%         \label{fig: 11700 smooth validtaion}
+% \end{figure}
+% The results for $11700 \ Re_b$ are shown in \autoref{fig: 11700 smooth validtaion}.
+% The present data is compared to~\cite{elkhouryDirectNumericalSimulation2013}.
+% The mean velocity profile in \autoref{subfig: 11700 validation velocity profile} shows excellent agreement with no visible deviations.
+% The same holds for the Reynolds stresses in \autoref{subfig: 19000 validation Reynolds stress}, in which almost no deviation is existent.
+% Also, the viscous stress and total stresses in \autoref{subfig: 11700 validation total stress} collapse onto the reference data.
+% For the streamwise $uu$ energy budgets, only the turbulent diffusion and dissipation term are marginally underestimated in the near wall region $y^+ < 3$. 
+% This would probably be solved by refining the wall normal grid resolution slightly.
+% The other energy terms collapse onto the reference data completely.
+% \paragraph{$1900\ Re_b$ smooth wall validation}
 \begin{figure}
     \centering
     \begin{subfigure}{0.495\textwidth}
@@ -134,27 +134,30 @@ The other energy terms collapse onto the reference data completely.
         \input{plots/Validation/19000_validation_budgets.pgf}
         \label{subfig: 19000 validation budgets}
     \end{subfigure}
-        \caption{Results of the smooth wall validation at $11700 Re_b$.~(a) Mean velocity profile $U^+$ over $y^+$.~(b) Reynolds stresses and TKE over $y^+$.~(c) Total stress, Reynolds stress and viscous stress over $y/R$.~(d) Streamwise $uu$ energy budgets over $y^+$}
+    \plotverticalspacing
+    \caption{Results of the smooth wall validation at $11700 Re_b$.~(a) Mean velocity profile $U^+$ over $y^+$.~(b) Reynolds stresses and TKE over $y^+$.~(c) Total stress, Reynolds stress and viscous stress over $y/R$.~(d) Streamwise $uu$ energy budgets over $y^+$}
         \label{fig: 19000 smooth validation}
 \end{figure}
-The results for the $19000 \ Reb$ are shown in \autoref{fig: 19000 smooth validation}.
-The reference data from~\cite{yaoDirectNumericalSimulations2023} is matched quite well. 
+Overall, the results for the $19000 \ Reb$ are shown in \autoref{fig: 19000 smooth validation}.
+The reference data from~\cite{yaoDirectNumericalSimulations2023} is matched well. 
 The mean velocity profiles are nearly the same.
-The obtained data shows some minor fluctuations of the mean velocity in the outer region. 
-This indicates, that the interpolation points are too far apart, since the overall trend of the mean velocity is identical to the reference data.
-Similarly to the $Reb \ 5300$ case, the streamwise Reynolds stress is slightly underpredicted, which indicates a slightly too coarse mesh in azimuthal direction ZITAT.
-However, the plot of the total stress and its componens shows a perfect match to the expected slope.
+% The obtained data shows some minor fluctuations of the mean velocity in the outer region. 
+% This indicates, that the interpolation points are too far apart, since the overall trend of the mean velocity is identical to the reference data.
+Likewise, the Reynolds stresses $v'v',\ w'w'$ and $u'v'$ are collapsing with the reference data.
+Contrary to the $Reb \ 5300$ case, also the streamwise Reynolds stress $u'u'$ is matched.
+Furthermore, the plot of the total stress and its components shows a perfect match to the expected curve.
 The streamwise energy budgets also collapse almost perfectly onto the reference data.
+
 \section{Convergence studies} \label{sec: convergence studies}
 A grid resolution as well as time convergence study is conducted to find reasonable parameters for both.
 They sould yield sufficient results while keeping the necessary computational resources manageable.
-The study was conducted using $Re_b = 5700$ in order to have faster computational times.
-For all three cases the length of the pipe is set at $L_z = 8\pi R$, while the radius is unity $R = 1$. 
+The study was conducted using $Re_b = 5700$ in order to reduce the computational effort.
+For all cases of the convergence study, the simulation setups for the rough pipe, explained in \autoref{sec: Simulation setup}, is used.
 
 \subsection{Grid refinement study}\label{subsec: grid refinement study}
 For the grid refinement study, three meshes of varying resolutions are used.
 The resolution are altered in streamwise and azimuthal direction, while keeping the wall-normal resolution fixed.
-Also, the polynomial order is kept constant at $p = 7$ ZITAT.
+Also, the polynomial order is kept constant at $p = 7$.
 The used parameters are listed in \autoref{tab: parameters grid refinement study}.
 \begin{table}
 \centering
@@ -171,7 +174,7 @@ The used parameters are listed in \autoref{tab: parameters grid refinement study
 \label{tab: parameters grid refinement study}
 \end{table}
 To obtain statistics, the initial transient period is set to be $T = 500$ time units.
-It is chosen to be quite generous, to midigate influences from transition to turbulence.
+It is chosen to be quite generous, to midigate influences from transition to turbulence and only investigate statistically converged flow.
 The initial transient phase is tested in the time convergence study in \autoref{subsec: Time convergence study}.
 The statistics were taken for $250$ time units, hence between $500 - 750$ time units.
 The results of the grid refinement study is shown in \autoref{fig: Mesh refinement study}.
@@ -200,6 +203,7 @@ In \autoref{subfig: grid convergence uplus} the mean streamwise velocitiy profil
         \input{plots/Validation/grid_convergence_totStress.pgf}
         \label{subfig: grid convergence total stress}
     \end{subfigure}
+    \plotverticalspacing
     \caption{First and second order statistics for mesh convergence study.~(a) Mean streamwise velocity profiles $U+$ over wall normal $y+$.~(b) Reynolds stresses $R_{ij}^+$ over wall normal distance $y^+$. Solid line representing $R_{uu}^+$, dashed line $R_{vv}^+$, dotted line $R_{ww}^+$ and dot-dashed line $R_{uv}^+$.~(c) Stresses over wall normal distance r/R. Solid line representing the total stress $\tau_{tot}$, the dashed line the Reynolds stress $\tau_{uv}$, dotted line the viscous stress $\tau_{vis}$ and the dot-dashed line the dispersive stress $\tau_{disp}$. Red line chosen for further study.}
     \label{fig: Mesh refinement study}
 \end{figure}
@@ -209,9 +213,9 @@ The values for $R_{vv}, R_{ww}$ and $R_{uv}$ are almost unaffected.
 However, $R_{uu}$ shows a steady increase in its maximum value between $4.06$ and $4.17$ for increasing finer meshes.
 This results in a difference of $~ 2.6\%$ between the highest and lowest value.
 The total stress in \autoref{subfig: grid convergence total stress} seems to be nearly unaffected by the grid resolution. 
-All meshes, including the coarsest mesh shows the expected slope of $1$ in the center region of the pipe ZITAT.
+All meshes, including the coarsest mesh shows the expected slope of $1$ in the center region of the pipe.
 Additionally, the trends for the viscous stress are identical.
-However, there are slightly different trends for the Reynolds stress and the dispersive stress, as already described above.
+However, there are slightly different trends for the Reynolds stress and the dispersive stress.
 The dispersive stress decreases with increasing mesh resolution.
 The finest mesh shows the lowest dispersive stress, especially in the transition and log-law region. 
 The curves collapse onto another again near the center, when trending towards zero.
@@ -219,10 +223,13 @@ Also in the near-wall region, they behave very similar.\\
 From the grid convergence study can be concluded, that the influence on the shown statistics is small for the used meshes.
 However, it is expected, that the differences will grow with higher Reynolds numbers ZITAT.
 For that reason, the coarsest mesh is not chosen for the study. 
-The number of elements between the finest mesh, and the intermediate mesh is $~64\%$ higher and thus a substantial increase in computational time is expected.
-Since the goal of this study is to compare the results among each other, and not necessarily compare to reference data, and a sufficient convergence is shown, the chosen mesh is the one depicted in red in \autoref{fig: Mesh refinement study}.
+The number of elements is $~64\%$ higher for the finest mesh compared to the intermediate one and thus a substantial increase in computational time is expected.
+Since a sufficient convergence is shown for the intermediate resolution it is the chosen mesh for the following studies.
+%the goal of this study is to compare the results among each other, and not necessarily compare to reference data, and 
+
 \begin{table}
     \centering
+    \caption{Parameters for meshes}
     \begin{tabular}{ c c c c c c c c } 
         \hline
         $Re_b$  & $N_z$     & $N_{\theta}$  & $\Delta_z$    & $\Delta_\theta$   & $\Delta^+_{r_1}$  & $\Delta^+_{r_{10}}$   & N elements \\
@@ -232,15 +239,16 @@ Since the goal of this study is to compare the results among each other, and not
         $19000$ & $1722$    & $861$         & $8.03$        & $4.01$            & $0.159$           & $3.65$                & 759648\\ 
         \hline
     \end{tabular}
-    \caption{Parameters for meshes}
     \label{tab: parameters chosen meshes}
 \end{table}
 \subsection{Time convergence study}\label{subsec: Time convergence study}
 Using the chosen mesh from \autoref{subsec: grid refinement study}, the time convergence is tested.
-The is done, to find the necessary initial transition time to turbulence, at which the computation of averaged values can start and the necessary averaging time.
+This is done to find the necessary initial transition time to statistically homogeneous turbulence, at which the computation of averaged values can start.
+Also, the necessary duration of the averaging procedure is to be tested.
 The time interval at which statistics are computed is from $300-750$ time units.
 Every $100$ time units, averaged files were written, such that the flow behavior can be studied in time intervals of $100$ time units.
-The studied averaging times are $500-750, 300-750, 300-600$ and $300-500$.
+The studied averaging times are $300-500, 300 - 600, 300-750$ and $500-750$.
+
 The results of the time convergence study are shown in \autoref{fig: Time convergence study}.
 \begin{figure}
     \centering
@@ -264,6 +272,7 @@ The results of the time convergence study are shown in \autoref{fig: Time conver
         \input{plots/Validation/time_convergence_totStress.pgf}
         \label{subfig: time convergence total stress}
     \end{subfigure}
+    \plotverticalspacing
     \caption{First and second order statistics for time convergence study.~(a) Mean streamwise velocity profiles $U+$ over wall normal $y+$.~(b) Reynolds stresses $R_{ij}^+$ over wall normal distance $y^+$. Solid line representing $R_{uu}^+$, dashed line $R_{vv}^+$, dotted line $R_{ww}^+$ and dot-dashed line $R_{uv}^+$.~(c) Stresses over wall normal distance r/R. Solid line representing the total stress $\tau_{tot}$, the dashed line the Reynolds stress $\tau_{uv}$, dotted line the viscous stress $\tau_{vis}$ and the dot-dashed line the dispersive stress $\tau_{disp}$. Black line chosen for further study.}
     \label{fig: Time convergence study}
 \end{figure}
@@ -273,20 +282,5 @@ Only minor differences are existent and if they are, they are minor.
 This indicates validity of the chosen averaging time in \autoref{subsec: grid refinement study}.
 Furthermore, it can be seen, that averaging until $750$ time units is not necessary to obtain valid statistics.
 Eventhough the results shown here support the assumption, that an averaging time from $300-500$ time units is sufficient, it is not chosen for the further study.
-The following study is conducted using averaging between $300-600$ time units, since the time convergence study is performed using $Re_b = 5700$ and higher bulk Reynolds number will be used in the future.
-To that extent to decrease the uncertainty a longer averaging time is chosen.
-% \begin{table}
-%     \centering
-%     \caption{caption}
-%     \label{tab: convergence study}
-%     \begin{tabular}{l | r r r r}
-%                                 & very coarse   & coarse        & normal        & fine\\
-%         \hline
-%         n elem                  & 24480         & 38416         & 56320         & 80856\\
-%         n GLL                   & 12.533.760    & 19.668.992    & 28.835.840    & 41.398.272\\
-%         avg time per step       & 0.081s        & 0.1366s       & 0.2071s       & 0.1085s\\
-%         time for run            & 0.16354$e^5$s & 0.33847$e^5$s & 0.59612$e^5$s & 0.3557682$e^5$s\\
-%         number of Fritz nodes   & 5             & 5             & 5             & 15\\
-        
-%     \end{tabular}
-% \end{table}
+The following study is conducted using averaging between $300-600$ time units throughout, since the time convergence study is performed using $Re_b = 5700$ and higher bulk Reynolds number will be used in the future.
+To that extent to increase the confidence intervals, a longer averaging time is chosen.
