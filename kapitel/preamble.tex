@@ -66,9 +66,16 @@
 \definecolor{ccircles}{HTML}{AF923C}
 \definecolor{cwallline}{HTML}{000000}
 \definecolor{csurface}{HTML}{7D7D7D}
-\definecolor{Sonecolor}{HTML}{4d9221}
-\definecolor{Stwocolor}{HTML}{4575b4}
-\definecolor{Sthreecolor}{HTML}{d73027}
+\definecolor{sOneFiveThreeColor}{HTML}{b8e186}
+\definecolor{sTwoFiveThreeColor}{HTML}{92c5de}
+\definecolor{sThreeFiveThreeColor}{HTML}{f1b6da}
+\definecolor{sOneElevenSevenColor}{HTML}{7fbc41}
+\definecolor{sTwoElevenSevenColor}{HTML}{4393c3}
+\definecolor{sThreeElevenSevenColor}{HTML}{de77ae}
+\definecolor{sOneNineteenColor}{HTML}{4d9221}
+\definecolor{sTwoNineteenColor}{HTML}{2166ac}
+\definecolor{sThreeNineteenColor}{HTML}{c51b7d}
+\definecolor{referenceColor}{HTML}{000000}
 
 \definecolor{fineMesh}{HTML}{023858}
 \definecolor{intermediateMesh}{HTML}{0570b0}
@@ -90,22 +97,31 @@
 % domain patch, matching c_surface's ~52% opacity
 \DeclareRobustCommand{\domainsquare}{\tikz[baseline=-0.0ex]\fill[csurface, opacity=0.52] (0,0) rectangle (0.7em,0.7em);}
 
-\DeclareRobustCommand{\Sonesymbol}{\tikz[baseline=-0.7ex]\fill[Sonecolor] (0,0) circle (2.5pt);}
-\DeclareRobustCommand{\Stwosymbol}{\tikz[baseline=-0.7ex]\fill[Stwocolor] (0,0) circle (2.5pt);}
-\DeclareRobustCommand{\Sthreesymbol}{\tikz[baseline=-0.7ex]\fill[Sthreecolor] (0,0) circle (2.5pt);}
 
-\DeclareRobustCommand{\Soneline}{\tikz[baseline=-0.7ex]\draw[Sonecolor, line width=2.0pt, line cap=round, dash pattern=on 0pt off 4pt] (0,0) -- (0.5em,0);}
-\DeclareRobustCommand{\Stwoline}{\tikz[baseline=-0.7ex]\draw[Stwocolor, line width=2.0pt, line cap=round, dash pattern=on 0pt off 4pt] (0,0) -- (0.5em,0);}
-\DeclareRobustCommand{\Sthreeline}{\tikz[baseline=-0.7ex]\draw[Sthreecolor, line width=2.0pt, line cap=round, dash pattern=on 0pt off 4pt] (0,0) -- (0.5em,0);}
+\DeclareRobustCommand{\sOneFiveThreeSymbol}{\tikz[baseline=-0.7ex]\fill[sOneFiveThreeColor] (0,0) circle (2.5pt);}
+\DeclareRobustCommand{\sTwoFiveThreeSymbol}{\tikz[baseline=-0.7ex]\fill[sTwoFiveThreeColor] (0,0) circle (2.5pt);}
+\DeclareRobustCommand{\sThreeFiveThreeSymbol}{\tikz[baseline=-0.7ex]\fill[sThreeFiveThreeColor] (0,0) circle (2.5pt);}
+\DeclareRobustCommand{\sOneElevenSevenSymbol}{\tikz[baseline=-0.7ex]\fill[sOneElevenSevenColor] (0,0) circle (2.5pt);}
+\DeclareRobustCommand{\sTwoElevenSevenSymbol}{\tikz[baseline=-0.7ex]\fill[sTwoElevenSevenColor] (0,0) circle (2.5pt);}
+\DeclareRobustCommand{\sThreeElevenSevenSymbol}{\tikz[baseline=-0.7ex]\fill[sThreeElevenSevenColor] (0,0) circle (2.5pt);}
+\DeclareRobustCommand{\sOneNineteenSymbol}{\tikz[baseline=-0.7ex]\fill[sOneNineteenColor] (0,0) circle (2.5pt);}
+\DeclareRobustCommand{\sTwoNineteenSymbol}{\tikz[baseline=-0.7ex]\fill[sTwoNineteenColor] (0,0) circle (2.5pt);}
+\DeclareRobustCommand{\sThreeNineteenSymbol}{\tikz[baseline=-0.7ex]\fill[sThreeNineteenColor] (0,0) circle (2.5pt);}
+
+\DeclareRobustCommand{\referenceSymbol}{\tikz[baseline=-0.7ex]\fill[referenceColor] (0,0) circle (2.5pt);}
+
+\DeclareRobustCommand{\Soneline}{\tikz[baseline=-0.7ex]\draw[sOneElevenSevenColor, line width=2.0pt, line cap=round, dash pattern=on 0pt off 4pt] (0,0) -- (0.5em,0);}
+\DeclareRobustCommand{\Stwoline}{\tikz[baseline=-0.7ex]\draw[sTwoElevenSevenColor, line width=2.0pt, line cap=round, dash pattern=on 0pt off 4pt] (0,0) -- (0.5em,0);}
+\DeclareRobustCommand{\Sthreeline}{\tikz[baseline=-0.7ex]\draw[sThreeElevenSevenColor, line width=2.0pt, line cap=round, dash pattern=on 0pt off 4pt] (0,0) -- (0.5em,0);}
 
 % Line style samples for Re_b = 11700 (dash-dotted) and Re_b = 19000 (dashed), combined with surface color
-\DeclareRobustCommand{\SoneDashDot}{\tikz[baseline=-0.7ex]\draw[Sonecolor, line width=2.0pt, dash pattern=on 3pt off 2pt on 0.5pt off 2pt] (0,0) -- (0.9em,0);}
-\DeclareRobustCommand{\StwoDashDot}{\tikz[baseline=-0.7ex]\draw[Stwocolor, line width=2.0pt, dash pattern=on 3pt off 2pt on 0.5pt off 2pt] (0,0) -- (0.9em,0);}
-\DeclareRobustCommand{\SthreeDashDot}{\tikz[baseline=-0.7ex]\draw[Sthreecolor, line width=2.0pt, dash pattern=on 3pt off 2pt on 0.5pt off 2pt] (0,0) -- (0.9em,0);}
+\DeclareRobustCommand{\SoneDashDot}{\tikz[baseline=-0.7ex]\draw[sOneElevenSevenColor, line width=2.0pt, dash pattern=on 3pt off 2pt on 0.5pt off 2pt] (0,0) -- (0.9em,0);}
+\DeclareRobustCommand{\StwoDashDot}{\tikz[baseline=-0.7ex]\draw[sTwoElevenSevenColor, line width=2.0pt, dash pattern=on 3pt off 2pt on 0.5pt off 2pt] (0,0) -- (0.9em,0);}
+\DeclareRobustCommand{\SthreeDashDot}{\tikz[baseline=-0.7ex]\draw[sThreeElevenSevenColor, line width=2.0pt, dash pattern=on 3pt off 2pt on 0.5pt off 2pt] (0,0) -- (0.9em,0);}
 
-\DeclareRobustCommand{\SoneDashed}{\tikz[baseline=-0.7ex]\draw[Sonecolor, line width=2.0pt, dash pattern=on 4pt off 2pt] (0,0) -- (0.9em,0);}
-\DeclareRobustCommand{\StwoDashed}{\tikz[baseline=-0.7ex]\draw[Stwocolor, line width=2.0pt, dash pattern=on 4pt off 2pt] (0,0) -- (0.9em,0);}
-\DeclareRobustCommand{\SthreeDashed}{\tikz[baseline=-0.7ex]\draw[Sthreecolor, line width=2.0pt, dash pattern=on 4pt off 2pt] (0,0) -- (0.9em,0);}
+\DeclareRobustCommand{\SoneDashed}{\tikz[baseline=-0.7ex]\draw[sOneElevenSevenColor, line width=2.0pt, dash pattern=on 4pt off 2pt] (0,0) -- (0.9em,0);}
+\DeclareRobustCommand{\StwoDashed}{\tikz[baseline=-0.7ex]\draw[sTwoElevenSevenColor, line width=2.0pt, dash pattern=on 4pt off 2pt] (0,0) -- (0.9em,0);}
+\DeclareRobustCommand{\SthreeDashed}{\tikz[baseline=-0.7ex]\draw[sThreeElevenSevenColor, line width=2.0pt, dash pattern=on 4pt off 2pt] (0,0) -- (0.9em,0);}
 
 % define symbols for convergence studies
 \DeclareRobustCommand{\fineMeshSymbol}{\tikz[baseline=-0.7ex]\fill[fineMesh] (0,0) circle (2.0pt);}

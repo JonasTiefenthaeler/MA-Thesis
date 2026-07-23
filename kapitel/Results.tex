@@ -9,26 +9,45 @@ It is a general-purpose GPU cluster equipped with 4x Nvidia H100 GPUs per comput
 Like on fritz, multiple nodes can be used for the same job, to imporve computation times and the available RAM.
 
 The representation of the data is consistent throughout this chapter.
-The three surfaces are differentiated by the line color.
-The Reynolds numbers are depicted using different line styles.
+The three surfaces are differentiated by the colour-family of the lines.
+The colour convention for each surface at each Reynolds number is depicted in \autoref{tab: line style convention}
+The Reynolds numbers are differentiated by the intensity of the colour.
+Darker colours depict higher Reynolds numbers.
 
 \begin{table}
     \centering
     \begin{tabular}{c c c c}
         \toprule
-        & S1 & S2 & S3 \\
+        $Re_b$    & S1                        & S2                        & S3 \\
         \midrule
-        $Re_b = 5300$  & \Soneline     & \Stwoline     & \Sthreeline     \\
-        $Re_b = 11700$ & \SoneDashDot  & \StwoDashDot  & \SthreeDashDot  \\
-        $Re_b = 19000$ & \SoneDashed   & \StwoDashed   & \SthreeDashed   \\
+        $5300$   & \sOneFiveThreeSymbol      & \sTwoFiveThreeSymbol      & \sThreeFiveThreeSymbol     \\
+        $11700$  & \sOneElevenSevenSymbol    & \sTwoElevenSevenSymbol    & \sThreeElevenSevenSymbol  \\
+        $19000$  & \sOneNineteenSymbol       & \sTwoNineteenSymbol       & \sThreeNineteenSymbol   \\
         \bottomrule
     \end{tabular}
-    \caption{Line style and color convention used throughout this chapter. Line color denotes the surface, line style denotes the Reynolds number.}
+    \caption{Line style and colour convention used throughout this chapter. Line colour denotes the surface, line style denotes the Reynolds number.}
     \label{tab: line style convention}
 \end{table}
 
 
 \section{Simulations with 5300$Re_b$}
+In this section the results of the \acrshort{dns} study with Reynolds-number $Re_b = 5300$ are presented.
+The three surfaces are compared against each other.
+\begin{table}
+    \centering
+    \caption{Computed friction values for $Re_b = 5300$}
+    \begin{tabular}{c c c c c c c c c}
+        \hline
+                & $Re_\tau$ & $k^+$ & $C_f$     & $\tau_w$  & $\tau_v$  & $\tau_p$  & $\tau_v/\tau_w$   & $\Delta U^+$\\
+        \hline
+        $S1$    & $231.0$  & $52.67$   & $1.14\times10^{-2}$& $7.60\times10^{-3}$ & $5.70\times10^{-3}$ & $1.90\times10^{-3}$ & $0.750$                  & $-1.39$\\
+        $S2$    & $216.0$  & $36.94$   & $1.08\times10^{-2}$& $6.65\times10^{-3}$ & $5.38\times10^{-3}$ & $1.27\times10^{-3}$ & $0.809$                  & $-1.36$\\
+        $S3$    & $209.7$  & $35.86$   & $1.05\times10^{-2}$& $6.26\times10^{-3}$  & $5.20\times10^{-3}$ & $1.03\times10^{-3}$ & $0.848$                  & $-1.35$\\
+        \hline 
+    \end{tabular}
+    
+    \label{tab: friction values Reb 5300}
+\end{table}
 \begin{figure}
     \centering
     \begin{subfigure}[t]{0.495\textwidth}
@@ -36,28 +55,73 @@ The Reynolds numbers are depicted using different line styles.
         \subcaption{}
         %\input{plots/Results/}
         \input{plots/Results/5300/5300Reb_comparison_uplus.pgf}
+        \label{subfig: Reb 5300 velocity profile}
     \end{subfigure}
     \hfill
-    \begin{subfigure}[t]{0.495\textwidth}
+    \begin{subfigure}[t]{0.49\textwidth}
         \centering
         \subcaption{}
-        \input{plots/Results/5300/5300Reb_comparison_RS.pgf}
+        \input{plots/Results/5300/5300Reb_velocityDefect.pgf}
+        \label{subfig: Reb 5300 velocity defect}        
     \end{subfigure}
     \plotverticalspacing
     \begin{subfigure}[t]{0.495\textwidth}
         \centering
         \subcaption{}
         \input{plots/Results/5300/5300Reb_comparison_totalStress.pgf}
+        \label{subfig: Reb 5300 total stresses}
     \end{subfigure}
     \hfill
-    \begin{subfigure}[t]{0.49\textwidth}
+    \begin{subfigure}[t]{0.495\textwidth}
         \centering
         \subcaption{}
-        \input{plots/Results/5300/5300Reb_velocityDefect.pgf}        
+        \input{plots/Results/5300/5300Reb_comparison_RS.pgf}
+        \label{subfig: Reb 5300 reynolds stresses}
     \end{subfigure}
-    \caption{Comparison between the 3 tested surfaces at $Re_b = 5300$. \Soneline \ denotes surface S1, \Stwoline \ surface S2 and \Sthreeline \ surface S3. (a) Mean velocity profiles. (b) Reynolds stresses. (c) Viscous stress, turbulent shear stress and dispersive stress. (d) Velocity defect of local velocity to centerline velocity}
+    \caption{Comparison between the 3 tested surfaces at $Re_b = 5300$. \sOneFiveThreeSymbol \ denotes surface S1, \sTwoFiveThreeSymbol \ surface S2, \sThreeFiveThreeSymbol \ surface S3 and \referenceSymbol \ the reference data from~\cite{yaoDirectNumericalSimulations2023}.~(a) Mean velocity profiles.~(b) Velocity defect of local velocity to centerline velocity.~(c) Viscous stress, turbulent shear stress and dispersive stress.~(d) Reynolds stresses. }
     \label{fig: comp Reb 5300}
 \end{figure}
+
+\autoref{fig: comp Reb 5300} shows first- and second order statistics for all three surfaces.
+Furthermore, various mean quantities tied to the roughness behaviour are listed in \autoref{tab: friction values Reb 5300}.
+In \autoref{subfig: Reb 5300 velocity profile} the mean velocity profiles $U^+$ are shown over the wall-normal distance $y^+$. 
+It becomes clear, that all three surfaces exhibit the same behaviour in the log-law region of the flow, which further supports Townsend's similarity hypothesis.
+This is in line with the findings of the velocity defects in \autoref{subfig: Reb 5300 velocity defect}, since all three curves collapse onto the reference data in the outer region.
+Surface $S3$ reaches the highest $U^+$ value, $S1$ the lowest, while $S2$ sits in between.
+Due to the largest roughness height $k^+$ of surface $S1$, the flow experiences the most drag, hence the lowest maximum mean velocity $U^+$.
+The increased drag of $S1$ comes from both increased viscous drag $\tau_v$ and increase pressure drag $\tau_p$ compared to the other surfaces.
+However, the influence of viscous drag on total drag decreases for higher roughness height $k^+$ and effective slope $Es$, as can be seen in \autoref{tab: friction values Reb 5300}. 
+Since $S3$ has a very similar surface topography but lower effective slope $Es$ compared to $S2$, the higher maximum mean velocity $U^+$ and thus reduced drag is not surprising.
+Also, $S3$ shows the highest influence of viscous drag on total drag, or vice versa, shows the least influence of pressure drag.
+In the near-wall region the velocity behaviour varies significantly between the surfaces.
+For all three surfaces the viscous sublayer is only weakly pronounced in the plots, since all lines show the characteristic curve in the near-wall region (with varying curvature), but approach a positive $U^+$ value for $y^+ = 0$.
+This is, however, expected.
+The $y^+ = 0$ position is within the flow for large parts of the pipe, depending on the respective wall location.
+For all positions, at which the wall is further away from the pipe centre than $y^+ = 0$, hence at negative $y^+$ regions, there is fluid flow present at the virtual origin $y^+ = 0$ and beneath.
+This leads to positive $U^+$ values at the virtual origin. 
+This effect is more pronounced for $S1$, since it shows the most roughness height $k^+$, hence more room for fluid flow below $y^+ = 0$.
+
+The total stress over the wall normal position in outer units $r/R$ is plotted in \autoref{subfig: Reb 5300 total stresses} with its individual components turbulent shear stress, viscous stress and dispersive stress.
+Additionally, a smooth wall reference is provided.
+It can be seen, that the expected slope of $1$ is matched for all surfaces in the whole domain, except the near wall region. 
+The total stress starts to drop at approximately $r/R = 0.15$ eventhough $S1$ drops slightly earlier.
+This is due to the viscous stress not reaching the expected value of $1$ at the virtual origin, as expected for a smooth pipe.
+The reasoning for that is the same as provided for the velocity profile in the near-wall region.
+This effect is pronounced the strongest for $S1$, while $S2$ and $S3$ behave very similarly.
+In the outer region, the shear stress collapses on the smooth-wall curve and reaches zero at the pipe centre.
+The Turbulent stress shows similar behaviour.
+In the outer region there is excellent agreement with the smooth wall reference.
+Also, the overall trend towards the wall is very similar for the rough-wall cases and the smooth wall case.
+However, the rough-wall cases show smaller maximum values for the turbulent stress, with $S1$ reaching the lowest value.
+At the wall, all none of the three rough cases zero turbulent stress, remaining at values between $0.05$ and $0.15$.
+Higher roughness heights lead to higher turbulent stresses at the virtual origin for the same reasons as for the velocity at the virtual origin.
+\autoref{subfig: Reb 5300 reynolds stresses} depicts the Reynolds stresses over the wall normal distance in inner units.
+The streamwise components $u'u'$ show significantly decreased values for all rough surfaces.
+The data suggests, that the $u'u'$ downshift increases with roughness height $k^+$. 
+The influence of the effective slope seems to be varying with the wall-normal position. 
+In the near wall region, $S2$ and $S3$ deviate significantly, while the value is nearly the same around the peak at approximately $y^+ = 20$.
+Furthermore, for all rough surfaces the streamwise Reynolds stress peak is shifted to higher $y^+$ values, compared to the smooth wall pipe.
+HIER NOCH REASONING GEBEN.
 
 \begin{figure}
     \centering
@@ -84,6 +148,7 @@ The Reynolds numbers are depicted using different line styles.
         \subimport{plots/Results/5300/}{3DSpectra_colorbar.pgf}
     \end{subfigure}
     \caption{Energy spectra}
+    \label{fig: Reb5300 energy spectra}
 \end{figure}
 
 \begin{figure}
@@ -129,9 +194,12 @@ The Reynolds numbers are depicted using different line styles.
         \subimport{plots/Results/5300/}{5300Reb_instantaneousField_colorbar_centre.pgf}
     \end{subfigure}
     \caption{Streamwise velocity fluctuations of instantaneous flow fields. (a) and (b) Surface 1. (c) and (d) Surface 2. (e) and (f) Surface 3. (a), (c) and (e) at $y+ = 15$. (b), (d) and (f) at $y/R = 0.5$}
+    \label{fig: Reb 5300 instantaneous fields}
 \end{figure}
 
-In Figure \autoref{fig: comp Reb 5300} the results of the three
+
+
+
 
 Max values of Energy spectra:
 \begin{itemize}
