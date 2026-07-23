@@ -1,2 +1,5 @@
 {"rule":"LES_LESS","sentence":"^\\QEspecially dns and les are a common choice among researchers, since they can yield important insight into the behaviour of turbulent flow \\E(?:Dummy|Ina|Jimmy-|Dummy-|Maniquí-|Maniquíes-|Atrapa-|Dummy\\+|Dummy's\\+)[0-9]+\\Q.\\E$"}
 {"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Qdns and the sem are explained.\\E$"}
+{"rule":"COPYRIGHT","sentence":"^\\Q(c) Total stress, Reynolds stress and viscous stress over \\E(?:Dummy|Ina|Jimmy-|Dummy-|Maniquí-|Maniquíes-|Atrapa-|Dummy\\+|Dummy's\\+)[0-9]+\\Q.\\E$"}
+{"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Qdenotes the coarse mesh, the intermediate mesh and the fine mesh.\\E$"}
+{"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Qdenotes averaging span from \\E(?:Dummy|Ina|Jimmy-|Dummy-|Maniquí-|Maniquíes-|Atrapa-|Dummy\\+|Dummy's\\+)[0-9]+\\Q time units, from \\E(?:Dummy|Ina|Jimmy-|Dummy-|Maniquí-|Maniquíes-|Atrapa-|Dummy\\+|Dummy's\\+)[0-9]+\\Q time units, from \\E(?:Dummy|Ina|Jimmy-|Dummy-|Maniquí-|Maniquíes-|Atrapa-|Dummy\\+|Dummy's\\+)[0-9]+\\Q time units and from \\E(?:Dummy|Ina|Jimmy-|Dummy-|Maniquí-|Maniquíes-|Atrapa-|Dummy\\+|Dummy's\\+)[0-9]+\\Q time units.\\E$"}

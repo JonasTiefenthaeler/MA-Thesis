@@ -66,9 +66,18 @@
 \definecolor{ccircles}{HTML}{AF923C}
 \definecolor{cwallline}{HTML}{000000}
 \definecolor{csurface}{HTML}{7D7D7D}
-\definecolor{Sonecolor}{HTML}{ff7f00}
-\definecolor{Stwocolor}{HTML}{5c9f32}
-\definecolor{Sthreecolor}{HTML}{984ea3}
+\definecolor{Sonecolor}{HTML}{4d9221}
+\definecolor{Stwocolor}{HTML}{4575b4}
+\definecolor{Sthreecolor}{HTML}{d73027}
+
+\definecolor{fineMesh}{HTML}{023858}
+\definecolor{intermediateMesh}{HTML}{0570b0}
+\definecolor{coarseMesh}{HTML}{74a9cf}
+\definecolor{t57}{HTML}{004529}
+\definecolor{t37}{HTML}{238443}
+\definecolor{t36}{HTML}{78c679}
+\definecolor{t35}{HTML}{d9f0a3}
+
 
 % small filled dot, matching s_data=4 in the python script
 \DeclareRobustCommand{\dnsdot}{\tikz[baseline=-0.7ex]\fill[cpoints] (0,0) circle (1.5pt);}
@@ -97,6 +106,16 @@
 \DeclareRobustCommand{\SoneDashed}{\tikz[baseline=-0.7ex]\draw[Sonecolor, line width=2.0pt, dash pattern=on 4pt off 2pt] (0,0) -- (0.9em,0);}
 \DeclareRobustCommand{\StwoDashed}{\tikz[baseline=-0.7ex]\draw[Stwocolor, line width=2.0pt, dash pattern=on 4pt off 2pt] (0,0) -- (0.9em,0);}
 \DeclareRobustCommand{\SthreeDashed}{\tikz[baseline=-0.7ex]\draw[Sthreecolor, line width=2.0pt, dash pattern=on 4pt off 2pt] (0,0) -- (0.9em,0);}
+
+% define symbols for convergence studies
+\DeclareRobustCommand{\fineMeshSymbol}{\tikz[baseline=-0.7ex]\fill[fineMesh] (0,0) circle (2.0pt);}
+\DeclareRobustCommand{\intermediatMeshSymbol}{\tikz[baseline=-0.7ex]\fill[intermediateMesh] (0,0) circle (2.0pt);}
+\DeclareRobustCommand{\coarseMeshSymbol}{\tikz[baseline=-0.7ex]\fill[coarseMesh] (0,0) circle (2.0pt);}
+
+\DeclareRobustCommand{\tfifesevenSymbol}{\tikz[baseline=-0.7ex]\fill[t57] (0,0) circle (2.0pt);}
+\DeclareRobustCommand{\tthreesevenSymbol}{\tikz[baseline=-0.7ex]\fill[t37] (0,0) circle (2.0pt);}
+\DeclareRobustCommand{\tthreesixSymbol}{\tikz[baseline=-0.7ex]\fill[t36] (0,0) circle (2.0pt);}
+\DeclareRobustCommand{\tthreefiveSymbol}{\tikz[baseline=-0.7ex]\fill[t35] (0,0) circle (2.0pt);}
 %---------------------------------------
 % Glossary
 %---------------------------------------
@@ -109,9 +128,9 @@
 %---------------------------------------
 \usepackage{adjustbox} %scales tables such they fit on page
 \renewcommand{\textfraction}{0.2} %sets how much text is the 
-\renewcommand{\floatpagefraction}{0.5}
-\renewcommand{\topfraction}{0.7}
-\renewcommand{\bottomfraction}{0.3}
+\renewcommand{\floatpagefraction}{0.9}
+\renewcommand{\topfraction}{0.9}
+\renewcommand{\bottomfraction}{0.9}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % folgende Pakete für Kommentare direkt in der Tex-Source
