@@ -77,6 +77,8 @@
 \definecolor{sThreeNineteenColor}{HTML}{c51b7d}
 \definecolor{referenceColor}{HTML}{000000}
 
+\definecolor{captionColor}{HTML}{848482}
+
 \definecolor{fineMesh}{HTML}{023858}
 \definecolor{intermediateMesh}{HTML}{0570b0}
 \definecolor{coarseMesh}{HTML}{74a9cf}
@@ -132,6 +134,24 @@
 \DeclareRobustCommand{\tthreesevenSymbol}{\tikz[baseline=-0.7ex]\fill[t37] (0,0) circle (2.0pt);}
 \DeclareRobustCommand{\tthreesixSymbol}{\tikz[baseline=-0.7ex]\fill[t36] (0,0) circle (2.0pt);}
 \DeclareRobustCommand{\tthreefiveSymbol}{\tikz[baseline=-0.7ex]\fill[t35] (0,0) circle (2.0pt);}
+
+% Line style samples matching the dash patterns used in comp_5300.py, where
+% linestyle (not colour) distinguishes the plotted quantity. Rendered in
+% captionColor since these encode the quantity, not the surface/Re_b.
+
+% Reynolds stress components (rs_styles in comp_5300.py, Fig. 6.1d)
+\DeclareRobustCommand{\lsRuuSymbol}{\tikz[baseline=-0.7ex]\draw[captionColor, line width=1.0pt, dash pattern=on 3pt off 1pt on 1pt off 1pt] (0,0) -- (0.9em,0);}
+\DeclareRobustCommand{\lsRvvSymbol}{\tikz[baseline=-0.7ex]\draw[captionColor, line width=1.0pt, dash pattern=on 1pt off 1pt] (0,0) -- (0.9em,0);}
+\DeclareRobustCommand{\lsRwwSymbol}{\tikz[baseline=-0.7ex]\draw[captionColor, line width=1.0pt, dash pattern=on 5pt off 5pt] (0,0) -- (0.9em,0);}
+\DeclareRobustCommand{\lsRuvSymbol}{\tikz[baseline=-0.7ex]\draw[captionColor, line width=1.0pt, dash pattern=on 3pt off 1pt on 1pt off 1pt on 1pt off 1pt] (0,0) -- (0.9em,0);}
+
+% Total stress components (comp_5300.py, Fig. 6.1c)
+\DeclareRobustCommand{\lsTotalStressSymbol}{\tikz[baseline=-0.7ex]\draw[captionColor, line width=1.0pt, dash pattern=on 5pt off 1pt] (0,0) -- (0.9em,0);}
+\DeclareRobustCommand{\lsReynoldsStressSymbol}{\tikz[baseline=-0.7ex]\draw[captionColor, line width=1.0pt, dash pattern=on 3pt off 1pt on 1pt off 1pt] (0,0) -- (0.9em,0);}
+\DeclareRobustCommand{\lsViscousStressSymbol}{\tikz[baseline=-0.7ex]\draw[captionColor, line width=1.0pt, dash pattern=on 3pt off 3pt on 1pt off 3pt on 1pt off 3pt] (0,0) -- (0.9em,0);}
+\DeclareRobustCommand{\lsDispersiveStressSymbol}{\tikz[baseline=-0.7ex]\draw[captionColor, line width=1.0pt, dash pattern=on 3pt off 3pt on 1pt off 3pt] (0,0) -- (0.9em,0);}
+
+
 %---------------------------------------
 % Glossary
 %---------------------------------------

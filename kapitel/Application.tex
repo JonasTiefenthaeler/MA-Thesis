@@ -34,7 +34,7 @@ The laminar velocity profile is defined as
 \begin{figure}
     \centering
     \includegraphics[width = 0.5\textwidth]{plots/Methods/Initial_condition-cropped.pdf}
-    \caption{Initial condition}
+    \caption[Visualisation of initial condition]{Visualisation of initial condition. Blue colours denote lower velocities, red denotes higher velocities.}
     \label{fig: initial condition}
 \end{figure}
 with $r$ denoting the radius ranging from $0$ to $1$.
@@ -72,7 +72,7 @@ Vice versa, the mesh can be coarsened towards the pipe center, without compromis
 \begin{figure}
     \centering
     \includegraphics[width = 0.5\textwidth]{Methods/mesh_19000Reb_crossSection.pdf}
-    \caption{Exemplary image of simulation mesh}
+    \caption[Visualisation of simulation mesh]{Exemplary visualisation of simulation mesh. Structured mesh topology in the outer part, unstructured mesh topology in the inner part.}
     \label{fig: simulation mesh}
 \end{figure}
 The simulation mesh is generated using Gmsh \citep{Gmsh}.
@@ -136,7 +136,7 @@ Furthermore, the near wall mesh refinement is kept.
 \begin{figure}
     \centering
     \includegraphics[width = 0.5\textwidth]{Methods/deformed_Mesh.pdf}
-    \caption{Mesh deformed to roughness}
+    \caption[Body fitted rough mesh]{Mesh deformed due to roughness}
     \label{fig: deformed mesh}
 \end{figure}
 The points are only shifted in radial direction.
@@ -193,7 +193,7 @@ The inverse of \autoref{eq: roughness scaling function} is
         \label{subfig: smooth averaged field}
     \end{subfigure}
     \plotverticalspacing
-    \caption{Visualization of the result of the smoothing algorithm. Color depicting the velocity magnitude of a time averaged field.~(a) Rough pipe domain, (b) Rough domain mapped to smooth pipe}
+    \caption[Visualisation of the smoothing algorithm used in the postprocessing]{Visualization of the result of the smoothing algorithm. Color depicting the velocity magnitude of a time averaged field.~(a) Rough pipe domain, (b) Rough domain mapped to smooth pipe}
     \label{fig: comparison of smooth and normal averaged field}
 \end{figure}
 The results are shown from an exemplary case in \autoref{fig: comparison of smooth and normal averaged field}.
@@ -221,7 +221,7 @@ To obtain correct statistics, the data should be interpolated on concentric circ
         \label{subfig: PP points after inverse maping}
     \end{subfigure}
     \plotverticalspacing
-    \caption{Visualization of points mapping in post-processing. Dots \dnsdot~\ represent \acrshort{dns} data points, circles  \interpcircle~\ interpolation points, the  black line \wallline~\ the pipe wall and the grey area \domainsquare~\ the simulation domiain (a) Default point placement. (b) DNS domain mapped into the smooth computational domain, as depicted in \autoref{subfig: smooth averaged field}. (c) Interpolation points mapped by the inverse of the rough surface, such that they lie on the same respective concentric positions in the computational domain}
+    \caption[Placement of data points and interpolation points while mapping in postprocessing]{Visualization of points mapping in post-processing. Dots \dnsdot~\ represent \acrshort{dns} data points, circles  \interpcircle~\ interpolation points, the  black line \wallline~\ the pipe wall and the grey area \domainsquare~\ the simulation domiain (a) Default point placement. (b) DNS domain mapped into the smooth computational domain, as depicted in \autoref{subfig: smooth averaged field}. (c) Interpolation points mapped by the inverse of the rough surface, such that they lie on the same respective concentric positions in the computational domain}
     \label{fig: Visualization of the PP points}
 \end{figure} 
 If the smooth averaged field would be interpolated onto concentric interpolation points, the generated data would be in a body fitted manner.
@@ -243,7 +243,7 @@ This makes it also dependent on the surface shape and not only on the separation
 
 \begin{table}
     \centering
-    \caption{Surface parameters of surfaces}
+    \caption[Surface parameters of simulation surfaces]{Surface parameters of simulation surfaces. $S1$ showing the greatest roughness height, $S2$ reduced roughness height with similar effective slope, $S3$ is $S1$ scaled down such that the roughness height of $S2$ is matched}
     \begin{tabular}{c c c c c c c}
         \hline
                 & $S_a$     & $S_q$     & $Sk$      & $S_{z_{max}}$ & $ES$      & $S_{z_{5 \times 5}}$  \\
@@ -264,6 +264,10 @@ It is created using the algorithm described in \autoref{subsec: Surface generati
 Additionally, the surfaces $S2$ and $S3$ show a decreased surface height $k$ compared to $S1$.
 $S2$ keeps the effective slope, despite having a decreased roughness height $k$.
 $S3$ is a scaled-down version of $S1$, which results also in a decreased effective slope.
+\autoref{fig: surface height maps} shows the height maps for all three surfaces.
+It can be seen, that $S1$ in \autoref{subfig: surface height map piro} shows the largest deviations from the mean height.
+Furthermore, $S2$ in \autoref{subfig: surface height map kDown} shows more, but less pronounced roughness features compared to $S1$. 
+$S3$ in \autoref{subfig: surface height map scaled} shows the same height map as $S1$ but exhibits overall damped values.
 It is chosen to use the same physical surfaces for all Reynolds numbers.
 This leads to changing non-dimensionalised roughness heights $k^+$ between the Reynolds numbers.
 This is done, since a fixed $h^+$ would necessitate the generation of new surface for every surface-Reynolds number combination.
@@ -284,21 +288,26 @@ The only exception is skewness, for which it proved difficult to find a good fit
         \centering
         \subcaption{}
         \subimport{plots/Methods/}{surface_height_distribution_piro.pgf}
+        \label{subfig: surface height map piro}
     \end{subfigure}
-    \plotverticalspacing
+    \\[-30pt]
     \begin{subfigure}{0.8\textwidth}
         \centering
         \subcaption{}
         \subimport{plots/Methods/}{surface_height_distribution_kDown.pgf}
+        \label{subfig: surface height map kDown}
     \end{subfigure}
-    \plotverticalspacing
+    \\[-30pt]
     \begin{subfigure}{0.8\textwidth}
         \centering
         \subcaption{}
         \subimport{plots/Methods/}{surface_height_distribution_scaled.pgf}
+        \label{subfig: surface height map scaled}
     \end{subfigure}
     \begin{subfigure}{0.8\textwidth}
         \centering
         \subimport{plots/Methods/}{heightmap_colorbar.pgf}
     \end{subfigure}
+    \caption[Height maps of simulation surfaces]{Height maps of simulation surfaces. Red donting surface retractions, green denoting surface elevations.~(a) $S1$, (b) $S2$, (c) $S3$}
+    \label{fig: surface height maps}
 \end{figure}

@@ -39,33 +39,56 @@ Derivation of the calculations of Reynolds and dispersive stresses, as done in t
     \end{aligned}
 \end{equation}
 
-\chapter{Äquivalent sin surface metrics}
+\chapter{Development of Viscous drag with roughness height and streamwise slope}
 
-\begin{table}
+\begin{figure}
     \centering
-    \begin{tabular}{c | c c c |c c c | c c c}
+    \subimport{plots/Results/5300/}{5300Reb_kDowntauWall_over_height.pgf}
+    \caption{Roughness height and viscous drag over streamwise position for  $S2$ at $5300 Re_b$}
+\end{figure}
+\begin{figure}
+    \centering
+    \subimport{plots/Results/5300/}{5300Reb_kDown_tauWall_over_height_bySlope.pgf}
+    \caption{Scatter plot of nondimensionalised viscous drag over roughness height. Colour denoting local streamwise slope. Data shown for $S2$ at $5300 Re_b$}
+\end{figure}
 
-                        &   \multicolumn{3}{c|}{$Re_{\tau} =180$} & \multicolumn{3}{c|}{$Re_{\tau} =360$} & \multicolumn{3}{c}{$Re_{\tau} =550$}\\
-        $h^+$           &   7.5     & 20    &  50   & 7.5     & 20    &  50   & 7.5     & 20    &  50   \\  
-        $\lambda^+$     &   53.2    & 141.8 & 354.6 & 53.2    & 141.8 & 354.6 & 53.2    & 141.8 & 354.6 \\
-        n mod th        &   21      & 8     & 3     & 43      & 16    & 6     & 65      &24     & 10    \\
-        \hline
-        $\frac{h^+}{\lambda^+}$ & \multicolumn{9}{|c|}{0.141}\\
-        \hline
-        avg height          & 0.017023  & 0.044366  & 0.112598  & 0.008444  & 0.022183  & 0.056437  & 0.005541  & 0.014739  & 0.036841\\
-        rms height          & 0.020833  & 0.055556  & 0.138889  & 0.010417  & 0.027778  & 0.069444  & 0.006818  & 0.018182  & 0.045455\\
-        skewness            & 0.0       & 0.0       & 0.0       & 0.0       & 0.0       & 0.0       & 0.0       & 0.0       & 0.0\\
-        max ptv             & 0.081339  & 0.215288  & 0.555282  & 0.041662  & 0.107644  & 0.275597  & 0.027059  & 0.072706  & 0.181784\\
-        eff slope           & 0.636188  & 0.775128  & 0.742138  & 0.642423  & 0.775948  & 0.988760  & 0.655781  & 0.762997  & 0.811561\\
-        mean ptv            & 0.081339  & 0.215288  & 0.554750  & 0.041651  & 0.107644  & 0.275597  & 0.027059  & 0.072706  & 0.181784\\
+\begin{figure}
+    \centering
+    \subimport{plots/Results/5300/}{5300Reb_scaledtauWall_over_height.pgf}
+    \caption{Roughness height and viscous drag over streamwise position for  $S3$ at $5300 Re_b$}
+\end{figure}
+\begin{figure}
+    \centering
+    \subimport{plots/Results/5300/}{5300Reb_scaled_tauWall_over_height_bySlope.pgf}
+    \caption{Scatter plot of nondimensionalised viscous drag over roughness height. Colour denoting local streamwise slope. Data shown for $S3$ at $5300 Re_b$}
+\end{figure}
 
-        % $Re_{\tau}$     &   $\frac{h^+}{\lambda^+}$     & $h^+$ &   $\lambda^+$     & n mod th \\
-        % \hline  
-        %        &   0.141                       & 7.5   &  53.2             & 21     
+
+% \begin{table}
+%     \centering
+%     \begin{tabular}{c | c c c |c c c | c c c}
+
+%                         &   \multicolumn{3}{c|}{$Re_{\tau} =180$} & \multicolumn{3}{c|}{$Re_{\tau} =360$} & \multicolumn{3}{c}{$Re_{\tau} =550$}\\
+%         $h^+$           &   7.5     & 20    &  50   & 7.5     & 20    &  50   & 7.5     & 20    &  50   \\  
+%         $\lambda^+$     &   53.2    & 141.8 & 354.6 & 53.2    & 141.8 & 354.6 & 53.2    & 141.8 & 354.6 \\
+%         n mod th        &   21      & 8     & 3     & 43      & 16    & 6     & 65      &24     & 10    \\
+%         \hline
+%         $\frac{h^+}{\lambda^+}$ & \multicolumn{9}{|c|}{0.141}\\
+%         \hline
+%         avg height          & 0.017023  & 0.044366  & 0.112598  & 0.008444  & 0.022183  & 0.056437  & 0.005541  & 0.014739  & 0.036841\\
+%         rms height          & 0.020833  & 0.055556  & 0.138889  & 0.010417  & 0.027778  & 0.069444  & 0.006818  & 0.018182  & 0.045455\\
+%         skewness            & 0.0       & 0.0       & 0.0       & 0.0       & 0.0       & 0.0       & 0.0       & 0.0       & 0.0\\
+%         max ptv             & 0.081339  & 0.215288  & 0.555282  & 0.041662  & 0.107644  & 0.275597  & 0.027059  & 0.072706  & 0.181784\\
+%         eff slope           & 0.636188  & 0.775128  & 0.742138  & 0.642423  & 0.775948  & 0.988760  & 0.655781  & 0.762997  & 0.811561\\
+%         mean ptv            & 0.081339  & 0.215288  & 0.554750  & 0.041651  & 0.107644  & 0.275597  & 0.027059  & 0.072706  & 0.181784\\
+
+%         % $Re_{\tau}$     &   $\frac{h^+}{\lambda^+}$     & $h^+$ &   $\lambda^+$     & n mod th \\
+%         % \hline  
+%         %        &   0.141                       & 7.5   &  53.2             & 21     
  
    
-    \end{tabular}
-\end{table}
+%     \end{tabular}
+% \end{table}
 
 % \begin{table}
 %     \centering
@@ -82,31 +105,31 @@ Derivation of the calculations of Reynolds and dispersive stresses, as done in t
 %     \end{tabular}
 % \end{table}
 
-\begin{table}
-    \centering
-    \begin{adjustbox}{width=\textwidth}
-    \begin{tabular}{c c c c c c c c c c c c c c c}
-                    & k         & lambda    & Sq        & beta      & M     & N     & Nz    & Nth   & Avg height    & rms height& skewness  & max ptv   & eff slope & mean ptv\\
-        piro 1      & 9.39456   & 0.33671   & 0.34904   & 0.74118   & 58    & 28    & 80    & 40    & 0.030825      & 0.038879  & -0.518580 & 0.306410  & 0.228597  & 0.210732 \\
-        piro 2      & 9.39456   & 0.33671   & 0.34904   & 0.74118   & 58    & 28    & 80    & 40    & 0.03080       & 0.03921   & -0.519    & 0.32557   & 0.22603   & 0.20689 \\
-        scld dwn    & 9.39456   & 0.33671   & 0.34904   & 0.74118   & 58    & 28    & 80    & 40    & 0.023092      & 0.029125  & -0.518580 & 0.229538  & 0.171247  & 0.15786\\
-        l k fix es  & 22.39318  & 0.50299   & 1.35977   & 11.31571  & 74    & 26    & 80    & 40    & 0.02104       & 0.02686   & -0.51519  & 0.22402   & 0.22626   & 0.15786\\
-    \end{tabular}
-\end{adjustbox}
-\end{table}
+% \begin{table}
+%     \centering
+%     \begin{adjustbox}{width=\textwidth}
+%     \begin{tabular}{c c c c c c c c c c c c c c c}
+%                     & k         & lambda    & Sq        & beta      & M     & N     & Nz    & Nth   & Avg height    & rms height& skewness  & max ptv   & eff slope & mean ptv\\
+%         piro 1      & 9.39456   & 0.33671   & 0.34904   & 0.74118   & 58    & 28    & 80    & 40    & 0.030825      & 0.038879  & -0.518580 & 0.306410  & 0.228597  & 0.210732 \\
+%         piro 2      & 9.39456   & 0.33671   & 0.34904   & 0.74118   & 58    & 28    & 80    & 40    & 0.03080       & 0.03921   & -0.519    & 0.32557   & 0.22603   & 0.20689 \\
+%         scld dwn    & 9.39456   & 0.33671   & 0.34904   & 0.74118   & 58    & 28    & 80    & 40    & 0.023092      & 0.029125  & -0.518580 & 0.229538  & 0.171247  & 0.15786\\
+%         l k fix es  & 22.39318  & 0.50299   & 1.35977   & 11.31571  & 74    & 26    & 80    & 40    & 0.02104       & 0.02686   & -0.51519  & 0.22402   & 0.22626   & 0.15786\\
+%     \end{tabular}
+% \end{adjustbox}
+% \end{table}
 
-\begin{table}
-    \centering
-    \begin{tabular}{c c c c c c}
-                    & piro1     & seed 11044& seed 11173& diff 11044    & diff 11173 \\
-        avg height  & 0.03082   & 0.03080   & 0.03041   & 0.065\%       & 1.3\% \\  
-        rms height  & 0.03888   & 0.03921   & 0.3865    & 0.85\%        & 0.6\% \\
-        skewness    & 0.51858   & -0.51900  & -0.52202  & 0.08\%        & 0.65\% \\
-        max ptv     & 0.30647   & 0.32556   & 0.29078   & 5.8\%         & 5.3\% \\
-        eff slope   & 0.22742   & 0.22603   & 0.22684   & 0.6\%         & 0.2\% \\
-        mean ptv    & 0.20585   & 0.20689   & 0.20583   & 0.51\%        & 0.0\%
-    \end{tabular}
-\end{table}
+% \begin{table}
+%     \centering
+%     \begin{tabular}{c c c c c c}
+%                     & piro1     & seed 11044& seed 11173& diff 11044    & diff 11173 \\
+%         avg height  & 0.03082   & 0.03080   & 0.03041   & 0.065\%       & 1.3\% \\  
+%         rms height  & 0.03888   & 0.03921   & 0.3865    & 0.85\%        & 0.6\% \\
+%         skewness    & 0.51858   & -0.51900  & -0.52202  & 0.08\%        & 0.65\% \\
+%         max ptv     & 0.30647   & 0.32556   & 0.29078   & 5.8\%         & 5.3\% \\
+%         eff slope   & 0.22742   & 0.22603   & 0.22684   & 0.6\%         & 0.2\% \\
+%         mean ptv    & 0.20585   & 0.20689   & 0.20583   & 0.51\%        & 0.0\%
+%     \end{tabular}
+% \end{table}
 % \begin{table}
 %     \centering
 %     \begin{tabular}{ccc c c}

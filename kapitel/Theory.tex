@@ -57,7 +57,7 @@ They are denoted by the $+$ superscript and are also called `viscous units' or `
 \begin{figure}
     \centering
     \input{plots/Theory/Uplus_yplus_reference.pgf}
-    \caption{Comparison of the streamwise velocity profiles over the wall distance nondimensionalised in viscous units $U^+$ and $y^+$. Data for cases $Re_\tau \ 180,\ 550$ and $1000$ taken from~\cite{yaoDirectNumericalSimulations2023} and $Re_\tau = 360$ from~\cite{elkhouryDirectNumericalSimulation2013}. The black solid lines represent the viscous sublayer and log-law}
+    \caption[Mean velocity profiles $U^+$ over $y^+$ of smooth pipes from reference data]{Comparison of the streamwise velocity profiles over the wall distance nondimensionalised in viscous units $U^+$ and $y^+$. Data for cases $Re_\tau \ 180,\ 550$ and $1000$ taken from~\cite{yaoDirectNumericalSimulations2023} and $Re_\tau = 360$ from~\cite{elkhouryDirectNumericalSimulation2013}. The black solid lines represent the viscous sublayer and log-law}
     \label{fig: smooth U^+ over y^+}
 \end{figure}
 \begin{equation}
@@ -101,7 +101,7 @@ In addition to the Reynolds shear stresses $-\rho \langle u' v' \rangle$, the vi
 \begin{equation}\label{eq: viscous stress}
     \text{viscous stress:}\ \rho \nu \frac{dU}{dr}
 \end{equation}
-The viscous shear stress emerges due to the viscosity of the fluid.
+The viscous stress emerges due to the viscosity of the fluid.
 The viscosity is dominant at the wall.
 Hence the wall shear stress is the only stress active at the wall, and it keeps being dominant in the near-wall region.
 With a growing distance to the wall, the influence of viscosity decreases, while the importance of the Reynolds shear stresse increases, until it becomes the only active stress \citep{popeTurbulentFlows2015}.\\
@@ -192,7 +192,7 @@ The increased drag manifests itself in the downshift of the log-law of the veloc
 \begin{figure}
     \centering
     \input{plots/Theory/Uplus_yplus_rough_vs_smooth.pgf}
-    \caption{$U^+$ over $y^+$ for a smooth wall and rough wall pipe with similar friction Reynolds numbers. Data for smooth pipe is taken from \cite{yaoDirectNumericalSimulations2023}, data for rough walled pipe taken from \cite{demaioDirectNumericalSimulation2023}}
+    \caption[Mean velocity profiles $U^+$ over $y$ of rough and smooth pipe from reference data]{$U^+$ over $y^+$ for a smooth wall and rough wall pipe with similar friction Reynolds numbers. Data for smooth pipe is taken from \cite{yaoDirectNumericalSimulations2023}, data for rough walled pipe taken from \cite{demaioDirectNumericalSimulation2023}}
     \label{fig: U+ over y+ smooth vs rough}
 \end{figure}
 This downshift is the difference between the velocity profiles of turbulent flows with a smooth and a rough wall, at the same friction Reynolds number $Re_{\tau}$ and can be expressed as
@@ -204,6 +204,19 @@ The equivalent sand-grain roughness $k_s^+$ is the roughness $k$ scaled in wall 
 The definition of $k_s$ does not adhere to a universal law, and its choice varies for different surfaces.
 However, there are studies that attempt to link certain surface topographies to $k_s$, like \cite{flackReviewHydraulicRoughness2010}.
 In addition, the research of~\cite{flackSkinFrictionMeasurements2020} indicates that a measure of height of the roughness elements ($S_q$ or $S_m$), the skewness $Sq$ and the effective slope $ES$ are the most influential parameters to $k_s$.
+
+The drag of rough surfaces is not only dependent on the viscous wall shear stress, but also on pressure drag.
+For that reason, the wall shear stress metric $\tau_w$ is separated into viscous drag $\tau_v$ and pressure drag $\tau_p$, hence
+\begin{eqnarray}\label{eq: drag decomposition}
+    \tau_w = \tau_v + \tau_p
+\end{eqnarray}
+which is described by~\cite{napoliEffectSlopeIrregularly2008}.
+The individual components are computed as
+\begin{equation}
+    \tau_v = \mu\frac{dU}{dn}\mathbf{t} \mathbf{s} \quad \text{and} \quad \tau_p = p\mathbf{n}\mathbf{s}
+\end{equation}
+with $n$ denoting the normal vector of the surface $\mathbf{t}$ denoting the tangential vector of the wall, $\mathbf{s}$ the unit vector in the streamwise direction and $p$ the pressure~\citep{napoliEffectSlopeIrregularly2008}.
+It is important to note, that the viscous drag $\tau_v$ is the same viscous stress introduced in \autoref{subsec: stresses in turbulence}, but generalized for an arbitrarily oriented surface.
 
 \paragraph{Dispersive stresses}\label{par: dispersive stresses}
 
