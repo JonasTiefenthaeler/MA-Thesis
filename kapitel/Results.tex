@@ -289,6 +289,73 @@ These points could show the same circulations in roughness canopies, as the nega
 
 \section{Simulations with 11700$Re_b$}
 
+\begin{table}
+    \centering
+    \caption[Computed friction values for $Re_b = 11700$]{Computed friction values for $Re_b = 11700$}
+    \begin{tabular}{c c c c c c c c c}
+        \toprule
+                & $Re_\tau$ & $k^+$     & $C_f\ [\times10^{-3}]$ & $\tau_w\ [\times10^{-3}]$    & $\tau_v\ [\times10^{-3}]$ & $\tau_p\ [\times10^{-3}]$ & $\tau_v/\tau_w$   & $\Delta U^+$\\
+        \midrule
+        smooth  & $181.0$   & -         & $2.32$                & $6.94$                        & $4.60$                    & -                         & $1.00$            & - \\
+        $S1$    & $487.4$   & $83.3$    & $9.19$                & $6.94$                        & $4.60$                    & $2.35$                    & $0.66$            & $4.05$\\
+        $S2$    & $453.9$   & $77.6$    & $8.81$                & $6.02$                        & $4.40$                    & $1.62$                    & $0.73$            & $3.02$\\
+        $S3$    & $431.9$   & $73.9$    & $8.44$                & $5.45$                        & $4.22$                    & $1.23$                    & $0.77$            & $3.81$\\
+        \bottomrule
+    \end{tabular}
+
+\begin{figure}
+    \centering
+    \begin{subfigure}[t]{0.495\textwidth}
+        \centering
+        \subcaption{}
+        %\input{plots/Results/}
+        \input{plots/Results/11700/11700Reb_comparison_uplus.pgf}
+        \label{subfig: Reb 5300 velocity profile}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[t]{0.49\textwidth}
+        \centering
+        \subcaption{}
+        \input{plots/Results/11700/11700Reb_velocityDefect.pgf}
+        \label{subfig: Reb 5300 velocity defect}        
+    \end{subfigure}
+    \plotverticalspacing
+    \begin{subfigure}[t]{0.495\textwidth}
+        \centering
+        \subcaption{}
+        \input{plots/Results/11700/11700Reb_comparison_totalStress.pgf}
+        \label{subfig: Reb 5300 total stresses}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[t]{0.495\textwidth}
+        \centering
+        \subcaption{}
+        \input{plots/Results/11700/11700Reb_comparison_RS.pgf}
+        \label{subfig: Reb 5300 reynolds stresses}
+    \end{subfigure}
+    \caption[Comparison of $S1$, $S2$ and $S3$ at $Re_b = 5300$]{Comparison between the 3 tested surfaces at $Re_b = 5300$. \sOneFiveThreeSymbol \ denotes surface S1, \sTwoFiveThreeSymbol \ surface S2, \sThreeFiveThreeSymbol \ surface S3 and \referenceSymbol \ the reference data from~\cite{yaoDirectNumericalSimulations2023}.~(a) Mean velocity profiles.~(b) Velocity defect of local velocity to centerline velocity.~(c) \lsTotalStressSymbol \ total stress,\lsViscousStressSymbol \ Viscous stress, \lsReynoldsStressSymbol \ turbulent shear stress and \lsDispersiveStressSymbol \ dispersive stress.~(d) Reynolds stresses. \lsRuuSymbol \ $u'u'$, \lsRvvSymbol \ $v'v'$, \lsRwwSymbol \ $w'w'$ and \lsRuvSymbol \ $u'v'$}
+    \label{fig: comp Reb 5300}
+\end{figure}
+
+
+\begin{figure}
+    \centering
+    \begin{subfigure}{0.75\textwidth}
+        \centering
+        \subimport{plots/Results/11700/}{11700Reb_pirotauWall_over_height.pgf}
+    \end{subfigure}
+    \caption[Trends of physical roughness height and viscous drag over streamwise coordinate]{Trends of physical roughness height and viscous drag over streamwise coordinate. Depicted for an exemplary $\theta$ position of the pipe.}
+    \label{fig: roughness height and viscous stress Reb 5300 piro}
+\end{figure}
+\begin{figure}
+    \centering
+    \begin{subfigure}{0.7\textwidth}
+        \hspace{0.9cm}
+        \subimport{plots/Results/11700/}{11700Reb_piro_tauWall_over_height_bySlope.pgf}
+    \end{subfigure}
+    \caption[Scatterplot of viscous drag over physical roughness height]{Scatterplot of viscous drag over physical roughness height. Colour depicting the effective slope at the respective point}
+    \label{fig: scatterplot piro Reb 5300}
+\end{figure}
 \section{Simulations with 19000$Re_b$}
 
 \section{Comparison between Reynolds-numbers}
