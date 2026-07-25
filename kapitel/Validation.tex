@@ -12,13 +12,13 @@ The simulation setup is described in \autoref{sec: Simulation setup}.
     \centering
     \caption{Mesh parameters for the smooth wall validations}
     \begin{tabular}{c c c c c c c c}
-        \hline
+        \toprule
         $Re_b$  & $Re_\tau$ & $N_z$ & $N_\theta$ & $\Delta_z$    & $\Delta_\theta$  & N elements    & $Tu\tau / R$\\
-        \hline
+        \midrule
         $5300$  & $180$     & $196$ & $196$     & $11.5$        & $5.8$             & $5292$        & $34.2$\\
        % $11700$ & $360$     & $448$ & $448$     & $10.1$        & $5.0$             & $56448$       &\\
         $19000$ & $550$     & $728$ & $728$     & $9.5$         & $7.5$             & $208832$      & $17.3$\\
-        \hline
+        \bottomrule
     \end{tabular}
     \label{tab: parameters smooth validations}
 \end{table}
@@ -54,7 +54,7 @@ To compare the data, the mean velocity profiles, the Reynolds stresses, the tota
         \label{subfig: 5700 validation budgets}
     \end{subfigure}
     \plotverticalspacing
-    \caption{Results of the smooth wall validation at $5300 Re_b$.~(a) Mean velocity profile $U^+$ over $y^+$.~(b) Reynolds stresses over $y^+$.~(c) Total stress, Reynolds stress and viscous stress over $y/R$.~(d) Streamwise $uu$ energy budgets over $y^+$}
+    \caption[Results of the smooth wall validation at $5300 Re_b$]{Results of the smooth wall validation at $5300 Re_b$.~(a) Mean velocity profile $U^+$ over $y^+$.~(b) Reynolds stresses over $y^+$.~(c) Total stress, Reynolds stress and viscous stress over $y/R$.~(d) Streamwise $uu$ energy budgets over $y^+$}
     \label{fig: results smooth 5700Reb}
 \end{figure}
 The results of the validation case using a bulk Reynolds-number $Re_b = 5300$ can be seen in \autoref{fig: results smooth 5700Reb}.
@@ -135,7 +135,7 @@ However, the energy residual shows the correct behaviour of being zero at any wa
         \label{subfig: 19000 validation budgets}
     \end{subfigure}
     \plotverticalspacing
-    \caption{Results of the smooth wall validation at $11700 Re_b$.~(a) Mean velocity profile $U^+$ over $y^+$.~(b) Reynolds stresses over $y^+$.~(c) Total stress, Reynolds stress and viscous stress over $y/R$.~(d) Streamwise $uu$ energy budgets over $y^+$}
+    \caption[Results of the smooth wall validation at $19000 Re_b$]{Results of the smooth wall validation at $19000 Re_b$.~(a) Mean velocity profile $U^+$ over $y^+$.~(b) Reynolds stresses over $y^+$.~(c) Total stress, Reynolds stress and viscous stress over $y/R$.~(d) Streamwise $uu$ energy budgets over $y^+$}
         \label{fig: 19000 smooth validation}
 \end{figure}
 Overall, the results for the $19000 \ Reb$ are shown in \autoref{fig: 19000 smooth validation}.
@@ -161,15 +161,15 @@ Also, the polynomial order is kept constant at $p = 7$.
 The used parameters are listed in \autoref{tab: parameters grid refinement study}.
 \begin{table}
 \centering
-\caption{Simulation parameters for the grid convergence study. $N_z, N_\theta, \Delta_z$ and $\Delta_\theta$ denoting the streamwise and azimuthal number of grid points and the resulting grid points spacings. The wall normal resolution is kept constant for all cases}
+\caption[Simulation parameters for the grid convergence study]{Simulation parameters for the grid convergence study. $N_z, N_\theta, \Delta_z$ and $\Delta_\theta$ denoting the streamwise and azimuthal number of grid points and the resulting grid points spacings. The wall normal resolution is kept constant for all cases}
 \begin{tabular}{l c c c c c c c c } 
-\hline
+\toprule
 Designation     & $Re_b$    & $Re_\tau$     & $N_z$     & $N_{\theta}$  & $\Delta_z$    & $\Delta_\theta$   & N elements & $Tu_\tau / R$\\
-\hline
-coarse          & $5300$     & $246.07$      & $448$     & $224$         & $13.80$       & $6.90$            & $26752$    & $21.5$\\ 
-intermediate    & $5300$     & $246.00$      & $560$     & $280$         & $11.04$       & $5.33$            & $44000$    & $21.6$\\ 
-fine            & $5300$     & $246.21$      & $672$     & $336$         & $9.21$        & $4.60$            & $67392$    & $21.6$\\ 
-\hline
+\midrule
+coarse          & $5300$     & $246.07$      & $448$     & $224$         & $13.80$       & $6.90$            & $26752$    & $21.5$\\
+intermediate    & $5300$     & $246.00$      & $560$     & $280$         & $11.04$       & $5.33$            & $44000$    & $21.6$\\
+fine            & $5300$     & $246.21$      & $672$     & $336$         & $9.21$        & $4.60$            & $67392$    & $21.6$\\
+\bottomrule
 \end{tabular}
 \label{tab: parameters grid refinement study}
 \end{table}
@@ -211,7 +211,7 @@ In \autoref{subfig: grid convergence uplus} the mean streamwise velocity profile
         \label{subfig: mesh convergence velocity defect}
     \end{subfigure}
     \plotverticalspacing
-    \caption{First and second order statistics for mesh convergence study.\ \coarseMeshSymbol \ denotes the coarse mesh, \intermediatMeshSymbol \ the intermediate mesh and \fineMeshSymbol \ the fine mesh.~
+    \caption[First- and second order statistics for mesh convergence study]{First- and second order statistics for mesh convergence study.\ \coarseMeshSymbol \ denotes the coarse mesh, \intermediatMeshSymbol \ the intermediate mesh and \fineMeshSymbol \ the fine mesh.~
     (a) Mean streamwise velocity profiles $U+$ over wall normal $y+$.~(b) Reynolds stresses $R_{ij}^+$ over wall normal distance $y^+$.~
     %Solid line representing $R_{uu}^+$, dashed line $R_{vv}^+$, dotted line $R_{ww}^+$ and dot-dashed line $R_{uv}^+$.
     (c) Stresses over wall normal distance r/R.~
@@ -242,15 +242,15 @@ Since a sufficient convergence is shown for the intermediate resolution it is th
 
 \begin{table}
     \centering
-    \caption{Parameters for meshes}
+    \caption[Mesh data of mesh convergence study]{Mesh parameters and resolutions for meshes of mesh convergence study}
     \begin{tabular}{ c c c c c c c c } 
-        \hline
+        \toprule
         $Re_b$  & $N_z$     & $N_{\theta}$  & $\Delta_z$    & $\Delta_\theta$   & $\Delta^+_{r_1}$  & $\Delta^+_{r_{10}}$   & N elements \\
-        \hline
+        \midrule
         $5300$  & $560$     & $280$         & $8.07$        & $4.04$            & $0.115$           & $2.73$                & 44000\\ 
         $11700$ & $1120$    & $560$         & $8.07$        & $4.04$            & $0.257$           & $5.82$                & 283200\\     
         $19000$ & $1722$    & $861$         & $8.03$        & $4.01$            & $0.159$           & $3.65$                & 759648\\ 
-        \hline
+        \bottomrule
     \end{tabular}
     \label{tab: parameters chosen meshes}
 \end{table}
@@ -293,7 +293,7 @@ The results of the time convergence study are shown in \autoref{fig: Time conver
         \label{subfig: time convergence velocity defect}
     \end{subfigure}
     \plotverticalspacing
-    \caption{First and second order statistics for time convergence study. \tfifesevenSymbol \ denotes averaging span from $500-750$ time units, \tthreesevenSymbol \ from $300-750$ time units, \tthreesixSymbol \ from $300-600$ time units and \tthreefiveSymbol \ from $300-500$ time units.~
+    \caption[First and second order statistics for time convergence study]{First and second order statistics for time convergence study. \tfifesevenSymbol \ denotes averaging span from $500-750$ time units, \tthreesevenSymbol \ from $300-750$ time units, \tthreesixSymbol \ from $300-600$ time units and \tthreefiveSymbol \ from $300-500$ time units.~
     (a) Mean streamwise velocity profiles $U+$ over wall normal $y+$.~
     (b) Reynolds stresses $R_{ij}^+$ over wall normal distance $y^+$.~
     % Solid line representing $R_{uu}^+$, dashed line $R_{vv}^+$, dotted line $R_{ww}^+$ and dot-dashed line $R_{uv}^+$.~

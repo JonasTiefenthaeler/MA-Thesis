@@ -205,7 +205,7 @@ pdfauthor = {Vorname Nachname}}
 \pagestyle{empty}
 
 
-\includepdf[pages=-]{digitale_Vorlage_Abschlussarbeit_TechFak_ENG.pdf}
+\includepdf[pages=-]{Deckblatt.pdf}
 
 
 
@@ -220,12 +220,12 @@ pdfauthor = {Vorname Nachname}}
 		
 		\vspace{25mm}
 		 		
-		\LARGE {\textbf{Title \\ of your \\ thesis}}\\ [25mm]
+		\LARGE {\textbf{Direct numerical simulation \\ of turbulent flow \\ in rough pipes}}\\ [25mm]
 		\huge {\textbf{Master's Thesis}} \\ [14mm]
 		 by \\ [2mm]
 		\LARGE \textbf{Jonas Tiefenthäler}\\[5mm]
-		\LARGE Stud.reg.no. XXXXXXXX\\[5mm]
-		\LARGE Erlangen, xx.xx.xxxx\\
+		\LARGE Stud.reg.no. 23302719\\[5mm]
+		\LARGE Erlangen, 31.07.2026\\
 		\vfill
 		\rule{15cm}{0.02mm}\\
 		\Large Institute of Fluid Mechanics\\
@@ -242,16 +242,16 @@ pdfauthor = {Vorname Nachname}}
 
 	
 	\begin{tabular}[H]{ll}
-	  Author:& NAME \\
-	  Student Registration Number: & XXXXXXXXX \\
+	  Author:& Jonas Tiefenthäler \\
+	  Student Registration Number: & 23302719 \\
 	  Institute: & Institute of Fluid Mechanics\\
 	  Head of Institute: & Prof.\ Dr.\ Techn. Philipp Schlatter\\ 
-	  Group and Supervisor:& Prof.\ Dr.-Ing.\ habil.\ Stefan Becker \\
-	  & Felix Czwielong \\		
-	  Assigned: & dd.mm.yyyy \\
-	  Submitted: & dd.mm.yyyy \\
+	  Group and Supervisor:& Prof.\ Dr.\ Techn. Philipp Schlatter \\
+	  		
+	  Assigned: & 01.02.2026 \\
+	  Submitted: & 31.07.2026 \\
 	  \\
-	  LSTM Technical Report: & 01/2025
+	  LSTM Technical Report: & 18/2026
 	\end{tabular}	
 
 
@@ -259,6 +259,8 @@ pdfauthor = {Vorname Nachname}}
 \thispagestyle{empty}
 \cleardoublepage
 
+\pagenumbering{Roman}
+\setcounter{page}{1}
 \chapter*{Declaration}
 
 I hereby declare formally that I have developed and written the enclosed thesis entirely by myself and without help of third parties and have not used sources or means without declaration in the text. Any thoughts or quotations, inferred (literally or analogously) from the sources, are marked as such. This thesis was not submitted in the same or substantially similar version to any other authority to achieve an academic grade.
@@ -267,21 +269,31 @@ The Friedrich--Alexander--Universität (FAU), represented by the Institute of Fl
 \\ [35mm]
 Erlangen, the DATE \hspace{4cm} \rule{5cm}{0.02mm}
 
+\chapter*{Abstract}
+The behaviour of turbulent flow in rough-walled pipes is studies using the \acrfull{dns} method.
+The simulation tool used is Neko, a high-order spectral element solver.
+A total of nine simulations are performed.
+Three different surface topographies and three different Reynolds numbers are studied.
+Various data is presented.
+First- and second order statistics, such as mean velocity profiles, total stress budgets and Reynolds-stresses.
+Furthermore, energy spectra are computed and presented.
+Also, 
+
+\chapter*{Acknowledgment}
+
 %=============================================================================%
 
-\thispagestyle{empty}
-
+%\thispagestyle{empty}
 
 
 
 %=============================================================================%
 \cleardoublepage
 \phantomsection
-\thispagestyle{empty}
+%\thispagestyle{empty}
 \cleardoublepage
 \pagestyle{plain}
-\pagenumbering{Roman}
-\setcounter{page}{1}
+
 
 
 
@@ -301,7 +313,7 @@ Erlangen, the DATE \hspace{4cm} \rule{5cm}{0.02mm}
 
 %\printnomenclature
 %=============================================================================%
-\addcontentsline{toc}{chapter}{Nomenklatur}
+%\addcontentsline{toc}{chapter}{Nomenklatur}
 \newpage
 
 \include{kapitel/nomenklatur}
