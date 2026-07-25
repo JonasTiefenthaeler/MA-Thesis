@@ -5,7 +5,10 @@
 \renewcommand\nomgroup[1]{%
   \item[\bfseries
   \ifstrequal{#1}{F}{Fluid properties}{%
-  \ifstrequal{#1}{O}{Other symbols}{}}%
+  \ifstrequal{#1}{G}{Geometry and coordinates}{%
+  \ifstrequal{#1}{K}{Flow quantities and turbulence statistics}{%
+  \ifstrequal{#1}{R}{Roughness parameters}{%
+  \ifstrequal{#1}{S}{Numerical and simulation parameters}{}}}}}%
 ]}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Wenn Symbolverzeichnis automatisch erzeugt werdenn soll
@@ -36,12 +39,82 @@
 %\section*{Abkürzungen}
 %\fi
 %
-\nomenclature[F]{$\mu$}{Dynamic viscosity of the fluid}
-\nomenclature[F]{$\rho$}{Density of the fluid}
-\nomenclature[O]{$Re_b$}{Bulk Reynolds Number}
-\nomenclature[O]{$Re_\tau$}{Friction Reynolds number}
-\nomenclature[O]{C}{Mass flux}
-\nomenclature[O]{$\alpha$}{Scaling factor to ensure constant mass flux}
+% Fluid properties (Latin, then Greek in Greek-alphabet order)
+\nomenclature[F01]{$g_i$}{Gravitational acceleration}
+\nomenclature[F02]{$\mu$}{Dynamic viscosity of the fluid}
+\nomenclature[F03]{$\nu$}{Kinematic viscosity of the fluid}
+\nomenclature[F04]{$\rho$}{Density of the fluid}
+
+% Geometry and coordinates (Latin, then Greek in Greek-alphabet order)
+\nomenclature[G01]{$L_r$}{Domain extent in wall-normal direction}
+\nomenclature[G02]{$L_\theta$}{Domain extent in azimuthal direction}
+\nomenclature[G03]{$L_z$}{Domain extent in streamwise direction}
+\nomenclature[G04]{$\mathbf{n}$}{Wall-normal unit vector}
+\nomenclature[G05]{$R$}{Pipe radius (mean radius for rough surfaces)}
+\nomenclature[G06]{$r$}{Wall-normal (radial) coordinate}
+\nomenclature[G07]{$r_{crit}$}{Critical radius below which mesh points remain unshifted}
+\nomenclature[G08]{$r_{shift}$}{Radially shifted position of a mesh point}
+\nomenclature[G09]{$\mathbf{s}$}{Unit vector in streamwise direction}
+\nomenclature[G10]{$\mathbf{t}$}{Wall-tangential unit vector}
+\nomenclature[G11]{$x_i$}{Cartesian coordinate direction (Einstein notation)}
+\nomenclature[G12]{$y$}{Wall-normal distance from the (virtual) wall}
+\nomenclature[G13]{$z$}{Streamwise coordinate}
+\nomenclature[G14]{$\theta$}{Azimuthal coordinate}
+
+% Flow quantities and turbulence statistics (Latin, then Greek in Greek-alphabet order)
+\nomenclature[K01]{$A$}{Log-law intercept constant}
+\nomenclature[K02]{$B_s$}{Downward shift of the log-law intercept due to roughness}
+\nomenclature[K03]{$C_f$}{Skin friction coefficient}
+\nomenclature[K04]{$D_{ij}$}{Dispersive stress tensor}
+\nomenclature[K05]{$k_s^+$}{Equivalent sand-grain roughness, in wall units}
+\nomenclature[K06]{$p$}{Pressure}
+\nomenclature[K07]{$R_{ij}$}{Reynolds stress tensor}
+\nomenclature[K08]{$Re$}{Reynolds number}
+\nomenclature[K09]{$Re_b$}{Bulk Reynolds number}
+\nomenclature[K10]{$Re_\tau$}{Friction Reynolds number}
+\nomenclature[K11]{$U_i,\ U$}{Mean (double-averaged) velocity}
+\nomenclature[K12]{$U_b$}{Bulk velocity}
+\nomenclature[K13]{$U^+$}{Mean velocity in viscous (inner) units}
+\nomenclature[K14]{$u_i$}{Instantaneous velocity component}
+\nomenclature[K15]{$u_i'$}{Turbulent (temporal) velocity fluctuation}
+\nomenclature[K16]{$\tilde{u}_i$}{Spatial velocity fluctuation}
+\nomenclature[K17]{$u_i^*$}{Total fluctuation, $u_i^* = \tilde{u}_i + u_i'$}
+\nomenclature[K18]{$u_\tau$}{Friction velocity}
+\nomenclature[K19]{$y^+$}{Wall-normal distance in viscous (inner) units}
+\nomenclature[K20]{$\Delta U^+$}{Roughness function (velocity downshift)}
+\nomenclature[K21]{$\delta$}{Characteristic (outer) length scale}
+\nomenclature[K22]{$\delta_\nu$}{Viscous length scale}
+\nomenclature[K23]{$\eta$}{Kolmogorov length scale}
+\nomenclature[K24]{$\kappa$}{von K\'arm\'an constant}
+\nomenclature[K25]{$\Pi$}{Driving pressure gradient}
+\nomenclature[K26]{$\tau_p$}{Pressure drag}
+\nomenclature[K27]{$\tau_v$}{Viscous drag (viscous wall stress)}
+\nomenclature[K28]{$\tau_w$}{Wall shear stress}
+
+% Roughness parameters (all Latin)
+\nomenclature[R01]{$ES$}{Effective slope}
+\nomenclature[R02]{$h$}{Local surface height, relative to the virtual origin}
+\nomenclature[R03]{$k$}{Mean roughness height}
+\nomenclature[R04]{$k^+$}{Roughness height in wall (viscous) units}
+\nomenclature[R05]{$S_a$}{Average roughness height}
+\nomenclature[R06]{$Sk$}{Skewness of the surface height distribution}
+\nomenclature[R07]{$S_q$}{Root-mean-square roughness height}
+\nomenclature[R08]{$S_{z_{max}}$}{Maximum peak-to-valley height}
+\nomenclature[R09]{$S_{z_{5\times5}}$}{Mean peak-to-valley height}
+
+% Numerical and simulation parameters (Latin, then Greek in Greek-alphabet order)
+\nomenclature[S01]{$C$}{Mass flux}
+\nomenclature[S02]{$c$}{Courant-Friedrichs-Lewy (CFL) number}
+\nomenclature[S03]{$N_\theta$}{Number of grid points/elements in azimuthal direction}
+\nomenclature[S04]{$N_z$}{Number of grid points/elements in streamwise direction}
+\nomenclature[S05]{$p$}{Polynomial order of the spectral element method}
+\nomenclature[S06]{$T$}{Averaging / statistics time}
+\nomenclature[S07]{$\alpha$}{Scaling factor to ensure constant mass flux}
+\nomenclature[S08]{$\Delta_{r_i}^+$}{Wall-normal grid spacing at the $i$-th near-wall grid point, in wall units}
+\nomenclature[S09]{$\Delta t$}{Simulation time step}
+\nomenclature[S10]{$\Delta_\theta$}{Grid spacing in azimuthal direction}
+\nomenclature[S11]{$\Delta x$}{Local spatial discretisation (used in the CFL number definition)}
+\nomenclature[S12]{$\Delta_z$}{Grid spacing in streamwise direction}
 
 
 \printnomenclature
