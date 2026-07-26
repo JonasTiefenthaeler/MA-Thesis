@@ -35,43 +35,43 @@ To compare the data, the mean velocity profiles, the Reynolds stresses and the t
     \begin{subfigure}{0.495\textwidth}
         \subcaption{}
        \input{plots/Validation/5300_validation_Uplus.pgf}
-        \label{subfig: 5700 validation velocity profile}
+        \label{subfig: 5300validation velocity profile}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.495\textwidth}
         \subcaption{}
        \input{plots/Validation/5300_validation_Reynolds.pgf}
-        \label{subfig: 5700 validation Reynolds stress}
+        \label{subfig: 5300validation Reynolds stress}
     \end{subfigure}
     \plotverticalspacing
     \begin{subfigure}{0.495\textwidth}
         \subcaption{}
        \input{plots/Validation/5300_validation_totStress.pgf}
-        \label{subfig: 5700 validation total stress}
+        \label{subfig: 5300validation total stress}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.495\textwidth}
         \subcaption{}
        \input{plots/Validation/5300_validation_budgets.pgf}
-        \label{subfig: 5700 validation budgets}
+        \label{subfig: 5300validation budgets}
     \end{subfigure}
     \plotverticalspacing
     \caption{Results of the smooth wall validation at $5700 Re_b$.~(a) Mean velocity profile $U^+$ over $y^+$.~(b) Reynolds stresses over $y^+$.~(c) Total stress, Reynolds stress and viscous stress over $y/R$.~(d) Streamwise $uu$ energy budgets over $y^+$}
-    \label{fig: results smooth 5700Reb}
+    \label{fig: 5300 validation}
 \end{figure}
 
-The results of the validation case employing a bulk Reynolds number $Re_b = 5300$ can be seen in \autoref{fig: results smooth 5700Reb}.\fxunsure{Die Reynolds number im Text ist 5300, die figure heißt aber 5700, ist das richtig?}
+The results of the validation case employing a bulk Reynolds number $Re_b = 5300$ can be seen in \autoref{fig: 5300 validation}.\fxunsure{Die Reynolds number im Text ist 5300, die figure heißt aber 5700, ist das richtig?}
 A comparison of all data is made with the  equivalent case of~\cite{yaoDirectNumericalSimulations2023}.
 The mesh refinement is chosen to be quite coarse, since it is the same mesh used for the Neko turbulent pipe example.
 In the context of the example case, it was imperative to minimise computational effort, 
  thus using coarse grid spacings.
 This is also the reason for the minor discrepancies observed  between the present data and the reference data.
-The velocity profiles in \autoref{subfig: 5700 validation velocity profile} displays a high degree of similarity  between the present data and the reference data.
-In addition, the Reynolds stresses in \autoref{subfig: 5700 validation Reynolds stress} show similar trends, particularly  for the $v'v'$, $w'w'$ and $u'v'$ quantities.
+The velocity profiles in \autoref{subfig: 5300validation velocity profile} displays a high degree of similarity  between the present data and the reference data.
+In addition, the Reynolds stresses in \autoref{subfig: 5300validation Reynolds stress} show similar trends, particularly  for the $v'v'$, $w'w'$ and $u'v'$ quantities.
 However, the $u'u'$ stresses are shown to be underpredicted  at their peak at $\approx y^+ 15$.
 As mentioned before, this behaviour is expected due to the coarse mesh.
-The viscous stress in \autoref{subfig: 5700 validation total stress} shows very similar behaviour, while the total stress is affected by the previously  described deviations of the Reynolds shear stresses.
-The streamwise $uu$ energy budgets  are presented in \autoref{subfig: 5700 validation budgets}. The validation budgets demonstrate reasonable overall agreement.
+The viscous stress in \autoref{subfig: 5300validation total stress} shows very similar behaviour, while the total stress is affected by the previously  described deviations of the Reynolds shear stresses.
+The streamwise $uu$ energy budgets  are presented in \autoref{subfig: 5300validation budgets}. The validation budgets demonstrate reasonable overall agreement.
 Only the dissipation term and viscous diffusion terms are underestimated slightly in the near-wall region.
 However, the energy residual displays the correct behaviour of being zero at any wall normal position.
 
