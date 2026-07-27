@@ -11,3 +11,7 @@ ibm
 Neko
 sem
 Streamwise
+Helma
+nhr
+Xeon
+gpu

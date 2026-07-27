@@ -10,19 +10,19 @@
   \item [{$L_\theta$}]\begingroup Domain extent in azimuthal direction\nomeqref {0.0}\nompageref{IX}
   \item [{$L_z$}]\begingroup Domain extent in streamwise direction\nomeqref {0.0}\nompageref{IX}
   \item [{$\mathbf{n}$}]\begingroup Wall-normal unit vector\nomeqref {0.0}\nompageref{IX}
-  \item [{$R$}]\begingroup Pipe radius (mean radius for rough surfaces)\nomeqref {0.0}\nompageref{IX}
-  \item [{$r$}]\begingroup Wall-normal (radial) coordinate\nomeqref {0.0}\nompageref{IX}
+  \item [{$R$}]\begingroup Pipe radius\nomeqref {0.0}\nompageref{IX}
+  \item [{$r$}]\begingroup radial coordinate\nomeqref {0.0}\nompageref{IX}
   \item [{$r_{crit}$}]\begingroup Critical radius below which mesh points remain unshifted\nomeqref {0.0}\nompageref{IX}
   \item [{$r_{shift}$}]\begingroup Radially shifted position of a mesh point\nomeqref {0.0}\nompageref{IX}
   \item [{$\mathbf{s}$}]\begingroup Unit vector in streamwise direction\nomeqref {0.0}\nompageref{IX}
   \item [{$\mathbf{t}$}]\begingroup Wall-tangential unit vector\nomeqref {0.0}\nompageref{IX}
-  \item [{$x_i$}]\begingroup Cartesian coordinate direction (Einstein notation)\nomeqref {0.0}\nompageref{IX}
-  \item [{$y$}]\begingroup Wall-normal distance from the (virtual) wall\nomeqref {0.0}\nompageref{IX}
+  \item [{$x_i$}]\begingroup Cartesian coordinate direction\nomeqref {0.0}\nompageref{IX}
+  \item [{$y$}]\begingroup Wall-normal distance from the wall\nomeqref {0.0}\nompageref{IX}
   \item [{$z$}]\begingroup Streamwise coordinate\nomeqref {0.0}\nompageref{IX}
   \item [{$\theta$}]\begingroup Azimuthal coordinate\nomeqref {0.0}\nompageref{IX}
 \nomgroup{K}
   \item [{$A$}]\begingroup Log-law intercept constant\nomeqref {0.0}\nompageref{IX}
-  \item [{$B_s$}]\begingroup Downward shift of the log-law intercept due to roughness\nomeqref {0.0}\nompageref{IX}
+  \item [{$B$}]\begingroup Downward shift of the log-law intercept due to roughness\nomeqref {0.0}\nompageref{IX}
   \item [{$C_f$}]\begingroup Skin friction coefficient\nomeqref {0.0}\nompageref{IX}
   \item [{$D_{ij}$}]\begingroup Dispersive stress tensor\nomeqref {0.0}\nompageref{IX}
   \item [{$k_s^+$}]\begingroup Equivalent sand-grain roughness, in wall units\nomeqref {0.0}\nompageref{IX}
@@ -31,29 +31,29 @@
   \item [{$Re$}]\begingroup Reynolds number\nomeqref {0.0}\nompageref{IX}
   \item [{$Re_b$}]\begingroup Bulk Reynolds number\nomeqref {0.0}\nompageref{IX}
   \item [{$Re_\tau$}]\begingroup Friction Reynolds number\nomeqref {0.0}\nompageref{IX}
-  \item [{$U_i,\ U$}]\begingroup Mean (double-averaged) velocity\nomeqref {0.0}\nompageref{IX}
+  \item [{$U$}]\begingroup Mean (double-averaged) velocity\nomeqref {0.0}\nompageref{IX}
   \item [{$U_b$}]\begingroup Bulk velocity\nomeqref {0.0}\nompageref{IX}
-  \item [{$U^+$}]\begingroup Mean velocity in viscous (inner) units\nomeqref {0.0}\nompageref{IX}
+  \item [{$U^+$}]\begingroup Mean velocity in viscous units\nomeqref {0.0}\nompageref{IX}
   \item [{$u_i$}]\begingroup Instantaneous velocity component\nomeqref {0.0}\nompageref{IX}
-  \item [{$u_i'$}]\begingroup Turbulent (temporal) velocity fluctuation\nomeqref {0.0}\nompageref{IX}
+  \item [{$u_i'$}]\begingroup Temporal velocity fluctuation\nomeqref {0.0}\nompageref{IX}
   \item [{$\tilde{u}_i$}]\begingroup Spatial velocity fluctuation\nomeqref {0.0}\nompageref{IX}
-  \item [{$u_i^*$}]\begingroup Total fluctuation, $u_i^* = \tilde{u}_i + u_i'$\nomeqref {0.0}\nompageref{IX}
+  \item [{$u_i^*$}]\begingroup Total fluctuation\nomeqref {0.0}\nompageref{IX}
   \item [{$u_\tau$}]\begingroup Friction velocity\nomeqref {0.0}\nompageref{IX}
-  \item [{$y^+$}]\begingroup Wall-normal distance in viscous (inner) units\nomeqref {0.0}\nompageref{IX}
-  \item [{$\Delta U^+$}]\begingroup Roughness function (velocity downshift)\nomeqref {0.0}\nompageref{IX}
-  \item [{$\delta$}]\begingroup Characteristic (outer) length scale\nomeqref {0.0}\nompageref{IX}
+  \item [{$y^+$}]\begingroup Wall-normal distance in viscous units\nomeqref {0.0}\nompageref{IX}
+  \item [{$\Delta U^+$}]\begingroup Roughness function\nomeqref {0.0}\nompageref{IX}
+  \item [{$\delta$}]\begingroup Characteristic length scale\nomeqref {0.0}\nompageref{IX}
   \item [{$\delta_\nu$}]\begingroup Viscous length scale\nomeqref {0.0}\nompageref{IX}
   \item [{$\eta$}]\begingroup Kolmogorov length scale\nomeqref {0.0}\nompageref{IX}
   \item [{$\kappa$}]\begingroup von K\'arm\'an constant\nomeqref {0.0}\nompageref{IX}
   \item [{$\Pi$}]\begingroup Driving pressure gradient\nomeqref {0.0}\nompageref{IX}
   \item [{$\tau_p$}]\begingroup Pressure drag\nomeqref {0.0}\nompageref{IX}
-  \item [{$\tau_v$}]\begingroup Viscous drag (viscous wall stress)\nomeqref {0.0}\nompageref{IX}
+  \item [{$\tau_v$}]\begingroup Viscous drag\nomeqref {0.0}\nompageref{IX}
   \item [{$\tau_w$}]\begingroup Wall shear stress\nomeqref {0.0}\nompageref{IX}
 \nomgroup{R}
   \item [{$ES$}]\begingroup Effective slope\nomeqref {0.0}\nompageref{IX}
   \item [{$h$}]\begingroup Local surface height, relative to the virtual origin\nomeqref {0.0}\nompageref{IX}
   \item [{$k$}]\begingroup Mean roughness height\nomeqref {0.0}\nompageref{IX}
-  \item [{$k^+$}]\begingroup Roughness height in wall (viscous) units\nomeqref {0.0}\nompageref{IX}
+  \item [{$k^+$}]\begingroup Roughness height in viscous units\nomeqref {0.0}\nompageref{IX}
   \item [{$S_a$}]\begingroup Average roughness height\nomeqref {0.0}\nompageref{IX}
   \item [{$Sk$}]\begingroup Skewness of the surface height distribution\nomeqref {0.0}\nompageref{IX}
   \item [{$S_q$}]\begingroup Root-mean-square roughness height\nomeqref {0.0}\nompageref{IX}
@@ -62,11 +62,10 @@
 \nomgroup{S}
   \item [{$C$}]\begingroup Mass flux\nomeqref {0.0}\nompageref{IX}
   \item [{$c$}]\begingroup Courant-Friedrichs-Lewy (CFL) number\nomeqref {0.0}\nompageref{IX}
-  \item [{$N_\theta$}]\begingroup Number of grid points/elements in azimuthal direction\nomeqref {0.0}\nompageref{IX}
-  \item [{$N_z$}]\begingroup Number of grid points/elements in streamwise direction\nomeqref {0.0}\nompageref{IX}
+  \item [{$N_\theta$}]\begingroup Number of grid points in azimuthal direction\nomeqref {0.0}\nompageref{IX}
+  \item [{$N_z$}]\begingroup Number of grid points streamwise direction\nomeqref {0.0}\nompageref{IX}
   \item [{$p$}]\begingroup Polynomial order of the spectral element method\nomeqref {0.0}\nompageref{IX}
-  \item [{$T$}]\begingroup Averaging / statistics time\nomeqref {0.0}\nompageref{IX}
-  \item [{$\alpha$}]\begingroup Scaling factor to ensure constant mass flux\nomeqref {0.0}\nompageref{IX}
+  \item [{$T$}]\begingroup Averaging time\nomeqref {0.0}\nompageref{IX}
   \item [{$\Delta_{r_i}^+$}]\begingroup Wall-normal grid spacing at the $i$-th near-wall grid point, in wall units\nomeqref {0.0}\nompageref{IX}
   \item [{$\Delta t$}]\begingroup Simulation time step\nomeqref {0.0}\nompageref{IX}
   \item [{$\Delta_\theta$}]\begingroup Grid spacing in azimuthal direction\nomeqref {0.0}\nompageref{IX}

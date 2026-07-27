@@ -156,6 +156,11 @@
 % Glossary
 %---------------------------------------
 \usepackage[acronym, toc, nonumberlist]{glossaries}
+\usepackage{glossary-longbooktabs}
+\AtBeginDocument{%
+  \renewcommand*{\acronymname}{List of Abbreviations}%
+  \renewcommand*{\entryname}{Abbreviation}%
+}
 \makeglossaries
 
 

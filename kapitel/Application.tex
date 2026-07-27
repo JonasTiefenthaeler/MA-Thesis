@@ -135,7 +135,7 @@ Furthermore, the near wall mesh refinement is kept.
 
 \begin{figure}
     \centering
-    \includegraphics[width = 0.5\textwidth]{Methods/deformed_Mesh.pdf}
+    \includegraphics[width = 0.5\textwidth]{Methods/deformed_Mesh-cropped.pdf}
     \caption[Body fitted rough mesh]{Mesh deformed due to roughness}
     \label{fig: deformed mesh}
 \end{figure}
@@ -263,25 +263,6 @@ It is created using the algorithm described in \autoref{subsec: Surface generati
 
 Additionally, the surfaces $S2$ and $S3$ show a decreased surface height $k$ compared to $S1$.
 $S2$ keeps the effective slope, despite having a decreased roughness height $k$.
-$S3$ is a scaled-down version of $S1$, which results also in a decreased effective slope.
-\autoref{fig: surface height maps} shows the height maps for all three surfaces.
-It can be seen, that $S1$ in \autoref{subfig: surface height map piro} shows the largest deviations from the mean height.
-Furthermore, $S2$ in \autoref{subfig: surface height map kDown} shows more, but less pronounced roughness features compared to $S1$. 
-$S3$ in \autoref{subfig: surface height map scaled} shows the same height map as $S1$ but exhibits overall damped values.
-It is chosen to use the same physical surfaces for all Reynolds numbers.
-This leads to changing non-dimensionalised roughness heights $k^+$ between the Reynolds numbers.
-This is done, since a fixed $h^+$ would necessitate the generation of new surface for every surface-Reynolds number combination.
-However, due to the randomness and irregularity of the surfaces, this would lead to different physical shapes of the roughness features, even though the surface parameters remain the same. 
-The similarity of flow conditions for surfaces with the same statistical surface parameters is not given, as discussed by~\cite{forooghiUniversalRoughnessCorrelation2017,chungPredictingDragRough2021}.
-To mitigate this issue, the same surfaces were chosen for all Reynolds numbers.
-This leads to different roughness heights in viscous length scales $k^+$ between the Reynolds numbers.
-
-The cases with lowered roughness height $k$ show both the same roughness height.
-It is chosen to be $\approx 75\%$ of the roughness height of the case by~\cite{demaioDirectNumericalSimulation2023}.
-This choice is made, since it is the lowest surface height with matched $Es$, that can be generated using the same number of Fourier modes as used for the other surfaces.
-It can be seen, that all the surface parameters, that are comparable between the surfaces are within the margin of $0.05$, which is considered as sufficient.
-The only exception is skewness, for which it proved difficult to find a good fit with the used algorithm.
-
 \begin{figure}
     \centering
     \begin{subfigure}{0.8\textwidth}
@@ -306,8 +287,31 @@ The only exception is skewness, for which it proved difficult to find a good fit
     \end{subfigure}
     \begin{subfigure}{0.8\textwidth}
         \centering
+        \hspace{0.5cm}
         \subimport{plots/Methods/}{heightmap_colorbar.pgf}
     \end{subfigure}
     \caption[Height maps of simulation surfaces]{Height maps of simulation surfaces. Red donting surface retractions, green denoting surface elevations.~(a) $S1$, (b) $S2$, (c) $S3$}
     \label{fig: surface height maps}
 \end{figure}
+
+$S3$ is a scaled-down version of $S1$, which results also in a decreased effective slope.
+\autoref{fig: surface height maps} shows the height maps for all three surfaces.
+Red and green shadings depict extreme values, while yellow shadings denote the mean height.
+It can be seen, that $S1$ in \autoref{subfig: surface height map piro} shows the largest deviations from the mean height.
+Furthermore, $S2$ in \autoref{subfig: surface height map kDown} exhibits more, but less pronounced roughness features compared to $S1$. 
+$S3$ in \autoref{subfig: surface height map scaled} shows the same height map as $S1$ but with overall damped values.
+
+It is chosen to use the same physical surfaces for all Reynolds numbers.
+This leads to changing non-dimensionalised roughness heights $k^+$ between the Reynolds numbers.
+This is done, since a fixed $h^+$ would necessitate the generation of new surface for every surface-Reynolds number combination.
+However, due to the randomness and irregularity of the surfaces, this would lead to different physical shapes of the roughness features, even though the surface parameters remain the same. 
+The similarity of flow conditions for surfaces with the same statistical surface parameters is not given, as discussed by~\cite{forooghiUniversalRoughnessCorrelation2017,chungPredictingDragRough2021}.
+To mitigate this issue, the same surfaces were chosen for all Reynolds numbers.
+This leads to different roughness heights in viscous length scales $k^+$ between the Reynolds numbers.
+
+The cases with lowered roughness height $k$ show both the same roughness height.
+It is chosen to be $\approx 75\%$ of the roughness height of the case by~\cite{demaioDirectNumericalSimulation2023}.
+This choice is made, since it is the lowest surface height with matched $Es$, that can be generated using the same number of Fourier modes as used for the other surfaces.
+It can be seen, that all the surface parameters, that are comparable between the surfaces are within the margin of $0.05$, which is considered as sufficient.
+The only exception is skewness, for which it proved difficult to find a good fit with the used algorithm.
+

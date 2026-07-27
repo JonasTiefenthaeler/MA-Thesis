@@ -2,67 +2,133 @@
 
 \chapter{Derivation of Dispersive stress}\label{apx: derivation of dispersive stress}
 
-The Reynolds stresses are defined as:
+This appendix derives the dispersive stress tensor introduced in \autoref{eq: dispersive stress tensor}.
+The notation follows \autoref{par: dispersive stresses}.
+An overline $\overline{ \phantom{u} }$ denotes a time average, angle brackets $\langle \phantom{u} \rangle$ denote a spatial average over the wall-parallel plane, a prime $ \phantom{u}'$ a fluctuation in time about the time average, and a tilde $\tilde{ \ }$ a fluctuation in space about the spatial average, i.e.\ $\tilde{u}_i = \overline{u_i} - \langle \overline{u_i}\rangle$.
+
+\section{Analytical derivation}
+
+The Reynolds stresses are defined as the time average of the product of the temporal velocity fluctuations
 \begin{equation}\label{eq: reynolds stresses}
     R_{ij} = \overline{(u_i - \overline{u_i})(u_j - \overline{u_j})}
     = \overline{u_i' u_j'}
 \end{equation}
+The dispersive stress tensor follows from applying the same operation to the time-averaged velocity $\overline{u_i}$, but with the average taken in space rather than in time:
+\begin{align}
+    D_{ij}  &= \langle (\overline{u_i} - \langle \overline{u_i}\rangle)(\overline{u_j} - \langle \overline{u_j}\rangle) \rangle \notag\\
+            &= \langle \overline{u_i}\,\overline{u_j} - \overline{u_i}\langle\overline{u_j}\rangle - \langle \overline{u_i}\rangle\overline{u_j} + \langle\overline{u_i}\rangle\langle\overline{u_j}\rangle \rangle \notag\\
+    %\intertext{Since $\langle\overline{u_i}\rangle$ and $\langle\overline{u_j}\rangle$ no longer vary in space, they can be pulled out of the outer spatial average term by term:}
+            &= \langle \overline{u_i}\,\overline{u_j} \rangle - \langle\overline{u_i}\rangle\langle\overline{u_j}\rangle - \langle\overline{u_i}\rangle\langle\overline{u_j}\rangle + \langle\overline{u_i}\rangle\langle\overline{u_j}\rangle \notag\\
+            &= \langle \overline{u_i}\,\overline{u_j} \rangle - \langle\overline{u_i}\rangle\langle\overline{u_j}\rangle \notag\\
+    %\intertext{Substituting $\overline{u_i} = \langle\overline{u_i}\rangle + \tilde{u}_i$ (and analogously for $\overline{u_j}$) and using that the spatial average of a spatial fluctuation vanishes, $\langle\tilde{u}_i\rangle = 0$, leaves only the cross term of the fluctuations:}
+            &= \langle \tilde{u}_i\,\tilde{u}_j \rangle \label{eq: dispersive stress}
+\end{align}
+which recovers the definition of the dispersive stress tensor given in \autoref{eq: dispersive stress tensor}.
 
-DErivation of Dispersive stresses.
-The * superscripts denoting spatial fluctiuations.
-\begin{equation}\label{eq: dispersive stress}
-    \begin{aligned}
-        D_{ij}  &= \langle (\overline{u_i} - \langle \overline{u_i}\rangle)(\overline{u_j} - \langle \overline{u_j}\rangle) \rangle\\
-                &= \langle \overline{u_i}\,\overline{u_j} - \overline{u_i}\langle\overline{u_j}\rangle - \langle \overline{u_i}\rangle\overline{u_j} + \langle\overline{u_i}\rangle\langle\overline{u_j}\rangle \rangle\\
-                &= \langle \overline{u_i}\,\overline{u_j} \rangle - \langle \overline{u_i}\langle\overline{u_j}\rangle \rangle - \langle \langle \overline{u_i}\rangle\overline{u_j} \rangle + \langle \langle\overline{u_i}\rangle\langle\overline{u_j}\rangle\rangle \\
-                &= \langle \overline{u_i}\rangle \langle \overline{u_j}\rangle + \langle \overline{u_i}^* \, \overline{u_j}^*\rangle - \langle\overline{u_i}\rangle\langle\overline{u_j}\rangle - \langle\overline{u_i}\rangle\langle\overline{u_j}\rangle + \langle\overline{u_i}\rangle\langle\overline{u_j}\rangle \\
-                &= \langle \overline{u_i}^* \, \overline{u_j}^*\rangle
-    \end{aligned}
-\end{equation}
+% \section{Evaluation in the post-processing script}
 
-Derivation of the calculations of Reynolds and dispersive stresses, as done in the postprocessing script.
-\begin{equation}\label{eq: reynolds stress in PP}
-    \begin{aligned}
-        \langle R_{ij}\rangle   &= \langle R_{ij} + \overline{u_i}\,\overline{u_j} \rangle - \langle \overline{u_i} \rangle \langle\overline{u_j}\rangle  \\
-                                &= \langle \overline{u_i' u_j'} + \overline{u_i}\,\overline{u_j} \rangle - \langle \overline{u_i} \rangle \langle\overline{u_j}\rangle \\
-                                &= \langle \overline{u_i' u_j'} \rangle + \langle \overline{u_i}\,\overline{u_j} \rangle - \langle \overline{u_i} \rangle \langle\overline{u_j}\rangle \\
-                                &= \langle \overline{u_i' u_j'} \rangle  + \langle \overline{u_i}\rangle \langle\overline{u_j}\rangle + \langle \overline{u_i}^* \,\overline{u_j}^*\rangle - \langle \overline{u_i} \rangle \langle\overline{u_j}\rangle \\
-                                &= \langle \overline{u_i' u_j'} \rangle + \langle \overline{u_i}^* \,\overline{u_j}^*\rangle 
-    \end{aligned}
-\end{equation}
+% The post-processing script computes the pointwise Reynolds stress $R_{ij} = \overline{u_i'u_j'}$ at every spatial location directly from the time-resolved velocity field, before any spatial averaging is applied.
+% To recover the correctly double-averaged Reynolds stress $\langle R_{ij}\rangle$, the term $\langle \overline{u_i}\,\overline{u_j}\rangle - \langle\overline{u_i}\rangle\langle\overline{u_j}\rangle$ is added and subtracted, which makes the dispersive stress from \autoref{eq: dispersive stress} appear explicitly:
+% \begin{align}
+%     \langle R_{ij}\rangle   &= \langle R_{ij} + \overline{u_i}\,\overline{u_j} \rangle - \langle \overline{u_i} \rangle \langle\overline{u_j}\rangle \notag\\
+%                             &= \langle \overline{u_i' u_j'} \rangle + \langle \overline{u_i}\,\overline{u_j} \rangle - \langle \overline{u_i} \rangle \langle\overline{u_j}\rangle \notag
+%     \intertext{using \autoref{eq: dispersive stress} for the last two terms:}
+%                             &= \langle \overline{u_i' u_j'} \rangle + \langle \tilde{u}_i\,\tilde{u}_j\rangle \notag\\
+%                             &= \langle \overline{u_i' u_j'} \rangle + D_{ij} \label{eq: reynolds stress in PP}
+% \end{align}
+% i.e.\ the double-averaged Reynolds stress splits into the spatially averaged, pointwise Reynolds stress and the dispersive stress tensor.
+% This is the identity used by the post-processing script: $\overline{u_i'u_j'}$ and $\overline{u_i}$ are computed directly from the simulation output, and $\langle\overline{u_i'u_j'}\rangle$ and $D_{ij}$ are then obtained from the spatial average and \autoref{eq: dispersive stress}, respectively.
 
-\begin{equation} \label{eq: dispersive stress in PP}
-    \begin{aligned}
-        D_{ij}  &= \langle\overline{u_i}\,\overline{u_j}\rangle - \langle\overline{u_i}\rangle\langle\overline{u_j}\rangle\\
-                &= \langle \overline{u_i}\rangle \langle \overline{u_j}\rangle + \langle \overline{u_i}^* \, \overline{u_j}^*\rangle - \langle\overline{u_i}\rangle\langle\overline{u_j}\rangle\\
-                &= \langle \overline{u_i}^* \, \overline{u_j}^*\rangle
-    \end{aligned}
-\end{equation}
+% --- Original version, kept for reference ---
+% The Reynolds stresses are defined as:
+% \begin{equation}\label{eq: reynolds stresses}
+%     R_{ij} = \overline{(u_i - \overline{u_i})(u_j - \overline{u_j})}
+%     = \overline{u_i' u_j'}
+% \end{equation}
+%
+% DErivation of Dispersive stresses.
+% The * superscripts denoting spatial fluctiuations.
+% \begin{equation}\label{eq: dispersive stress}
+%     \begin{aligned}
+%         D_{ij}  &= \langle (\overline{u_i} - \langle \overline{u_i}\rangle)(\overline{u_j} - \langle \overline{u_j}\rangle) \rangle\\
+%                 &= \langle \overline{u_i}\,\overline{u_j} - \overline{u_i}\langle\overline{u_j}\rangle - \langle \overline{u_i}\rangle\overline{u_j} + \langle\overline{u_i}\rangle\langle\overline{u_j}\rangle \rangle\\
+%                 &= \langle \overline{u_i}\,\overline{u_j} \rangle - \langle \overline{u_i}\langle\overline{u_j}\rangle \rangle - \langle \langle \overline{u_i}\rangle\overline{u_j} \rangle + \langle \langle\overline{u_i}\rangle\langle\overline{u_j}\rangle\rangle \\
+%                 &= \langle \overline{u_i}\rangle \langle \overline{u_j}\rangle + \langle \overline{u_i}^* \, \overline{u_j}^*\rangle - \langle\overline{u_i}\rangle\langle\overline{u_j}\rangle - \langle\overline{u_i}\rangle\langle\overline{u_j}\rangle + \langle\overline{u_i}\rangle\langle\overline{u_j}\rangle \\
+%                 &= \langle \overline{u_i}^* \, \overline{u_j}^*\rangle
+%     \end{aligned}
+% \end{equation}
+%
+% Derivation of the calculations of Reynolds and dispersive stresses, as done in the postprocessing script.
+% \begin{equation}\label{eq: reynolds stress in PP}
+%     \begin{aligned}
+%         \langle R_{ij}\rangle   &= \langle R_{ij} + \overline{u_i}\,\overline{u_j} \rangle - \langle \overline{u_i} \rangle \langle\overline{u_j}\rangle  \\
+%                                 &= \langle \overline{u_i' u_j'} + \overline{u_i}\,\overline{u_j} \rangle - \langle \overline{u_i} \rangle \langle\overline{u_j}\rangle \\
+%                                 &= \langle \overline{u_i' u_j'} \rangle + \langle \overline{u_i}\,\overline{u_j} \rangle - \langle \overline{u_i} \rangle \langle\overline{u_j}\rangle \\
+%                                 &= \langle \overline{u_i' u_j'} \rangle  + \langle \overline{u_i}\rangle \langle\overline{u_j}\rangle + \langle \overline{u_i}^* \,\overline{u_j}^*\rangle - \langle \overline{u_i} \rangle \langle\overline{u_j}\rangle \\
+%                                 &= \langle \overline{u_i' u_j'} \rangle + \langle \overline{u_i}^* \,\overline{u_j}^*\rangle
+%     \end{aligned}
+% \end{equation}
+%
+% \begin{equation} \label{eq: dispersive stress in PP}
+%     \begin{aligned}
+%         D_{ij}  &= \langle\overline{u_i}\,\overline{u_j}\rangle - \langle\overline{u_i}\rangle\langle\overline{u_j}\rangle\\
+%                 &= \langle \overline{u_i}\rangle \langle \overline{u_j}\rangle + \langle \overline{u_i}^* \, \overline{u_j}^*\rangle - \langle\overline{u_i}\rangle\langle\overline{u_j}\rangle\\
+%                 &= \langle \overline{u_i}^* \, \overline{u_j}^*\rangle
+%     \end{aligned}
+% \end{equation}
 
-\chapter{Development of Viscous drag with roughness height and streamwise slope}\label{apx: viscous drag to surface height}
+\chapter{Development of viscous drag with roughness height and streamwise slope}\label{apx: viscous drag to surface height}
 
-\begin{figure}
+\section{Surfaces $S2$ and $S3$ at $Re_b = 5300$}
+\begin{figure}[h!]
     \centering
     \subimport{plots/Results/5300/}{5300Reb_kDowntauWall_over_height.pgf}
     \caption{Roughness height and viscous drag over streamwise position for  $S2$ at $5300 Re_b$}
 \end{figure}
-\begin{figure}
+\begin{figure}[h!]
     \centering
+    \hspace{0.9cm}
     \subimport{plots/Results/5300/}{5300Reb_kDown_tauWall_over_height_bySlope.pgf}
-    \caption{Scatter plot of nondimensionalised viscous drag over roughness height. Colour denoting local streamwise slope. Data shown for $S2$ at $5300 Re_b$}
+    \caption[Scatterplot of viscous drag over physical roughness height at $Re_b = 5300$ for $S2$]{Scatter plot of nondimensionalised viscous drag over roughness height. Colour denoting local streamwise slope. Data shown for $S2$ at $5300 Re_b$}
 \end{figure}
-
-\begin{figure}
+\begin{figure}[h!]
     \centering
     \subimport{plots/Results/5300/}{5300Reb_scaledtauWall_over_height.pgf}
     \caption{Roughness height and viscous drag over streamwise position for  $S3$ at $5300 Re_b$}
 \end{figure}
-\begin{figure}
+\begin{figure}[h!]
     \centering
+    \hspace{0.9cm}
     \subimport{plots/Results/5300/}{5300Reb_scaled_tauWall_over_height_bySlope.pgf}
-    \caption{Scatter plot of nondimensionalised viscous drag over roughness height. Colour denoting local streamwise slope. Data shown for $S3$ at $5300 Re_b$}
+    \caption[Scatterplot of viscous drag over physical roughness height at $Re_b = 5300$ for $S3$]{Scatter plot of nondimensionalised viscous drag over roughness height. Colour denoting local streamwise slope. Data shown for $S3$ at $5300 Re_b$}
 \end{figure}
 
+\section{Surfaces $S2$ and $S3$ at $Re_b = 11700$}
+\begin{figure}[h!]
+    \centering
+    \subimport{plots/Results/11700/}{11700Reb_kDowntauWall_over_height.pgf}
+    \caption{Roughness height and viscous drag over streamwise position for  $S2$ at $11700 Re_b$}
+\end{figure}
+\begin{figure}[h!]
+    \centering
+    \hspace{0.9cm}
+    \subimport{plots/Results/11700/}{11700Reb_kDown_tauWall_over_height_bySlope.pgf}
+    \caption[Scatterplot of viscous drag over physical roughness height at $Re_b = 11700$ for $S2$]{Scatter plot of nondimensionalised viscous drag over roughness height. Colour denoting local streamwise slope. Data shown for $S2$ at $1700 Re_b$}
+\end{figure}
+\begin{figure}[h!]
+    \centering
+    \subimport{plots/Results/11700/}{11700Reb_scaledtauWall_over_height.pgf}
+    \caption{Roughness height and viscous drag over streamwise position for  $S3$ at $11700 Re_b$}
+\end{figure}
+\begin{figure}[h!]
+    \centering
+    \hspace{0.9cm}
+    \subimport{plots/Results/5300/}{5300Reb_scaled_tauWall_over_height_bySlope.pgf}
+    \caption[Scatterplot of viscous drag over physical roughness height at $Re_b = 11700$ for $S3$]{Scatter plot of nondimensionalised viscous drag over roughness height. Colour denoting local streamwise slope. Data shown for $S3$ at $11700 Re_b$}
+\end{figure}
+
+
+\section{Surfaces $S2$ and $S3$ at $Re_b = 19000$}
 
 % \begin{table}
 %     \centering

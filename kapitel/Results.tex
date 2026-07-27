@@ -1,4 +1,4 @@
-\chapter{Results}\label{chap: Results}
+\chapter{Results} \label{chap: Results}
 
 The simulations discussed in \autoref{sec: performed simulations} were carried out on the Fritz and Helma computation clusters of the \acrfull{nhr}.
 Fritz is a CPU cluster that has been designed to run parallel jobs.
@@ -31,7 +31,7 @@ Darker colours represent higher Reynolds numbers.
 \end{table}
 
 
-\section{Simulations with 5300$Re_b$}\label{subsec: results 5300 Reb}
+\section{Simulations with 5300$Re_b$}\label{sec: results 5300Reb}
 In this section, the results of the \acrshort{dns} study with the Reynolds number $Re_b = 5300$ are presented.
 A comparison is made between the three surfaces.
 Additionally, reference data for the smooth pipe at the same Reynolds number is plotted and taken from~\cite{yaoDirectNumericalSimulations2023}.
@@ -81,6 +81,7 @@ Additionally, reference data for the smooth pipe at the same Reynolds number is 
         \input{plots/Results/5300/5300Reb_comparison_RS.pgf}
         \label{subfig: Reb 5300 reynolds stresses}
     \end{subfigure}
+    \\[-10pt]
     \caption[Comparison of $S1$, $S2$ and $S3$ at $Re_b = 5300$]{Comparison between the 3 tested surfaces at $Re_b = 5300$. \sOneFiveThreeSymbol \ denotes surface S1, \sTwoFiveThreeSymbol \ surface S2, \sThreeFiveThreeSymbol \ surface S3 and \referenceSymbol \ the reference data from~\cite{yaoDirectNumericalSimulations2023}.~(a) Mean velocity profiles.~(b) Velocity defect of local velocity to centerline velocity.~(c) \lsTotalStressSymbol \ total stress,\lsViscousStressSymbol \ Viscous stress, \lsReynoldsStressSymbol \ turbulent shear stress and \lsDispersiveStressSymbol \ dispersive stress.~(d) Reynolds stresses. \lsRuuSymbol \ $u'u'$, \lsRvvSymbol \ $v'v'$, \lsRwwSymbol \ $w'w'$ and \lsRuvSymbol \ $u'v'$}
     \label{fig: comp Reb 5300}
 \end{figure}
@@ -89,7 +90,7 @@ Furthermore, \autoref{fig: comp Reb 5300} presents first- and second-order stati
 In \autoref{subfig: Reb 5300 velocity profile}, the mean velocity profiles $U^+$ are displayed over the wall-normal distance $y^+$. 
 Evidently, all three surfaces exhibit analogous behaviour within the log-law region of the flow, which further supports Townsend's similarity hypothesis.
 This is in line with the findings of the velocity defects in \autoref{subfig: Reb 5300 velocity defect}, since all three curves collapse onto the reference data in the outer region.
-The surface $S3$ attains the maximum $U^+$ value, $S1$ attains the minimum, while $S2$ is situated inbetween.
+The surface $S3$ attains the maximum $U^+$ value, $S1$ attains the minimum, while $S2$ is situated in between.
 Due to the largest roughness height of surface $S1$, the flow experiences the most drag, hence the lowest mean velocity $U^+$.
 The increased drag of $S1$ is attributable to both increased viscous drag $\tau_v$ and increased pressure drag $\tau_p$, in comparison with the other surfaces.
 However, the influence of viscous drag on total drag is found to decrease for higher roughness height $k^+$ and effective slope $ES$, as shown in \autoref{tab: friction values Reb 5300}. 
@@ -109,7 +110,7 @@ This effect is more pronounced for surface $S1$, since it exhibits the largest r
 
 The total stress over the wall-normal position in outer units $r/R$ is plotted in \autoref{subfig: Reb 5300 total stresses}.
 Its individual components, i.e. turbulent shear stress, viscous stress and dispersive stress are displayed as well.
-It is evident that the expected slope of $1$ is matched for all surfaces in the entire domain, with  the exception of the near wall region. 
+It is evident that the expected slope of $1$ is matched for all surfaces in the entire domain, except in the near wall region. 
 The total stress begins to drop at approximately $r/R = 0.15$, even though $S1$ declines slightly earlier.
 This is due to the viscous stress not reaching the anticipated value of $1$ at the virtual origin, as it would be expected for a smooth pipe.
 The reasoning for that is analogous to that provided in the analysis of the velocity profile in the near-wall region.
@@ -127,18 +128,22 @@ The data indicates a positive correlation between the dispersive stresses and ro
 $S1$ shows the highest values of the dispersive stresses, with the peak sitting at $r/R \approx 0.1$.
 The trend for $S2$ is the same but shifted slightly to lower values.
 The maximum dispersive stresses achieved by $S3$ are comparable to those of $S2$, but with an outward shift in the maximum value to $r/R \approx 0.15$.
-\autoref{subfig: Reb 5300 reynolds stresses} depicts the Reynolds stresses over the wall normal distance in inner units.
-The streamwise components $u'u'$ show a significantly decreased peak values for all rough surfaces.
+\autoref{subfig: Reb 5300 reynolds stresses} depicts the Reynolds stresses over the wall-normal distance in inner units.
+The streamwise components $u'u'$ shows a significantly decreased peak values for all rough surfaces.
 The data indicates a correlation between the $u'u'$ downshift and roughness height. 
 The influence of the effective slope appears to vary with the wall-normal position. 
 In the near-wall region, $S2$ and $S3$ deviate significantly, while the $u'u'$ value is nearly the same around the peak at approximately $y^+ = 20$.
 Furthermore, for all rough surfaces the streamwise Reynolds stress peak is shifted to higher $y^+$ values when compared to the smooth wall pipe.
 This shift occurs because the near-wall cycle, which is responsible for the streamwise Reynolds stress peak, is propagated outwards by the roughness~\citep{macdonaldTurbulentFlowTransitionally2016}.
-The spanwise Reynolds stresses $v'v'$ are increased over the entire domain, in comparison to the smooth case, yet the influence of the individual surface appears to be small.
-However, as in the streamwise direction, the maximum spanwise Reynolds stresses are attained at higher $y^+$ values.
+The azimuthal Reynolds stresses $v'v'$ are increased over the entire domain, in comparison to the smooth cases.
+This is the case for all three surfaces.
+However, as in the streamwise direction, the maximum azimuthal Reynolds stresses are attained at higher $y^+$ values.
 The same findings can be applied to the wall-normal Reynolds stresses $w'w'$.
 The surface roughness exhibits only a minor influence on the Reynolds shear stress $u'v'$ with slightly higher values in the outer region.
-
+The trends observed for the Reynolds stresses are due the disruption of turbulence by the roughness features.
+This leads to the streamwise fluctuations being decreased.
+Furthermore, a redistribution of turbulent kinetic energy away from the streamwise component is present, while increasing the azimuthal and wall-normal components.
+This leads to the increased values for $v'v'$ and $w'w'$.
 
 \begin{figure}
     \centering
@@ -157,38 +162,39 @@ The surface roughness exhibits only a minor influence on the Reynolds shear stre
         \subimport{plots/Results/5300/}{5300_spectra_scaled.pgf}
     \end{subfigure}
     \centering
+    \\[5pt]
     \begin{subfigure}{\textwidth}
         \centering
         \hspace{0.9cm}
         \subimport{plots/Results/5300/}{3DSpectra_colorbar.pgf}
     \end{subfigure}
-    \caption[Streamwise energy spectra at $Re_b = 5300$]{Streamwise premultiplied Energy spectra. Wall-normal position plotted over wavelength. Colour denoting energy content, with blue indicating low energy, and yellow high energy. Red marker indicates the position of maximal energy. Contour lines start at 1.0 with intervals of 1.0.~(a) $S1$.~(b) $S2$.~(c) $S3$}
+    \caption[Streamwise energy spectra at $Re_b = 5300$]{Streamwise premultiplied Energy spectra at $Re_b = 5300$. Wall-normal position plotted over wavelength. Colour denoting energy content, with blue indicating low energy content, and yellow high energy content. Red marker indicates the position of maximal energy. Contour lines start at 0.25 with intervals of 0.5.~(a) $S1$.~(b) $S2$.~(c) $S3$}
     \label{fig: Reb5300 energy spectra}
 \end{figure}
 
 For all three surfaces, the premultiplied energy spectra are plotted in \autoref{fig: Reb5300 energy spectra}.
 It should be noted that the figure displays solely the non-dimensionalised energy spectra for the streamwise turbulent fluctuations, hence $k_zE_{uu}^+$.
-The wall-normal position $y^+$ is plotted over the streamwise wavelength $\lambda_z^+$.
-The energy content is denoted by the colour, as well as contour lines.
+The wall-normal position $y^+$ is plotted over the streamwise wavelength $\lambda_z^+$ in viscous units.
+The energy content is denoted by the colour, as well as by contour lines.
 Blue and purple shadings denote weak energy content, while green and yellow indicate
  strong energy content.
 The contour lines start at $0.25$, with steps of $0.5$.
 % The vertical first contourline in all three plots at $\lambda_z^+ \approx 200$ is due to the mesh resolution and the smallest wavelenghts that can be resolved by the grid point spacing.
-A close examination of the positions of the energy peaks reveals a clear correlation between peak energy and roughness. 
-The data indicates that an increase in roughness results in a shift of the energy peak outwards.
+A close examination of the positions of the energy peaks reveals a clear correlation between the peak energy content and surface roughness. 
+The data indicates that an increase in roughness results in a shift of the energy peak outwards, away from the wall.
 This is evident in the peak values for $S1$ that is at $y^+ \approx 23.0$, for $S2$ at $y^+ \approx 19.7$ and for $S3$ at $y^+ \approx 19.0$.
 This is in line with the findings from the Reynolds stresses in \autoref{subfig: 5300validation Reynolds stress}.
-Furthermore, the wavelength of the energy peaks varies between the surfaces. 
+Furthermore, the wavelength of the energy peak varies between the surfaces. 
 For $S1$ the peak is located at $\lambda_z^+ \approx 528$ and for $S3$ at $\approx 752$, while it is located at $\lambda_z^+ \approx 542$ for $S2$.
 This phenomenon may be atrributed to the fact that the surfaces used for $S1$ and $S3$ exhibit larger wavelengths, or conversely, that $S2$ is generated using shorter wavelengths in order to be able to achieve the same roughness height with an inmodified effective slope.
 Given this fact, the $S2$ energy peak located at a lower $\lambda_z^+$ value is in line with the findings of~\cite{chanSecondaryMotionTurbulent2018}.
 Their data also suggest, that a lower wavelenght of the surface roughness, leads to the energy peak being located at lower wavelenghts.
-This is confirmed with the data of the current study, since the energy peak of $S2$ is located at a lower wavelength, than of $S3$.
+%This is confirmed with the data of the current study, since the energy peak of $S2$ is located at a lower wavelength, than of $S3$.
 % Their data also show a correlation between surface roughness wavelength and wavelength position of the energy peak, however for regular surface roughness.
 % Additionally, their finding of the energy concentration at the roughness wavelenghts within the roughness canopy seems to be reinforced by the data of the current study.
 The surface $S2$ shows a near-wall energy cocentration at regions where $y^+ \approx 1$ at shorter wavelenghts than for surfaces $S1$ and $S3$.
 Also, the overall near-wall energy content is lower for $S2$, then for $S1$ and $S3$.
-Both of these findings correspond to the findings by~\cite{chanSecondaryMotionTurbulent2018}, which indicates similar behaviour of: the energy spectra for regular and irregular rough surfaces.
+Both of these findings correspond to the findings by~\cite{chanSecondaryMotionTurbulent2018}, which indicates similar behaviour of the energy spectra for regular and irregular rough surfaces.
 Additionally, the data of the current study suggests, that a smaller roughness height leads to the energy being distributed over a larger wavelength range.
 However, this could also be due to the overall higher energy content.
 % However, there is one main contradiction to the data of~\citeauthor{chanSecondaryMotionTurbulent2018}
@@ -277,12 +283,12 @@ However, this could also be due to the overall higher energy content.
 
 In the following, the connection between the viscous drag $\tau_v$ and the roughness shape is to be investigated by means of \autoref{fig: roughness height and viscous stress Reb 5300 piro} and \autoref{fig: scatterplot piro Reb 5300}.
 It should be noted that the focus of this analysis is exclusively on surface $S1$, since the trends and conclusions can be directly applied to surfaces $S2$ and $S3$.
-The plots with correstponding data of $S2$ and $S3$ are provided in the \autoref{apx: viscous drag to surface height}.
+The plots with corresponding data of $S2$ and $S3$ are provided in the \autoref{apx: viscous drag to surface height}.
 The development of the viscous drag $\tau_v$ and the wall position $h$ over the z-coordinate at an arbitrarily chosen $\theta$ position of the pipe is shown in \autoref{fig: roughness height and viscous stress Reb 5300 piro}.
 The height position is normalised with the characteristic length $1$, and the virtual origin is denoted as zero.
 For both the roughness height and the viscous drag, the fluctuations around their respective mean are plotted.
 The viscous drag is non-dimensionalised into wall units.
-It indicates a clear correlation between  surface height and viscous drag.
+\autoref{fig: roughness height and viscous stress Reb 5300 piro} indicates a clear correlation between  surface height and viscous drag.
 This verifies the findings by~\cite{maDirectNumericalSimulation2021}.
 The correlation appears to be stronger for positive slopes.
 However, this is merely one sample of the surface.
@@ -291,6 +297,7 @@ Each data point on the scatterplot corresponds to a single interpolation point.
 The number of interpolation points equals the number of grid points of the simulation mesh but they are distributed uniformly in space.
 The scatterplot illustrates the viscous drag in wall units over the surface height, employing the same conventions used in \autoref{fig: roughness height and viscous stress Reb 5300 piro}.
 The colormap indicates the streamwise slope at the respective point.
+Red shadings denote negative streamwise slopes while blue shadings denote positive streamwise slopes.
 It is evident that a strong correlation exists between the viscous drag and the surface height for positive streamwise slopes, due to the straight band of blue points that is consistently rising from negative surface heights up to the highest points of the surface.
 This shows that the correlation found in \autoref{fig: roughness height and viscous stress Reb 5300 piro} is not a local anomaly but rather, it is present for the entire surface.
 However, a pronounced cluster of points is evident at a negative viscous drag over the entire range of surface heights.
@@ -299,12 +306,12 @@ A potential reason for this behaviour may be attributed to flow separation and r
 Furthermore, the data indicates that negative slopes result in reduced overall local viscous drag, since most red points are in the lower half of the $\tau_v$ values, while the upper half of the plot is mostly occupied by blue data points.
 In addition, there are instances where both a positive slope and negative viscous drag are observed. 
 All of these points are situated in close proximity to the mean radius, or in some cases beneath it.
-These points may demonstrate the same circulations in roughness canopies, as the negative sloped points, albei at the other end of the roughness valley.
+These points may demonstrate the same circulations in roughness valleys as the negative sloped points, albeit at the other end where the surface is rising again.
 
-\section{Simulations with 11700$Re_b$}
+\section{Simulations with 11700$Re_b$}\label{sec: results 11700 Reb}
 
 In this section, the simulation results for the Reynolds numbers $Re_b = 11700$ are presented.
-As done in \autoref{subsec: results 5300 Reb}, the three surfaces are compared.
+As done in \autoref{sec: results 5300Reb}, the three surfaces are compared.
 The smooth reference data is taken from~\cite{elkhouryDirectNumericalSimulation2013}.
 \begin{table}
     \centering
@@ -351,35 +358,83 @@ The smooth reference data is taken from~\cite{elkhouryDirectNumericalSimulation2
         \input{plots/Results/11700/11700Reb_comparison_RS.pgf}
         \label{subfig: Reb 11700 reynolds stresses}
     \end{subfigure}
-    \caption[Comparison of $S1$, $S2$ and $S3$ at $Re_b = 5300$]{Comparison between the 3 tested surfaces at $Re_b = 5300$. \sOneElevenSevenSymbol \ denotes surface S1, \sTwoElevenSevenSymbol \ surface S2, \sThreeElevenSevenSymbol \ surface S3 and \referenceSymbol \ the reference data from~\cite{yaoDirectNumericalSimulations2023}.~(a) Mean velocity profiles.~(b) Velocity defect of local velocity to centerline velocity.~(c) \lsTotalStressSymbol \ total stress,\lsViscousStressSymbol \ Viscous stress, \lsReynoldsStressSymbol \ turbulent shear stress and \lsDispersiveStressSymbol \ dispersive stress.~(d) Reynolds stresses. \lsRuuSymbol \ $u'u'$, \lsRvvSymbol \ $v'v'$, \lsRwwSymbol \ $w'w'$ and \lsRuvSymbol \ $u'v'$}
+    \\[-10pt]
+    \caption[Comparison of $S1$, $S2$ and $S3$ at $Re_b = 5300$]{Comparison between the 3 tested surfaces at $Re_b = 5300$. \sOneElevenSevenSymbol \ denotes surface S1, \sTwoElevenSevenSymbol \ surface S2, \sThreeElevenSevenSymbol \ surface S3 and \referenceSymbol \ the reference data from~\cite{elkhouryDirectNumericalSimulation2013}.~(a) Mean velocity profiles.~(b) Velocity defect of local velocity to centerline velocity.~(c) \lsTotalStressSymbol \ total stress,\lsViscousStressSymbol \ Viscous stress, \lsReynoldsStressSymbol \ turbulent shear stress and \lsDispersiveStressSymbol \ dispersive stress.~(d) Reynolds stresses. \lsRuuSymbol \ $u'u'$, \lsRvvSymbol \ $v'v'$, \lsRwwSymbol \ $w'w'$ and \lsRuvSymbol \ $u'v'$}
     \label{fig: comp Reb 11700}
 \end{figure}
 Various mean friction and drag quantities for the rough surfaces at $Re_b = 11700$ are listed in 
 \autoref{tab: friction values 11700 Reb}.
 First- and second-order statistics are presented in \autoref{fig: comp Reb 11700}.
 In \autoref{subfig: Reb 11700 velocity profile} the mean velocity profiles $U^+$ over the wall-normal distance $y^+$ are plotted.
-The velocity profiles show a very similar trend then the cases using $Re_b = 5300$.
-Wiggles in the outer region indicate a too aggressive mesh coarsening towards the pipe centre.
+The velocity profiles show a very similar trend compared to the cases using $Re_b = 5300$.
+A possible explanation for the wiggles in the outer region could be the influence of the roughness on the time averaged velocity distribution.
+Due to the random nature of the rough surface, an azimuthal heterogenity is not given.
+This could lead to the time averaged velocity profile being shifted away from the pipe center.
+Furthermore, it could be varying in the azimuthal direction.
+This could lead to a non-smooth velocity development, when averaged evenly in azimuthal direction, which is done in this work.
 The same conclusion can be drawn for the velocity defects in \autoref{subfig: Reb 11700 velocity defect}.
+
 The stress budgets are depicted in \autoref{subfig: Reb 11700 total stresses}.
 It can be seen, that the total stress behaves as expected in the whole domain, since it follows the expected slope of $1$ for all three surfaces.
+The total stress begins to decline the earliest for $S1$, which is the same behaviour observed for $Re_b = 5300$.
 The turbulent stresses collapse with the smooth wall case in the outer region.
 Surfaces $S2$ and $S3$ show nearly identical behaviour throughout the domain.
 In the outer region they agree with the smooth wall case, yet they reach their peak at lower values.
 The turbulent stress exhibited by $S1$ deviates significantly.
 As expected, it shows the correct slope near the centre, but from $r/R \approx 0.75$ onwards, the turbulent stresses are significantly reduced.
 Additionally, a decisive change in the slope of the curve is evident.
-This unusual behaviour is also exhibited by the dispersive stress of $S1$, which shows a nearly constant trend from the wall until $r/R \approx 0.75$.
-This is not the expected behaviour.
-One possible explanation could be, as for the velocity profiles, the mesh being too aggressively coarsened towards the pipe centre.
+This behaviour is compensated by the dispersive stress of $S1$, which shows a nearly constant trend from the wall until $r/R \approx 0.4$ and reaches zero at $r/R \approx 0.7$.
+One possible explanation could be, as for the velocity profiles, that the flow statistics behave non-uniform in azimuthal direction, which is in line with high dispersive stresses over a large part of the pipe.
 The Reynolds stresses in \autoref{subfig: Reb 11700 reynolds stresses} show overall expected trends.
 $S1$ exhibits the lowest streamwise Reynolds stress peak, while the Reynolds stresses are stronger for $S2$ and $S3$.
 Furthermore, the outward shift of the Reynolds stress peak is stronger for larger roughness heights in this data set.
-The spanwise Reynolds stresses $v'v'$ behave almost identical, except in the near wall region, where larger roughness height leads to larger spanwise fluctuations.
+The  azimuthal Reynolds stresses $v'v'$ behave almost identical between the three surfaces, except in the near wall region, where larger roughness height leads to larger  azimuthal fluctuations.
 The same holds for the wall-normal Reynolds stresses $w'w'$.
 The Reynolds shear stresses $u'v'$ are higher in the outer region compared to the smooth reference data.
-However, they show a distinct reduction in the buffer region, compared to the smooth data.
-REASONING?
+However, they show a reduction in the range from $y^+ \approx 10$ to $y^+ \approx 100$.
+Surfaces $S2$ and $S3$ reach and exceed the $u'v'$ value of the smooth case earlier at $y^+ \approx 80$, which matches approximately the values of the roughness height in wall units $k^+$.
+This is due to the dispersive stresses reducing the turbulent stresses within the roughness  canopy.
+
+\begin{figure}
+    \centering
+    \begin{subfigure}{0.495\textwidth}
+        \subcaption{}
+        \subimport{plots/Results/11700/}{11700_spectra_piro.pgf}
+        \label{subfig: 11700 spectra piro}
+    \end{subfigure}
+    \hfill
+        \begin{subfigure}{0.495\textwidth}
+            \subcaption{}
+            \subimport{plots/Results/11700/}{11700_spectra_kDown.pgf}
+            \label{subfig: 11700 spectra kDown}
+    \end{subfigure}
+    \\[-20pt]
+    \begin{subfigure}{0.495\textwidth}
+        \subcaption{}
+        \subimport{plots/Results/11700/}{11700_spectra_scaled.pgf}
+        \label{subfig: 11700 spectra scaled}
+    \end{subfigure}
+    \centering
+    \begin{subfigure}{\textwidth}
+        \centering
+        \hspace{0.9cm}
+        \subimport{plots/Results/5300/}{3DSpectra_colorbar.pgf}
+    \end{subfigure}
+    \caption[Streamwise energy spectra at $Re_b = 11700$]{Streamwise premultiplied Energy spectra at $Re_b = 11700$. Wall-normal position plotted over wavelength. Colour denoting energy content, with blue indicating low energy content, and yellow high energy cpntent. Red marker indicates the position of maximal energy. Contour lines start at 0.25 with intervals of 0.5.~(a) $S1$.~(b) $S2$.~(c) $S3$}
+    \label{fig: energy spectra 11700}
+\end{figure}
+The plots of the energy spectra of the simulations using $Re_b = 11700$ are provided in \autoref{fig: energy spectra 11700}.
+The maximum energy content for $S1$ is $1.00$ and for $S3$ it is $1.27$.
+The data of $S2$ shows an energy content peak of $1.73$.
+Furthermore, the position of the energy peak of $S2$ is out of line.
+Due to this reason, the enrgy spectra of $S2$ is considered an outlier and not further discussed.
+However, the energy spectra of $S1$ and $S3$ fall in line with the findings provided for $Re_b = 5300$.
+The energy peak is pushed outwards for larger roughness heights as it is at $y^+ \approx 35.2$ for $S1$ and at $y^+ \approx 25.6$ for $S3$.
+Additionally, the dominant wavelenght is longer for higher roughness heights, since it is $\lambda_z^+ \approx 557$ for $S1$ and $\lambda_z^+ \approx 638$.
+Furthermore, the energy is more distributed over the wavelenght range for $S3$ than for $S1$.
+The relatively vertical contourline at the higher wavelength limit of \autoref{subfig: 11700 spectra scaled} can be attributed to the maximum resolvable wavelength by the simulation domain.
+With a $\delta_\nu = 0.002315$ and a pipe length of $L_z = 8\pi$ the maximum resolvable wavelenght is $L_z / \delta_\nu \approx 10850$.
+
 \begin{figure}
     \centering
     \begin{subfigure}{0.75\textwidth}
@@ -395,11 +450,158 @@ REASONING?
         \hspace{0.9cm}
         \subimport{plots/Results/11700/}{11700Reb_piro_tauWall_over_height_bySlope.pgf}
     \end{subfigure}
-    \caption[Scatterplot of viscous drag over physical roughness height]{Scatterplot of viscous drag over physical roughness height. Colour depicting the effective slope at the respective point}
-    \label{fig: scatterplot piro Reb 5300}
+    \caption[Scatterplot of viscous drag over physical roughness height at $Re_b = 11700$]{Scatterplot of viscous drag over physical roughness height. Colour depicting the effective slope at the respective point}
+    \label{fig: scatterplot piro Reb 11700}
 \end{figure}
-The development of the viscous drag $\tau_v$ over the streamwise position with respect to the roughness height is plotted in \autoref{fig: roughness height and viscous stress Reb 11700 piro}
+The development of the viscous drag $\tau_v$ over the streamwise position with respect to the roughness height is plotted in \autoref{fig: roughness height and viscous stress Reb 11700 piro}.
+The scatterplot in \autoref{fig: scatterplot piro Reb 11700} is analogous to \autoref{fig: scatterplot piro Reb 5300} in \autoref{sec: results 5300Reb}.
+As done in \autoref{sec: results 5300Reb}, only the plot for $S1$ are provided in this section, with the data for $S2$ and $S3$ in added in \autoref{apx: viscous drag to surface height}.
+When examining the development of the viscous drag and the roughness height of a single $\theta$ position, the positive correlation between the two quantities is confirmed for $Re_b = 11700$.
+Additionally, the plot suggests, that the viscous drag tends to decrease sharply near the roughness crest, and in many cases slightly before the crest.
+This could indicate flow detachment near roughness peaks, especially in the positive $h/\delta$ region.
+\autoref{fig: scatterplot piro Reb 11700} depicts the same relations as \autoref{fig: scatterplot piro Reb 5300}.
+There is a positive correlation between the viscous drag and effective streamwise slope for positive slopes.
+The finding regarding flow detachment in \autoref{fig: roughness height and viscous stress Reb 11700 piro} is confirmed by the scatterplot, which shows, that this behaviour is present over the whole surface.
+However, overall the $Re_b = 11700$ case exhibits lower viscous drag values, which is expected for growing Reynolds numbers.
+This effect is also reflected by the lower fiction coefficients compared to the $Re_b = 5300$ cases.
 
-\section{Simulations with 19000$Re_b$}
+\section{Simulations with 19000$Re_b$}\label{sec: results 19000 Reb}
+
+
 
 \section{Comparison between Reynolds-numbers}
+In the following section, the influence of the Reynolds number is studied.
+To this extent, the data from \autoref{sec: results 5300Reb}, \autoref{sec: results 11700 Reb} and \autoref{sec: results 19000 Reb} are taken and the same surfaces are compared against one another.
+\subsection{Reynolds number influence on surface $S1$} \label{subsec: Reynolds comp S1}
+
+In this subsection, the behaviour of the surface $S1$ is compared for the three Reynolds numbers.
+\begin{figure}
+    \centering
+    \begin{subfigure}{0.495\textwidth}
+        \centering
+        \subcaption{}
+        \input{plots/Results/comp_Reynolds/piro/Reynolds_comparison_uplus_piro.pgf}
+        \label{subfig: Reynolds comp S1 velocity}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.495\textwidth}
+        \centering
+        \subcaption{}
+        \input{plots/Results/comp_Reynolds/piro/Reynolds_comparison_totalStress_piro.pgf}
+        \label{subfig: Reynolds comp S1 total stress}
+    \end{subfigure}
+    \plotverticalspacing
+    \begin{subfigure}{0.495\textwidth}
+        \centering
+        \subcaption{}
+        \input{plots/Results/comp_Reynolds/piro/Reynolds_comparison_RS_piro_uu.pgf}
+        \label{subfig: Reynolds comp S1 Reynolds stresses uu}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.495\textwidth}
+        \centering
+        \subcaption{}
+        \input{plots/Results/comp_Reynolds/piro/Reynolds_comparison_RS_piro_vv.pgf}
+        \label{subfig: Reynolds comp S1 Reynolds stresses vv}
+    \end{subfigure} 
+    \\[-10pt]  
+    \caption[Comparison of surface $S1$ with different Reynolds numbers]{Comparison between Reynolds numbers for surface $S1$.  \sOneFiveThreeSymbol\ denotes $Re_b = 5300$, \sOneElevenSevenSymbol \ $Re_b = 11700$ and \sOneNineteenSymbol\ $Re_b = 19000$.~(a) Mean velocity profiles.~(b) \lsTotalStressSymbol \ total stress, \lsReynoldsStressSymbol \ turbulent shear stress and \lsDispersiveStressSymbol \ viscous stress.~(c) Reynolds stresses. \lsRuuSymbol \ $u'u'$ and \lsRuvSymbol \ $u'v'$.~(d) Reynolds stresses. \lsRvvSymbol \ $v'v'$ and \lsRwwSymbol \ $w'w'$}
+    \label{fig: results Reynolds comparison S1}
+\end{figure}
+In \autoref{fig: results Reynolds comparison S1} the first- and second order statistics are plotted.
+To improve the clarity of the plots, some data lines are omitted.
+In \autoref{subfig: Reynolds comp S1 total stress} the dispersive stresses are neglected, since the total stresses, which are denoted as dashed lines, are the sum of the shown viscous stresses, turbulent shear stresses and dispersive stresses.
+As both viscous stresses and turbulent shear stresses are shown, there is no lack of information.
+The plot of the Reynolds stresses is split up into two plots.
+The streamwise Reynolds stresses $u'u'$ and the Reynolds shear stresses $u'v'$ are depicted in \autoref{subfig: Reynolds comp S1 Reynolds stresses uu}.
+The  azimuthal stresses $v'v'$ and wall-normal stresses $w'w'$ are plotted in \autoref{subfig: Reynolds comp S1 Reynolds stresses vv}.
+The mean velocity profiles in \autoref{subfig: Reynolds comp S1 velocity} show a clear trend.% which is confirmed by the velocity defects in \autoref{subfig: Reynolds comp S1 velocityDefect}.
+
+The velocity at the virtual origin $y^+ = 0$ is increasing with rising Reynolds number.
+This indicates, that the streamwise component of the turbulent flow is able to penetrate deeper into the roughness indentations at higher Reynolds numbers.
+Furthermore, an increasing downshift of the log-law, and thus an increasing roughness function can be determined with increasing Reynolds number.
+It is interesting to note, that the maximum non dimensionalized velocity $U^+$ is approximately equal for all three Reynolds numbers. 
+This is in line with the findings of~\cite{demaioDirectNumericalSimulation2023}.
+The total stresses in \autoref{subfig: Reynolds comp S1 total stress} behave almost the same between the Reynolds numbers.
+The maximum total stress increases with increasing Reynolds number.
+The maximum value for the turbulent stress gets shifted towards the wall with increasing Reynolds number.
+The viscous stresses and turbulent stresses decrease monotonically with increasing Reynolds number, which implies increasing dispersive stresses.
+NOCHMAL UMSCHREIBEN.
+This effect becomes very pronounced for $Re_b = 19000$, which is not surprising, given the particular high roughness height $k^+$ in this case.
+Furthermore, the viscous stresses decrease with increasing Reynolds numbers.
+This can be related to two separate phenomenons.
+First, the viscous drag decreases naturally with increasing Reynolds number.
+Also, the reduced maximum viscous stress can be associated with the increased velocity at $y^+ = 0$, seen in \autoref{subfig: Reynolds comp S1 velocity}.
+\autoref{subfig: Reynolds comp S1 Reynolds stresses uu} depicts the Reynolds stresses for the three Reynolds numbers.
+The streamwise Reynolds stresses $u'u'$ show a monotonic shift towards lower peak values at larger $y^+$ values.
+Furthermore, the peak gets less pronounced for increasing Reynolds numbers, since the stresses reach a value at $y^+ = 0$ that is only slightly lower, then the peak value.
+At $Re_b = 19000$ the outer peak of the streamwise fluctuations $u'u'$ starts to emerge.
+The turbulent fluctuations $u'v'$ show similar behaviour.
+Especially $Re_b = 11700$ and $Re_b = 19000$ show a significant overlap between $y^+ = 40$ and $y^+ = 100$.
+The azimuthal fluctuations $v'v'$ and wall-normal fluctuations $w'w'$ behave very similar.
+With an increasing Reynolds number, the maximum fluctuations are increasing.
+Furthermore, the location of the peak is trending towards higher $y^+$ values.
+The reasoning for this phenomenon is very similar as given in \autoref{sec: results 5300Reb}.
+However, the data demonstrates, that this effect strengthens with increasing Reynolds number.
+
+\subsection{Reynolds number influence on surface $S2$}\label{subsec: Reynolds comp S2}
+
+\subsection{Reynolds number influence on surface $S3$}\label{subsec: Reynolds comp S3}
+
+\begin{figure}
+    \centering
+    \begin{subfigure}{0.495\textwidth}
+        \centering
+        \subcaption{}
+        \input{plots/Results/comp_Reynolds/scaled/Reynolds_comparison_uplus_scaled.pgf}
+        \label{subfig: Reynolds comp S1 velocity}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.495\textwidth}
+        \centering
+        \subcaption{}
+        \input{plots/Results/comp_Reynolds/scaled/Reynolds_comparison_totalStress_scaled.pgf}
+        \label{subfig: Reynolds comp S1 total stress}
+    \end{subfigure}
+    \plotverticalspacing
+    \begin{subfigure}{0.495\textwidth}
+        \centering
+        \subcaption{}
+        \input{plots/Results/comp_Reynolds/scaled/Reynolds_comparison_RS_scaled_uu.pgf}
+        \label{subfig: Reynolds comp S1 Reynolds stresses uu}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.495\textwidth}
+        \centering
+        \subcaption{}
+        \input{plots/Results/comp_Reynolds/scaled/Reynolds_comparison_RS_scaled_vv.pgf}
+        \label{subfig: Reynolds comp S1 Reynolds stresses vv}
+    \end{subfigure} 
+    \\[-10pt]  
+    \caption[Comparison of surface $S3$ with different Reynolds numbers]{Comparison between Reynolds numbers for surface $S3$.  \sThreeFiveThreeSymbol\ denotes $Re_b = 5300$, \sThreeElevenSevenSymbol \ $Re_b = 11700$ and \sThreeNineteenSymbol\ $Re_b = 19000$.~(a) Mean velocity profiles.~(b) \lsTotalStressSymbol \ total stress, \lsReynoldsStressSymbol \ turbulent shear stress and \lsDispersiveStressSymbol \ viscous stress.~(c) Reynolds stresses. \lsRuuSymbol \ $u'u'$ and \lsRuvSymbol \ $u'v'$.~(d) Reynolds stresses. \lsRvvSymbol \ $v'v'$ and \lsRwwSymbol \ $w'w'$}
+    \label{fig: results Reynolds comparison S2}
+\end{figure}
+% \section{Comparison between \acrshort{ibm} and body-fitted mesh}
+
+% In this section a brief comparison between similar cases with different mesh applications is provided.
+
+% \begin{figure}
+%     \centering
+%     \input{plots/Validation/4400_validation_Uplus.pgf}
+%     \caption[Comparison of Velocity profiles of \acrshort{ibm} and body-fitted mesh]{Comparison between the mean velocity profiles of an \acrshort{ibm} and body-fitted case. Both simulations performed using $Re_b = 4400$ and similar roughness topographies. Data for \acrshort{ibm} taken from~\cite{demaioDirectNumericalSimulation2023}}
+%     \label{fig: ibm comp}
+% \end{figure}
+% In \autoref{fig: ibm comp} the mean velocity profiles of a simulation performed using an \acrshort{ibm} mesh and one using a body-fitted mesh is plotted.
+% The data of the \acrshort{ibm} mesh is taken from~\cite{demaioDirectNumericalSimulation2023}.
+% For the body-fitted mesh is the same as used for the $Re_b = 5300$ cases of the current study.
+% Both simulations are performed using $Re_b = 4400$.
+% The surface is the grit blasted of~\cite{demaioDirectNumericalSimulation2023} and surface $S1$ of the current study.
+% \begin{table}
+%     \centering
+%     \begin{tabular}{c c c c c c c}
+%                         & $S_a$     & $S_q$     & $Sk$      $S_{z_{max}}$       & $Es$      & $S_{z_{5x5}}$\\
+%         \acrshort{ibm}  & $0.031$   & \\
+%         $S1$            & $0.031$
+%     \end{tabular}
+% \end{table}
+% The surface quantities are
