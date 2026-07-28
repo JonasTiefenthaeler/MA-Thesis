@@ -418,20 +418,21 @@ This is due to the dispersive stresses reducing the turbulent stresses within th
     \begin{subfigure}{\textwidth}
         \centering
         \hspace{0.9cm}
-        \subimport{plots/Results/5300/}{3DSpectra_colorbar.pgf}
+        \subimport{plots/Results/11700/}{3DSpectra_colorbar.pgf}
     \end{subfigure}
-    \caption[Streamwise energy spectra at $Re_b = 11700$]{Streamwise premultiplied Energy spectra at $Re_b = 11700$. Wall-normal position plotted over wavelength. Colour denoting energy content, with blue indicating low energy content, and yellow high energy cpntent. Red marker indicates the position of maximal energy. Contour lines start at 0.25 with intervals of 0.5.~(a) $S1$.~(b) $S2$.~(c) $S3$}
+    \caption[Streamwise energy spectra at $Re_b = 11700$]{Streamwise premultiplied Energy spectra at $Re_b = 11700$. Wall-normal position plotted over wavelength. Colour denoting energy content, with blue indicating low energy content, and yellow high energy content. Red marker indicates the position of maximal energy. Contour lines start at 0.25 with intervals of 0.5.~(a) $S1$.~(b) $S2$.~(c) $S3$}
     \label{fig: energy spectra 11700}
 \end{figure}
 The plots of the energy spectra of the simulations using $Re_b = 11700$ are provided in \autoref{fig: energy spectra 11700}.
-The maximum energy content for $S1$ is $1.00$ and for $S3$ it is $1.27$.
-The data of $S2$ shows an energy content peak of $1.73$.
-Furthermore, the position of the energy peak of $S2$ is out of line.
-Due to this reason, the enrgy spectra of $S2$ is considered an outlier and not further discussed.
-However, the energy spectra of $S1$ and $S3$ fall in line with the findings provided for $Re_b = 5300$.
-The energy peak is pushed outwards for larger roughness heights as it is at $y^+ \approx 35.2$ for $S1$ and at $y^+ \approx 25.6$ for $S3$.
-Additionally, the dominant wavelenght is longer for higher roughness heights, since it is $\lambda_z^+ \approx 557$ for $S1$ and $\lambda_z^+ \approx 638$.
-Furthermore, the energy is more distributed over the wavelenght range for $S3$ than for $S1$.
+The maximum energy content for $S1$ is $1.00$, for $S2$ it is $1.21$ and for $S3$ it is $1.27$.
+The energy peak is pushed outwards for larger roughness heights as it is at $y^+ \approx 35.2$ for $S1$, at $27.1$ for $S2$ and at $y^+ \approx 25.6$ for $S3$.
+Additionally, the dominant wavelenght is longer for smaller roughness heights, since it is $\lambda_z^+ \approx 557$ for $S1$ and $\lambda_z^+ \approx 638$.
+The dominant wavelength is $\lambda_z^+ \approx 543$ for $S2$.
+This shortening for $S2$ compared to the similar roughness height surface $S3$ could be explained by the surface gemoetry of $S2$, which generated using more Fourier modes.
+Due to the smaller roughness elements, the turbulence is broken up in smaller  sections, hence shorter energy wavenumbers.
+Furthermore, the energy is more distributed over the wavelength range for $S2$ and $S3$ than for $S1$.
+Especially regions at high wavenumbers and high $y^+$ values are more pronounced.
+Additionally, it can be seen, that the contourline at $0.75$ enclose a larger area in the plots for $S2$ and $S3$ than for $S1$, which also implies a higher energy content overall.
 The relatively vertical contourline at the higher wavelength limit of \autoref{subfig: 11700 spectra scaled} can be attributed to the maximum resolvable wavelength by the simulation domain.
 With a $\delta_\nu = 0.002315$ and a pipe length of $L_z = 8\pi$ the maximum resolvable wavelenght is $L_z / \delta_\nu \approx 10850$.
 
@@ -441,7 +442,7 @@ With a $\delta_\nu = 0.002315$ and a pipe length of $L_z = 8\pi$ the maximum res
         \centering
         \subimport{plots/Results/11700/}{11700Reb_pirotauWall_over_height.pgf}
     \end{subfigure}
-    \caption[Trends of physical roughness height and viscous drag over streamwise coordinate]{Trends of physical roughness height and viscous drag over streamwise coordinate. Depicted for an exemplary $\theta$ position of the pipe.}
+    \caption[Trends of physical roughness height and viscous drag over streamwise coordinate for $Re_b = 11700$]{Trends of physical roughness height and viscous drag over streamwise coordinate. Depicted for an exemplary $\theta$ position of the pipe of $S1$ at $Re_b = 11700$.}
     \label{fig: roughness height and viscous stress Reb 11700 piro}
 \end{figure}
 \begin{figure}
@@ -450,7 +451,7 @@ With a $\delta_\nu = 0.002315$ and a pipe length of $L_z = 8\pi$ the maximum res
         \hspace{0.9cm}
         \subimport{plots/Results/11700/}{11700Reb_piro_tauWall_over_height_bySlope.pgf}
     \end{subfigure}
-    \caption[Scatterplot of viscous drag over physical roughness height at $Re_b = 11700$]{Scatterplot of viscous drag over physical roughness height. Colour depicting the effective slope at the respective point}
+    \caption[Scatterplot of viscous drag over physical roughness height at $Re_b = 11700$]{Scatterplot of viscous drag over physical roughness height. Colour depicting the effective slope at the respective point. Data shown for $S1$ at $Re_b = 11700$.}
     \label{fig: scatterplot piro Reb 11700}
 \end{figure}
 The development of the viscous drag $\tau_v$ over the streamwise position with respect to the roughness height is plotted in \autoref{fig: roughness height and viscous stress Reb 11700 piro}.
@@ -467,7 +468,143 @@ This effect is also reflected by the lower fiction coefficients compared to the 
 
 \section{Simulations with 19000$Re_b$}\label{sec: results 19000 Reb}
 
+In this section, the results for the simulations using $Re_b = 19000$ are presented.
 
+\begin{table}
+    \centering
+    \caption[Computed friction values for $Re_b = 19000$]{Computed friction values for $Re_b = 19000$}
+    \begin{tabular}{c c c c c c c c c}
+        \toprule
+                & $Re_\tau$ & $k^+$     & $C_f\ [\times10^{-3}]$    & $\tau_w\ [\times10^{-3}]$    & $\tau_v\ [\times10^{-3}]$ & $\tau_p\ [\times10^{-3}]$ & $\tau_v/\tau_w$   & $\Delta U^+$\\
+        \midrule
+        smooth  & $547.8$   & -         & $6.65$                    & $3.32$                        & $3.32$                    & -                         & $1.00$            & - \\
+        $S1$    & $763.0$   & $174.0$   & $7.95$                    & $6.45$                        & $3.98$                    & $2.47$                    & $0.62$            & $5.61$\\
+        $S2$    & $715.7$   & $122.4$   & $7.71$                    & $5.68$                        & $3.86$                    & $1.82$                    & $0.68$            & $3.98$\\
+        $S3$    & $670.8$   & $114.7$   & $7.37$                    & $4.99$                        & $3.68$                    & $1.30$                    & $0.73$            & $3.74$\\
+        \bottomrule
+    \end{tabular}
+    \label{tab: friction values 19000 Reb}
+\end{table}
+\autoref{tab: friction values 19000 Reb} show the most important values associated with the friction behaviour of the surfaces.
+Similar behaviours are exhibited for $Re_b = 19000$ compared to $Re_b = 11700$ and $Re_b = 5300$.
+The skin friction coefficient $C_f$ decreases with decreasing roughness height and decreasing effective slope, but it is significantly increased in rough conditions.
+Both the viscous drag, as well as the pressure drag decrease for decreasing roughness height and effective slope.
+Furthermore, the influence of viscous drag to total drag increases for decreasing roughness height.
+The friction function decreases with decreasing roughness height and effective slope, which is in line with the other results presented in this table.
+\begin{figure}
+    \centering
+    \begin{subfigure}[t]{0.495\textwidth}
+        \centering
+        \subcaption{}
+        %\input{plots/Results/}
+        \input{plots/Results/19000/19000Reb_comparison_uplus.pgf}
+        \label{subfig: Reb 19000 velocity profile}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[t]{0.49\textwidth}
+        \centering
+        \subcaption{}
+        \input{plots/Results/19000/19000Reb_velocityDefect.pgf}
+        \label{subfig: Reb 19000 velocity defect}        
+    \end{subfigure}
+    \plotverticalspacing
+    \begin{subfigure}[t]{0.495\textwidth}
+        \centering
+        \subcaption{}
+        \input{plots/Results/19000/19000Reb_comparison_totalStress.pgf}
+        \label{subfig: Reb 19000 total stresses}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[t]{0.495\textwidth}
+        \centering
+        \subcaption{}
+        \input{plots/Results/19000/19000Reb_comparison_RS.pgf}
+        \label{subfig: Reb 19000 reynolds stresses}
+    \end{subfigure}
+    \\[-10pt]
+    \caption[Comparison of $S1$, $S2$ and $S3$ at $Re_b = 19000$]{Comparison between the 3 tested surfaces at $Re_b = 19000$. \sOneNineteenSymbol \ denotes surface S1, \sTwoNineteenSymbol \ surface S2, \sThreeNineteenSymbol \ surface S3 and \referenceSymbol \ the reference data from~\cite{yaoDirectNumericalSimulations2023}.~(a) Mean velocity profiles.~(b) Velocity defect of local velocity to centerline velocity.~(c) \lsTotalStressSymbol \ total stress,\lsViscousStressSymbol \ Viscous stress, \lsReynoldsStressSymbol \ turbulent shear stress and \lsDispersiveStressSymbol \ dispersive stress.~(d) Reynolds stresses. \lsRuuSymbol \ $u'u'$, \lsRvvSymbol \ $v'v'$, \lsRwwSymbol \ $w'w'$ and \lsRuvSymbol \ $u'v'$}
+    \label{fig: comp Reb 19000}
+\end{figure}
+
+The first- and second order statistics are presented in \autoref{fig: comp Reb 19000}.
+The mean velocity profiles, plotted in \autoref{subfig: 19000 validation velocity profile}, show substantial wiggles in the outer region, which indicates a strongly shifted mean velocity away from the pipe centre. 
+This effect is less pronounced in the mean velocity profiles of surface $S1$, which is counterintuitive, since $S1$ exhibits the most roughness.
+A possible explanation for this observation could be a dampening influence on this due to the increased drag in this case.
+The mean velocities for $S1$ and $S2$ collapse onto another, which does not imply convergence for $S1$ and $S2$ in that regard.
+However, it can be observed, that the velocities at the virtual origin move closer together across the three Reynolds numbers considered in this thesis.
+NOCH KURZ AUF VELOCITY DEFECTS EINGEHEN
+The stress budget is plotted in \autoref{subfig: 19000 validation total stress}.
+The total stress budget are plotted in \autoref{subfig: 19000 validation total stress}.
+The total stresses agree well between the surfaces.
+All three show the expected slope of $1$ throughout the domain, except in the the near wall region.
+The turbulent stresses exhibit the expected slope of $1$ only in the outer region.
+From a radial position of $r/R < 0.8$ the trends of the turbulent stresses are decreased noticeably compared to the smooth wall reference.
+This effect strengthens for the larger roughness height surface $S1$.
+The peak turbulent stresses are lowered significantly for all three surfaces, when compared to the smooth wall reference.
+The dispersive stresses exhibit a distinct trend.
+The dispersive stresses for $S1$ and $S3$ display the same trend, however with lower magnitude for $S3$, which is expected due to the lower roughness height.
+The viscous stresses show only a small influence at this Reynolds number.
+The stay near zero until $r/R \approx 0.1$ for all three surfaces.
+They rise to values between $0.21$ for $S1$ and $0.34$ for $S3$ at the virtual origin.
+The findings for the Reynolds stresses which are displayed in \autoref{subfig: 19000 validation Reynolds stress} are in line with $Re_b = 11700$ and $Re_b = 5300$.
+The streamwise Reynolds stresses $u'u'$ reduce for rising roughness heights and effective slopes. 
+Furthermore, the peak is shifted outwards.
+The overall increase of the spanwise $v'v'$ and wall-normal $w'w'$ fluctuations is also present.
+\begin{figure}
+    \centering
+    \begin{subfigure}{0.495\textwidth}
+        \subcaption{}
+        \subimport{plots/Results/19000/}{19000_spectra_piro.pgf}
+        \label{subfig: 11700 spectra piro}
+    \end{subfigure}
+    \hfill
+        \begin{subfigure}{0.495\textwidth}
+            \subcaption{}
+            \subimport{plots/Results/19000/}{19000_spectra_kDown.pgf}
+            \label{subfig: 11700 spectra kDown}
+    \end{subfigure}
+    \\[-20pt]
+    \begin{subfigure}{0.495\textwidth}
+        \subcaption{}
+        \subimport{plots/Results/19000/}{19000_spectra_scaled.pgf}
+        \label{subfig: 11700 spectra scaled}
+    \end{subfigure}
+    \centering
+    \begin{subfigure}{\textwidth}
+        \centering
+        \hspace{0.9cm}
+        \subimport{plots/Results/19000/}{3DSpectra_colorbar.pgf}
+    \end{subfigure}
+    \caption[Streamwise energy spectra at $Re_b = 19000$]{Streamwise premultiplied Energy spectra at $Re_b = 19000$. Wall-normal position plotted over wavelength. Colour denoting energy content, with blue indicating low energy content, and yellow high energy content. Red marker indicates the position of maximal energy. Contour lines start at 0.25 with intervals of 0.5.~(a) $S1$.~(b) $S2$.~(c) $S3$}
+    \label{fig: energy spectra 19000}
+\end{figure}
+
+The premultiplied streamwise energy spectra in \autoref{fig: energy spectra 19000} show also show similar trends as for $Re_b = 11700$ and $Re_b = 5300$.
+The maximum energy contend decreases with roughness height and effective slope, since $1$ is at $0.88$, $S2$ at $1.04$ and $S3$ at $1.11$.
+Also the positions of the energy peak behave as for $Re_b = 11700$ and $Re_b = 5300$.
+The energy peak for $S1$ is located at $y^+ \approx 45.5$, for $S2$ at $y^+ \approx 33.7$ and for $S3$ at $y^+ \approx 31.4$.
+However, the behaviour dominant wavelengths are different for $Re_b = 190000$.
+$S1$ exhibits the longest dominant wavelength at $\lambda_z^+ \approx 710$, while it is significantly shorter for $S2$ at $\lambda_z^+ \approx 600$ and also shortened for $S3$ at $\lambda_z^+ \approx 674$. 
+INTERPRETIEREN
+
+\begin{figure}
+    \centering
+    \begin{subfigure}{0.75\textwidth}
+        \centering
+        \subimport{plots/Results/19000/}{19000Reb_pirotauWall_over_height.pgf}
+    \end{subfigure}
+    \caption[Trends of physical roughness height and viscous drag over streamwise coordinate at $Re_b = 19000$]{Trends of physical roughness height and viscous drag over streamwise coordinate. Depicted for an exemplary $\theta$ position of the pipe. Data for $S1$ and $Re_b = 19000$}
+    \label{fig: roughness height and viscous stress Reb 19000 piro}
+\end{figure}
+\begin{figure}
+    \centering
+    \begin{subfigure}{0.7\textwidth}
+        \hspace{0.9cm}
+        \subimport{plots/Results/19000/}{19000Reb_piro_tauWall_over_height_bySlope.pgf}
+    \end{subfigure}
+    \caption[Scatterplot of viscous drag over physical roughness height at $Re_b = 19000$]{Scatterplot of viscous drag over physical roughness height. Colour depicting the effective slope at the respective point. Data shown for $S1$ at $Re_b = 19000$}
+    \label{fig: scatterplot piro Reb 19000}
+\end{figure}
 
 \section{Comparison between Reynolds-numbers}
 In the following section, the influence of the Reynolds number is studied.
@@ -543,6 +680,8 @@ With an increasing Reynolds number, the maximum fluctuations are increasing.
 Furthermore, the location of the peak is trending towards higher $y^+$ values.
 The reasoning for this phenomenon is very similar as given in \autoref{sec: results 5300Reb}.
 However, the data demonstrates, that this effect strengthens with increasing Reynolds number.
+
+
 
 \subsection{Reynolds number influence on surface $S2$}\label{subsec: Reynolds comp S2}
 
