@@ -4,37 +4,38 @@ In this chapter this thesis is summarised.
 Following, a conclusion of the findings is drawn.
 Finally, an outlook is provided and suggestions for future work is given.
 
-In this thesis turbulent rough pipes with rough surfaces are studied using \acrshort{dns}.
-Compared to many studies in literature, a body fitted mesh is used.
-Artificial surfaces are used, which are randomly generated using a random distribution and a power spectrum.
-The rough surface is applied onto the pipe mesh using a Fourier decomposition of the generated rough surface and mapping the Fourier modes onto the pipe mesh.
+In this thesis turbulent pipes with rough surfaces are studied using \acrshort{dns}.
+The theoretical background to wall-bounded turbulent flows is presented, followed by a brief introduction into the behaviour of turbulent flows over rough surfaces.
+For the roughness, artificial surfaces are used, which are randomly generated using an algorithm, witch takes a random distribution and a power spectrum as the input parameters.
+The rough surface is applied onto the pipe mesh using a Fourier decomposition and reconstruction of the generated rough surface.
+The simulation setup is validated using smooth pipe \acrshort{dns} simulations at $Re_\tau = 180$ and $Re_\tau = 550$.
+Additionally, both a mesh- and time convergence study is conducted.
 Three different surfaces are examined.
-Surface $S1$ exhibits relatively large roughness height.
-The other two surfaces are of reduced roughness height.
-Surface $S2$ shows similar surface parameters then $S1$ but with reduced roughness height.
-This made it necessary to use a higher number of Fourier modes to recreate the surface, which leads to a shorter wavelenght of the roughness height.
-Surface $S3$ exhibits the same shape as $S1$, but a uniform scaling factor is applied, such that the same roughness height as for $S2$ is reached.
-The sudies are conducted using three different Reynolds numbers, namely $Re_b = 5300$, $Re_b = 11700$ and $Re_b = 19000$.
+Surface $S1$ exhibits the largest roughness height.
+Surface $S2$ is of reduced roughness height, but keeps the effective slope of $S1$.
+This made it necessary to use a higher number of Fourier modes to recreate the surface, which leads to a shorter wavelength of the rough surface.
+Surface $S3$ exhibits the same shape as $S1$, but a uniform scaling factor is applied, such that the same roughness height as for $S2$ is attained.
+The \acrshort{dns} studies are conducted using three different Reynolds numbers, namely $Re_b = 5300$, $Re_b = 11700$ and $Re_b = 19000$.
 Those are chosen, since they are typical Reynolds numbers in the canonical smooth pipe case.
+The behaviour of the surfaces at a fixed Reynolds numbers is compared.
+Additionally, the Reynolds number influence on the turbulent flow over the three surfaces is studied.
 The results are presented using first- and second-order statistics.
 Furthermore, the energy spectra for all nine cases are presented.
 A correlation between the viscous drag, roughness height and effective slope is drawn.
-A comparison between the surfaces is conducted.
-Additionally, the behaviour of the surfaces at varying Reynolds numbers is examined.
 
-Conclusion
+This thesis provides additional data, to further deepen the understanding the turbulence behaviour over rough surfaces.
+All nine conducted simulations are in the transitionally rough regime.
+Within this regime, a strong influence of the roughness height in first-and second order statistics, as well as the energy budgets is determined.
+This is evident in the growth of the roughness functions $\Delta U^+$ with rising $k^+$ being faster for higher roughness height surfaces.
+The effective slope has only a small influence on this function. 
+Furthermore, the provided energy spectra demonstrated an increasing separation of scales for rising Reynolds number.
+This indicates the existence of large scale motions for high Reynolds number turbulent flows over rough surfaces.
+Also, a connection between the roughness height, effective slope and viscous drag is drawn.
+A clear correlation emerges between the roughness height and viscous drag for positively sloped surfaces.
 
-Bases on this thesis, various possibilities for future research are enabled.
-The combination of the used algorithm for the surface generation and the provided application onto the mesh, a simple workflow for the generation of multiple irregular rough surfaces with almost arbitrarily chosen surface parameters is given.
-If sufficient computational resources are at hand, an extensive study on the influence of the surface parameters is possible.
-Furthermore, given the large roughness cases in this work, a more thorough study of the secondary motions could yield additional insight intro the behaviour of turbulent flow over large roughness.
-NOCH WAS W.G. LOG LAW ASYMPTOTE SCHREIBEN
-All in all, this thesis acheived its goal of expanding the understanding of turbulent flow in rough pipes.
-Most of the findings can be confirmed by existing literature.
+Based on this thesis, various possibilities for future research are enabled.
+Given sufficient computational resources, a wide range parameter study to investigate the influence of individual roughness parameters is enabled using the provided combination of the used surface generation algorithm and mesh mapping method.
+Furthermore, given the relatively large roughness cases in this work, a more thorough study of the secondary motions could yield additional insight intro the behaviour of turbulent flow within the roughness canopy.
+Additionally, an investigation on the relation between the curvature of the roughness features and viscous- and pressure drag properties could yield additional insight about the flow separation of turbulent flows in rough conditions.
 
-FUTUREWORK
-\begin{itemize}
-    \item A test on the influence of non gll distribution with the chosen approach on the simulation results is beyond the scope of this work. 
-    \item Zusammenhang zwischen krümmung der oberfläche und drag parametern
-
-\end{itemize}
+All in all, this thesis achieved its goal of providing insight to the turbulence behaviour in rough pipes.
