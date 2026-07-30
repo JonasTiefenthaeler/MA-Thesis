@@ -28,8 +28,9 @@ This is achieved since the  value of a derivative at a grid point is not only de
 This leads to spectral convergence, which means that the error decreases faster than exponentially with an increasing number of points.
 \begin{figure}
     \centering
+    \hspace{-1.6cm}
     \input{plots/Methods/spectral convergence.pgf}
-    \caption[Comparison between spectral convergence and algebraic convergence]{Comparison between spectral convergence and algebraic convergence. Solid line representing spectral convergence, dotted line algebraic convergence}
+    \caption[Comparison between spectral convergence and algebraic convergence]{Comparison between spectral convergence and algebraic convergence with increasing number of grid points. Solid line representing spectral convergence, dotted line algebraic convergence}
     \label{fig: spectral convergence}
 \end{figure}
 \autoref{fig: spectral convergence} compares spectral and algebraic convergence. 
@@ -40,7 +41,7 @@ To combine the \acrshort{fem} and spectral methods, first a \acrshort{fem} mesh 
 \begin{figure}
     \centering
     \input{plots/Methods/SEM_GLL_distribution.pgf}
-    \caption[Visualisation of SEM element]{Exemplary \acrshort{sem} element. Subdivided using polynomial order 6.}
+    \caption[Visualisation of SEM element]{Exemplary cluster of four \acrshort{sem} elements. Each element is subdivided using polynomial order 6.}
     \label{fig: SEM element}
 \end{figure}
 The mesh is then subdivided into the grid points using the \acrfull{gll} distribution.

@@ -16,7 +16,7 @@ The dimensions of the rough domain are $L_r \times L_\theta \times L_z = R \time
 The smooth validation domains are shortened to $L_z = 4\pi R$ to save computation time.
 $R$ denotes the mean radius of the pipe in rough setups, and is therefore the distance from the virtual origin to the pipe center.
 
-For the \acrfull{bcs}, the Dirichlet no-slip \acrshort{bc} at the pipe wall is used.
+For the \glsentryfull{bcs}, the Dirichlet no-slip \acrshort{bc} at the pipe wall is used.
 This states that the fluid at the wall  moves with the same velocity as the wall itself.
 In the current setup all velocities are set to zero at the wall: $u_i = 0 \ \text{for}\ y = 0$.
 This also implies that the wall is impermeable, since the wall normal velocity $v$ is zero.
@@ -24,7 +24,7 @@ Since the streamwise direction is statistically homogeneous in fully developed t
 This means that the outflow velocities are set equal to the inflow velocities: $u_{i_{l = 0}} = u_{i_{l=L_z}}$.
 This implies that fluid leaving the domain at the outflow reenters the domain at the inflow.
 
-It is important to use appropriate \acrfull{ics} to support a fast transition to turbulence.
+It is important to use appropriate \glsentryfull{ics} to support a fast transition to turbulence.
 This is favourable since it saves computational resources.
 This is achieved by using a laminar velocity profile as a basis, which is overlaid by large- and small-scale disturbances.
 The laminar velocity profile is defined as
@@ -57,7 +57,7 @@ Using \autoref{eq: viscous scaling units} it is also possible to compute $Re_\ta
 As mentioned in \autoref{chap: Introduction}, past numerical studies of turbulent flows over rough surfaces frequently used the \acrshort{ibm} method \citep{demaioDirectNumericalSimulation2023,busseReynoldsnumberDependenceNearwall2017,thakkarSurfaceCorrelationsHydrodynamic2017,frohnapfelFlowResistanceHeterogeneous2024}.
 For the \acrshort{ibm}, a uniform mesh is constructed, which is slightly larger than the domain of interest.
 Within the uniform mesh, the nodes that lie on the boundary between the desired shape and the flow domain are identified.
-At each of the boundary nodes an additional forcing term is added, which enforces the \acrfull{bcs} \citep{verziccoImmersedBoundaryMethods2023}.
+At each of the boundary nodes an additional forcing term is added, which enforces the \glsentryfull{bcs} \citep{verziccoImmersedBoundaryMethods2023}.
 When comparing \acrshort{ibm} with body-fitted mesh topologies, both advantages and disadvantages emerge.
 An advantage of the \acrshort{ibm} method is the significantly easier mesh topoglogy, which simplifies mesh generation.
 Furthermore, because of the orthogonal mesh alignment, the computation effort per node is significantly reduced for the \acrshort{ibm} compared to a body-fitted mesh.

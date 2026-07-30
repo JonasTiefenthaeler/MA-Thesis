@@ -2,6 +2,8 @@
 %\thispagestyle{empty}
 
 %\printnomenclature
+\setlength{\nomlabelwidth}{2.3cm}
+\renewcommand{\nomlabel}[1]{\makebox[\nomlabelwidth][l]{#1}}
 \renewcommand\nomgroup[1]{%
   \item[\bfseries
   \ifstrequal{#1}{F}{Fluid properties}{%

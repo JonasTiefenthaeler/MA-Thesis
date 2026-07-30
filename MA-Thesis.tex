@@ -270,22 +270,26 @@ The Friedrich--Alexander--Universität (FAU), represented by the Institute of Fl
 Erlangen, the 31.07.2026 \hspace{4cm} \rule{5cm}{0.02mm}
 
 \chapter*{Abstract}
-The behaviour of turbulent flow in rough-walled pipes is studied using the \acrfull{dns}.
-The simulation tool Neko is used, a high-order spectral element solver.
+The behaviour of turbulent flow in rough pipes is studied using the \acrfull{dns}.
+The Neko simulation tool is used, which is a high-order spectral element solver.
 The rough surfaces are randomly generated using an algorithm, which takes a random distribution and power spectrum as input parameters.
-The generated random surface is mapped onto the mesh, such that a body-fitted simulation mesh is created.
+The generated random surface is mapped onto the mesh, to create a body-fitted simulation mesh.
 
 A total of nine simulations are performed.
 Three different surface topographies are studied.
 The three surfaces exhibit two different roughness heights.
-Two surfaces show a reduced roughness height, with varying effective slopes.
+Two of these surfaces have a reduced roughness height, with varying effective slopes.
 All three surfaces are studied using three different Reynolds numbers.
-The Reynolds-numbers chosen are $5300, 11700$ and $19000$, which corresponds to the canonical sooth pipe cases of the friction Reynolds-numbers $180, 360$ and $550$.
+The chosen Reynolds numbers are $5300, 11700$ and $19000$, corresponding to the canonical smooth pipe cases of the friction Reynolds numbers $180, 360$ and $550$.
 
 Various data is presented.
-First- and second order statistics, such as mean velocity profiles, total stress budgets and Reynolds-stresses.
+This includes first- and second-order statistics, such as mean velocity profiles, total stress budgets and Reynolds stresses.
 Furthermore, energy spectra are computed and presented.
 Additionally, the development of viscous drag with respect to the roughness height and effective slope of the rough surface is examined.
+
+The influence of the roughness height and effective slope of the surface on turbulent behaviour can be observed.
+Furthermore, a clear and consistent impact on the energy spectra of the surfaces emerge.
+A correlation is detected between the viscous drag, roughness height and effective slope.
 
 \chapter*{Acknowledgment}
 
@@ -366,8 +370,13 @@ Furthermore, I would like to thank all the other students and employees at the L
 
 \begin{appendix}                    % Anhang einfügen
 
+\let\oldaddcontentsline\addcontentsline
+\renewcommand{\addcontentsline}[3]{%
+  \ifstrequal{#2}{chapter}{\oldaddcontentsline{#1}{#2}{#3}}{}%
+}
 
 \include{kapitel/Appendix}
+\let\addcontentsline\oldaddcontentsline
 \end{appendix}
 
 
