@@ -17,3 +17,6 @@ Xeon
 gpu
 non-dimensionalised
 nse
+Kolmogorov
+Gmsh
+PySEMTools

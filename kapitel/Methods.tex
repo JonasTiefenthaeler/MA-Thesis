@@ -1,6 +1,6 @@
 \chapter{Methods}\label{chap: Methods}
 
-To simulate the behaviour of fluid motion, it is necessary to integrate the partial differential equations, namely the \acrlong{nse}, numerically with a simulation code.
+To simulate the behaviour of fluid motion, it is necessary to integrate partial differential equations, namely the \acrlong{nse}, numerically with a simulation code.
 In this thesis, the high-order \acrfull{sem} code Neko is used.
 Neko is an open-source \acrshort{cfd} software that is based on the older Nek5000 \acrshort{cfd} solver originally implemented by~\cite{fischerNek500WebPage}.
 The portable framework Neko is written in modern Fortran in an object-oriented manner and is mainly focused on incompressible flow simulations \citep{janssonNekoModernPortable2024}.
@@ -9,18 +9,18 @@ Only \acrfull{dns} will be performed in this work, however \acrshort{les} models
 
 \section{Direct Numerical Simulation (DNS)}
 In \acrshort{dns}, the \acrlong{nse} are solved without using any turbulence model.
-This indicates that all scales of turbulent motion are resolved, from the largest eddies down to the viscous scale.
-This requires a very fine mesh resolution in order to perform a \acrshort{dns} such that the mesh can resolve the smallest eddies.
+This implies that all scales of turbulent motion are resolved, from the largest eddies down to the viscous scale.
+This requires a very fine mesh resolution in order to perform a \acrshort{dns} such that the mesh can resolve the smallest eddies, down to the Kolmogorov length scale.
 This phenomenon gives rise to escalating resolution requirements in both space and time, with an increasing Reynolds number.
 The computation time can be estimated as  $\approx Re^3$ for isotropic turbulence and $\approx Re^\frac{37}{14}$ for wall-bounded flows \citep{choiGridpointRequirementsLarge2012}.
-The exponential increase in the required computation effort makes it obvious that \acrshort{dns} is only viable for low to medium Reynolds numbers and domain sizes.
+The exponential increase of the required computation effort makes it obvious that \acrshort{dns} is only viable for low to medium Reynolds numbers and domain sizes.
 %This leads to very high computational cost and even with the ever-increasing computational resources of high performance computing, restricts the \acrshort{dns} method to relatively small domain sizes, as well as only low to medium Reynolds numbers.
-Nevertheless, \acrshort{dns} is performed regularly in a scientific context since the accuracy of its results is unmatched by other \acrshort{cfd} simulation methods ZITAT.
+Nevertheless, \acrshort{dns} is performed regularly in a scientific context since the accuracy of its results is unmatched by other \acrshort{cfd} simulation methods \citep{popeTurbulentFlows2015}.
 In comparison with experimental investigations of turbulent flow, \acrshort{dns} provides significantly more information in the near-wall region, since experimental methods are often restricted in the vicinity of the wall.
 This is especially the case for experiments under rough wall conditions \citep{chanSecondaryMotionTurbulent2018}.
 
-\subsection{Spectal element method}
-The employed \acrshort{sem} method was originally proposed by~\cite{pateraSpectralElementMethod1984} and may be regarded as a combination of the \acrfull{fem} and spectral methods.
+\subsection{Spectral element method}
+The employed \acrshort{sem} was originally proposed by~\cite{pateraSpectralElementMethod1984} and may be regarded as a combination of the \acrfull{fem} and spectral methods.
 It achieves significantly higher accuracy and faster convergence than a purely \acrshort{fem} based approach. 
 This high-order approach combines the flexibility in spatial discretisation of the \acrshort{fem} with the high accuracy of spectral methods.
 The high accuracy of spectral methods is due to the fast spectral convergence.
@@ -49,6 +49,7 @@ This places the grid points denser at the element boundaries and more sparsely i
 Furthermore, the \acrshort{gll} distribution places points at the element boundaries, thereby enabling continuity across elements.
 For each element, the solution is represented by high-order Lagrange interpolating polynomials of degree $N$.
 $N$ is denoting the polynomial order, which means the number of points placed inside each \acrshort{fem} element in each direction.
+\autoref{fig: SEM element} depicts the idea of the \acrshort{sem} for a cluster of 4 quadratic 2D elements.
 
 \subsection{Time discretisation}\label{subsec: time discretization}
 
@@ -95,7 +96,7 @@ The iteration consists of two steps:
 \end{enumerate}
 In the present work, the Weibull distribution is used as the probability distribution, with the probability density function
 \begin{equation}\label{eq: Weibull distribution}
-    f(z) = \frac{k}{\lambda} \left(\frac{z}{\lambda}\right)^{k-1} e^{-(z/k)^{k}}
+    f(z) = \frac{k}{\lambda} \left(\frac{z}{\lambda}\right)^{k-1} e^{-(z\lambda)^{k}}
 \end{equation}
 with $k$ being the shape factor and $\lambda$ representing the scale factor.
 The power spectrum used here is defined by
